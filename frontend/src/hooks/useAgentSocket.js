@@ -368,6 +368,8 @@ export function useAgentSocket(projectId) {
     let cancelled = false
     let socket
     let retryTimer
+    // Job registry hydration is network state scoped to the current project.
+    // oxlint-disable-next-line react/set-state-in-effect
     setJobsState('loading')
 
     fetch(`${API_URL}/health`)

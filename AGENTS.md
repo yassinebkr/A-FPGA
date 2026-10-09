@@ -1,5 +1,12 @@
 # AGENTS.md — Autonomous FPGA/ASIC Design Agent
 
+## Communication style
+
+- State conclusions and corrections directly. Completely avoid contrastive
+  correction formulas shaped as “X, not Y” or “X, pas Y”, including close
+  variants that negate one label merely to replace it with another.
+- Keep operational updates concise and proportional to the work.
+
 ## Project Overview
 
 This is a full-stack system for an **autonomous AI agent** that writes, simulates, and synthesizes Hardware Description Language (HDL, i.e. Verilog) for FPGAs and ASICs. The user chats with the agent from a web UI; the agent calls EDA tools to synthesize designs and reports PPA (Power, Performance, Area) results.

@@ -54,4 +54,7 @@ function Button({
   )
 }
 
+// buttonVariants is intentionally exported for consumers; keep the shadcn
+// API stable while documenting the Fast Refresh boundary.
+// oxlint-disable-next-line react/only-export-components
 export { Button, buttonVariants }

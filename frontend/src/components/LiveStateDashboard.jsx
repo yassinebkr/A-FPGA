@@ -282,6 +282,8 @@ export default function LiveStateDashboard({ metrics, metricProvenance = {}, ver
   // Scope is project-local UI state. Do not carry an "all jobs" choice into
   // another project when the dashboard component is reused by React.
   useEffect(() => {
+    // Deliberate project-boundary reset for a reused dashboard.
+    // oxlint-disable-next-line react/set-state-in-effect
     setShowAll(false)
   }, [projectId])
   const allJobs = Object.values(jobs ?? {})

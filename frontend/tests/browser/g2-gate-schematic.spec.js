@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { installMockBackend } from './fixtures'
-import { ARTIFACT_SHA, counterGraph, installNetlistMock } from './g2-gate-schematic-mock.js'
+import { counterGraph, installNetlistMock } from './g2-gate-schematic-mock.js'
 
 async function openVisualize(page, mock) {
   await page.goto('/')

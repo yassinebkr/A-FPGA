@@ -43,6 +43,9 @@ function App() {
     setProjects(await fetchProjects())
   }, [])
 
+  // Network hydration is intentionally effect-driven; projects cannot be
+  // derived before the REST request resolves.
+  // oxlint-disable-next-line react/set-state-in-effect
   useEffect(() => { refreshProjects() }, [refreshProjects])
 
   // Poll the model registry (with health statuses) on mount and every 60 s;

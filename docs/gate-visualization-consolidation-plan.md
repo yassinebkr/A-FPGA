@@ -1,6 +1,6 @@
 # Gate visualization consolidation plan
 
-Status: IN PROGRESS — C0 complete; C1 is next.
+Status: IN PROGRESS — C0–C1 complete; C2 is next.
 
 ## Objective
 
@@ -321,3 +321,37 @@ run is authorized by this plan alone.
 The source/runtime boundary, ignore policy, reproducible validation baseline,
 and recoverable local Git baseline are established. A remote and first push
 remain optional future owner decisions and do not block C1.
+
+### C1 — complete (2026-10-10)
+
+#### Correctness and warning cleanup
+
+- Removed the unused visualization test import, unused physical-layout motion
+  state, and unused availability ref.
+- Fixed the `PhysicalLayout` container callback dependency.
+- Moved the Mistral setup view ref update into the committed effect lifecycle;
+  polling remains cancellable through the existing timer cleanup.
+- Audited every `react/set-state-in-effect` finding. The retained effects
+  synchronize REST hydration, job-scoped evidence, cross-probing, project
+  boundaries, or WebSocket/job-registry state; each suppression is local and
+  documented at the synchronization point.
+- Preserved the shared shadcn `buttonVariants` API and documented its Fast
+  Refresh boundary locally.
+- Standard backend discovery now targets `backend/tests/`. The three automated
+  root tests moved into that directory; manual live-server probes remain at the
+  backend root and are excluded from a bare `pytest -q` run.
+
+#### Acceptance evidence
+
+- `cd backend && .venv/bin/python -m pytest -q` — **560 passed**, one upstream
+  Starlette/anyio deprecation warning, in 12.04 seconds.
+- `cd frontend && npm run lint` — **zero errors, zero warnings**.
+- `cd frontend && npm run build` — passed; main JS is **576.40 kB** minified /
+  **173.65 kB** gzip. The known >500 kB chunk warning remains assigned to C4.
+- `cd frontend && npm run test:browser` — **43 passed** in 25.8 seconds.
+- No paid model call or EDA run was made during C1.
+
+#### C1 closure
+
+The warning cleanup, hook correctness audit, clean default backend discovery,
+production build, and complete browser regression gate are green. C2 may begin.

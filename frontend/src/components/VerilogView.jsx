@@ -67,6 +67,9 @@ function SourceWorkspace({ verilog, hardwareProject, focusSource }) {
     const match = files.find((file) => file.path === wanted)
       ?? files.find((file) => file.path.endsWith(`/${wanted}`) || wanted.endsWith(`/${file.path}`))
       ?? files.find((file) => file.path.split('/').pop() === wanted.split('/').pop())
+    // Cross-probe focus is an external event; apply it after the manifest is
+    // available and keep the local selection scoped to the source workspace.
+    // oxlint-disable-next-line react/set-state-in-effect
     if (match) setRequestedPath(match.path)
   }, [focusSource, files])
   // Scroll the code pane to the referenced line once the file is shown.

@@ -21,7 +21,9 @@ export default function MistralSetupModal({ onClose }) {
   const [result, setResult] = useState(null)
   const pollTimerRef = useRef(null)
   const viewRef = useRef(view)
-  viewRef.current = view
+  // Keep async polling aligned with the committed view without reading or
+  // mutating a ref during render.
+  useEffect(() => { viewRef.current = view }, [view])
 
   const stopPolling = () => {
     if (pollTimerRef.current) {

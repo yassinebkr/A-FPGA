@@ -212,6 +212,8 @@ export default function GateSchematic({ job, onOpenSource, onSelectionChange, on
   // incompatible selections and scope explicitly (Phase G2 acceptance).
   useEffect(() => {
     if (!jobId) {
+      // Job changes invalidate evidence-bound state before the async fetch.
+      // oxlint-disable-next-line react/set-state-in-effect
       setMeta(null)
       setMetaError(null)
       resetForJob(null)
@@ -239,6 +241,8 @@ export default function GateSchematic({ job, onOpenSource, onSelectionChange, on
   // Timing paths follow the artifact identity (Phase G3).
   useEffect(() => {
     if (!jobId || !meta?.available) {
+      // Timing paths are invalid until the new artifact identity is loaded.
+      // oxlint-disable-next-line react/set-state-in-effect
       setTimingPaths(null)
       setSelectedPathIndex(null)
       setPathMismatch(null)
@@ -261,6 +265,8 @@ export default function GateSchematic({ job, onOpenSource, onSelectionChange, on
     const requestId = graphRequestIdRef.current + 1
     graphRequestIdRef.current = requestId
     let cancelled = false
+    // Clear the previous request error before loading the new bounded cone.
+    // oxlint-disable-next-line react/set-state-in-effect
     setError(null)
     setLoading(true)
     fetchJobNetlistGraph(jobId, {
@@ -556,6 +562,8 @@ export default function GateSchematic({ job, onOpenSource, onSelectionChange, on
   useEffect(() => {
     if (!externalSelection?.id) return
     const node = nodeById.get(externalSelection.id)
+    // Layout cross-probing is an external selection event.
+    // oxlint-disable-next-line react/set-state-in-effect
     if (node) selectNode(node)
   }, [externalSelection, nodeById, selectNode])
 

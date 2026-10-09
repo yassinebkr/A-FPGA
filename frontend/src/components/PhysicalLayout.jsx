@@ -26,38 +26,28 @@ function useContainerSize() {
   return [setNode, size]
 }
 
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(false)
-  useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const update = () => setReduced(query.matches)
-    update()
-    query.addEventListener('change', update)
-    return () => query.removeEventListener('change', update)
-  }, [])
-  return reduced
-}
-
 export default function PhysicalLayout({ job, selection, pathCells, onSelectComponent, onAvailability }) {
   const containerRef = useRef(null)
   const [containerNodeSetter, containerSize] = useContainerSize()
-  const reduceMotion = useReducedMotion()
   const [view, setView] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 })
   const dragRef = useRef(null)
-  const availabilityRef = useRef(false)
 
   const jobId = job?.id ?? null
 
   useEffect(() => {
     if (!jobId) {
+      // A job boundary invalidates the async view before the next request.
+      // oxlint-disable-next-line react/set-state-in-effect
       setView(null)
       setError(null)
       return undefined
     }
     let cancelled = false
+    // This effect synchronizes the view with the selected job async request.
+    // oxlint-disable-next-line react/set-state-in-effect
     setLoading(true)
     setView(null)
     setError(null)
@@ -70,7 +60,6 @@ export default function PhysicalLayout({ job, selection, pathCells, onSelectComp
       }
       const payload = result.data
       setView(payload)
-      availabilityRef.current = payload.available !== false
       onAvailability?.(payload)
     })
     return () => { cancelled = true }
@@ -79,7 +68,7 @@ export default function PhysicalLayout({ job, selection, pathCells, onSelectComp
   const attachContainer = useCallback((node) => {
     containerRef.current = node
     containerNodeSetter(node)
-  }, [])
+  }, [containerNodeSetter])
   const die = view?.die
   const fit = useCallback(() => {
     // A hidden container reports zero size; fitting against it would produce
