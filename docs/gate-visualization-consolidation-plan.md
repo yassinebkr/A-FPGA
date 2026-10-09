@@ -1,6 +1,6 @@
 # Gate visualization consolidation plan
 
-Status: IN PROGRESS — C0 baseline complete; Git provenance decision pending.
+Status: IN PROGRESS — C0 complete; C1 is next.
 
 ## Objective
 
@@ -254,7 +254,7 @@ run is authorized by this plan alone.
 
 ## Completion records
 
-### C0 — partially complete (2026-10-10)
+### C0 — complete (2026-10-10)
 
 #### Provenance
 
@@ -264,9 +264,10 @@ run is authorized by this plan alone.
   documented project remote was found under
   `/home/kwestog/Documents/code` at the audited depth. The `.git` directories
   found there belong to the unrelated `beyondvram` and `near_agi` projects.
-- No repository was initialized and no remote was guessed or attached. The
-  provenance exit criterion remains blocked pending the intended remote and
-  history decision from the owner.
+- With owner approval, a new local repository was initialized on branch
+  `main`. Commit `68fb285` is the first recoverable baseline. No remote was
+  guessed, configured, or contacted; history before this baseline remains
+  unavailable by design.
 
 #### Ignore audit
 
@@ -315,10 +316,8 @@ run is authorized by this plan alone.
     `75bc0a6bbab92b85d77db1756a76debaa6cb5e55a680a8c565b0fce94f78e5fc`.
 - No paid model call or new EDA run was made during C0.
 
-#### C0 remaining exit criterion
+#### C0 closure
 
-The source/runtime boundary and reproducible baseline are established, but C0
-cannot be marked complete until the owner identifies the intended Git remote
-or explicitly approves creating a new repository history. C1 may be reviewed
-next, but any refactor before that decision would still lack recoverable Git
-diffs.
+The source/runtime boundary, ignore policy, reproducible validation baseline,
+and recoverable local Git baseline are established. A remote and first push
+remain optional future owner decisions and do not block C1.
