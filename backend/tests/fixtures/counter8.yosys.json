@@ -1,0 +1,74 @@
+{
+  "creator": "Yosys 0.40 (fixture: counter8 gate netlist)",
+  "modules": {
+    "counter8": {
+      "attributes": {"top": 1, "src": "counter8.v:1"},
+      "ports": {
+        "clk": {"direction": "input", "bits": [0]},
+        "rst_n": {"direction": "input", "bits": [1]},
+        "q": {"direction": "output", "bits": [2, 3, 4]}
+      },
+      "netnames": {
+        "clk": {"bits": [0], "attributes": {"src": "counter8.v:2"}},
+        "rst_n": {"bits": [1], "attributes": {"src": "counter8.v:3"}},
+        "q": {"bits": [2, 3, 4], "attributes": {"src": "counter8.v:4"}},
+        "sum": {"bits": [3], "attributes": {"src": "counter8.v:8"}},
+        "carry": {"bits": [4], "attributes": {"src": "counter8.v:9"}}
+      },
+      "cells": {
+        "_ff0_": {
+          "type": "sky130_fd_sc_hd__dfxtp_1",
+          "port_directions": {"CLK": "input", "D": "input", "Q": "output"},
+          "connections": {"CLK": [0], "D": [3], "Q": [2]},
+          "parameters": {},
+          "attributes": {"src": "counter8.v:12"}
+        },
+        "_slice_": {
+          "type": "alu_slice",
+          "port_directions": {"A": "input", "B": "input", "S": "output", "C": "output"},
+          "connections": {"A": [2], "B": [0], "S": [3], "C": [4]},
+          "parameters": {},
+          "attributes": {"src": "counter8.v:15"}
+        },
+        "_and0_": {
+          "type": "sky130_fd_sc_hd__and2_0",
+          "port_directions": {"A": "input", "B": "input", "X": "output"},
+          "connections": {"A": [1], "B": ["0"], "X": [4]},
+          "parameters": {},
+          "attributes": {"src": "counter8.v:18"}
+        }
+      }
+    },
+    "alu_slice": {
+      "attributes": {"src": "alu_slice.v:1"},
+      "ports": {
+        "A": {"direction": "input", "bits": [0]},
+        "B": {"direction": "input", "bits": [1]},
+        "S": {"direction": "output", "bits": [2]},
+        "C": {"direction": "output", "bits": [3]}
+      },
+      "netnames": {
+        "A": {"bits": [0], "attributes": {}},
+        "B": {"bits": [1], "attributes": {}},
+        "S": {"bits": [2], "attributes": {"src": "alu_slice.v:6"}},
+        "C": {"bits": [3], "attributes": {}}
+      },
+      "cells": {
+        "_xor_": {
+          "type": "sky130_fd_sc_hd__xor2_1",
+          "port_directions": {"A": "input", "B": "input", "X": "output"},
+          "connections": {"A": [0], "B": [1], "X": [2]},
+          "parameters": {},
+          "attributes": {"src": "alu_slice.v:7"}
+        },
+        "_mux_": {
+          "type": "sky130_fd_sc_hd__mux2_1",
+          "port_directions": {"A0": "input", "A1": "input", "S": "input", "X": "output"},
+          "connections": {"A0": ["0"], "A1": [1], "S": [0], "X": [3]},
+          "parameters": {},
+          "attributes": {"src": "alu_slice.v:9"}
+        }
+      }
+    }
+  }
+}

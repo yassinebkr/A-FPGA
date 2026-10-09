@@ -1,0 +1,395 @@
+{
+  "fixture": {
+    "commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+    "compile_order": [
+      "picorv32.v"
+    ],
+    "constraints": [
+      "explicit clock and reset assumptions required at import"
+    ],
+    "control_fixture": true,
+    "defines": {},
+    "display_name": "PicoRV32 control fixture",
+    "expected_isa": "RV32I",
+    "include_dirs": [],
+    "key": "picorv32-control",
+    "license_spdx": "ISC",
+    "memory_assumptions": "Native ready/valid memory interface; no cached memory or CSR platform is assumed.",
+    "parameters": {
+      "BARREL_SHIFTER": 0,
+      "ENABLE_COUNTERS": 1,
+      "ENABLE_REGS_DUALPORT": 1,
+      "ENABLE_TRACE": 0,
+      "TWO_CYCLE_ALU": 0,
+      "TWO_CYCLE_COMPARE": 0
+    },
+    "pinned": true,
+    "qualification_profile": "rv32i-known-core-v1",
+    "source_ref": "ef203c2b0a3fb793280f5114941416c425c5b461",
+    "source_roots": [
+      "picorv32.v"
+    ],
+    "source_url": "https://github.com/YosysHQ/picorv32.git",
+    "tests": [
+      "riscv-formal RVFI checks",
+      "independent RV32I directed smoke"
+    ],
+    "top_module": "picorv32"
+  },
+  "hardware_project": {
+    "build_targets": {
+      "rv32i-known-core-v1": {
+        "fixture": "picorv32-control",
+        "license_spdx": "ISC",
+        "parameters": {
+          "BARREL_SHIFTER": 0,
+          "ENABLE_COUNTERS": 1,
+          "ENABLE_REGS_DUALPORT": 1,
+          "ENABLE_TRACE": 0,
+          "TWO_CYCLE_ALU": 0,
+          "TWO_CYCLE_COMPARE": 0
+        },
+        "source_commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+        "source_ref": "ef203c2b0a3fb793280f5114941416c425c5b461",
+        "source_url": "https://github.com/YosysHQ/picorv32.git"
+      }
+    },
+    "compile_order": [
+      "picorv32.v"
+    ],
+    "constraints": [],
+    "defines": {},
+    "digest": "52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb",
+    "files": [
+      {
+        "language": "verilog",
+        "path": "picorv32.v",
+        "role": "rtl",
+        "sha256": "0836050971b3c6cdd28ac3b1e5719a67fb645161912bef1e472e63995ceb0622",
+        "size": 94657
+      }
+    ],
+    "include_dirs": [],
+    "provenance": {
+      "commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+      "import": "pinned-direct",
+      "license_spdx": "ISC",
+      "name": "PicoRV32 control fixture",
+      "role": "control",
+      "upstream": "https://github.com/YosysHQ/picorv32.git"
+    },
+    "revision": 1,
+    "schema": "hardware-project/v1",
+    "testbenches": [],
+    "top_module": "picorv32"
+  },
+  "lint": {
+    "command": [
+      "verilator",
+      "--lint-only",
+      "--language",
+      "1800-2017",
+      "-Wall",
+      "-Wno-fatal",
+      "--top-module",
+      "picorv32",
+      "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v"
+    ],
+    "diagnostics": [
+      {
+        "code": "DECLFILENAME",
+        "col": 8,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 2174,
+        "msg": "Filename 'picorv32' does not match MODULE name: 'picorv32_regs'",
+        "severity": "warning"
+      },
+      {
+        "code": "GENUNNAMED",
+        "col": 32,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 272,
+        "msg": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)",
+        "severity": "warning"
+      },
+      {
+        "code": "GENUNNAMED",
+        "col": 27,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 285,
+        "msg": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)",
+        "severity": "warning"
+      },
+      {
+        "code": "GENUNNAMED",
+        "col": 11,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 298,
+        "msg": "Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)",
+        "severity": "warning"
+      },
+      {
+        "code": "GENUNNAMED",
+        "col": 27,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 305,
+        "msg": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)",
+        "severity": "warning"
+      },
+      {
+        "code": "GENUNNAMED",
+        "col": 11,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 318,
+        "msg": "Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)",
+        "severity": "warning"
+      },
+      {
+        "code": "GENUNNAMED",
+        "col": 30,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1229,
+        "msg": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)",
+        "severity": "warning"
+      },
+      {
+        "code": "GENUNNAMED",
+        "col": 11,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1238,
+        "msg": "Unnamed generate block 'genblk3' (IEEE 1800-2023 27.6)",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 13,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 181,
+        "msg": "Signal is not used: 'dbg_insn_addr'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 7,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 183,
+        "msg": "Signal is not used: 'dbg_mem_valid'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 7,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 184,
+        "msg": "Signal is not used: 'dbg_mem_instr'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 7,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 185,
+        "msg": "Signal is not used: 'dbg_mem_ready'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 14,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 186,
+        "msg": "Signal is not used: 'dbg_mem_addr'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 14,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 187,
+        "msg": "Signal is not used: 'dbg_mem_wdata'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 14,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 188,
+        "msg": "Signal is not used: 'dbg_mem_wstrb'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 14,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 189,
+        "msg": "Signal is not used: 'dbg_mem_rdata'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 7,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 375,
+        "msg": "Signal is not used: 'mem_busy'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 14,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 696,
+        "msg": "Signal is not used: 'dbg_rs1val'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 14,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 697,
+        "msg": "Signal is not used: 'dbg_rs2val'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 7,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 698,
+        "msg": "Signal is not used: 'dbg_rs1val_valid'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 7,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 699,
+        "msg": "Signal is not used: 'dbg_rs2val_valid'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 6,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 769,
+        "msg": "Signal is not used: 'dbg_valid_insn'",
+        "severity": "warning"
+      },
+      {
+        "code": "UNUSEDSIGNAL",
+        "col": 15,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1184,
+        "msg": "Signal is not used: 'dbg_ascii_state'",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 20,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1406,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 20,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1407,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 20,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1408,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 20,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1440,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 16,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1495,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 18,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1500,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 24,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1819,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 24,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1870,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 24,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1898,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 21,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1474,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      },
+      {
+        "code": "BLKSEQ",
+        "col": 14,
+        "file": "/home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v",
+        "line": 1974,
+        "msg": "Blocking assignment '=' in sequential logic process",
+        "severity": "warning"
+      }
+    ],
+    "diagnostics_total": 34,
+    "hardware_project_digest": "52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb",
+    "ok": true,
+    "ordered_sources": [
+      "picorv32.v"
+    ],
+    "outcome": "success",
+    "raw_output_tail": "nal is not used: 'dbg_rs1val'\n                                                                                                                                                                    : ... note: In instance 'picorv32'\n  696 |   reg [31:0] dbg_rs1val;\n      |              ^~~~~~~~~~\n%Warning-UNUSEDSIGNAL: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:697:14: Signal is not used: 'dbg_rs2val'\n                                                                                                                                                                    : ... note: In instance 'picorv32'\n  697 |   reg [31:0] dbg_rs2val;\n      |              ^~~~~~~~~~\n%Warning-UNUSEDSIGNAL: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:698:7: Signal is not used: 'dbg_rs1val_valid'\n                                                                                                                                                                   : ... note: In instance 'picorv32'\n  698 |   reg dbg_rs1val_valid;\n      |       ^~~~~~~~~~~~~~~~\n%Warning-UNUSEDSIGNAL: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:699:7: Signal is not used: 'dbg_rs2val_valid'\n                                                                                                                                                                   : ... note: In instance 'picorv32'\n  699 |   reg dbg_rs2val_valid;\n      |       ^~~~~~~~~~~~~~~~\n%Warning-UNUSEDSIGNAL: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:769:6: Signal is not used: 'dbg_valid_insn'\n                                                                                                                                                                   : ... note: In instance 'picorv32'\n  769 |  reg dbg_valid_insn;\n      |      ^~~~~~~~~~~~~~\n%Warning-UNUSEDSIGNAL: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1184:15: Signal is not used: 'dbg_ascii_state'\n                                                                                                                                                                     : ... note: In instance 'picorv32'\n 1184 |   reg [127:0] dbg_ascii_state;\n      |               ^~~~~~~~~~~~~~~\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1406:20: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1406 |   set_mem_do_rinst = 0;\n      |                    ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1407:20: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1407 |   set_mem_do_rdata = 0;\n      |                    ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1408:20: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1408 |   set_mem_do_wdata = 0;\n      |                    ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1440:20: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1440 |   next_irq_pending = ENABLE_IRQ ? irq_pending & LATCHED_IRQ : 'bx;\n      |                    ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1495:16: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1495 |     current_pc = reg_next_pc;\n      |                ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1500:18: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1500 |       current_pc = latched_store ? (latched_stalu ? alu_out_q : reg_out) & ~1 : reg_next_pc;\n      |                  ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1819:24: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1819 |       set_mem_do_rinst = 1;\n      |                        ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1870:24: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1870 |       set_mem_do_wdata = 1;\n      |                        ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1898:24: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1898 |       set_mem_do_rdata = 1;\n      |                        ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1474:21: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1474 |    next_irq_pending = 0;\n      |                     ^\n%Warning-BLKSEQ: /home/kwestog/Documents/code/fpga/build/_hardware_projects/52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb/picorv32.v:1974:14: Blocking assignment '=' in sequential logic process\n                                                                                                                                                               : ... Suggest using delayed assignment '<='\n 1974 |   current_pc = 'bx;\n      |              ^",
+    "report_digest": "7e0d8679f500a596cbd648b79d4777ed6f9f4d5cf30f31fae9c603b937aa9ef1",
+    "returncode": 0,
+    "schema": "hardware-project-lint/v1",
+    "tool": "verilator",
+    "tool_version": "Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)",
+    "top_module": "picorv32"
+  },
+  "remaining_gates": [
+    "independent ISA compliance",
+    "RVFI formal",
+    "Sky130 synthesis and STA",
+    "one bounded place-and-route"
+  ],
+  "schema": "known-core-qualification/v1",
+  "status": "lint_passed"
+}

@@ -1,0 +1,21 @@
+{
+  "counts_by_code": {
+    "PINCONNECTEMPTY": 36,
+    "UNUSEDPARAM": 47
+  },
+  "diagnostics_total": 83,
+  "expected_counts_by_code": {
+    "PINCONNECTEMPTY": 36,
+    "UNUSEDPARAM": 47
+  },
+  "hardware_project_digest": "367870e1a90f85b1b82ed2d067c26154b0dbfee0e9c95abc302ee9806a03c394",
+  "ok": true,
+  "outcome": "success",
+  "policy": "reviewed upstream diagnostics only; errors and new code/file pairs fail",
+  "report_digest": "6eefd141c75e027a2e4b898de3be421fdf18d19878829277bdc1212d81f940fe",
+  "schema": "ibex-production-lint-policy/v1",
+  "source_report_digest": "93fb6344c6812ffca00c707f3c44696a55930fb15d47860b34bb9cabf682e40c",
+  "tool": "verilator",
+  "tool_returncode": 0,
+  "unapproved": []
+}

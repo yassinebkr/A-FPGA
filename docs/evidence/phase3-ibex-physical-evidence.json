@@ -1,0 +1,181 @@
+{
+  "schema": "ibex-phase3-evidence/v1",
+  "date": "2026-10-08",
+  "ibex_commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e",
+  "source_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "status": "bounded_gaps",
+  "constraints": {
+    "contract_sha256": "bb30bb74dbb2e50fa4bfc69f0328c9a46c13ec4c2415a3fd692ab210ecce3d2b",
+    "sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+    "clock_period_ns": 20.0,
+    "clock_uncertainty_ns": {
+      "setup": 0.25,
+      "hold": 0.25
+    },
+    "max_external_delay_ns": 4.0,
+    "input_drive_cell": "sky130_fd_sc_hd__buf_4",
+    "output_load_pf": 0.03,
+    "electrical_limits": {
+      "max_transition_ns": 1.5,
+      "max_capacitance_pf": 0.2,
+      "max_fanout": 32.0
+    },
+    "clock_and_reset_excluded_from_functional_io_collections": true,
+    "case_analysis": [
+      {
+        "port": "cheriot_enable_i[*]",
+        "value": 0,
+        "reason": "BaseIsa=RV32I; CHERIoT disabled in this artifact profile"
+      }
+    ]
+  },
+  "screen": {
+    "target": "skywater130_demo",
+    "strategy": "DELAY1",
+    "flow": "synthesis_sta",
+    "manifest_sha256": "7bc503b826791d88638476b250e43e267a18f77b5f340c97ca6878b82ff3557c",
+    "log_sha256": "8058fc1ec531c50a698da8d70c804472ff9f31308e973ee7ce385e8e0805b463",
+    "sdc_consumed": true,
+    "metrics": {
+      "cell_area_um2": 58359.72132699738,
+      "cells": 8521,
+      "registers": 804,
+      "setup_slack_ns": -21.54,
+      "hold_slack_ns": -0.18,
+      "setup_tns_ns": -4371.68,
+      "fmax_mhz": 24.07,
+      "unconstrained_metric": 0
+    },
+    "timing_closed_50mhz": false,
+    "critical_path_class": "internal_reg_to_reg",
+    "critical_startpoint": "csr_addr[6] DFFE",
+    "strategy_comparison": {
+      "strategy": "DELAY4",
+      "manifest_sha256": "91768eda0a4fbccaa8bb0978a4174520b6afdd6402e81b3bf75e294a08db2f5a",
+      "log_sha256": "b6714116296f5de71e8566537143381b93f26dcc25d39f2e37f4d09d8b6ed8e3",
+      "metrics": {
+        "cell_area_um2": 58676.27495399774,
+        "cells": 7135,
+        "registers": 804,
+        "setup_slack_ns": -28.19,
+        "hold_slack_ns": -0.17,
+        "setup_tns_ns": -6043.1,
+        "fmax_mhz": 20.75
+      },
+      "critical_path_class": "internal_reg_to_reg",
+      "critical_startpoint": "id_stage_i/controller_i/instr_i[6] DFFE",
+      "critical_endpoint": "crash_dump_o[129] DFFE",
+      "status": "regressed_vs_DELAY1"
+    },
+    "electrical_violations": {
+      "max_slew": 736,
+      "max_fanout": 5,
+      "max_capacitance": 6
+    },
+    "unconstrained_endpoints": [
+      "data_gnt_i -> _10333_/A"
+    ],
+    "critical_endpoint": "crash_dump_o[129] DFFE",
+    "critical_path_detail": "csr_addr[6] -> decode/control -> if_id_pipe_reg_we -> crash_dump_o[129]",
+    "high_fanout_evidence": {
+      "enable_fanout": 83,
+      "enable_capacitance_pf": 0.24,
+      "enable_transition_ns": 16.37,
+      "reset_fanout": 531,
+      "reset_capacitance_pf": 2.0
+    }
+  },
+  "prior_routed_report_audit": {
+    "source_run": "phase2-ibex-specialized-pnr-filetype-fix",
+    "status": "violations",
+    "driver_violations": 274,
+    "floating_nets": 0,
+    "overdriven_nets": 0,
+    "unconstrained_report_nonempty": true,
+    "physical_report_digest": "a9c5d0cafc2fc2ba924b73b38e7c1a4a0747e7bc7efd1e32c8efe7cd0c05d518",
+    "waivers": [],
+    "slew_violations": 270,
+    "capacitance_violations": 4,
+    "unconstrained_endpoints": [
+      "ANTENNA_12/DIODE"
+    ]
+  },
+  "equivalence": {
+    "native_to_converted": "proven",
+    "rtl_to_synthesis": "inconclusive",
+    "rtl_to_synthesis_reason": "Functional Liberty loading and symmetric async2sync abstraction completed, but 309 equivalence cells remained unproven; 158 were proven.",
+    "proof_scope": "clock-edge behavior after symmetric asynchronous-reset abstraction; asynchronous assertion between edges is outside scope",
+    "proven_cells": 158,
+    "unproven_cells": 309,
+    "post_route": "not_run",
+    "sdf_gate_level_simulation": "not_run",
+    "result_sha256": "7b97b8a70e4192669f0c2bac27e41017607c26defc25b417cbd1d55811261752",
+    "result_file_sha256": "7dc46ad87d9491085deac0063a39ebe5bee02d74701a7ab32149d30aaaa76421",
+    "library_sha256": "4eca8d14037385220315b6f17511f82560d96716799f4c2fb30316483d19122c",
+    "candidate_sha256": "143edfc1c26dbba9f8d6444a8fbf6cdf1ff8c990e12bcc3d1c0cd2a882e59200"
+  },
+  "limitations": [
+    "This uses the skywater130_demo target and is engineering screening, not signoff.",
+    "The explicit external I/O budget makes the result intentionally stricter than an internal reg-to-reg-only Fmax headline.",
+    "The 25 MHz figure is only an approximate measured baseline; the selected screen measured 24.07 MHz.",
+    "No full P&R was admitted because unconstrained paths, electrical violations, and equivalence gaps remain.",
+    "The 50 MHz product goal remains unmet; constraints were not loosened."
+  ],
+  "product_goal_mhz": 50.0,
+  "current_measured_baseline_mhz": 24.07,
+  "baseline_is_acceptance_target": false,
+  "optimization_attempts": [
+    {
+      "name": "writeback_stage_pipeline",
+      "status": "rejected_not_promoted",
+      "specialization_manifest_sha256": "9bc470e26ddc6a9f4b1987f4f93acb0eb3930ffb27889238e28a9ba83362797b",
+      "source_sha256": "fbf729cc4ceefaa973b89a83091f79aa7f9880bcc591a5f0b9e36999a233d3e3",
+      "sv2v_report_sha256": "4aaaea230c979c62e58499fe4049c6c279a59e9e5e642df79bcc649759a9f598",
+      "configuration": {
+        "WritebackStage": 1,
+        "BranchTargetALU": 0
+      },
+      "delay1_outcome": "inconclusive_tool_failure_abc_returncode_134",
+      "fallback_strategy": "AREA3",
+      "manifest_sha256": "266d805e107cabd779f572c98a5e1a688fb4ac8cd723eca6ac4c0dea06339d06",
+      "log_sha256": "f53e73f18c90e7daf68672cb4ea1865cfe15e244e655e1f9626e22e72965f18c",
+      "metrics": {
+        "cell_area_um2": 63589.73724299572,
+        "cells": 9109,
+        "registers": 878,
+        "setup_slack_ns": -12.75,
+        "hold_slack_ns": -0.17,
+        "fmax_mhz": 30.54,
+        "peak_power_mw": 6.92,
+        "logic_depth": 38
+      },
+      "electrical_violations": {
+        "max_slew": 754,
+        "max_fanout": 6,
+        "max_capacitance": 6
+      },
+      "unconstrained_endpoints": [
+        "data_gnt_i -> _08368_/A"
+      ],
+      "critical_startpoint": "rf_raddr_b_o[0] DFFE",
+      "critical_endpoint": "if_stage_i/prefetch_buffer_i/fifo_i/err_q[0] DFFE",
+      "improvement_vs_baseline_mhz": 6.47,
+      "timing_closed_50mhz": false,
+      "pnr_admitted": false
+    }
+  ],
+  "next_minimal_core_target": {
+    "ibex_commit": "e4bcf74971b3eef89f1f2c85559784608d28de52",
+    "reason": "verified direct ancestor before CHERIoT sources; qualified as RV32I+Zca with WritebackStage=1"
+  },
+  "pre_cheriot_qualification": {
+    "status": "rejected_not_promoted",
+    "source_commit": "e4bcf74971b3eef89f1f2c85559784608d28de52",
+    "report_digest": "85950253a30981c0320bdff5899618eb352f50c459b8333271de424640d05230",
+    "fmax_mhz": 25.39,
+    "setup_slack_ns": -19.39,
+    "unconstrained_endpoints": 0,
+    "post_synthesis_equivalence": "inconclusive",
+    "pnr_admitted": false
+  }
+}

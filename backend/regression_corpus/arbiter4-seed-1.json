@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "reference_provenance": {"generated_by": "human", "implementation_language": "python", "independent_of_rtl": true, "model_id": "golden.arbiter4", "source": "backend/golden_models.py", "version": "1.0.0"},
+  "case": {
+    "case_id": "arbiter4-seed-1", "model": "arbiter4", "model_version": "1.0.0", "source": "seeded",
+    "description": "seed=1; directed corners plus deterministic random vectors",
+    "vectors": [
+      {"vector_id": "arbiter4-0000", "inputs": {"request": 0}, "expected": {"grant": 0, "valid": 0}},
+      {"vector_id": "arbiter4-0001", "inputs": {"request": 1}, "expected": {"grant": 1, "valid": 1}},
+      {"vector_id": "arbiter4-0002", "inputs": {"request": 2}, "expected": {"grant": 2, "valid": 1}},
+      {"vector_id": "arbiter4-0003", "inputs": {"request": 4}, "expected": {"grant": 4, "valid": 1}},
+      {"vector_id": "arbiter4-0004", "inputs": {"request": 8}, "expected": {"grant": 8, "valid": 1}},
+      {"vector_id": "arbiter4-0005", "inputs": {"request": 3}, "expected": {"grant": 1, "valid": 1}},
+      {"vector_id": "arbiter4-0006", "inputs": {"request": 12}, "expected": {"grant": 4, "valid": 1}},
+      {"vector_id": "arbiter4-0007", "inputs": {"request": 15}, "expected": {"grant": 1, "valid": 1}}
+    ]
+  }
+}

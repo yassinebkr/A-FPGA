@@ -1,0 +1,366 @@
+{
+  "constraint_sha256": "d9ba1ce14582e2b7b2ca316fb5f8fd95662b5f5011e8cc9f010fcde8455a1383",
+  "constraints": {
+    "assumptions": [
+      "50 MHz screening target with a 20 ns primary clock.",
+      "Functional I/O uses 4 ns maximum external delay.",
+      "No multicycle timing exception is assumed.",
+      "Skywater demo slow-corner metadata is screening evidence, not signoff."
+    ],
+    "case_analysis": [],
+    "clocks": [
+      {
+        "name": "clk",
+        "period_ns": 20.0,
+        "port": "clk",
+        "virtual": false,
+        "waveform_fall_ns": null,
+        "waveform_rise_ns": 0.0
+      }
+    ],
+    "electrical_limits": {
+      "max_capacitance_pf": 0.2,
+      "max_fanout": 32.0,
+      "max_transition_ns": 1.5
+    },
+    "false_paths": [
+      {
+        "from_path": "resetn",
+        "reason": "asynchronous active-low reset; recovery/removal requires a dedicated check",
+        "through": null,
+        "to_path": null
+      }
+    ],
+    "input_drives": [
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "mem_ready"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "mem_rdata[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "pcpi_wr"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "pcpi_rd[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "pcpi_wait"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "pcpi_ready"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "irq[*]"
+      }
+    ],
+    "io_delays": [
+      {
+        "clock": "clk",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_ready"
+      },
+      {
+        "clock": "clk",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_rdata[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_wr"
+      },
+      {
+        "clock": "clk",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_rd[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_wait"
+      },
+      {
+        "clock": "clk",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_ready"
+      },
+      {
+        "clock": "clk",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "irq[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "trap"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_valid"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_instr"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_addr[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_wdata[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_wstrb[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_la_read"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_la_write"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_la_addr[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_la_wdata[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mem_la_wstrb[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_valid"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_insn[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_rs1[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "pcpi_rs2[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "eoi[*]"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "trace_valid"
+      },
+      {
+        "clock": "clk",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "trace_data[*]"
+      }
+    ],
+    "multicycle_paths": [],
+    "output_loads": [
+      {
+        "capacitance_pf": 0.03,
+        "port": "trap"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_valid"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_instr"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_addr[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_wdata[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_wstrb[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_la_read"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_la_write"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_la_addr[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_la_wdata[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "mem_la_wstrb[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "pcpi_valid"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "pcpi_insn[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "pcpi_rs1[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "pcpi_rs2[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "eoi[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "trace_valid"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "trace_data[*]"
+      }
+    ],
+    "schema_version": "constraints/v1",
+    "target": {
+      "corner": "slow",
+      "device": "skywater130_demo",
+      "library": "sky130_fd_sc_hd",
+      "process": "sky130",
+      "temperature_c": -40.0,
+      "voltage_v": 1.4
+    },
+    "uncertainties": [
+      {
+        "clock": "clk",
+        "hold_ns": 0.25,
+        "setup_ns": 0.25
+      }
+    ]
+  },
+  "input_ports": [
+    "mem_ready",
+    "mem_rdata[*]",
+    "pcpi_wr",
+    "pcpi_rd[*]",
+    "pcpi_wait",
+    "pcpi_ready",
+    "irq[*]"
+  ],
+  "manifest_digest": "52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb",
+  "output_ports": [
+    "trap",
+    "mem_valid",
+    "mem_instr",
+    "mem_addr[*]",
+    "mem_wdata[*]",
+    "mem_wstrb[*]",
+    "mem_la_read",
+    "mem_la_write",
+    "mem_la_addr[*]",
+    "mem_la_wdata[*]",
+    "mem_la_wstrb[*]",
+    "pcpi_valid",
+    "pcpi_insn[*]",
+    "pcpi_rs1[*]",
+    "pcpi_rs2[*]",
+    "eoi[*]",
+    "trace_valid",
+    "trace_data[*]"
+  ],
+  "schema": "picorv32-phase3-constraints/v1",
+  "sdc_sha256": "64128fc041f960a925e3da8b4306c18f36da75987cf5c549e4ef5595bb51c8c3",
+  "source_commit": "ef203c2b0a3fb793280f5114941416c425c5b461"
+}

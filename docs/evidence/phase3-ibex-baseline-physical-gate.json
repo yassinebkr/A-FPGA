@@ -1,0 +1,4868 @@
+{
+  "blockers": [
+    "setup",
+    "max_slew",
+    "max_capacitance",
+    "constraint_mismatch"
+  ],
+  "functional_unconstrained_endpoints": [],
+  "gate_digest": "e33ac1e21d97509783c12d02451d9bdd879f5648585f53485769392478b25c58",
+  "metrics": {
+    "high_fanout_rows": 50,
+    "hold_slack_ns": 0.06,
+    "maximum_fanout": 126,
+    "setup_slack_ns": -2.32
+  },
+  "physical_only_endpoints": {
+    "ANTENNA_24/DIODE": "inserted_antenna_diode"
+  },
+  "policy": {
+    "functional_unconstrained_endpoint": "fail",
+    "high_fanout": "diagnostic; electrical consequences fail separately",
+    "negative_setup_or_hold_slack": "fail",
+    "physical_only_endpoint": "exact inserted antenna diode classification only",
+    "reviewed_sdc_must_equal_consumed_sdc": true,
+    "slew_capacitance_floating_overdriven_drc_antenna": "fail"
+  },
+  "provenance": {
+    "consumed_sdc": {
+      "bytes": 331,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core.sdc",
+      "sha256": "906865785c0d8cd6862be5d5ac49569fc52d604e2f1581cbfdf1369186e6431b"
+    },
+    "manifest": {
+      "bytes": 8718892,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/ibex_core.pkg.json",
+      "sha256": "aeecaf7fc02355ec6b3983f0e083be350cb1a497100729ee7272b5bba65c947e"
+    },
+    "physical_netlist": {
+      "bytes": 2600539,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/outputs/ibex_core.vg",
+      "sha256": "1e9c0aeb47714c45c4c785e6ca5fbd9119d501ee8f4f9ad7ce02ba6bf58ea3a8"
+    },
+    "reviewed_sdc": {
+      "bytes": 13943,
+      "path": "docs/evidence/phase3-ibex-constraints/ibex_core.sdc",
+      "sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6"
+    },
+    "rtl_artifact": {
+      "bytes": 1961503,
+      "path": "/mnt/cold-hdd/phase2-sv2v/.f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5.sv2v-output/ibex_core.v",
+      "sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be"
+    },
+    "run_record": {
+      "bytes": 1442,
+      "path": "docs/evidence/phase2-ibex-physical-screen.json",
+      "sha256": "0ec14639718045dedf03a09632b1866eb59d9b213652b8ba9123e6425a55c9e1"
+    },
+    "target": {
+      "corner": "slow",
+      "flow": "asicflow",
+      "library": "sky130_fd_sc_hd",
+      "pdk": "sky130",
+      "target": "skywater130_demo"
+    },
+    "toolchain": {
+      "klayout": "0.30.0",
+      "openroad": "26Q2",
+      "siliconcompiler": "0.38",
+      "yosys": "0.52"
+    }
+  },
+  "reports": {
+    "antenna": {
+      "bytes": 0,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/route.detailed_antenna_repair/0/reports/route/ibex_core.antenna_post_repair.rpt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "drc": {
+      "bytes": 0,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/route.detailed_antenna_repair/0/reports/checks/ibex_core.drc.rpt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "electrical": {
+      "floating_nets": [],
+      "overdriven_nets": [],
+      "report_digest": "8affc541e52115a01e0e413592cdbd79ffc41e5d4028cef69da4d3f5c7f2830b",
+      "reports": [
+        {
+          "bytes_read": 35640,
+          "category": "drv_violators",
+          "entries": [
+            "_10758_/A1",
+            "_10757_/B",
+            "_10769_/B",
+            "_10770_/A1",
+            "_10764_/A1",
+            "_10763_/B",
+            "_10752_/A1",
+            "_10751_/B",
+            "_10776_/A1",
+            "_10775_/B",
+            "_10685_/B",
+            "_10698_/B",
+            "_10699_/A1",
+            "_10686_/A1",
+            "_10745_/B",
+            "_10706_/A1",
+            "_10746_/A1",
+            "_10705_/B",
+            "_10740_/A1",
+            "_10739_/B",
+            "_10728_/A1",
+            "_10727_/B",
+            "_10713_/B",
+            "_10714_/A1",
+            "_10733_/B",
+            "_10734_/A1",
+            "_10720_/B",
+            "_10780_/B",
+            "_10781_/A1",
+            "_10721_/A1",
+            "_10693_/A1",
+            "_10692_/B",
+            "_10628_/A1",
+            "_10627_/B",
+            "_10641_/A1",
+            "_10640_/B",
+            "_10680_/B",
+            "_10681_/A1",
+            "_10646_/B",
+            "_10647_/A1",
+            "_10661_/B",
+            "_10662_/A1",
+            "_10633_/B",
+            "_10634_/A1",
+            "_10423_/A",
+            "_10417_/A",
+            "_10420_/A",
+            "_10421_/A2",
+            "_10572_/A1",
+            "_10571_/B",
+            "_10599_/A1",
+            "_10598_/B",
+            "_10544_/A1",
+            "_10543_/B",
+            "_10515_/B",
+            "_10516_/A1",
+            "_10486_/A1",
+            "_10485_/B",
+            "_10458_/B",
+            "_10459_/A1",
+            "_13199_/B1",
+            "place1456/X",
+            "_12821_/B",
+            "_12788_/A2",
+            "_12822_/A2",
+            "_12787_/B",
+            "_12804_/B",
+            "_12838_/B",
+            "_12839_/A2",
+            "_12643_/A2",
+            "_12613_/B",
+            "_12614_/A2",
+            "_12805_/A2",
+            "_12642_/B",
+            "_12759_/B",
+            "_12760_/A2",
+            "_12772_/A2",
+            "_12771_/B",
+            "_12741_/B",
+            "_12742_/A2",
+            "_12709_/A2",
+            "_12676_/A2",
+            "_12675_/B",
+            "_12656_/B",
+            "_12657_/A2",
+            "_12708_/B",
+            "_12725_/A2",
+            "_12724_/B",
+            "_12428_/A2",
+            "_12427_/B",
+            "_12694_/A2",
+            "_12392_/B",
+            "_12393_/A2",
+            "_12693_/B",
+            "_12851_/B",
+            "_12852_/A2",
+            "_12529_/B",
+            "_12530_/A2",
+            "_12627_/B",
+            "_12628_/A2",
+            "_12496_/A2",
+            "_12579_/A2",
+            "_12578_/B",
+            "_12495_/B",
+            "_12463_/B",
+            "_12464_/A2",
+            "_12596_/B",
+            "_12564_/A2",
+            "_12597_/A2",
+            "_12563_/B",
+            "_12514_/A2",
+            "_12513_/B",
+            "_12481_/A2",
+            "_12545_/B",
+            "_12546_/A2",
+            "_12480_/B",
+            "_12444_/A2",
+            "_12443_/B",
+            "_12360_/B",
+            "_12339_/B",
+            "_12340_/A2",
+            "_12361_/A2",
+            "_12375_/B",
+            "_11544_/B",
+            "_12376_/A2",
+            "_12412_/A2",
+            "_11526_/A",
+            "_11538_/B",
+            "_12411_/B",
+            "_11531_/B",
+            "place1310/X",
+            "_09309_/A1",
+            "_09308_/A",
+            "_09320_/A",
+            "_09332_/A",
+            "_09321_/A1",
+            "_14374_/A",
+            "_14376_/A",
+            "_09333_/A1",
+            "_14375_/A1",
+            "_14377_/A1",
+            "_14384_/A1",
+            "_14401_/A",
+            "_14402_/A1",
+            "_14390_/A1",
+            "_14389_/A",
+            "_09305_/A",
+            "_09306_/A1",
+            "_09314_/A",
+            "_09315_/A1",
+            "_14383_/A",
+            "_14381_/A",
+            "_14382_/A1",
+            "_09313_/A1",
+            "_09312_/A",
+            "_14391_/A",
+            "_14392_/A1",
+            "_09322_/A",
+            "_09323_/A1",
+            "_14399_/A",
+            "_14400_/A1",
+            "_09330_/A",
+            "_09331_/A1",
+            "_09324_/A",
+            "_09325_/A1",
+            "_14393_/A",
+            "_14394_/A1",
+            "_09311_/A1",
+            "_09310_/A",
+            "_14380_/A1",
+            "_14379_/A",
+            "_09316_/A",
+            "_09317_/A1",
+            "_14385_/A",
+            "_14386_/A1",
+            "_09319_/A1",
+            "_09318_/A",
+            "_09328_/A",
+            "_09329_/A1",
+            "_14397_/A",
+            "_14398_/A1",
+            "_09326_/A",
+            "_09327_/A1",
+            "_14395_/A",
+            "_14396_/A1",
+            "_14369_/A",
+            "_14387_/A",
+            "_14388_/A1",
+            "_14370_/A1",
+            "_14372_/A",
+            "_14373_/A1",
+            "_09299_/A",
+            "_09300_/A1",
+            "_09301_/A",
+            "_09302_/A1",
+            "_13207_/A1",
+            "_13206_/A",
+            "_09334_/A",
+            "_14214_/B",
+            "_13871_/C",
+            "place1667/X",
+            "_14409_/A",
+            "_14423_/A",
+            "_14424_/A1",
+            "_14410_/A1",
+            "_14435_/A",
+            "_14436_/A1",
+            "_14446_/A1",
+            "_14458_/A1",
+            "_14457_/A",
+            "_14469_/A",
+            "_14408_/A1",
+            "_14470_/A1",
+            "_14407_/A",
+            "_14442_/A",
+            "_14443_/A1",
+            "_14452_/A1",
+            "_14451_/A",
+            "_14445_/A",
+            "_14449_/A",
+            "_14416_/A",
+            "_14417_/A1",
+            "_14450_/A1",
+            "_14413_/A",
+            "_14414_/A1",
+            "_14459_/A",
+            "_14460_/A1",
+            "_14425_/A",
+            "_14426_/A1",
+            "_14468_/A1",
+            "_14467_/A",
+            "_14428_/A1",
+            "_14434_/A1",
+            "_14433_/A",
+            "_14427_/A",
+            "_14462_/A1",
+            "_14461_/A",
+            "_14411_/A",
+            "_14412_/A1",
+            "_14447_/A",
+            "_14448_/A1",
+            "_14418_/A",
+            "_14419_/A1",
+            "_14453_/A",
+            "_14420_/A",
+            "_14454_/A1",
+            "_14421_/A1",
+            "_14431_/A",
+            "_14432_/A1",
+            "_14429_/A",
+            "_14430_/A1",
+            "_14463_/A",
+            "_14465_/A",
+            "_14464_/A1",
+            "_14466_/A1",
+            "_14455_/A",
+            "_14456_/A1",
+            "_14439_/A1",
+            "_14438_/A",
+            "_14440_/A",
+            "_14441_/A1",
+            "_14405_/A",
+            "_14404_/A1",
+            "_14406_/A1",
+            "_14403_/A",
+            "_14219_/A",
+            "_14220_/A1",
+            "_09339_/B",
+            "_13216_/A",
+            "place1666/X",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[73]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[67]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[79]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[89]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[83]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[95]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[66]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[86]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[82]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[70]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[85]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[69]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[90]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[74]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[94]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[78]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[75]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[91]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[68]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[84]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[71]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[87]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[72]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[77]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[93]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[76]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[92]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[88]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[80]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[64]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[81]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[65]$_DFFE_PP_/DE",
+            "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/err_q[2]$_DFFE_PP_/DE",
+            "place1529/X",
+            "_13620_/B",
+            "_09259_/A2",
+            "_13621_/A1",
+            "_13719_/B",
+            "_09297_/A2",
+            "_13720_/A1",
+            "_09213_/A2",
+            "_13809_/A1",
+            "_13808_/B",
+            "_09252_/A2",
+            "_13599_/A1",
+            "_13598_/B",
+            "_09274_/B",
+            "_13653_/B",
+            "_13667_/B",
+            "_13668_/A1",
+            "_13654_/A1",
+            "_09235_/A2",
+            "_13740_/B",
+            "_13741_/A1",
+            "_09220_/A2",
+            "_09206_/A2",
+            "_13799_/B",
+            "_13800_/A1",
+            "_13754_/B",
+            "_13755_/A1",
+            "_09228_/A2",
+            "_13629_/B",
+            "_13630_/A1",
+            "_09266_/A2",
+            "_13685_/B",
+            "_13686_/A1",
+            "_09283_/A2",
+            "_13701_/B",
+            "_13702_/A1",
+            "_09290_/A2",
+            "_09244_/A2",
+            "_13768_/B",
+            "_13769_/A1",
+            "crash_dump_o[129]$_DFFE_PP_/D",
+            "_09195_/A2",
+            "_13781_/B",
+            "_13782_/A1",
+            "_13557_/B",
+            "_13583_/A1",
+            "_13582_/B",
+            "_14205_/B",
+            "_13873_/A1",
+            "_13871_/B",
+            "_13212_/B",
+            "place1692/X",
+            "_10203_/A",
+            "_10204_/A2",
+            "_10177_/A",
+            "_10178_/A2",
+            "_10225_/A2",
+            "_10224_/A",
+            "_10227_/A",
+            "_10228_/A2",
+            "_10174_/A",
+            "_10175_/A2",
+            "_10200_/A",
+            "_10201_/A2",
+            "_10222_/A2",
+            "_10171_/A",
+            "_10172_/A2",
+            "_10221_/A",
+            "_10197_/A",
+            "_10198_/A2",
+            "_10218_/A",
+            "_10219_/A2",
+            "_10194_/A2",
+            "_10193_/A",
+            "_10168_/A",
+            "_10169_/A2",
+            "_10165_/A",
+            "_10166_/A2",
+            "_10190_/A",
+            "_10191_/A2",
+            "_10215_/A",
+            "_10216_/A2",
+            "_10209_/A",
+            "_10210_/A2",
+            "_10184_/A",
+            "_10185_/A2",
+            "_10234_/A2",
+            "_10233_/A",
+            "_10180_/A",
+            "_10206_/A",
+            "_10181_/A2",
+            "_10207_/A2",
+            "_10230_/A",
+            "_10231_/A2",
+            "_10187_/A",
+            "_10188_/A2",
+            "_10236_/A",
+            "_10237_/A2",
+            "_10212_/A",
+            "_10213_/A2",
+            "place1458/X",
+            "_13183_/A2",
+            "_13182_/A",
+            "_13159_/A",
+            "_13160_/A2",
+            "_13176_/A",
+            "_13177_/A2",
+            "_13154_/A",
+            "_13155_/A2",
+            "_13184_/A",
+            "_13185_/A2",
+            "_13178_/A",
+            "_13179_/A2",
+            "_13174_/A",
+            "_13175_/A2",
+            "_13180_/A",
+            "_13181_/A2",
+            "_13161_/A",
+            "_13162_/A2",
+            "_13172_/A",
+            "_13173_/A2",
+            "_13169_/A2",
+            "_13168_/A",
+            "_13164_/A",
+            "_13165_/A2",
+            "_13170_/A",
+            "_13171_/A2",
+            "_13166_/A",
+            "_13167_/A2",
+            "_13186_/A",
+            "_13187_/A2",
+            "_13144_/A",
+            "_13145_/A2",
+            "_13151_/A2",
+            "_13150_/A",
+            "_13140_/A2",
+            "_13139_/A",
+            "_13152_/A",
+            "_13153_/A2",
+            "_13146_/A",
+            "_13147_/A2",
+            "_13142_/A",
+            "_13143_/A2",
+            "_13156_/A",
+            "_13157_/A2",
+            "_13134_/A",
+            "_13135_/A2",
+            "_13148_/A",
+            "_13149_/A2",
+            "_13137_/A",
+            "_13138_/A2",
+            "_13132_/A",
+            "_13133_/A2",
+            "_13126_/A",
+            "_13130_/A",
+            "_13131_/A2",
+            "_13128_/A",
+            "_13127_/A2",
+            "_13129_/A2",
+            "_12231_/A2",
+            "_12230_/A",
+            "place1456/X",
+            "place1310/X",
+            "place1667/X",
+            "place1666/X",
+            "place1529/X",
+            "place1692/X",
+            "place1458/X"
+          ],
+          "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/reports/checks/drv_violators.rpt",
+          "sha256": "09410bc5ce1ebdab762ca41423314108ae57489cb449b4c0d552f9b60d86d7d2"
+        },
+        {
+          "bytes_read": 0,
+          "category": "floating_nets",
+          "entries": [],
+          "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/reports/checks/floating_nets.rpt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes_read": 0,
+          "category": "overdriven_nets",
+          "entries": [],
+          "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/reports/checks/overdriven_nets.rpt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes_read": 4511,
+          "category": "unconstrained_endpoints",
+          "entries": [
+            "ANTENNA_24/DIODE"
+          ],
+          "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/reports/timing/unconstrained.rpt",
+          "sha256": "48c3965f2f63ec4a48fb0014ab07d72a4ee47e3438d663d023da85292f218750"
+        }
+      ],
+      "schema": "physical-evidence/v1",
+      "status": "violations",
+      "unconstrained_endpoints": [
+        "ANTENNA_24/DIODE"
+      ],
+      "violations": [
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10758_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10757_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10769_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10770_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10764_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10763_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10752_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10751_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10776_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10775_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10685_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10698_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10699_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10686_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10745_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10706_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10746_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10705_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10740_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10739_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10728_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10727_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10713_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10714_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10733_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10734_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10720_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10780_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10781_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10721_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10693_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10692_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10628_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10627_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10641_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10640_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10680_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10681_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10646_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10647_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10661_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10662_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10633_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10634_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10423_/A",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10417_/A",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10420_/A",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10421_/A2",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10572_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10571_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10599_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10598_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10544_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10543_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10515_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10516_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10486_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10485_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10458_/B",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10459_/A1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13199_/B1",
+          "slack": -1.06,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.51,
+          "object_name": "place1456/X",
+          "slack": -1.05,
+          "status": "unwaived",
+          "value": 2.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12821_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12788_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12822_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12787_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12804_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12838_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12839_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12643_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12613_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12614_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12805_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12642_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12759_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12760_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12772_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12771_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12741_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12742_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12709_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12676_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12675_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12656_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12657_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12708_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12725_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12724_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12428_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12427_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12694_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12392_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12393_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12693_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12851_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12852_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12529_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12530_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12627_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12628_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12496_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12579_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12578_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12495_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12463_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12464_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12596_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12564_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12597_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12563_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12514_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12513_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12481_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12545_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12546_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12480_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12444_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12443_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12360_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12339_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12340_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12361_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12375_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11544_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12376_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12412_/A2",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11526_/A",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11538_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12411_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11531_/B",
+          "slack": -0.94,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.51,
+          "object_name": "place1310/X",
+          "slack": -0.93,
+          "status": "unwaived",
+          "value": 2.44,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09309_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09308_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09320_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09332_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09321_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14374_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14376_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09333_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14375_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14377_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14384_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14401_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14402_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14390_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14389_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09305_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09306_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09314_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09315_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14383_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14381_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14382_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09313_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09312_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14391_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14392_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09322_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09323_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14399_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14400_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09330_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09331_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09324_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09325_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14393_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14394_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09311_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09310_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14380_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14379_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09316_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09317_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14385_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14386_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09319_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09318_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09328_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09329_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14397_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14398_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09326_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09327_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14395_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14396_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14369_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14387_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14388_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14370_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14372_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14373_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09299_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09300_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09301_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09302_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13207_/A1",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13206_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09334_/A",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14214_/B",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13871_/C",
+          "slack": -0.68,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.51,
+          "object_name": "place1667/X",
+          "slack": -0.67,
+          "status": "unwaived",
+          "value": 2.18,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14409_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14423_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14424_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14410_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14435_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14436_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14446_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14458_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14457_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14469_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14408_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14470_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14407_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14442_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14443_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14452_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14451_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14445_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14449_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14416_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14417_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14450_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14413_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14414_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14459_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14460_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14425_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14426_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14468_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14467_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14428_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14434_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14433_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14427_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14462_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14461_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14411_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14412_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14447_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14448_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14418_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14419_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14453_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14420_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14454_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14421_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14431_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14432_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14429_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14430_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14463_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14465_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14464_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14466_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14455_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14456_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14439_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14438_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14440_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14441_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14405_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14404_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14406_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14403_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14219_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14220_/A1",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09339_/B",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13216_/A",
+          "slack": -0.64,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.51,
+          "object_name": "place1666/X",
+          "slack": -0.63,
+          "status": "unwaived",
+          "value": 2.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[73]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[67]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[79]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[89]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[83]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[95]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[66]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[86]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[82]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[70]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[85]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[69]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[90]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[74]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[94]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[78]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[75]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[91]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[68]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[84]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[71]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[87]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[72]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[77]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[93]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[76]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[92]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[88]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[80]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[64]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[81]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/rdata_q[65]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "if_stage_i/gen_prefetch_buffer.prefetch_buffer_i/fifo_i/err_q[2]$_DFFE_PP_/DE",
+          "slack": -0.11,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.51,
+          "object_name": "place1529/X",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.61,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13620_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09259_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13621_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13719_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09297_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13720_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09213_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13809_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13808_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09252_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13599_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13598_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09274_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13653_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13667_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13668_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13654_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09235_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13740_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13741_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09220_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09206_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13799_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13800_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13754_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13755_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09228_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13629_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13630_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09266_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13685_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13686_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09283_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13701_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13702_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09290_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09244_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13768_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13769_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "crash_dump_o[129]$_DFFE_PP_/D",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09195_/A2",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13781_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13782_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13557_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13583_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13582_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14205_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13873_/A1",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13871_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13212_/B",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.51,
+          "object_name": "place1692/X",
+          "slack": -0.08,
+          "status": "unwaived",
+          "value": 1.59,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10203_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10204_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10177_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10178_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10225_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10224_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10227_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10228_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10174_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10175_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10200_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10201_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10222_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10171_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10172_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10221_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10197_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10198_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10218_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10219_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10194_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10193_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10168_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10169_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10165_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10166_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10190_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10191_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10215_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10216_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10209_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10210_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10184_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10185_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10234_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10233_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10180_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10206_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10181_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10207_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10230_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10231_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10187_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10188_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10236_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10237_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10212_/A",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10213_/A2",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.51,
+          "object_name": "place1458/X",
+          "slack": -0.05,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13183_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13182_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13159_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13160_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13176_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13177_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13154_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13155_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13184_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13185_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13178_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13179_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13174_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13175_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13180_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13181_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13161_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13162_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13172_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13173_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13169_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13168_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13164_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13165_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13170_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13171_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13166_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13167_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13186_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13187_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13144_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13145_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13151_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13150_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13140_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13139_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13152_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13153_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13146_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13147_/A2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13142_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13143_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13156_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13157_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13134_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13135_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13148_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13149_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13137_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13138_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13132_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13133_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13126_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13130_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13131_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13128_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13127_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13129_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12231_/A2",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12230_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_capacitance",
+          "limit": 0.13,
+          "object_name": "place1456/X",
+          "slack": -0.09,
+          "status": "unwaived",
+          "value": 0.22,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_capacitance",
+          "limit": 0.13,
+          "object_name": "place1310/X",
+          "slack": -0.08,
+          "status": "unwaived",
+          "value": 0.21,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_capacitance",
+          "limit": 0.13,
+          "object_name": "place1667/X",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 0.19,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_capacitance",
+          "limit": 0.13,
+          "object_name": "place1666/X",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 0.19,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_capacitance",
+          "limit": 0.13,
+          "object_name": "place1529/X",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 0.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_capacitance",
+          "limit": 0.13,
+          "object_name": "place1692/X",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 0.14,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_capacitance",
+          "limit": 0.13,
+          "object_name": "place1458/X",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 0.14,
+          "waiver_reason": null
+        }
+      ]
+    },
+    "high_fanout": {
+      "bytes": 3570,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/reports/design/high_fanout.rpt",
+      "sha256": "04d04ee8c123d1c092ce807477b88a42069e1cfc6519f60a89d0853c3de96fef"
+    },
+    "hold_slack": {
+      "bytes": 21,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/reports/timing/worst_slack.hold.rpt",
+      "sha256": "bc3f4803bef2e44257abba33c090259922e27552af32ad23043a4a3182039ef3"
+    },
+    "setup_slack": {
+      "bytes": 22,
+      "path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/write.views/0/reports/timing/worst_slack.setup.rpt",
+      "sha256": "7e615e90414916187ee8cb6cf484ac3f879df588012c7dddbababa35a76ab5d3"
+    }
+  },
+  "schema": "physical-acceptance-gate/v1",
+  "status": "fail",
+  "violation_counts": {
+    "antenna": 0,
+    "constraint_mismatch": 1,
+    "drc": 0,
+    "floating_nets": 0,
+    "hold": 0,
+    "max_capacitance": 7,
+    "max_slew": 464,
+    "overdriven_nets": 0,
+    "setup": 1,
+    "unconstrained_functional_endpoints": 0
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "failed": [
+    "I-EBREAK-01",
+    "I-ECALL-01",
+    "I-MISALIGN_JMP-01",
+    "I-MISALIGN_LDST-01"
+  ],
+  "ibex_commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e",
+  "isa": "rv32i",
+  "known_upstream_exclusions": [
+    "I-EBREAK-01",
+    "I-ECALL-01",
+    "I-MISALIGN_JMP-01",
+    "I-MISALIGN_LDST-01"
+  ],
+  "ok": true,
+  "outcome": "success_with_known_exclusions",
+  "passed": 44,
+  "policy": "all ordinary tests pass; only the four exclusions accepted by pinned Ibex CI are allowed",
+  "report_digest": "e42f11bfe4206d1815ebc0723e8a3214b42798b5943bc20311a1389ff8b7c109",
+  "schema": "ibex-rv32i-compliance/v1",
+  "suite_commit": "844c6660ef3f0d9b96957991109dfd80cc4938e2",
+  "tests_total": 48,
+  "toolchain_archive_sha256": "7da91ebcef42d60324d58d7b099855debac6c99172244df49d06bf4d9f461f5f"
+}

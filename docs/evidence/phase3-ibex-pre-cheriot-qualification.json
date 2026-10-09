@@ -1,0 +1,93 @@
+{
+  "candidate_correction": {
+    "reason": "contains rtl/ibex_cheriot_pkg.sv; not actually pre-CHERIoT",
+    "rejected_commit": "7b5df75a041affe56e8c235260f98a09b3319008"
+  },
+  "comparison": {
+    "best_preserved_fmax_mhz": 30.54,
+    "current_cheriot_tree_baseline_fmax_mhz": 24.07,
+    "current_cheriot_tree_writeback_candidate_fmax_mhz": 30.54,
+    "pre_cheriot_candidate_fmax_mhz": 25.39
+  },
+  "constraints": {
+    "clock_period_ns": 20.0,
+    "clock_target_mhz": 50.0,
+    "constraint_sha256": "b8c557966913f53c3a866ef828794ec3160eb240050928c6c8974f338fd11984",
+    "sdc_sha256": "fe4a4a03f3779a93c1fe54496bf5a738c6adbe4ff4c39db7cc59d4849d336f60",
+    "unconstrained_endpoints": []
+  },
+  "conversion": {
+    "equivalence_report_digest": "06f6c152661ab7d0d4b4b3296da9dbc92bfe2578c5bd43f7a4dad712d1beb74f",
+    "independent_equivalence": "proven",
+    "output_sha256": "809f7f14d124acb367fe729fee781f51a645b60e7d4e0ef04e21bb9c40070de3",
+    "report_digest": "5533a97f7e364867a7879e8ab74f2f97b118cf0955b9f30b58e0c3529f254537",
+    "status": "success"
+  },
+  "pnr": {
+    "admitted": false,
+    "reasons": [
+      "50 MHz setup timing failed",
+      "electrical violations remain",
+      "post-synthesis equivalence is inconclusive",
+      "screen flow does not emit floating/overdriven physical-net reports"
+    ],
+    "run": false
+  },
+  "post_synthesis_equivalence": {
+    "async_reset_mode": "synchronous_abstraction",
+    "proof_scope": "clock-edge behavior after symmetric async2sync transformation; asynchronous reset assertion between clock edges is outside this proof",
+    "report_digest": "bf102d5978b468589a8c5020f283a35f654d20f32728385b0129c5ec04d2b314",
+    "status": "inconclusive",
+    "unproven_cells": 309
+  },
+  "product_goal_mhz": 50.0,
+  "profile": {
+    "isa": "RV32I+Zca",
+    "manifest_digest": "9359066259c268ed86458f58d04c86a57ed51039215d071250d7fb3930f10e75",
+    "native_lint_diagnostics": 96,
+    "native_lint_ok": true,
+    "report_digest": "18d44f65c7ea2ef25f197723dba30449e7805530d22e8976c4ce2a3c13485279",
+    "strict_rv32i": false,
+    "writeback_stage": true
+  },
+  "report_availability": {
+    "floating_nets": "not_emitted_by_synthesis_sta_screen",
+    "overdriven_nets": "not_emitted_by_synthesis_sta_screen"
+  },
+  "report_digest": "85950253a30981c0320bdff5899618eb352f50c459b8333271de424640d05230",
+  "schema": "ibex-phase3-pre-cheriot-qualification/v1",
+  "screen": {
+    "critical_path": {
+      "capacitance_pf": 0.24,
+      "class": "internal_control_enable",
+      "endpoint": "crash_dump_o[129] DFFE",
+      "fanout": 83,
+      "high_fanout_driver": "_14822_/Y",
+      "startpoint": "id_stage_i/controller_i/instr_i[3] DFFE",
+      "transition_ns": 16.37
+    },
+    "electrical_violations": {
+      "max_capacitance": 6,
+      "max_fanout": 6,
+      "max_slew": 892
+    },
+    "log_sha256": "7452d468cadbb90d0b71f1832e9d5ec8ed87e5a8bea5ababace5da2c2c1a8ac5",
+    "manifest_sha256": "b0e7dea7ee9f725af2a6be2abb57df02245118e145731e17f10783dc5a1e1554",
+    "metrics": {
+      "cell_area_um2": 61251.24445399668,
+      "cells": 8791,
+      "fmax_mhz": 25.39,
+      "hold_slack_ns": -0.18,
+      "logic_depth": 26,
+      "peak_power_mw": 7.93,
+      "registers": 875,
+      "setup_slack_ns": -19.39,
+      "setup_tns_ns": -3651.49
+    },
+    "stage": "synthesis_sta",
+    "strategy": "DELAY1",
+    "target": "skywater130_demo"
+  },
+  "source_commit": "e4bcf74971b3eef89f1f2c85559784608d28de52",
+  "status": "rejected_not_promoted"
+}

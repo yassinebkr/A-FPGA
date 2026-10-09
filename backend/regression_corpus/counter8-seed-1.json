@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "reference_provenance": {"generated_by": "human", "implementation_language": "python", "independent_of_rtl": true, "model_id": "golden.counter8", "source": "backend/golden_models.py", "version": "1.0.0"},
+  "case": {
+    "case_id": "counter8-seed-1", "model": "counter8", "model_version": "1.0.0", "source": "seeded",
+    "description": "seed=1; directed corners plus deterministic random vectors",
+    "vectors": [
+      {"vector_id": "counter8-0000", "inputs": {"value": 0, "enable": false, "reset": false}, "expected": {"value": 0, "wrap": 0}},
+      {"vector_id": "counter8-0001", "inputs": {"value": 0, "enable": true, "reset": false}, "expected": {"value": 1, "wrap": 0}},
+      {"vector_id": "counter8-0002", "inputs": {"value": 255, "enable": true, "reset": false}, "expected": {"value": 0, "wrap": 1}},
+      {"vector_id": "counter8-0003", "inputs": {"value": 255, "enable": true, "reset": true}, "expected": {"value": 0, "wrap": 0}},
+      {"vector_id": "counter8-0004", "inputs": {"value": 68, "enable": false, "reset": true}, "expected": {"value": 0, "wrap": 0}},
+      {"vector_id": "counter8-0005", "inputs": {"value": 60, "enable": true, "reset": true}, "expected": {"value": 0, "wrap": 0}},
+      {"vector_id": "counter8-0006", "inputs": {"value": 241, "enable": true, "reset": false}, "expected": {"value": 242, "wrap": 0}},
+      {"vector_id": "counter8-0007", "inputs": {"value": 48, "enable": true, "reset": false}, "expected": {"value": 49, "wrap": 0}}
+    ]
+  }
+}

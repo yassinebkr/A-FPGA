@@ -1,0 +1,26 @@
+{
+  "attempts": 1,
+  "clock_period_ns": 20.0,
+  "design_failure": false,
+  "failure": "SiliconCompiler ignored the extensionless content-addressed Verilog path: no input files",
+  "failure_class": "input_registration",
+  "ibex_commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e",
+  "log_path": "/mnt/cold-hdd/riscv-qualification/ibex-specialized-pnr.log",
+  "log_sha256": "da8de7f05d82548e49cf4d42ea1a2ea005ade95e9d9e639b02dde17e34c29f0e",
+  "manifest_path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr/ibex_core/job0/ibex_core.pkg.json",
+  "manifest_sha256": "4f8e331444e08ed147afe732845d73a6bfaeaff4763ee75d3ff83897ccd6c7f6",
+  "observed_error": "error: no input files",
+  "outcome": "infrastructure_failure",
+  "pnr_completed": false,
+  "report_digest": "0bed3f2e3f9221f48be9361786ad71a9dab2d84755ed442d6146557435e4cf02",
+  "schema": "ibex-bounded-pnr/v1",
+  "source_artifact_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "stage_reached": "elaboration",
+  "synthesis_strategy": "AREA3",
+  "target": "skywater130_demo",
+  "tool_versions": {
+    "klayout": "0.30.0",
+    "openroad": "26Q2",
+    "yosys": "0.52"
+  }
+}

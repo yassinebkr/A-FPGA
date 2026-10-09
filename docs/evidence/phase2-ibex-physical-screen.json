@@ -1,0 +1,39 @@
+{
+  "clock_period_ns": 20.0,
+  "design_failure": false,
+  "detailed_route_violations": 0,
+  "ibex_commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e",
+  "log_path": "/mnt/cold-hdd/riscv-qualification/ibex-specialized-pnr-filetype-fix.log",
+  "log_sha256": "a480e0de986adabe72b90df492d57a14233961dc20c4ead1b22d5cba2a54fbf5",
+  "manifest_path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-pnr-filetype-fix/ibex_core/job0/ibex_core.pkg.json",
+  "manifest_sha256": "aeecaf7fc02355ec6b3983f0e083be350cb1a497100729ee7272b5bba65c947e",
+  "metrics": {
+    "cell_area_um2": 71035.6,
+    "cells": 11379,
+    "die_area_um2": 146421.0,
+    "fmax_mhz": 44.8125,
+    "hold_slack_ns": 0.055722,
+    "nets": 9884,
+    "peak_power_mw": 10.1391,
+    "registers": 804,
+    "setup_slack_ns": -2.31519,
+    "setup_tns_ns": -405.195,
+    "unconstrained_endpoints": 0,
+    "utilization_percent": 49.4487
+  },
+  "outcome": "success_with_timing_violation",
+  "pnr_completed": true,
+  "remaining_antenna_violations": 0,
+  "report_digest": "3253d4fd54141c88e8be78a010af2d4e959aa93ba3f19554e7531a16ac8015f2",
+  "schema": "ibex-physical-screen/v1",
+  "source_artifact_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "stage_reached": "write_views",
+  "synthesis_strategy": "AREA3",
+  "target": "skywater130_demo",
+  "timing_closed": false,
+  "tool_versions": {
+    "klayout": "0.30.0",
+    "openroad": "26Q2",
+    "yosys": "0.52"
+  }
+}

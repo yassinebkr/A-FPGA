@@ -1,0 +1,79 @@
+{
+  "constraints": {
+    "clock_period_ns": 20.0,
+    "constraint_sha256": "d9ba1ce14582e2b7b2ca316fb5f8fd95662b5f5011e8cc9f010fcde8455a1383",
+    "product_goal_mhz": 50.0,
+    "sdc_sha256": "64128fc041f960a925e3da8b4306c18f36da75987cf5c549e4ef5595bb51c8c3",
+    "unconstrained_endpoints": 0
+  },
+  "gate_outcomes": {
+    "electrical_cleanup": "failed_at_synthesis_screen",
+    "ibex_bounded_configuration_repair": "exhausted_without_50mhz_closure",
+    "physical_implementation": "not_admitted",
+    "post_synthesis_equivalence": "inconclusive_unproven_state_correspondence",
+    "second_core_control": "setup_passed_but_not_qualified",
+    "timing_path_diagnosis": "complete"
+  },
+  "pnr": {
+    "admitted": false,
+    "reasons": [
+      "synthesis-stage hold slack is negative",
+      "electrical violations remain",
+      "post-synthesis equivalence is not proven"
+    ],
+    "run": false
+  },
+  "post_synthesis_equivalence": {
+    "async_reset_mode": "synchronous_abstraction",
+    "note": "Symmetric memory_map and async2sync left 145 cells unproven. Undef modeling left the same count. A reset-aware cross-file miter exposed independent initial values in intentionally unreset state, so this method cannot establish pre/post state correspondence and is not a functional counterexample.",
+    "proof_scope": "clock-edge behavior after symmetric async2sync transformation; asynchronous reset assertion between clock edges is outside this proof",
+    "proven": false,
+    "report_digest": "73802383d19a8d7e6ce9644beeec33388ddc5e0b7300053fd1c90faf6963d105",
+    "status": "inconclusive",
+    "unproven_cells": 145,
+    "diagnostics": {
+      "undef_log_sha256": "a908ce7f61cf3955bd8724a591748289bb9cdf252caf1b1b935c429e571d35fc",
+      "reset_miter_log_sha256": "581352b863d887ff7e335298d217bfbe397fe88a844d72e794952a36984b6d3e",
+      "observable_miter_log_sha256": "6234d6e4d79bc8a476e0eedbb73ba5c11984b6365f5f79c68cc695bd6ed98014",
+      "required_method": "transformation-aware sequential equivalence with explicit reset/state correspondence"
+    }
+  },
+  "schema": "phase3-picorv32-control-qualification/v1",
+  "screen": {
+    "critical_path": {
+      "class": "memory_handshake_to_register_enable",
+      "endpoint": "pcpi_rs1[0] DFFE",
+      "startpoint": "mem_ready"
+    },
+    "electrical_violations": {
+      "max_capacitance": 40,
+      "max_fanout": 4,
+      "max_slew": 2519
+    },
+    "log_sha256": "db3105c6a8705866b96698b34677a5bb60bc9c5170886e93ea93c253319dab20",
+    "manifest_sha256": "0829450ce7380b3d0f49fb0e9fa82cdf6ab64015e0dae232457fb3c2a9b69004",
+    "metrics": {
+      "cell_area_um2": 85375.63039500127,
+      "cells": 10063,
+      "fmax_mhz": 54.03,
+      "hold_slack_ns": -0.17,
+      "logic_depth": 10,
+      "peak_power_mw": 4.59,
+      "registers": 1597,
+      "setup_slack_ns": 1.49,
+      "setup_tns_ns": 0.0
+    },
+    "netlist_sha256": "757bd3c9655b41c155b18c70d12276869016aad1a04d0d904555c1ead70920a0",
+    "stage": "synthesis_sta",
+    "strategy": "AREA3",
+    "target": "skywater130_demo"
+  },
+  "source": {
+    "commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+    "manifest_digest": "52643fb6dd7f1cb5ed44425b2adbe06fd5e7e48ced4a2a1ffeb4cdee2e42e2bb",
+    "role": "platform control; not the multi-file qualification target",
+    "source_sha256": "0836050971b3c6cdd28ac3b1e5719a67fb645161912bef1e472e63995ceb0622"
+  },
+  "status": "bounded_control_not_promoted",
+  "report_digest": "8dc518773f95e3af4c7b929a3477bcdeb730290dfbe0a4175abc6a60f4d183ea"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "reference_provenance": {"generated_by": "human", "implementation_language": "python", "independent_of_rtl": true, "model_id": "golden.alu8", "source": "backend/golden_models.py", "version": "1.0.0"},
+  "case": {
+    "case_id": "alu8-seed-1", "model": "alu8", "model_version": "1.0.0", "source": "seeded",
+    "description": "seed=1; directed corners plus deterministic random vectors",
+    "vectors": [
+      {"vector_id": "alu8-0000", "inputs": {"a": 0, "b": 0, "op": "add"}, "expected": {"y": 0, "carry": 0, "zero": 1}},
+      {"vector_id": "alu8-0001", "inputs": {"a": 255, "b": 1, "op": "add"}, "expected": {"y": 0, "carry": 1, "zero": 1}},
+      {"vector_id": "alu8-0002", "inputs": {"a": 0, "b": 1, "op": "sub"}, "expected": {"y": 255, "carry": 0, "zero": 0}},
+      {"vector_id": "alu8-0003", "inputs": {"a": 255, "b": 255, "op": "xor"}, "expected": {"y": 0, "carry": 0, "zero": 1}},
+      {"vector_id": "alu8-0004", "inputs": {"a": 0, "b": 255, "op": "not"}, "expected": {"y": 255, "carry": 0, "zero": 0}},
+      {"vector_id": "alu8-0005", "inputs": {"a": 68, "b": 32, "op": "and"}, "expected": {"y": 0, "carry": 0, "zero": 1}},
+      {"vector_id": "alu8-0006", "inputs": {"a": 60, "b": 253, "op": "or"}, "expected": {"y": 253, "carry": 0, "zero": 0}},
+      {"vector_id": "alu8-0007", "inputs": {"a": 241, "b": 194, "op": "sub"}, "expected": {"y": 47, "carry": 1, "zero": 0}}
+    ]
+  }
+}

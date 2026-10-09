@@ -1,0 +1,1066 @@
+{
+  "adapter": {
+    "output_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+    "schema": "sv2v-adapter-report/v1",
+    "source_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+    "transform_count": 0,
+    "transforms_applied": []
+  },
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--network=none",
+    "--read-only",
+    "--mount",
+    "type=bind,src=/mnt/cold-hdd/phase2-sv2v/f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5,dst=/input,readonly",
+    "0x01be/sv2v@sha256:6526715992bc1ccc75c016beb4aed4ca0aa80ab0a4b7669d93073222e36de658",
+    "sv2v",
+    "-I/input/src/lowrisc_dv_dv_fcov_macros_0",
+    "-I/input/src/lowrisc_prim_assert_0.1/rtl",
+    "-I/input/src/lowrisc_prim_secded_0.1/rtl",
+    "-DSYNTHESIS=1",
+    "/input/src/lowrisc_ibex_ibex_pkg_0.1/rtl/ibex_pkg.sv",
+    "/input/src/lowrisc_ibex_ibex_pkg_0.1/rtl/ibex_cheriot_pkg.sv",
+    "/input/src/lowrisc_prim_cipher_pkg_0.1/rtl/prim_cipher_pkg.sv",
+    "/input/src/lowrisc_prim_generic_buf_0/rtl/prim_buf.sv",
+    "/input/src/lowrisc_prim_generic_flop_0/rtl/prim_flop.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_pkg.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_enc.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_dec.sv",
+    "/input/src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_enc.sv",
+    "/input/src/lowrisc_prim_xilinx_clock_gating_0/rtl/prim_clock_gating.sv",
+    "/input/src/lowrisc_ibex_ibex_icache_0.1/rtl/ibex_icache.sv",
+    "/input/src/lowrisc_prim_lfsr_0.1/rtl/prim_lfsr.sv",
+    "/input/src/lowrisc_prim_mubi_pkg_0.1/rtl/prim_mubi_pkg.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_dec.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_dec.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_dec.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_dec.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_dec.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_dec.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_dec.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sender.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sync.sv",
+    "/input/src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_dec.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_cheriot_ex.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_alu.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_branch_predict.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_compressed_decoder.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_controller.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_cs_registers.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_csr.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_counter.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_decoder.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_ex_block.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_fetch_fifo.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_id_stage.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_if_stage.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_load_store_unit.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_multdiv_fast.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_multdiv_slow.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_prefetch_buffer.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_pmp.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_wb_stage.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_dummy_instr.sv",
+    "/input/src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_core.sv"
+  ],
+  "container_image": "0x01be/sv2v@sha256:6526715992bc1ccc75c016beb4aed4ca0aa80ab0a4b7669d93073222e36de658",
+  "equivalence": {
+    "claim": false,
+    "note": "sv2v preprocessing is a representation conversion; equivalence requires a separate verification gate.",
+    "status": "not_checked"
+  },
+  "hardware_project_digest": "f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5",
+  "input_manifest_digest": "f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5",
+  "output_artifact": {
+    "locator": "artifacts/sha256/06/068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+    "media_type": "text/x-verilog",
+    "name": "ibex_core.sv2v.v",
+    "sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+    "size_bytes": 1961503
+  },
+  "output_name": "ibex_core.v",
+  "output_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "raw_output_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "report_digest": "4194be4664c05dd8a95fb60046b93dbf961f30315b5a9f166f4f5612dcd281c9",
+  "runner": {
+    "returncode": 0,
+    "stderr_tail": "",
+    "stdout_tail": "NumChan * 2) - 1:0] pmp_req_type;\n\t\t\twire [(PMPNumChan * 2) - 1:0] pmp_priv_lvl;\n\t\t\twire [0:PMPNumChan - 1] pmp_req_err_raw;\n\t\t\tassign pc_if_inc = pc_if + 32'd2;\n\t\t\tif (BaseIsa == BaseIsaRV32IorCHERIoT) begin : g_pmp_addr_gate\n\t\t\t\tassign pmp_req_addr[((PMPNumChan - 1) - PMP_I) * (PMP_ADDR_MSB + 1)+:PMP_ADDR_MSB + 1] = (cheriot_enable_i == IbexMuBiOn ? {PMP_ADDR_MSB + 1 {1'sb0}} : {2'b00, pc_if});\n\t\t\t\tassign pmp_req_addr[((PMPNumChan - 1) - PMP_I2) * (PMP_ADDR_MSB + 1)+:PMP_ADDR_MSB + 1] = (cheriot_enable_i == IbexMuBiOn ? {PMP_ADDR_MSB + 1 {1'sb0}} : {2'b00, pc_if_inc});\n\t\t\t\tassign pmp_req_addr[((PMPNumChan - 1) - PMP_D) * (PMP_ADDR_MSB + 1)+:PMP_ADDR_MSB + 1] = (cheriot_enable_i == IbexMuBiOn ? {PMP_ADDR_MSB + 1 {1'sb0}} : {2'b00, data_addr_o[31:0]});\n\t\t\tend\n\t\t\telse begin : g_pmp_addr_no_gate\n\t\t\t\tassign pmp_req_addr[((PMPNumChan - 1) - PMP_I) * (PMP_ADDR_MSB + 1)+:PMP_ADDR_MSB + 1] = {2'b00, pc_if};\n\t\t\t\tassign pmp_req_addr[((PMPNumChan - 1) - PMP_I2) * (PMP_ADDR_MSB + 1)+:PMP_ADDR_MSB + 1] = {2'b00, pc_if_inc};\n\t\t\t\tassign pmp_req_addr[((PMPNumChan - 1) - PMP_D) * (PMP_ADDR_MSB + 1)+:PMP_ADDR_MSB + 1] = {2'b00, data_addr_o[31:0]};\n\t\t\tend\n\t\t\tassign pmp_req_type[((PMPNumChan - 1) - PMP_I) * 2+:2] = PMP_ACC_EXEC;\n\t\t\tassign pmp_priv_lvl[((PMPNumChan - 1) - PMP_I) * 2+:2] = priv_mode_id;\n\t\t\tassign pmp_req_type[((PMPNumChan - 1) - PMP_I2) * 2+:2] = PMP_ACC_EXEC;\n\t\t\tassign pmp_priv_lvl[((PMPNumChan - 1) - PMP_I2) * 2+:2] = priv_mode_id;\n\t\t\tassign pmp_req_type[((PMPNumChan - 1) - PMP_D) * 2+:2] = (data_we_o ? PMP_ACC_WRITE : PMP_ACC_READ);\n\t\t\tassign pmp_priv_lvl[((PMPNumChan - 1) - PMP_D) * 2+:2] = priv_mode_lsu;\n\t\t\tibex_pmp #(\n\t\t\t\t.DmBaseAddr(DmBaseAddr),\n\t\t\t\t.DmAddrMask(DmAddrMask),\n\t\t\t\t.PMPGranularity(PMPGranularity),\n\t\t\t\t.PMPNumChan(PMPNumChan),\n\t\t\t\t.PMPNumRegions(PMPNumRegions)\n\t\t\t) pmp_i(\n\t\t\t\t.csr_pmp_cfg_i(csr_pmp_cfg),\n\t\t\t\t.csr_pmp_addr_i(csr_pmp_addr),\n\t\t\t\t.csr_pmp_mseccfg_i(csr_pmp_mseccfg),\n\t\t\t\t.debug_mode_i(debug_mode),\n\t\t\t\t.priv_mode_i(pmp_priv_lvl),\n\t\t\t\t.pmp_req_addr_i(pmp_req_addr),\n\t\t\t\t.pmp_req_type_i(pmp_req_type),\n\t\t\t\t.pmp_req_err_o(pmp_req_err_raw)\n\t\t\t);\n\t\t\tif (BaseIsa == BaseIsaRV32IorCHERIoT) begin : g_pmp_cheriot_gate\n\t\t\t\tassign pmp_req_err[PMP_I] = (cheriot_enable_i == IbexMuBiOn ? 1'b0 : pmp_req_err_raw[PMP_I]);\n\t\t\t\tassign pmp_req_err[PMP_I2] = (cheriot_enable_i == IbexMuBiOn ? 1'b0 : pmp_req_err_raw[PMP_I2]);\n\t\t\t\tassign pmp_req_err[PMP_D] = (cheriot_enable_i == IbexMuBiOn ? 1'b0 : pmp_req_err_raw[PMP_D]);\n\t\t\tend\n\t\t\telse begin : g_pmp_no_cheriot_gate\n\t\t\t\tassign pmp_req_err[PMP_I] = pmp_req_err_raw[PMP_I];\n\t\t\t\tassign pmp_req_err[PMP_I2] = pmp_req_err_raw[PMP_I2];\n\t\t\t\tassign pmp_req_err[PMP_D] = pmp_req_err_raw[PMP_D];\n\t\t\tend\n\t\tend\n\t\telse begin : g_no_pmp\n\t\t\twire [1:0] unused_priv_lvl_ls;\n\t\t\twire [(0 >= (PMPNumRegions - 1) ? ((2 - PMPNumRegions) * (PMP_ADDR_MSB + 1)) + (((PMPNumRegions - 1) * (PMP_ADDR_MSB + 1)) - 1) : (PMPNumRegions * (PMP_ADDR_MSB + 1)) - 1):(0 >= (PMPNumRegions - 1) ? (PMPNumRegions - 1) * (PMP_ADDR_MSB + 1) : 0)] unused_csr_pmp_addr;\n\t\t\twire [(0 >= (PMPNumRegions - 1) ? ((2 - PMPNumRegions) * 6) + (((PMPNumRegions - 1) * 6) - 1) : (PMPNumRegions * 6) - 1):(0 >= (PMPNumRegions - 1) ? (PMPNumRegions - 1) * 6 : 0)] unused_csr_pmp_cfg;\n\t\t\twire [2:0] unused_csr_pmp_mseccfg;\n\t\t\tassign unused_priv_lvl_ls = priv_mode_lsu;\n\t\t\tassign unused_csr_pmp_addr = csr_pmp_addr;\n\t\t\tassign unused_csr_pmp_cfg = csr_pmp_cfg;\n\t\t\tassign unused_csr_pmp_mseccfg = csr_pmp_mseccfg;\n\t\t\tassign pmp_req_err[PMP_I] = 1'b0;\n\t\t\tassign pmp_req_err[PMP_I2] = 1'b0;\n\t\t\tassign pmp_req_err[PMP_D] = 1'b0;\n\t\tend\n\tendgenerate\n\twire unused_instr_new_id;\n\twire unused_instr_id_done;\n\twire unused_instr_done_wb;\n\twire unused_instr_expanded_id;\n\twire unused_instr_gets_expanded_id;\n\tassign unused_instr_id_done = instr_id_done;\n\tassign unused_instr_new_id = instr_new_id;\n\tassign unused_instr_done_wb = instr_done_wb;\n\tassign unused_instr_expanded_id = ^instr_expanded_id;\n\tassign unused_instr_gets_expanded_id = ^instr_gets_expanded_id;\nendmodule\n"
+  },
+  "schema": "hardware-project-sv2v-report/v1",
+  "source_hierarchy": {
+    "build_targets": {
+      "rv32i-known-core-v1": {
+        "execution_profile": "synthesis",
+        "fixture": "ibex-minimal",
+        "parameter_specialization": {
+          "input_sha256": "e35f51762fb1039769a38645342e24854d5a82d5962a251df434233b90677628",
+          "note": "Immutable source validation is retained; this is a separate execution-profile artifact.",
+          "output_sha256": "0805fce5adcb74eccd875005a6f756256da3fbf635d1e7b73820cbf934754275",
+          "parameters": {
+            "DbgTriggerEn": 0,
+            "RV32B": "none",
+            "RV32E": 0,
+            "RV32M": "none",
+            "RV32ZC": "zca",
+            "SecureIbex": 0
+          },
+          "schema": "ibex-specialization/v1",
+          "source_path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_core.sv",
+          "transforms": [
+            {
+              "from": "1'b0",
+              "parameter": "RV32E",
+              "to": "1'b0"
+            },
+            {
+              "from": "RV32MFast",
+              "parameter": "RV32M",
+              "to": "RV32MNone"
+            },
+            {
+              "from": "RV32BNone",
+              "parameter": "RV32B",
+              "to": "RV32BNone"
+            },
+            {
+              "from": "RV32ZcaZcbZcmp",
+              "parameter": "RV32ZC",
+              "to": "RV32Zca"
+            },
+            {
+              "from": "1'b0",
+              "parameter": "DbgTriggerEn",
+              "to": "1'b0"
+            },
+            {
+              "from": "1'b0",
+              "parameter": "SecureIbex",
+              "to": "1'b0"
+            }
+          ],
+          "upstream_source_preserved": true
+        },
+        "parameters": {
+          "DbgTriggerEn": 0,
+          "RV32B": "none",
+          "RV32E": 0,
+          "RV32M": "none",
+          "SecureIbex": 0
+        },
+        "removed_defines": [
+          "RVFI"
+        ],
+        "resolver": "fusesoc",
+        "source_commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e"
+      }
+    },
+    "compile_order": [
+      "src/lowrisc_ibex_ibex_pkg_0.1/rtl/ibex_pkg.sv",
+      "src/lowrisc_ibex_ibex_pkg_0.1/rtl/ibex_cheriot_pkg.sv",
+      "src/lowrisc_prim_cipher_pkg_0.1/rtl/prim_cipher_pkg.sv",
+      "src/lowrisc_prim_generic_buf_0/rtl/prim_buf.sv",
+      "src/lowrisc_prim_generic_flop_0/rtl/prim_flop.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_pkg.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_enc.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_dec.sv",
+      "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_enc.sv",
+      "src/lowrisc_prim_xilinx_clock_gating_0/rtl/prim_clock_gating.sv",
+      "src/lowrisc_ibex_ibex_icache_0.1/rtl/ibex_icache.sv",
+      "src/lowrisc_prim_lfsr_0.1/rtl/prim_lfsr.sv",
+      "src/lowrisc_prim_mubi_pkg_0.1/rtl/prim_mubi_pkg.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_dec.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_dec.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_dec.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_dec.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_dec.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_dec.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_dec.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sender.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sync.sv",
+      "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_dec.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_cheriot_ex.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_alu.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_branch_predict.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_compressed_decoder.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_controller.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_cs_registers.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_csr.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_counter.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_decoder.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_ex_block.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_fetch_fifo.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_id_stage.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_if_stage.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_load_store_unit.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_multdiv_fast.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_multdiv_slow.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_prefetch_buffer.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_pmp.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_wb_stage.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_dummy_instr.sv",
+      "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_core.sv"
+    ],
+    "constraints": [],
+    "defines": {
+      "SYNTHESIS": "1"
+    },
+    "files": [
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_pkg_0.1/rtl/ibex_pkg.sv",
+        "role": "package",
+        "sha256": "18c986c83664daee64660dab3a57796d9b6ae2cb95fd4fc76543753cfe57110e",
+        "size": 24000
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_pkg_0.1/rtl/ibex_cheriot_pkg.sv",
+        "role": "package",
+        "sha256": "2bb73146800d94b54e350b0c84216ef0ea0bb82049032ec83b64b6afd0717823",
+        "size": 39370
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_cipher_pkg_0.1/rtl/prim_cipher_pkg.sv",
+        "role": "package",
+        "sha256": "9cd66bdbc64020e3fe1f14a5baee30a93609b7887a9d21df7991929087b0973f",
+        "size": 19813
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_generic_buf_0/rtl/prim_buf.sv",
+        "role": "rtl",
+        "sha256": "9b00bd8ac203169268262ac9337076781fa962b19beed36f28dde54e360aaaf5",
+        "size": 398
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_generic_flop_0/rtl/prim_flop.sv",
+        "role": "rtl",
+        "sha256": "6645d657b107b024f9211d3a0134890d1e20146f68ba1772bf62575f7b4e5549",
+        "size": 612
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_pkg.sv",
+        "role": "package",
+        "sha256": "bcbd03333a30e7a1cb01195d1c40c7d0e736f91d9f73c2347ef5b0bd9dc3c82b",
+        "size": 74899
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_dec.sv",
+        "role": "rtl",
+        "sha256": "1db557bc993dab53bcdeeb31a3051b4468f61a489c88387d0e9072c7cacd860b",
+        "size": 1740
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_22_16_enc.sv",
+        "role": "rtl",
+        "sha256": "dc9be87f59567a2a6828de6e38de9f283ac7f48c088c852665e2767cea61fd35",
+        "size": 669
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_dec.sv",
+        "role": "rtl",
+        "sha256": "bc719bdaaae7a7566528b346b2771b4dd907496a4f5a9b6105c0b12edd090598",
+        "size": 2063
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_28_22_enc.sv",
+        "role": "rtl",
+        "sha256": "7759abde1e32bd8c568831de1a139698897b873592714fd6a3926a35123fadb0",
+        "size": 675
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_dec.sv",
+        "role": "rtl",
+        "sha256": "13cbe5fdac6efeba3e92cbddc5c77efa68477996c616984d87f7abe438c2c61e",
+        "size": 2659
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_39_32_enc.sv",
+        "role": "rtl",
+        "sha256": "31b80e9aefe5cc6df99fe7134a39c417809536b29de6892e6382a9ec3374b4c7",
+        "size": 738
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_dec.sv",
+        "role": "rtl",
+        "sha256": "473c72849e087ef8ff113034bc0bfd5557cb058a615da6c50dc26721adc1c63a",
+        "size": 4026
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_64_57_enc.sv",
+        "role": "rtl",
+        "sha256": "c955ae516645355d3d095441f2025826a542360c391335e2acb500dbf5f23c31",
+        "size": 780
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_dec.sv",
+        "role": "rtl",
+        "sha256": "b706646195e58396cff43b5256f25a474a180ea18eb483499cb85c649f5ee532",
+        "size": 4467
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_72_64_enc.sv",
+        "role": "rtl",
+        "sha256": "71c2c5924cf277fd978ab40ccc5eec939f609894ddf8adb3f81144baaa774755",
+        "size": 847
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_dec.sv",
+        "role": "rtl",
+        "sha256": "ed611f2143cf73b7ff540807e41ba45cdc03c4c9b94c005c930ed08a4466a3b0",
+        "size": 1769
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_22_16_enc.sv",
+        "role": "rtl",
+        "sha256": "4a6a3bdd2d466a3fbf9b2d389f0203972291f2b6b9eac089f73b0302bd7fd1a9",
+        "size": 685
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_dec.sv",
+        "role": "rtl",
+        "sha256": "1d01e347a42ae0e9de40c8dda1fb557f951c8db7c990ae2ba7c67e14073646af",
+        "size": 2689
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_39_32_enc.sv",
+        "role": "rtl",
+        "sha256": "d510dc23a3150a5f7b086cb465cfe679279489fc54678567d7889972efb76629",
+        "size": 754
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_dec.sv",
+        "role": "rtl",
+        "sha256": "b6af19127ac10720d328f56f790fff4eee79481321374d3b52d3b432c7fe1bb2",
+        "size": 4497
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_72_64_enc.sv",
+        "role": "rtl",
+        "sha256": "2f8732b489b9c00993a189348c25766c519269b7bc58a56e4b800a93b8771f02",
+        "size": 863
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_dec.sv",
+        "role": "rtl",
+        "sha256": "98b4a274d14b0f1877308f7fc62f0191ec48350a9376c77622ff12ce2c3f4c63",
+        "size": 4717
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_hamming_76_68_enc.sv",
+        "role": "rtl",
+        "sha256": "8b524f2e3ea9f481177ac729d8f38ff8bf063b2a4b467551b1a62aac9c1f0a6e",
+        "size": 871
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_dec.sv",
+        "role": "rtl",
+        "sha256": "2620fc37a5acfde0d54f0a638d13d3150b3c08acc840ce45a9ae4a24833711ef",
+        "size": 1838
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_22_16_enc.sv",
+        "role": "rtl",
+        "sha256": "b6df81ecfb12826002fa979c1beae2b8b47e8fa33bd465ad7c6e4784657e8ca9",
+        "size": 703
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_dec.sv",
+        "role": "rtl",
+        "sha256": "06c0dfdf59f2dbfffa7c73e609ae6361c94927a298f13ac6815c9543633b35a4",
+        "size": 2167
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_28_22_enc.sv",
+        "role": "rtl",
+        "sha256": "15b373e491fba6d6251c241229bd78d2766214771942e3fac0bdbe4cbff720fd",
+        "size": 710
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_dec.sv",
+        "role": "rtl",
+        "sha256": "f07f26fd2375952e4ec7cfc1641cebcea373a8030d82dd5977a76f81c430cb12",
+        "size": 2800
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_39_32_enc.sv",
+        "role": "rtl",
+        "sha256": "4588fda3fd5ebdd711c98f6900caaaaddddf1257337c5b931ca86de7fb0ef8ff",
+        "size": 776
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_dec.sv",
+        "role": "rtl",
+        "sha256": "e598eef60254ac4a0e6899f6d1e4af5ae5bbd2ac22395ac53ee925296bc8a826",
+        "size": 4209
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_64_57_enc.sv",
+        "role": "rtl",
+        "sha256": "74b3b327047b90682468614708bb4b1104b1f069c0dc3189e2b078622ac566b8",
+        "size": 824
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_dec.sv",
+        "role": "rtl",
+        "sha256": "3763fa9e291c0e33217b18cf74b7dd3830f232065a6a62ad21582d6e2bdcfd9d",
+        "size": 4691
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_72_64_enc.sv",
+        "role": "rtl",
+        "sha256": "d7c176fffecdf629db3c2e3958a4ca603e99a995b4aaeab9a2f73ad55e0e2d51",
+        "size": 893
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_dec.sv",
+        "role": "rtl",
+        "sha256": "4fedd80e34009d4e54881ef2358ca3a7fd971acaa8f1621b1832aea6d0aaac3c",
+        "size": 1867
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_22_16_enc.sv",
+        "role": "rtl",
+        "sha256": "74fc5522c24f1f3505a2dc7f3c34adaac07fdb54dce055268a4e2b3df3d6f416",
+        "size": 719
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_dec.sv",
+        "role": "rtl",
+        "sha256": "975eda8d8623f617f9d4e89b948c44e2d657b000596cdeeb9ed62910f6d1e8f7",
+        "size": 2830
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_39_32_enc.sv",
+        "role": "rtl",
+        "sha256": "b63ddfd743b51476dea494af1665433747ce021e0933d6e1e6b7a1b2ca5f9d3a",
+        "size": 792
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_dec.sv",
+        "role": "rtl",
+        "sha256": "ee22ebd7c918a537c883ce42c27ad2ab75125e35c6184c5e2dc2b1bd9fd0fb79",
+        "size": 4721
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_72_64_enc.sv",
+        "role": "rtl",
+        "sha256": "773f02fda14b0c20a41ddae143292b6b422b4b946da5476ea5a61ee97e1fd127",
+        "size": 909
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_dec.sv",
+        "role": "rtl",
+        "sha256": "925fd53e9b06cd4d770f355cd72491bac8fbd21e038b596d778de26f10bc5de5",
+        "size": 4949
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inv_hamming_76_68_enc.sv",
+        "role": "rtl",
+        "sha256": "d7e15dc949ee0f935e012bb1d666cf1e329b016979e73b5a71f168971e261a82",
+        "size": 918
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_xilinx_clock_gating_0/rtl/prim_clock_gating.sv",
+        "role": "rtl",
+        "sha256": "eb3561a174e569f77a0fb9f2cd921544524bd694bc77959e6fe45f339ea7566a",
+        "size": 1357
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_icache_0.1/rtl/ibex_icache.sv",
+        "role": "rtl",
+        "sha256": "7b250650b7cdc056976f13bfa070b6d05eb5febe2e311a7cfa684de1711b91f9",
+        "size": 55540
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_lfsr_0.1/rtl/prim_lfsr.sv",
+        "role": "rtl",
+        "sha256": "c61632878728613ba0403f2d068c03a5103165663b58d8dd50892ef032dec916",
+        "size": 25222
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_pkg_0.1/rtl/prim_mubi_pkg.sv",
+        "role": "package",
+        "sha256": "11a2f1a16ddaf750d859c95e07fc48c54743fe6ad3b5c5eabe2e14a51d9fb1af",
+        "size": 40926
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sender.sv",
+        "role": "rtl",
+        "sha256": "2bd763ba3f489b406de68e6759650fe2ed7fd875298ac0adff71e70234993b39",
+        "size": 2840
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_sync.sv",
+        "role": "rtl",
+        "sha256": "8d6461687bb7f022f326875e401a271f1bf6df3a7a87bf625508b334530c20df",
+        "size": 6339
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi4_dec.sv",
+        "role": "rtl",
+        "sha256": "b33530adf41b05849d06424a40db5536dfb5ffd441752bf49af03ad3d7b5f48e",
+        "size": 1638
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sender.sv",
+        "role": "rtl",
+        "sha256": "cfd926dd909081b590aade41fac9a91cb72c2493defb870cbaec45153f3aa951",
+        "size": 2840
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_sync.sv",
+        "role": "rtl",
+        "sha256": "2f0b9d5f5c95e0338cda232d61c390136cb0e17696c4edfd842007a6a9fbcaa7",
+        "size": 6339
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi8_dec.sv",
+        "role": "rtl",
+        "sha256": "e34268f75dd36cc0bf6cce710e1ebbd900cb253fd977a394a84eaf2f19f52956",
+        "size": 1638
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sender.sv",
+        "role": "rtl",
+        "sha256": "d57946855f6d5674f557b84976189449117f4f17014a7eca0fa716f8e990d012",
+        "size": 2855
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_sync.sv",
+        "role": "rtl",
+        "sha256": "44a06e1eb454387e104c51621dd99e5840d4b187ea7fda74bd8b5e0a824206e1",
+        "size": 6367
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi12_dec.sv",
+        "role": "rtl",
+        "sha256": "7e30e02744c255717d0094fd0b3cb5d77caf4626c5704dce37ac5c86c59d5d50",
+        "size": 1652
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sender.sv",
+        "role": "rtl",
+        "sha256": "cafef386918aee0fcccbaa1a36bf4c11b15a0051c8f94742d926a09c834590a4",
+        "size": 2855
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_sync.sv",
+        "role": "rtl",
+        "sha256": "27d63c260b986b0db77b90a4f26d0c165f7451f01b60bbf48f3b7601059bb913",
+        "size": 6367
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi16_dec.sv",
+        "role": "rtl",
+        "sha256": "34ae5437446015f276f09e30c515a5538af44fbe5617f73f61b464c613dccc20",
+        "size": 1652
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sender.sv",
+        "role": "rtl",
+        "sha256": "cda878555930047822ac382e1a19e2db5a31bb2dddb8f920165bc8d515e0b7d5",
+        "size": 2855
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_sync.sv",
+        "role": "rtl",
+        "sha256": "5c582e50e12a201d5060a85fa33e1de2298804ed3d273334b66c58240f2dd190",
+        "size": 6367
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi20_dec.sv",
+        "role": "rtl",
+        "sha256": "99a296946f4547c4907840db35dc8d65e7d61d20cbd8120e6f8e3bc3abd49bd6",
+        "size": 1652
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sender.sv",
+        "role": "rtl",
+        "sha256": "9748a85ac3dd716d09be4047718dac6e78f7a1e23a03082fb95158abcf3367de",
+        "size": 2855
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_sync.sv",
+        "role": "rtl",
+        "sha256": "5072f6c7b6ad93ca1362fc84e986e994ca9d7e80c621fd6b14308d71ad675c19",
+        "size": 6367
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi24_dec.sv",
+        "role": "rtl",
+        "sha256": "677c30909b141e0f9adaf579ad4681ece28892b8911a1c85d7c11ca866bb7d8d",
+        "size": 1652
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sender.sv",
+        "role": "rtl",
+        "sha256": "0d036039d7d48b9fa614b93803167b0f1bc2dae5eb7aec2b3a6f33f39084c6ac",
+        "size": 2855
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_sync.sv",
+        "role": "rtl",
+        "sha256": "d55a1857dda0a0de5a1fbfc0af3860e1731df8cdb030c9da0efe6e654dd7d70f",
+        "size": 6367
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi28_dec.sv",
+        "role": "rtl",
+        "sha256": "64ae1fc075458e4cab87f8d7a665f548f78e1cbffb05b43041e48d7b941010b0",
+        "size": 1652
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sender.sv",
+        "role": "rtl",
+        "sha256": "b4dae09251ff294afea4532ed5e7205dbf52d4265aa75dc90d1b003e22f7fdd6",
+        "size": 2855
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_sync.sv",
+        "role": "rtl",
+        "sha256": "66269bfff124800e2073a423bce9922ebd0f865d39608d40803b23397e3eee5b",
+        "size": 6367
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_prim_mubi_0.1/rtl/prim_mubi32_dec.sv",
+        "role": "rtl",
+        "sha256": "75dbc715d66adb61c72ecfa4747192317b0a036be240a9bfeedd52bde30a6932",
+        "size": 1652
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_cheriot_ex.sv",
+        "role": "rtl",
+        "sha256": "b5211a98c8266bfc39f775917ceafd61d45b10ffef6d93f72c411fda4e160083",
+        "size": 45083
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_alu.sv",
+        "role": "rtl",
+        "sha256": "6fb9a6a300bb040ab62d6c12ccd9e29dc241f44d52ac2982b63e037cf66afee2",
+        "size": 30480
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_branch_predict.sv",
+        "role": "rtl",
+        "sha256": "78d4120eac2606e34b9338581eac55e3ba3b48c718799a46a887ac9efab2240e",
+        "size": 3351
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_compressed_decoder.sv",
+        "role": "rtl",
+        "sha256": "bea22598e9e5f734ace93826eafd01914d2b63565ee0b7e8c8deff25369fbfbd",
+        "size": 40791
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_controller.sv",
+        "role": "rtl",
+        "sha256": "bc3211faf87435b07922e3e61646ef83247ab86c5938d4cd2e108802a4357860",
+        "size": 47495
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_cs_registers.sv",
+        "role": "rtl",
+        "sha256": "887b5e61e0131f93332be4f133bf3749ab57fe8db9cb0f3fe58b060240a0d243",
+        "size": 83535
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_csr.sv",
+        "role": "rtl",
+        "sha256": "6533fffc57e233b3961ebd94722a14a1a4320771ce4a76e69481bf2deb1d8514",
+        "size": 1289
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_counter.sv",
+        "role": "rtl",
+        "sha256": "0e953e2e05b5070833029d0f6fed6d3a48fbd3c02dc05785962fb0d451425d8e",
+        "size": 3465
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_decoder.sv",
+        "role": "rtl",
+        "sha256": "c760094994e096885caf499d2c0b2c75724ab385b7e048adaa50a293afc8a1f5",
+        "size": 51113
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_ex_block.sv",
+        "role": "rtl",
+        "sha256": "aef1db1a4b922f5adc0459fe9ddda6753705e5df3bd979dd6f98f56a9b3d8924",
+        "size": 7645
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_fetch_fifo.sv",
+        "role": "rtl",
+        "sha256": "3e0b48b771055ea50356cdff418decae16e7d9586a7f953e6799112b238bb63c",
+        "size": 10874
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_id_stage.sv",
+        "role": "rtl",
+        "sha256": "e15b581a52e06e521cb814b704abc62c6f260a7e138912c9efb3131f56ddced4",
+        "size": 52137
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_if_stage.sv",
+        "role": "rtl",
+        "sha256": "8b99f212f06aa942e53e8a768863587ffdc29176f5a486c6e273262311c9f6ae",
+        "size": 41722
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_load_store_unit.sv",
+        "role": "rtl",
+        "sha256": "86e156efaf7ac46a351a405d9d2046b7d2e6a60bd206411ef9ae474666338b35",
+        "size": 31058
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_multdiv_fast.sv",
+        "role": "rtl",
+        "sha256": "c86ca819b58b8ce2fc4ff5db887346bcd622b868fb7815fa07dd77119c68c04a",
+        "size": 18521
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_multdiv_slow.sv",
+        "role": "rtl",
+        "sha256": "88b7392d3e2cd1f67f2c39b7425075030c78646cba2409356d6cfce262a46db6",
+        "size": 13669
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_prefetch_buffer.sv",
+        "role": "rtl",
+        "sha256": "988ca05039f033c0eef9feffba996771c3449f255c64d7d78de04e1984249ccc",
+        "size": 9716
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_pmp.sv",
+        "role": "rtl",
+        "sha256": "a564fb312d5337b0875d16f434e8b69348e12c2560548fad93f9270f9c4b9176",
+        "size": 13587
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_wb_stage.sv",
+        "role": "rtl",
+        "sha256": "872d8df3b3f3fd9ba781eabd3897bd3b74d2b3af2d2898ab5799371d05b04e8a",
+        "size": 12780
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_dummy_instr.sv",
+        "role": "rtl",
+        "sha256": "8899ec7fcd6df73d7ea96ad25e73f664ee2ae2a95b2186a36a7ab885e16e292e",
+        "size": 4963
+      },
+      {
+        "language": "systemverilog",
+        "path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_core.sv",
+        "role": "rtl",
+        "sha256": "0805fce5adcb74eccd875005a6f756256da3fbf635d1e7b73820cbf934754275",
+        "size": 108993
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_dv_dv_fcov_macros_0/dv_fcov_macros.svh",
+        "role": "header",
+        "sha256": "d8d02ae47a12d78f611e15e4ab6e14775b55a0bdbb0815f36fbe8ddb242984ae",
+        "size": 4202
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_prim_assert_0.1/rtl/prim_assert.sv",
+        "role": "header",
+        "sha256": "d717d5dbcba3b5aa8a731ef9f8af18b036b49edef282f0a43a51f5ad2dd9bb40",
+        "size": 9966
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_prim_assert_0.1/rtl/prim_assert_dummy_macros.svh",
+        "role": "header",
+        "sha256": "cac4a930105da662547de873f0b80246074fb22df9a398663e1c8ac3e7998218",
+        "size": 1102
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_prim_assert_0.1/rtl/prim_assert_sec_cm.svh",
+        "role": "header",
+        "sha256": "25db89fe5f250c1bcbd808d0b4808206b9e85ac337b26e4ebb23f2ad569e1a13",
+        "size": 7571
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_prim_assert_0.1/rtl/prim_assert_standard_macros.svh",
+        "role": "header",
+        "sha256": "4835706249e017eae999256ea807c526a39a49729196fc0aa18bb8818de86ab6",
+        "size": 6761
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_prim_assert_0.1/rtl/prim_assert_yosys_macros.svh",
+        "role": "header",
+        "sha256": "d1fd8c350785a7c6d8cccc0b0c385392b71575397e7dc58c70f07716c8f9f3a3",
+        "size": 2709
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_prim_assert_0.1/rtl/prim_flop_macros.sv",
+        "role": "header",
+        "sha256": "2e8e6c2ee484899ae5d0020eaf0c9732c31537c60c30cb2a0a0acd2e92baee03",
+        "size": 3576
+      },
+      {
+        "language": "systemverilog-header",
+        "path": "src/lowrisc_prim_secded_0.1/rtl/prim_secded_inc.svh",
+        "role": "header",
+        "sha256": "59591eea595305d0ece809e980ee080990d52f1c4fef564e1a6e9c4f54812c3d",
+        "size": 20397
+      }
+    ],
+    "include_dirs": [
+      "src/lowrisc_dv_dv_fcov_macros_0",
+      "src/lowrisc_prim_assert_0.1/rtl",
+      "src/lowrisc_prim_secded_0.1/rtl"
+    ],
+    "provenance": {
+      "commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e",
+      "execution_profile": "synthesis",
+      "import": "pinned-fusesoc-resolved",
+      "license_spdx": "Apache-2.0",
+      "name": "Ibex minimal RV32I qualification fixture",
+      "parameter_specialization": {
+        "input_sha256": "e35f51762fb1039769a38645342e24854d5a82d5962a251df434233b90677628",
+        "note": "Immutable source validation is retained; this is a separate execution-profile artifact.",
+        "output_sha256": "0805fce5adcb74eccd875005a6f756256da3fbf635d1e7b73820cbf934754275",
+        "parameters": {
+          "DbgTriggerEn": 0,
+          "RV32B": "none",
+          "RV32E": 0,
+          "RV32M": "none",
+          "RV32ZC": "zca",
+          "SecureIbex": 0
+        },
+        "schema": "ibex-specialization/v1",
+        "source_path": "src/lowrisc_ibex_ibex_core_0.1/rtl/ibex_core.sv",
+        "transforms": [
+          {
+            "from": "1'b0",
+            "parameter": "RV32E",
+            "to": "1'b0"
+          },
+          {
+            "from": "RV32MFast",
+            "parameter": "RV32M",
+            "to": "RV32MNone"
+          },
+          {
+            "from": "RV32BNone",
+            "parameter": "RV32B",
+            "to": "RV32BNone"
+          },
+          {
+            "from": "RV32ZcaZcbZcmp",
+            "parameter": "RV32ZC",
+            "to": "RV32Zca"
+          },
+          {
+            "from": "1'b0",
+            "parameter": "DbgTriggerEn",
+            "to": "1'b0"
+          },
+          {
+            "from": "1'b0",
+            "parameter": "SecureIbex",
+            "to": "1'b0"
+          }
+        ],
+        "upstream_source_preserved": true
+      },
+      "role": "qualification target",
+      "upstream": "https://github.com/lowRISC/ibex.git"
+    },
+    "testbenches": [],
+    "top_module": "ibex_core"
+  },
+  "status": "success",
+  "tool_identity": "sv2v ddaa7ff"
+}

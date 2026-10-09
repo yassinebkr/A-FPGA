@@ -1,0 +1,29 @@
+services:
+  # Host setup (Debian 13): sudo apt install -y docker.io docker-compose
+  # (trixie's "docker-compose" package IS Compose v2 — there is no docker-compose-v2)
+  backend:
+    build: { context: ., dockerfile: Dockerfile }
+    environment:
+      KIMI_API_KEY: ${KIMI_API_KEY}          # from host env / .env, never baked in
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}   # optional, only for openrouter-* registry entries
+      SCPATH: /data/siliconcompiler
+      SC_BUILDS: /data/sc_builds
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - ${SC_DATA_HOST:-sc_data}:/data       # builds + PDK cache persist across rebuilds
+      - sc_cache:/home/agent/.sc             # lambdapdk downloads
+      - ./backend/projects:/app/backend/projects   # project history survives rebuilds
+      - ./backend/logs:/app/backend/logs           # backend.log survives rebuilds
+      - ./backend/data:/app/backend/data           # jobs DB + tool cache + wizard keys survive rebuilds
+    ports: ["127.0.0.1:8001:8000"]           # host 8001 (8000 belongs to the host dev backend)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_BACKEND_PORT: "8001"            # baked into the SPA bundle at build time
+    ports: ["127.0.0.1:3000:80"]
+    depends_on: { backend: { condition: service_healthy } }
+volumes:
+  sc_data: {}
+  sc_cache: {}

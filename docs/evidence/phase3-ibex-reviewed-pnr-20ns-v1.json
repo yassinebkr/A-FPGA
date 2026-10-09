@@ -1,0 +1,62 @@
+{
+  "clock_period_ns": 20.0,
+  "congestion_report": "/mnt/cold-hdd/sc_builds/phase3-ibex-reviewed-pnr-20ns-v1/ibex_core/job0/route.global/0/reports/route/ibex_core.congestion.rpt",
+  "congestion_report_sha256": "c242356dc64230523238c98f255c1a2707f9ea8b79a20f21078808458904af23",
+  "consumed_sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+  "decision": "fail_closed_no_promotion",
+  "detailed_route_violations": null,
+  "last_complete_placement_metrics": {
+    "design_area_um2": 68478,
+    "setup_slack_ns": -4.28,
+    "utilization_percent": 48
+  },
+  "log": "/mnt/cold-hdd/riscv-qualification/phase3-ibex-reviewed-pnr-20ns-v1.log",
+  "log_sha256": "a28b0870a562f9f611f1426df75de4ee6cd4a36927897b4e8adfd495b7a45bb8",
+  "manifest": "/mnt/cold-hdd/sc_builds/phase3-ibex-reviewed-pnr-20ns-v1/ibex_core/job0/ibex_core.pkg.json",
+  "manifest_sha256": "69cdebb1fa7206b5851246e2e4a6eb4e4a8a2075e554dba22e736a3ce95e22c3",
+  "missing_terminal_evidence": [
+    "detailed routing",
+    "final setup and hold timing",
+    "final electrical-rule reports",
+    "DRC",
+    "antenna",
+    "GDS and final physical netlist",
+    "post-layout equivalence",
+    "SDF simulation"
+  ],
+  "outcome": "routing_congestion",
+  "pnr_completed": false,
+  "product_frequency_goal_mhz": 50.0,
+  "remaining_antenna_violations": null,
+  "retry_launched": false,
+  "reviewed_sdc": "/mnt/cold-hdd/sc_builds/phase3-ibex-reviewed-pnr-20ns-v1/ibex_core.sdc",
+  "reviewed_sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+  "route_metrics": {
+    "aggregate_usage_percent": 64.5,
+    "horizontal_overflow": 4,
+    "routed_nets": 10099,
+    "total_overflow": 46,
+    "vertical_overflow": 5,
+    "vias": 73011,
+    "wirelength_um": 515243
+  },
+  "run_id": "phase3-ibex-reviewed-pnr-20ns-v1",
+  "schema": "bounded-pnr-run/v1",
+  "signoff_claimed": false,
+  "source_artifact": "/mnt/cold-hdd/phase2-sv2v/.f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5.sv2v-output/ibex_core.v",
+  "source_artifact_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "status": "failed",
+  "synthesis_strategy": "AREA3",
+  "target": "skywater130_demo",
+  "terminal_checkpoint": "/mnt/cold-hdd/sc_builds/phase3-ibex-reviewed-pnr-20ns-v1/ibex_core/job0/route.global/0/reports/route/ibex_core.globalroute-error.odb",
+  "terminal_checkpoint_sha256": "23118014e160cfbd467f909dd3bf50fe88ff6d6554bdca1f70a84af13ad90bdf",
+  "terminal_stage": "route.global",
+  "tool_versions": {
+    "klayout": "0.30.0",
+    "openroad": "26Q2",
+    "opensta": "3.1.0",
+    "siliconcompiler": "0.38.7",
+    "yosys": "0.52"
+  },
+  "top_module": "ibex_core"
+}

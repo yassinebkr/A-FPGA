@@ -1,0 +1,15 @@
+--- a/tools/openroad/_apr.py
++++ b/tools/openroad/_apr.py
+@@ -2396,6 +2396,12 @@
+                             value *= or_unit
+                             or_unit = None
+ 
++                    # Newer OpenROAD reports utilization as -1 (sentinel) when no
++                    # floorplan/die area exists yet; recording it would violate the
++                    # schema range (0..), so skip negative utilization values.
++                    if metric == 'utilization' and value < 0:
++                        or_use = False
++
+                     if or_use:
+                         self.record_metric(metric, value, source_file=get_metric_sources(metric),
+                                            source_unit=or_unit)

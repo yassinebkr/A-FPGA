@@ -1,0 +1,22 @@
+VERSION 5.8 ;
+DESIGN counter8 ;
+UNITS DISTANCE MICRONS 1000 ;
+DIEAREA ( 0 0 ) ( 0 6100 ) ( 9200 6100 ) ( 9200 0 ) ;
+
+ROW ROW_0 sky130_fd_sc_hd__site_1pron 0 0 N DO 20 BY 1 STEP 460 0 ;
+ROW ROW_1 sky130_fd_sc_hd__site_1pron 0 2720 FS DO 20 BY 1 STEP 460 0 ;
+
+COMPONENTS 3 ;
+    - _ff0_ sky130_fd_sc_hd__dfxtp_1 + PLACED ( 460 0 ) N ;
+    - _slice_ alu_slice + FIXED ( 460 2720 ) N ;
+    - _and0_ sky130_fd_sc_hd__and2_0 + PLACED ( 1380 0 ) N ;
+    - _macro_ram_ unplaced_macro ;
+END COMPONENTS
+
+PINS 3 ;
+    - clk ( * INPUT ) + NET clk + PLACED ( 0 1360 ) N ;
+    - rst_n ( * INPUT ) + NET rst_n + PLACED ( 0 4080 ) N ;
+    - q ( * OUTPUT ) + NET q + PLACED ( 9200 1360 ) N ;
+END PINS
+
+END DESIGN

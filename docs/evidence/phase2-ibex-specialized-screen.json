@@ -1,0 +1,42 @@
+{
+  "schema": "known-core-screen/v1",
+  "core": "ibex_core",
+  "source_commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e",
+  "parent_manifest_digest": "367870e1a90f85b1b82ed2d067c26154b0dbfee0e9c95abc302ee9806a03c394",
+  "specialized_manifest_digest": "f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5",
+  "sv2v_output_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "configuration": {
+    "base_isa": "RV32I",
+    "RV32E": 0,
+    "RV32M": "none",
+    "RV32B": "none",
+    "RV32ZC": "zca",
+    "DbgTriggerEn": 0,
+    "SecureIbex": 0,
+    "note": "This pinned Ibex revision cannot disable compressed instructions entirely; RV32Zca is its minimum supported setting."
+  },
+  "screen": {
+    "target": "skywater130_demo",
+    "flow": "synthesis + static timing",
+    "synthesis_strategy": "AREA3",
+    "clock_port": "clk_i",
+    "clock_period_ns": 20.0,
+    "setup_slack_ns": -11.01,
+    "hold_slack_ns": 0.03,
+    "fmax_mhz": 32.25,
+    "logic_depth": 38,
+    "cells": 8967,
+    "registers": 804,
+    "cell_area_um2": 61277.51971599578,
+    "estimated_power_mw": 7.34,
+    "unconstrained_endpoints": 0,
+    "manifest_path": "/mnt/cold-hdd/sc_builds/phase2-ibex-specialized-area3/ibex_core/job0/ibex_core.pkg.json"
+  },
+  "outcome": "screen_completed_timing_failed",
+  "limitations": [
+    "The skywater130_demo target is open screening data, not a production signoff library.",
+    "AREA3 is area-oriented and this run is synthesis plus STA, not place-and-route.",
+    "The generic SDC reports one input-delay warning and is replaced by reviewed constraints in Phase 3.",
+    "sv2v conversion equivalence and independent ISA/formal qualification remain open."
+  ]
+}

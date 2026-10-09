@@ -1,0 +1,740 @@
+{
+  "adapter_limitations": [
+    "Target corner, voltage, and temperature are metadata; SiliconCompiler target selection binds libraries.",
+    "Asynchronous reset recovery/removal is not proven by the false-path constraint."
+  ],
+  "constraint_sha256": "bb30bb74dbb2e50fa4bfc69f0328c9a46c13ec4c2415a3fd692ab210ecce3d2b",
+  "constraints": {
+    "assumptions": [
+      "50 MHz screening target with a 20 ns primary clock.",
+      "Functional inputs and outputs use 20 percent of the period as maximum external delay.",
+      "Skywater demo slow-corner metadata is screening evidence, not foundry signoff.",
+      "No multicycle timing exception is assumed.",
+      "The converted artifact fixes BaseIsa=RV32I; cheriot_enable_i is case-analyzed Off. This is a profile assumption, not a false path."
+    ],
+    "case_analysis": [
+      {
+        "port": "cheriot_enable_i[*]",
+        "reason": "BaseIsa is fixed to RV32I in this artifact; CHERIoT is not part of the qualified hardware profile.",
+        "value": 0
+      }
+    ],
+    "clocks": [
+      {
+        "name": "clk_i",
+        "period_ns": 20.0,
+        "port": "clk_i",
+        "virtual": false,
+        "waveform_fall_ns": null,
+        "waveform_rise_ns": 0.0
+      }
+    ],
+    "electrical_limits": {
+      "max_capacitance_pf": 0.2,
+      "max_fanout": 32.0,
+      "max_transition_ns": 1.5
+    },
+    "false_paths": [
+      {
+        "from_path": "rst_ni",
+        "reason": "asynchronous active-low reset; recovery/removal requires a dedicated check",
+        "through": null,
+        "to_path": null
+      }
+    ],
+    "input_drives": [
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "hart_id_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "boot_addr_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "cheriot_enable_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "instr_gnt_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "instr_rvalid_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "instr_rdata_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "instr_err_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "data_gnt_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "data_rvalid_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "data_rdata_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "data_tag_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "data_err_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "rf_rdata_a_ecc_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "rf_rdata_b_ecc_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "rf_rcap_a_ecc_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "rf_rcap_b_ecc_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "ic_tag_rdata_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "ic_data_rdata_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "ic_scr_key_valid_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "irq_software_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "irq_timer_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "irq_external_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "irq_fast_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "irq_nm_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "debug_req_i"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "fetch_enable_i[*]"
+      },
+      {
+        "library_cell": "sky130_fd_sc_hd__buf_4",
+        "port": "mcounteren_writable_i[*]"
+      }
+    ],
+    "io_delays": [
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "hart_id_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "boot_addr_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "cheriot_enable_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "instr_gnt_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "instr_rvalid_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "instr_rdata_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "instr_err_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_gnt_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_rvalid_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_rdata_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_tag_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_err_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_rdata_a_ecc_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_rdata_b_ecc_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_rcap_a_ecc_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_rcap_b_ecc_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_tag_rdata_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_data_rdata_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_scr_key_valid_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "irq_software_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "irq_timer_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "irq_external_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "irq_fast_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "irq_nm_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "debug_req_i"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "fetch_enable_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "input",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "mcounteren_writable_i[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "instr_req_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "instr_addr_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_req_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_we_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_be_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_addr_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_wdata_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "data_tag_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "dummy_instr_id_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "dummy_instr_wb_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_raddr_a_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_raddr_b_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_waddr_wb_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_we_wb_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_wdata_wb_ecc_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "rf_wcap_ecc_wb_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_tag_req_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_tag_write_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_tag_addr_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_tag_wdata_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_data_req_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_data_write_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_data_addr_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_data_wdata_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "ic_scr_key_req_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "irq_pending_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "crash_dump_o[*]"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "double_fault_seen_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "alert_minor_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "alert_major_internal_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "alert_major_bus_o"
+      },
+      {
+        "clock": "clk_i",
+        "direction": "output",
+        "max_delay_ns": 4.0,
+        "min_delay_ns": 0.0,
+        "port": "core_busy_o[*]"
+      }
+    ],
+    "multicycle_paths": [],
+    "output_loads": [
+      {
+        "capacitance_pf": 0.03,
+        "port": "instr_req_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "instr_addr_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "data_req_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "data_we_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "data_be_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "data_addr_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "data_wdata_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "data_tag_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "dummy_instr_id_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "dummy_instr_wb_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "rf_raddr_a_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "rf_raddr_b_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "rf_waddr_wb_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "rf_we_wb_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "rf_wdata_wb_ecc_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "rf_wcap_ecc_wb_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_tag_req_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_tag_write_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_tag_addr_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_tag_wdata_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_data_req_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_data_write_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_data_addr_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_data_wdata_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "ic_scr_key_req_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "irq_pending_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "crash_dump_o[*]"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "double_fault_seen_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "alert_minor_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "alert_major_internal_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "alert_major_bus_o"
+      },
+      {
+        "capacitance_pf": 0.03,
+        "port": "core_busy_o[*]"
+      }
+    ],
+    "schema_version": "constraints/v1",
+    "target": {
+      "corner": "slow",
+      "device": "skywater130_demo",
+      "library": "sky130_fd_sc_hd",
+      "process": "sky130",
+      "temperature_c": -40.0,
+      "voltage_v": 1.4
+    },
+    "uncertainties": [
+      {
+        "clock": "clk_i",
+        "hold_ns": 0.25,
+        "setup_ns": 0.25
+      }
+    ]
+  },
+  "ibex_commit": "654ac71f91f7da5dc71942c9ba8d3103666c484e",
+  "port_audit": {
+    "artifact_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+    "clock": {
+      "disposition": "primary_clock",
+      "port": "clk_i"
+    },
+    "coverage": "complete",
+    "functional_input_count": 27,
+    "output_count": 32,
+    "port_count": 61,
+    "reset": {
+      "disposition": "asynchronous_reset_false_path",
+      "limitation": "recovery/removal requires a dedicated check",
+      "port": "rst_ni"
+    },
+    "schema": "ibex-phase3-port-audit/v1",
+    "top_module": "ibex_core"
+  },
+  "schema": "ibex-phase3-constraints/v1",
+  "sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+  "source_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be"
+}

@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pydantic
+openai
+websockets
+httpx
+pytest
+siliconcompiler
+python-dotenv
+aiosqlite
+cocotb-coverage==2.0.0
+cocotb>=2.0,<3
+fusesoc==2.4.7
