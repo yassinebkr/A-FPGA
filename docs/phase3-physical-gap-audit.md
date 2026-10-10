@@ -115,6 +115,13 @@ The Phase 3 execution order is:
 
 ## Phase boundary
 
+**Decision (2026-10-10): this bounded Sky130 demo-PDK milestone is closed.**
+The closure records a failed physical-acceptance result and a successful
+platform-learning result. The v3 evidence below is the frozen comparison
+baseline. Sky130 stays supported for deterministic regressions and the separate
+Tiny Tapeout provider flow; repeated tuning of this Ibex/demo-library candidate
+requires a new, documented technical hypothesis.
+
 The reviewed-constraint Phase 3 candidate now completes placement, CTS, global
 routing, detailed routing and view generation. The routability blocker is closed.
 Physical acceptance remains open because setup, hold and max-slew checks fail.

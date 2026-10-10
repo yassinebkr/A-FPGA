@@ -1,6 +1,6 @@
 # Manufacturable multi-file design roadmap  -  implementation handoff
 
-Status: Phases 1-2 COMPLETE; Phase 3 BOUNDED P&R ATTEMPT COMPLETE but physical closure remains open; Phases 4-5 NOT STARTED. The completed S1-S8 stabilization plan has been replaced. Its evidence remains in `docs/s8-matmul-qualification-audit.md`, `docs/roadmap.md`, tests, and run artifacts.
+Status: Phases 1-2 COMPLETE; Phase 3 CLOSED AS A BOUNDED SKY130 DEMO-PDK MILESTONE WITH PHYSICAL ACCEPTANCE FAILING; Phases 4-5 NOT STARTED. The completed S1-S8 stabilization plan has been replaced. Its evidence remains in `docs/s8-matmul-qualification-audit.md`, `docs/roadmap.md`, tests, and run artifacts.
 Created: 2026-10-05.
 
 ## Purpose and execution rules
@@ -101,7 +101,7 @@ Exit: explicit constraints exist, no electrical/floating-net violation is unexpl
 
 ## Phase 3  -  Close physical-evidence gaps on the Phase 2 qualified core
 
-Implementation status: BOUNDED P&R COMPLETED — PHYSICAL ACCEPTANCE FAILS ON TIMING AND SLEW (updated 2026-10-10). See `docs/phase3-physical-gap-audit.md`.
+Implementation status: CLOSED AS A BOUNDED SKY130 DEMO-PDK MILESTONE — PHYSICAL ACCEPTANCE FAILS ON TIMING AND SLEW (updated 2026-10-10). See `docs/phase3-physical-gap-audit.md`.
 Phase 2 provides the unchanged Ibex baseline, accepted native-to-converted
 equivalence, independent ISA/lint/formal evidence, and one completed bounded P&R
 screen. This admits Phase 3 without claiming physical qualification or signoff.
@@ -128,6 +128,23 @@ overdriven, and functional unconstrained counts remain zero. The candidate
 fails closed and is retained as diagnostic evidence. The next timing action is
 an exact critical-path architectural/configuration review; further tuning of
 the same physical controls is outside the bounded experiment.
+
+### Sky130 milestone closure decision
+
+The Sky130 exploration is frozen at the v3 repair evidence. It established a
+reproducible RTL-to-GDS engineering path, reviewed constraints, durable physical
+reports, clean detailed-route DRC and antenna counts, and fail-closed acceptance
+gates. It also located the present Ibex limit: 45.00 MHz with -2.22 ns setup,
+-0.03 ns hold, and 106 max-slew violations. These measurements remain screening
+evidence from the open demo library and slow corner.
+
+Sky130 remains available as a deterministic regression backend and for the
+separate Tiny Tapeout provider flow. Routine work must not launch another Ibex
+Sky130 optimization run unless a written hypothesis changes the architecture,
+core configuration, library/corner, constraint model, or physical methodology.
+The next roadmap decision is the architecture and implementation-target matrix
+for the larger SoC direction. Frequency goals will be stated per target and per
+evidence level.
 
 ## Phase 4  -  Tiny Tapeout wrapper and official hardening
 

@@ -68,3 +68,17 @@ Current limitations that remain important when interpreting results:
 - The local Tiny Tapeout hardening result is not provider acceptance or foundry signoff; cloud submission and provider review remain pending.
 - A shared-wafer price estimate is not a manufacturing commitment. The exact shuttle, PDK, IO/wrapper contract, die limits, rule decks, and provider checks must be selected before purchase.
 - The agent is still local-only and single-user. No network deployment should be inferred from the current UI or API.
+
+## Sky130 milestone boundary
+
+The bounded Sky130 demo-PDK exploration is closed as of 2026-10-10. Its frozen
+Ibex comparison baseline is the routed v3 repair candidate: 45.00 MHz, -2.22 ns
+setup, -0.03 ns hold, 106 max-slew violations, and zero reported detailed-route
+DRC, antenna, capacitance, floating-net, overdriven-net, and functional
+unconstrained-endpoint violations. Physical acceptance therefore fails.
+
+Sky130 remains a supported regression and Tiny Tapeout implementation target.
+New optimization experiments require an explicit change hypothesis and a fresh
+evidence budget. The next planning gate selects the scalable core/SoC
+architecture and target-technology profiles; each profile will carry its own
+frequency, verification, physical-evidence, and signoff expectations.
