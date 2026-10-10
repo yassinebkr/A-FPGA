@@ -148,7 +148,7 @@ evidence level.
 
 ## Phase 4  -  Define and qualify the open microcontroller
 
-Implementation status: NOT STARTED. The upstream Croc architecture, verification and IHP flow audit is complete; see `docs/croc-reference-audit.md`.
+Implementation status: DEFINITION IN DISCUSSION. This is a platform-qualification milestone intended for later extraction into a separate derived MCU repository. The upstream Croc architecture, verification and IHP flow audit is complete; see `docs/croc-reference-audit.md` and `docs/open-mcu-milestone-definition.md`.
 
 1. Freeze the product contract: license, RV32 ISA profile, privilege and exception behavior, debug, interrupts, pipeline, memory map, boot, bus, peripherals, clocks, resets, power intent, IO and modification boundaries.
 2. Select the implementation profiles. IHP SG13G2 is the leading open physical candidate and must pass a versioned PDK/library/MPW-readiness review. A separate simulation profile remains technology-independent.

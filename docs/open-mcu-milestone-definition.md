@@ -1,0 +1,80 @@
+# Open MCU milestone definition
+
+Status: DISCUSSION — architecture decisions are intentionally open.
+
+## Position in the project
+
+The open microcontroller is a milestone for qualifying the autonomous FPGA/ASIC
+design platform across a complete, realistic silicon lifecycle. It exercises
+multi-file architecture, independent verification, firmware, synthesis,
+physical design, manufacturing preparation, packaged-silicon bring-up and
+revision management.
+
+This repository remains the platform repository. The microcontroller is
+expected to become a separate derived project once its architecture and
+evidence are sufficiently mature. That future repository will own the MCU's
+product identity, releases, governance, documentation, firmware distribution
+and silicon revisions. Until that split is approved, MCU work stays clearly
+identified as milestone evidence inside this repository.
+
+The frequency objectives are 250 MHz as the primary target and 500 MHz as a
+technology-dependent stretch target. Neither is a tape-out claim until backed
+by the selected PDK, libraries, memories, corners, constraints and post-route
+evidence.
+
+## Reference position
+
+Croc is the pinned known-silicon reference and regression control described in
+[the Croc audit](croc-reference-audit.md). Its hierarchy, wrappers,
+reproducible manifests and open physical flow inform the milestone. The MCU
+architecture and verification ownership remain independent.
+
+## Decision sequence
+
+Each point is discussed and recorded before the next point is frozen. No
+product RTL generation starts during this definition sequence.
+
+1. **ISA and software contract**
+   Freeze the exact RV32 profile, privilege expectations, atomicity needs,
+   toolchain ABI, exception behavior and software compatibility target.
+
+2. **Core and pipeline architecture**
+   Compare CVE2, Ibex and CV32E40P-class options, register-file choices and
+   pipeline depths using modification boundaries, verification maturity,
+   area and technology timing evidence.
+
+3. **Execution, control and safety behavior**
+   Freeze reset, traps, interrupts, debug, counters, protection, boot modes
+   and deterministic fault behavior.
+
+4. **Interconnect and extension contract**
+   Select the internal bus, arbitration rules, address-map ownership,
+   peripheral protocol and accelerator/user-domain boundary.
+
+5. **Memory system and boot chain**
+   Size ROM and SRAM from software needs and available technology macros;
+   define initialization, firmware loading, execute-in-place expectations and
+   technology-independent wrappers.
+
+6. **Peripheral, IO and package baseline**
+   Choose the minimum useful peripheral set and derive clocks, resets, pads,
+   pin budget, package assumptions, test access and board-level needs.
+
+7. **Technology and frequency feasibility matrix**
+   Evaluate the selected architecture at 100, 150, 200 and 250 MHz across
+   declared corners and physical assumptions. Treat 500 MHz as a separate
+   profile requiring its own technology and architecture decision.
+
+8. **Verification, release and repository split gates**
+   Define ISA compliance, independent references, coverage, formal, CDC/RDC,
+   equivalence, DRC/LVS, post-layout and bring-up evidence. Define the exact
+   maturity threshold and provenance package that permits creating the derived
+   MCU repository.
+
+## Phase exit
+
+This definition phase closes when all eight decisions are reviewed, their
+tradeoffs and open risks are durable, a core/SoC architecture is selected, and
+the 250 MHz objective has a measured technology plan. The next phase can then
+implement a bounded MCU baseline within the platform while preserving a clean
+future extraction boundary.

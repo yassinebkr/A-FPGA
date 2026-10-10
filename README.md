@@ -4,7 +4,7 @@ A full-stack system for an autonomous hardware-engineering agent. It turns a har
 
 The long-term objective is manufacturable hardware; the agent-generated Verilog is a means toward it. The current SiliconCompiler demo flows serve engineering exploration, and silicon signoff requires a vendor-approved flow (see [Assurance levels](#assurance-levels)).
 
-The active product milestone is an open, modifiable 32-bit RISC-V microcontroller taken through fabrication, packaged-silicon bring-up and documented revisions. Its primary clock objective is 250 MHz, with 500 MHz retained as a technology-dependent stretch objective. A Linux-capable RV64 SoC around 1 GHz is a future milestone after this complete silicon loop.
+The active platform milestone is an open, modifiable 32-bit RISC-V microcontroller taken through fabrication, packaged-silicon bring-up and documented revisions. It qualifies the platform end to end and is intended to become a separate derived project once mature. This repository remains the autonomous FPGA/ASIC design platform. The milestone targets 250 MHz, with 500 MHz retained as a technology-dependent stretch objective. A Linux-capable RV64 SoC around 1 GHz is a future milestone after this complete silicon loop.
 
 ## Contents
 
