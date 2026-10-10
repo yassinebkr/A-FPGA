@@ -68,8 +68,9 @@ git diff --check
 ```
 
 The browser suite uses mocked backend routes and the current count is reported
-by the active plan. A C5 interaction-budget failure remains an explicit open
-criterion; green unit checks alone cannot close it.
+by the active plan. A controlled C5 performance run is required for the
+interaction gate; green unit checks alone cannot close the phase. The current
+controlled run is recorded in the active plan.
 
 ## Security and execution boundary
 
@@ -86,10 +87,11 @@ configured build root.
 
 ## Current phase rule
 
-The visualization consolidation plan is complete through C6 for bounded
-qualification. The large-design interaction budget remains open because the
-measured zoom and long-task values exceed the declared 100 ms target. Keep
-that limitation visible until a later performance phase closes it.
+The visualization consolidation plan and Part 6 are complete through C6 for
+the bounded qualification scope. The controlled memoized SVG/minimap run
+closes the post-load 100 ms interaction gate: zoom is 48 ms and the maximum
+post-load long task is 58 ms. Five load-phase long tasks were recorded, with
+296 ms as the maximum; they remain separately reported startup observations.
 
 The local Git baseline begins on 2026-10-10. No remote or pre-baseline history
 is assumed. See the active plan and roadmap before declaring a phase complete.

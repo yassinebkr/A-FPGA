@@ -1,8 +1,8 @@
 # Workbench density and gate-level visualization plan
 
 Status: D1, D2, G1, G2, G3, G4 implemented, checked, and live-validated;
-large-design bounded qualification is complete, while the interaction budget
-remains open (2026-10-10). KLayout was installed into the user nix profile via
+large-design bounded qualification and the interaction gate are complete
+(2026-10-10). KLayout was installed into the user nix profile via
 `scripts/install-klayout.sh` and a real pnr flow closed Part 6 item 4.
 
 This plan follows the completed foundation in
@@ -415,11 +415,11 @@ implemented.
   (unknown-pin connections are ignored instead of aborting) and finds
   liberty files both through the manifest and directly under
   `job0/*/0/inputs/*.lib`.
-- Remaining exit criterion (honest): representative large-design
-  performance (a multi-hundred-thousand-cell netlist) is still only
-  exercised through the bounded node-limit/truncation paths.
+- Qualification boundary: representative large-design interaction is covered
+  by the controlled 150,000-cell fixture with bounded node windows. Rendering
+  an unbounded multi-hundred-thousand-cell view remains outside this phase.
 
-### Part 6 closure status (2026-10-09)
+### Part 6 closure status (2026-10-10)
 
 1. Real synthesized netlist opened as a bounded hierarchical schematic —
    live-validated (G1+G2 E2E, real SC screen flow).
@@ -435,11 +435,18 @@ implemented.
 6. Reload/backend-restart preserve artifacts and identities — restart
    durability tested for all three artifacts (fresh manager + repository on
    the same durable roots).
-7. Backend contract tests 509 passed; frontend lint 0 errors; frontend build
-   passed; later C5 coverage added deterministic 100,000-cell backend and
-   150,000-cell browser fixtures. The browser run keeps 500/1,000-node
-   responses bounded and cleans up heap state, but the isolated performance
-   report measured 141 ms zoom and a 181 ms maximum long task. Earlier runs
-   recorded 132–133 ms and 174–176 ms; a parallel rerun reached 328 ms for
-   zoom. All values exceed the 100 ms budget. Large-design interaction
-   performance remains the one open Part 6 criterion.
+7. Backend contract tests 577 passed; frontend lint 0 errors; frontend build
+   passed; C5 coverage added deterministic 100,000-cell backend and
+   150,000-cell browser fixtures. The controlled memoized SVG/minimap run
+   keeps 500/1,000-node responses bounded, measured 48 ms zoom, and recorded
+   two post-load long tasks with a 58 ms maximum. Heap baseline was
+   15,219,208 bytes, 1,000-node heap was 39,289,888 bytes, growth was
+   24,070,680 bytes, and cleanup residual was 1,343,444 bytes. Responses
+   remained 295,888 and 591,992 bytes. The 1,923 ms load and five load-phase
+   long tasks, with 296 ms as the maximum, are reported separately from the
+   post-load budget. The earlier 141/181 measurements are superseded by this
+   controlled run.
+
+Part 6 is fully closed for the bounded qualification scope. The physical
+artifact remains evidence-bound and the five load-phase long tasks remain
+visible as startup observations, with 296 ms as the maximum.

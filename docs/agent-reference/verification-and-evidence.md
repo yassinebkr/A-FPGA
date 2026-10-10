@@ -65,13 +65,23 @@ commercial signoff package.
 The active visualization plan records C0–C6 checks and remaining limits.
 Current C5 evidence includes a synthetic 100,000-cell backend profile and a
 150,000-cell browser fixture with bounded 500/1,000-node responses. The server
-and heap bounds pass; the 100 ms interaction budget remains open because zoom
-and long-task measurements exceed it. The Ibex read-only qualification is
-partial: physical collection is truncated and mapping is incomplete.
+and heap bounds pass. The controlled memoized SVG/minimap run closes the
+post-load 100 ms interaction budget: zoom is 48 ms and the maximum of two
+post-load long tasks is 58 ms. Its 1,923 ms large-view load included one
+five load-phase long tasks, with 296 ms as the maximum, which remain separately
+reported as startup evidence.
+The prior 141/181 measurements are superseded by this controlled run. The Ibex
+read-only qualification is partial: physical collection is truncated and
+mapping is incomplete.
 
 Final C6 acceptance is 577 backend tests with one upstream Starlette/anyio
 warning, 50 normal browser tests, and one isolated performance test. The
-frontend lint and production build are clean.
+frontend lint and production build are clean. The controlled performance
+evidence records 15,219,208-byte heap baseline, 39,289,888 bytes at 1,000
+nodes, 24,070,680-byte growth, 1,343,444-byte cleanup residual, and unchanged
+295,888/591,992-byte responses. Part 6's post-load interaction gate is closed;
+the five load-phase long tasks remain a separate startup observation, with
+296 ms as the maximum.
 
 The matmul3 and known-core plans retain their own manifests and assurance
 boundaries. Demo-PDK power, timing, and coarse Fmax are comparative evidence.

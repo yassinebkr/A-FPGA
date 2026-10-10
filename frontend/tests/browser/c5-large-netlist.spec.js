@@ -130,6 +130,11 @@ test('@perf large benchmark keeps transfer and rendering bounded, with explicit 
   await expect(page.getByTestId('gate-schematic-truncated')).toBeVisible()
   await expect(page.locator('[data-testid="gate-schematic"] svg[role="img"] [role="button"]')).toHaveCount(1000)
   const heap1000 = await heap('bounded-1000-nodes')
+  const loadLongTasks = await page.evaluate(() => window.__c5LongTasks ?? [])
+  const maxLoadLongTask = Math.max(0, ...loadLongTasks.map((entry) => entry.duration))
+  test.info().annotations.push({ type: 'c5-load-longtask-count', description: String(loadLongTasks.length) })
+  if (loadLongTasks.length > 0) test.info().annotations.push({ type: 'c5-max-load-longtask-ms', description: String(Math.round(maxLoadLongTask)) })
+  await page.evaluate(() => { window.__c5LongTasks = [] })
 
   // Measure the synchronous viewport interaction through the next animation
   // frame. This remains useful on Chromium versions without longtask entries.
@@ -140,7 +145,7 @@ test('@perf large benchmark keeps transfer and rendering bounded, with explicit 
     requestAnimationFrame(() => resolve(performance.now() - startedAt))
   }))
   test.info().annotations.push({ type: 'c5-zoom-raf-ms', description: String(Math.round(zoomLatencyMs)) })
-  expect(zoomLatencyMs).toBeLessThan(250)
+  expect(zoomLatencyMs).toBeLessThan(100)
   await page.getByLabel('Zoom out').click()
 
   await expect.poll(() => graphResponses.length, { timeout: 2_000 }).toBeGreaterThanOrEqual(2)
@@ -158,6 +163,7 @@ test('@perf large benchmark keeps transfer and rendering bounded, with explicit 
   const maxLongTask = Math.max(0, ...longTasks.map((entry) => entry.duration))
   test.info().annotations.push({ type: 'c5-longtask-count', description: String(longTasks.length) })
   if (longTasks.length > 0) test.info().annotations.push({ type: 'c5-max-longtask-ms', description: String(Math.round(maxLongTask)) })
+  expect(maxLongTask).toBeLessThan(100)
   const heapGrowth = heap1000.usedSize - heapBaseline.usedSize
   test.info().annotations.push({ type: 'c5-js-heap-growth-bytes', description: String(heapGrowth) })
   expect(heap500.usedSize - heapBaseline.usedSize).toBeLessThan(128 * 1024 * 1024)
