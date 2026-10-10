@@ -17,149 +17,18 @@ from __future__ import annotations
 
 import hashlib
 import os
-import re
 from pathlib import Path
 from typing import Any, Mapping
 
-from gate_netlist import GateNetlistError, canonical_bytes, _sha256_json, \
-    _truthy_attribute  # noqa: F401  (_truthy_attribute re-exported for parity)
+from gate_netlist import GateNetlistError  # noqa: F401 (public compatibility)
+from visualization_artifacts import (canonical_bytes, load_sealed,
+                                      netlist_identity, seal, unavailable)
 
 SCHEMA_VERSION = "layout-view/v1"
 
-# A routed DEF of a large core can carry hundreds of thousands of components;
-# the indexed view is bounded so the browser never receives an unbounded
-# geometry document by default.
-MAX_COMPONENTS = 20000
-MAX_PINS = 512
-MAX_DEF_BYTES = 256 * 1024 * 1024
-
-_NUMBER = r"-?\d+"
-
-
-class LayoutError(ValueError):
-    """Invalid DEF data, artifact identity, or layout request."""
-
-
-def _normalize_name(name: str) -> str:
-    r"""Unescape a DEF identifier (q\[0\]$FF -> q[0]$FF) and drop the Yosys
-    leading-backslash spelling so netlist names resolve either way."""
-    return name.strip().replace("\\", "").strip()
-
-
-def parse_def(text: str) -> dict[str, Any]:
-    """Parse the bounded subset of LEF/DEF needed for the layout view.
-
-    Extracts design name, units, DIEAREA, ROW statements, COMPONENTS with
-    placement, and PINS with placement.  Malformed statements are skipped,
-    never invented.
-    """
-    if not isinstance(text, str) or not text.strip():
-        raise LayoutError("DEF document is empty")
-
-    units_match = re.search(r"(?im)^UNITS\s+DISTANCE\s+MICRONS\s+(\d+)\s*;", text)
-    units = int(units_match.group(1)) if units_match else 1000
-    design_match = re.search(r"(?im)^DESIGN\s+(\S+)\s*;", text)
-    design = design_match.group(1) if design_match else None
-
-    die = None
-    die_match = re.search(r"(?im)^DIEAREA\s+((?:\(\s*-?\d+\s+-?\d+\s*\)\s*)+);", text)
-    if die_match:
-        coordinates = [int(value) for value in re.findall(r"-?\d+", die_match.group(1))]
-        if len(coordinates) >= 4:
-            xs = coordinates[0::2]
-            ys = coordinates[1::2]
-            die = {"llx": min(xs), "lly": min(ys),
-                   "urx": max(xs), "ury": max(ys)}
-
-    rows = []
-    for match in re.finditer(
-            r"(?im)^ROW\s+(\S+)\s+(\S+)\s+(-?\d+)\s+(-?\d+)\s+(\S+)\s+"
-            r"DO\s+(\d+)\s+BY\s+(\d+)\s+STEP\s+(\d+)\s+(\d+)\s*;", text):
-        rows.append({
-            "name": match.group(1), "site": match.group(2),
-            "x": int(match.group(3)), "y": int(match.group(4)),
-            "orientation": match.group(5),
-            "num_x": int(match.group(6)), "num_y": int(match.group(7)),
-            "step_x": int(match.group(8)), "step_y": int(match.group(9)),
-        })
-
-    components = []
-    unplaced = 0
-    truncated = False
-    section = re.search(r"(?is)COMPONENTS\s+\d+\s*;(.*?)END\s+COMPONENTS", text)
-    if section:
-        for statement in re.finditer(
-                r"-\s+(\S+)\s+(\S+)(.*?);", section.group(1), re.DOTALL):
-            if len(components) >= MAX_COMPONENTS:
-                truncated = True
-                break
-            name = _normalize_name(statement.group(1))
-            macro = statement.group(2)
-            rest = statement.group(3)
-            placed = re.search(r"(FIXED|PLACED)\s*\(\s*(-?\d+)\s+(-?\d+)\s*\)\s+(\S+)", rest)
-            if not name or not macro:
-                continue
-            if placed:
-                components.append({
-                    "name": name, "macro": macro,
-                    "x": int(placed.group(2)), "y": int(placed.group(3)),
-                    "orientation": placed.group(4),
-                })
-            else:
-                unplaced += 1
-
-    pins = []
-    pin_section = re.search(r"(?is)PINS\s+\d+\s*;(.*?)END\s+PINS", text)
-    if pin_section:
-        for statement in re.finditer(
-                r"-\s+(\S+)(.*?);", pin_section.group(1), re.DOTALL):
-            if len(pins) >= MAX_PINS:
-                break
-            body = statement.group(2)
-            name = _normalize_name(statement.group(1))
-            if not name:
-                continue
-            # Direction appears as `+ DIRECTION <dir>` (OpenROUTE DEF) or in
-            # the legacy `( * INPUT )` spelling.
-            direction_match = (re.search(r"\+\s*DIRECTION\s+(INPUT|OUTPUT|INOUT|FEEDTHRU)", body, re.I)
-                              or re.search(r"\(\s*\*\s+(INPUT|OUTPUT|INOUT|FEEDTHRU)\s*\)", body, re.I))
-            net_match = re.search(r"\+\s*NET\s+(\S+)", body)
-            placed = re.search(r"(?:PLACED|FIXED)\s*\(\s*(-?\d+)\s+(-?\d+)\s*\)", body)
-            pins.append({
-                "name": name,
-                "direction": direction_match.group(1).upper() if direction_match else None,
-                "net": _normalize_name(net_match.group(1)) if net_match else None,
-                "x": int(placed.group(1)) if placed else None,
-                "y": int(placed.group(2)) if placed else None,
-            })
-
-    if die is None and not components:
-        raise LayoutError("DEF carries neither a DIEAREA nor placed components")
-
-    return {
-        "design": design, "units": units, "die": die, "rows": rows,
-        "components": components, "unplaced_count": unplaced,
-        "pins": pins, "components_truncated": truncated,
-    }
-
-
-def _nominal_footprint(rows: list[dict[str, Any]]) -> dict[str, int] | None:
-    """The DEF's own rows imply a nominal std-cell footprint.
-
-    A DEF row's STEP carries the site width; the row pitch (difference
-    between consecutive row origins) carries the site height. Exact LEF
-    macro dimensions are deliberately not guessed: the view flags
-    ``nominal_cell_footprint`` so the UI can say the rectangles are nominal.
-    """
-    width = next((row["step_x"] for row in rows if row["step_x"] > 0), None)
-    height = next((row["step_y"] for row in rows if row["step_y"] > 0), None)
-    if height is None and len(rows) >= 2:
-        pitches = sorted({row["y"] for row in rows})
-        deltas = [b - a for a, b in zip(pitches, pitches[1:]) if b > a]
-        height = min(deltas) if deltas else None
-    if width and height:
-        return {"w": width, "h": height}
-    return None
+from physical_def_parser import (MAX_COMPONENTS, MAX_DEF_BYTES, MAX_PINS,
+                                  LayoutError, _nominal_footprint,
+                                  _normalize_name, parse_def)
 
 
 def build_layout_view(def_text: str, *, netlist_artifact: Mapping | None = None,
@@ -179,13 +48,12 @@ def build_layout_view(def_text: str, *, netlist_artifact: Mapping | None = None,
     # schematic selection locates the same instance in the physical view.
     top_module = None
     cell_names: set[str] = set()
+    shared_identity = netlist_identity(netlist_artifact)
     if isinstance(netlist_artifact, Mapping):
-        netlist_identity = netlist_artifact.get("identity") or {}
-        identity["netlist_sha256"] = netlist_identity.get("netlist_sha256")
-        identity["gate_artifact_sha256"] = netlist_artifact.get("artifact_sha256")
-        identity["source_sha256"] = netlist_identity.get("source_sha256")
-        identity["constraints_sha256"] = netlist_identity.get("constraints_sha256")
-        top_module = netlist_identity.get("top_module")
+        identity.update({key: shared_identity.get(key) for key in (
+            "netlist_sha256", "gate_artifact_sha256", "source_sha256",
+            "constraints_sha256")})
+        top_module = shared_identity.get("top_module")
         modules = netlist_artifact.get("modules") or {}
         for name, module in modules.items():
             for cell in (module.get("cells") or []):
@@ -226,33 +94,40 @@ def build_layout_view(def_text: str, *, netlist_artifact: Mapping | None = None,
     }
     if isinstance(violations, Mapping):
         artifact["violations"] = violations
-    artifact["artifact_sha256"] = _sha256_json(artifact)
-    return artifact
+    return seal(artifact)
 
 
 def load_layout_view(data: Any) -> dict[str, Any]:
     """Validate a stored layout-view artifact, verifying its own digest."""
-    if not isinstance(data, Mapping):
-        raise LayoutError("layout view artifact must be an object")
-    if data.get("schema") != SCHEMA_VERSION:
-        raise LayoutError(f"unsupported layout view schema {data.get('schema')!r}")
-    artifact = dict(data)
-    declared = artifact.get("artifact_sha256")
-    if not isinstance(declared, str) or len(declared) != 64:
-        raise LayoutError("layout view artifact digest is invalid")
-    body = {k: v for k, v in artifact.items() if k != "artifact_sha256"}
-    if _sha256_json(body) != declared:
-        raise LayoutError("layout view artifact digest does not match its content")
+    artifact = load_sealed(data, schema=SCHEMA_VERSION,
+                           label="layout view artifact",
+                           error_type=LayoutError)
     if not isinstance(artifact.get("components"), list):
         raise LayoutError("layout view components must be a list")
+    if len(artifact["components"]) > MAX_COMPONENTS:
+        raise LayoutError(f"layout view exceeds {MAX_COMPONENTS} components")
+    names: set[str] = set()
     for component in artifact["components"]:
         if not isinstance(component, Mapping) or not isinstance(component.get("name"), str):
             raise LayoutError("layout view components must carry names")
+        if component["name"] in names:
+            raise LayoutError(f"layout view contains duplicate component {component['name']!r}")
+        names.add(component["name"])
+    pins = artifact.get("pins", [])
+    if not isinstance(pins, list) or len(pins) > MAX_PINS:
+        raise LayoutError(f"layout view pins exceed {MAX_PINS}")
+    pin_names: set[str] = set()
+    for pin in pins:
+        if not isinstance(pin, Mapping) or not isinstance(pin.get("name"), str):
+            raise LayoutError("layout view pins must carry names")
+        if pin["name"] in pin_names:
+            raise LayoutError(f"layout view contains duplicate pin {pin['name']!r}")
+        pin_names.add(pin["name"])
     return artifact
 
 
 def layout_view_unavailable(reason: str) -> dict[str, Any]:
-    return {"schema": SCHEMA_VERSION, "available": False, "reason": reason}
+    return unavailable(SCHEMA_VERSION, reason)
 
 
 def find_final_def(build_dir: str | os.PathLike, top_module: str) -> Path | None:
@@ -298,11 +173,13 @@ def collect_layout_view(build_dir: str | os.PathLike, top_module: str,
         if def_path.suffix == ".gz":
             import gzip
             with gzip.open(def_path, "rb") as handle:
-                def_text = handle.read(MAX_DEF_BYTES + 1).decode("utf-8", errors="replace")
-            if len(def_text) > MAX_DEF_BYTES:
-                return layout_view_unavailable("DEF exceeds the size bound")
+                raw_def = handle.read(MAX_DEF_BYTES + 1)
         else:
-            def_text = def_path.read_text(encoding="utf-8", errors="replace")
+            with def_path.open("rb") as handle:
+                raw_def = handle.read(MAX_DEF_BYTES + 1)
+        if len(raw_def) > MAX_DEF_BYTES:
+            return layout_view_unavailable("DEF exceeds the size bound")
+        def_text = raw_def.decode("utf-8", errors="replace")
         artifact = build_layout_view(
             def_text, netlist_artifact=netlist_artifact, job_id=job_id,
             project=project, clock_period_ns=clock_period_ns,

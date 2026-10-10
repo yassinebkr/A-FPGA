@@ -1,6 +1,6 @@
 # Gate visualization consolidation plan
 
-Status: IN PROGRESS — C0–C2 complete; C3 is next.
+Status: IN PROGRESS — C0–C4 complete; C5 is next.
 
 ## Objective
 
@@ -388,3 +388,136 @@ production build, and complete browser regression gate are green. C2 may begin.
 Fetching, evidence validation, worker layout, viewport behavior, and rendering
 now have narrow independently testable boundaries. User-visible visualization
 contracts and cross-probing behavior remain stable. C3 may begin.
+
+### C4 — complete for frontend bundle/runtime scope (2026-10-10)
+
+#### Bundle and runtime changes
+
+- frontend/src/components/LiveStateDashboard.jsx
+  - Gate schematic and physical layout are loaded through React.lazy and
+    Suspense.
+  - The Visualize surface is mounted on first visit and stays mounted across
+    later tab switches, preserving selection and viewport state.
+  - A bounded chunk-load error state exposes a retry/reload action.
+- frontend/src/components/AgentChat.jsx
+  - The Markdown/GFM renderer is deferred with a dynamic import.
+- frontend/src/components/MarkdownMessage.jsx
+  - Owns the deferred react-markdown and remark-gfm renderer.
+- frontend/tests/browser/g2-gate-schematic.spec.js
+  - Verifies that visualization chunks are absent from the initial project
+    surface.
+  - Verifies a failed schematic chunk produces a recoverable UI state and a
+    fresh load succeeds after the transient failure is removed.
+
+The production bundle measured after C2 at 580.63 kB minified /
+175.51 kB gzip for the main JavaScript chunk. C4 produces a 378.40 kB
+main chunk / 116.68 kB gzip. Visualization output is emitted separately:
+GateSchematic 32.00 kB minified / 9.34 kB gzip and PhysicalLayout
+10.04 kB minified / 3.59 kB gzip. Markdown/GFM is emitted as a deferred
+153.95 kB minified / 45.84 kB gzip chunk. The Vite oversized-chunk warning
+is absent from the C4 build.
+
+#### Design decisions and boundaries
+
+- Dynamic imports were added at the existing workbench boundary. This keeps
+  public props, test IDs, evidence binding, cross-probing, and the established
+  visual design stable.
+- The visualization remains mounted after its first visit. This retains
+  schematic selection and viewport state while keeping graph/layout code out
+  of Sources/Jobs sessions.
+- Markdown was split only after the visualization split left the initial
+  chunk above the 500 kB budget. The renderer remains functionally identical;
+  a plain-text Suspense fallback keeps the message readable during loading.
+- A full router rewrite, speculative memoization, and a visual redesign were
+  rejected because they would expand the phase surface without measured
+  evidence.
+
+#### Acceptance evidence
+
+- cd frontend && npm run lint — zero errors, zero warnings.
+- cd frontend && npm run build — passed; main JavaScript is 378.40 kB
+  minified / 116.68 kB gzip, with separate visualization and Markdown
+  chunks.
+- cd frontend && npm run test:browser — 46 passed in 25.0 seconds.
+- The C4 browser regression specifically passed:
+  npx playwright test tests/browser/g2-gate-schematic.spec.js -g
+  "defers visualization".
+- No paid model call, tool installation, or EDA run was made during C4.
+
+#### C4 closure and limitations
+
+The initial bundle budget and lazy visualization loading criteria are closed.
+The browser suite covers deferred-load failure and recovery. C4 does not close
+the large-netlist qualification, browser memory/long-task measurements, or
+worker performance limits; those remain C5 work. The deferred Markdown chunk is
+still loaded when an assistant message first requires rich rendering.
+
+C4 frontend work is complete. The overall document remains in progress until
+the parent agent integrates and accepts the concurrent C3 backend changes;
+C5 is the next phase after that integration.
+
+
+### C3 — complete (2026-10-10)
+
+#### Backend contract and modularity changes
+
+- `backend/gate_netlist.py` now acts as a compatibility facade while the
+  extracted layers own separate concerns:
+  - `backend/gate_netlist_contract.py` owns canonical JSON, digests, primitive
+    validation, identity rules, and shared request bounds.
+  - `backend/gate_netlist_schema.py` owns persisted artifact validation and
+    summaries.
+  - `backend/gate_netlist_query.py` owns bounded hierarchy/cone graph queries.
+  - `backend/tests/test_gate_netlist_contract.py` verifies the separated
+    contract, schema, query, and facade behavior.
+- `backend/timing_path_parser.py` owns pure OpenSTA report parsing and bounded
+  mapping into gate-graph identifiers. `backend/timing_paths.py` remains the
+  stable artifact builder, loader, collector, and public compatibility facade.
+- `backend/physical_def_parser.py` owns bounded DEF parsing, duplicate
+  component/pin detection, and nominal-footprint derivation.
+  `backend/physical_layout.py` remains the stable artifact builder, loader,
+  collector, and public compatibility facade.
+- `backend/visualization_artifacts.py` centralizes canonical artifact sealing,
+  self-digest validation, unavailable records, and derived-netlist identity
+  construction. Schema-specific collection and field validation remain in the
+  timing/layout modules.
+- `backend/tests/test_visualization_contracts.py` covers parser bounds,
+  report limits, duplicate DEF identifiers, and persisted artifact shape
+  limits.
+
+#### Contract, security, and durability audit
+
+- `timing-paths/v1` and `layout-view/v1` remain unchanged. Existing stored
+  artifacts continue to load through their original public module functions.
+- Self-digests are verified before collection traversal. Invalid schema,
+  digest, collection shape, duplicate identifiers, and oversized collections
+  fail closed with the existing module-specific exception types.
+- OpenSTA input is bounded to 32 reports and 2,000,000 UTF-8 bytes per report.
+  Timing paths and segments retain their existing 64/128 bounds.
+- DEF input is bounded to 256 MiB for both plain and gzip-compressed files;
+  compressed input is bounded before decoding. Components and pins retain
+  explicit 20,000/512 limits. Duplicate component and pin identifiers are
+  rejected rather than merged.
+- Existing evidence persistence, REST loading, digest pinning, and restart
+  paths were exercised through the timing/layout integration tests with fresh
+  `JobManager` and `EvidenceRepository` instances.
+- No migration was required because schema versions and persisted field names
+  remain stable. No paid model call, tool installation, or EDA run was made.
+
+#### Acceptance evidence
+
+- `cd backend && .venv/bin/python -m pytest -q` — **569 passed**, one upstream
+  Starlette/anyio deprecation warning, in 11.87 seconds.
+- Focused C3 suites — **22 passed**, one upstream Starlette/anyio deprecation
+  warning, in 1.18 seconds.
+- `python3 -m py_compile` passed for all extracted and facade modules.
+- `git diff --check` passed for the integrated working tree.
+
+#### C3 closure and limitations
+
+The parser, validation, identity/digest, bounded-query, and persistence
+responsibilities now have independently testable boundaries while preserving
+public APIs and artifact schemas. C3 is complete for the backend contract
+scope. C5 still owns large-netlist qualification, measured parsing/transfer
+latency, browser memory, and long-task limits. Full C4 acceptance remains
+recorded above under its frontend-owned scope.
