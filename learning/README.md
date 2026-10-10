@@ -14,7 +14,7 @@ Les chapitres servent à apprendre. Le contrat normatif reste [le contrat MCU](.
 6. [Périphériques, broches et programmation USB-C](06-peripheriques-et-carte.md)
 7. [Technologie, corners et preuve de fréquence](07-technologie-et-frequence.md)
 
-Le prochain chapitre couvrira la vérification et les critères de séparation du futur projet MCU. Ils seront ajoutés après le verrouillage de leurs décisions.
+Le prochain chapitre couvrira la vérification et les critères de séparation du futur projet MCU. Il sera ajouté après le verrouillage de cette décision.
 
 ## Quelques repères
 
