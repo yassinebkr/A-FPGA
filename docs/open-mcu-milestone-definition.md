@@ -129,6 +129,10 @@ selection remains gated by the reproducible technology comparison in Point 2.
 Implementation now begins as a bounded baseline in Open_MC, while A-FPGA
 qualifies each exact product revision.
 
+The product repository owns the locked licensing and provenance policy. A-FPGA
+must reject qualification evidence whose Open_MC revision lacks a reviewed,
+immutable dependency manifest for imported material.
+
 ## Learning track
 
 The French-language [learning path](../learning/README.md) explains each frozen decision for readers new to processor and silicon design. It is non-normative and grows after each decision is locked; this contract remains the engineering source of truth.
