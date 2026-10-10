@@ -1,6 +1,6 @@
 # Gate visualization consolidation plan
 
-Status: IN PROGRESS — C0–C1 complete; C2 is next.
+Status: IN PROGRESS — C0–C2 complete; C3 is next.
 
 ## Objective
 
@@ -355,3 +355,36 @@ remain optional future owner decisions and do not block C1.
 
 The warning cleanup, hook correctness audit, clean default backend discovery,
 production build, and complete browser regression gate are green. C2 may begin.
+
+### C2 — complete (2026-10-10)
+
+#### Visualization frontend decomposition
+
+- Reduced `GateSchematic.jsx` from 954 to 250 lines. Evidence loading, bounded
+  graph/timing state, worker layout, viewport behavior, toolbar, timing bar,
+  canvas, glyphs, and details now have dedicated modules under
+  `frontend/src/components/gate-schematic/`.
+- Reduced `PhysicalLayout.jsx` from 288 to 41 lines. Network state and viewport
+  behavior moved into `usePhysicalLayout.js`; model helpers, status, toolbar,
+  and canvas now have independent boundaries.
+- Preserved the public component props, REST helpers, artifact digest checks,
+  cancellation guards, request correlation, worker teardown, shared selection,
+  source navigation, keyboard behavior, and existing test IDs.
+- Added browser regressions for a delayed layout response after a job switch
+  and a physical component absent from the bounded netlist graph.
+
+#### Acceptance evidence
+
+- `cd backend && .venv/bin/python -m pytest -q` — **560 passed**, one upstream
+  Starlette/anyio deprecation warning, in 11.92 seconds.
+- `cd frontend && npm run lint` — **zero errors, zero warnings**.
+- `cd frontend && npm run build` — passed; main JS is **580.63 kB** minified /
+  **175.51 kB** gzip. C4 owns visualization lazy loading and the chunk budget.
+- `cd frontend && npm run test:browser` — **45 passed** in 22.9 seconds.
+- No paid model call or EDA run was made during C2.
+
+#### C2 closure
+
+Fetching, evidence validation, worker layout, viewport behavior, and rendering
+now have narrow independently testable boundaries. User-visible visualization
+contracts and cross-probing behavior remain stable. C3 may begin.

@@ -9,7 +9,7 @@ import { ARTIFACT_SHA, NETLIST_SHA, installNetlistMock } from './g2-gate-schemat
 
 const DEF_SHA = '1'.repeat(64)
 
-function layoutDoc({ available = true, netlistSha = NETLIST_SHA } = {}) {
+function layoutDoc({ available = true, netlistSha = NETLIST_SHA, jobId = 'j-a-syn', extraComponents = [] } = {}) {
   if (!available) {
     return { schema: 'layout-view/v1', available: false,
              reason: 'the flow emitted no DEF: no physical implementation exists for this job' }
@@ -17,7 +17,7 @@ function layoutDoc({ available = true, netlistSha = NETLIST_SHA } = {}) {
   return {
     schema: 'layout-view/v1',
     identity: {
-      job_id: 'j-a-syn', netlist_sha256: netlistSha,
+      job_id: jobId, netlist_sha256: netlistSha,
       gate_artifact_sha256: ARTIFACT_SHA, def_sha256: DEF_SHA,
       design: 'counter8', clock_period_ns: 10,
     },
@@ -31,6 +31,7 @@ function layoutDoc({ available = true, netlistSha = NETLIST_SHA } = {}) {
       { name: '_ff0_', macro: 'sky130_fd_sc_hd__dfxtp_1', x: 460, y: 0, orientation: 'N', graph_id: 'cell:_ff0_' },
       { name: '_and0_', macro: 'sky130_fd_sc_hd__and2_0', x: 1380, y: 0, orientation: 'N', graph_id: 'cell:_and0_' },
       { name: '_unmapped_', macro: 'sky130_fd_sc_hd__buf_1', x: 1840, y: 0, orientation: 'N', graph_id: null },
+      ...extraComponents,
     ],
     pins: [
       { name: 'clk', direction: 'INPUT', net: 'clk', x: 0, y: 1360 },
@@ -120,4 +121,56 @@ test('a screening job shows the honest layout-unavailable state', async ({ page 
   await expect(page.getByTestId('physical-layout-reason')).toContainText('no physical implementation')
   // The tab itself reflects the honest availability.
   await expect(page.getByTestId('visualize-subview-layout')).toContainText('unavailable')
+})
+
+test('discards an obsolete layout response after switching jobs', async ({ page }) => {
+  installMockBackend(page)
+  let releaseOldLayout
+  const oldLayoutReleased = new Promise((resolve) => { releaseOldLayout = resolve })
+  page.route('http://127.0.0.1:8000/api/jobs', (route) =>
+    route.fulfill({ json: [
+      { id: 'j-old-syn', kind: 'synthesis', design: 'old_counter', status: 'done', outcome: 'success', session: 'proj-a', created_at: new Date(2_000).toISOString() },
+      { id: 'j-new-syn', kind: 'synthesis', design: 'new_counter', status: 'done', outcome: 'success', session: 'proj-a', created_at: new Date(1_000).toISOString() },
+    ] }))
+  installNetlistMock(page, { jobId: 'j-old-syn' })
+  installNetlistMock(page, { jobId: 'j-new-syn' })
+  page.route(/\/api\/jobs\/([^/]+)\/layout/, async (route) => {
+    const jobId = new URL(route.request().url()).pathname.split('/').at(-2)
+    if (jobId === 'j-old-syn') {
+      await oldLayoutReleased
+      return route.fulfill({ json: layoutDoc({ jobId, extraComponents: [{ name: 'old_only', macro: 'sky130_fd_sc_hd__buf_1', x: 2300, y: 0, orientation: 'N', graph_id: 'cell:old_only' }] }) })
+    }
+    return route.fulfill({ json: { schema: 'layout-view/v1', available: false, reason: 'new job has no physical implementation' } })
+  })
+
+  await page.goto('/')
+  await page.getByText('Alpha', { exact: true }).first().click()
+  await page.getByText('Visualize', { exact: true }).click()
+  await page.getByTestId('visualize-subview-layout').click()
+  // The old request is deliberately held open while the job selection changes.
+  await expect(page.getByTestId('physical-layout')).toContainText('loading layout view')
+
+  await page.getByRole('button', { name: /^Jobs/ }).click()
+  await page.getByText('j-new-syn').click()
+  await page.getByText('Visualize', { exact: true }).click()
+  await page.getByTestId('visualize-subview-layout').click()
+  await expect(page.getByTestId('physical-layout-reason')).toContainText('new job has no physical implementation')
+  releaseOldLayout()
+  await expect(page.getByTestId('physical-layout-unavailable')).toBeVisible()
+  await expect(page.getByTestId('physical-layout')).not.toContainText('old_counter')
+})
+
+test('ignores a physical component absent from the bounded netlist graph', async ({ page }) => {
+  installMockBackend(page)
+  installSynthesisJob(page)
+  installNetlistMock(page)
+  installLayoutMock(page, {
+    extraComponents: [{ name: 'layout_only', macro: 'sky130_fd_sc_hd__buf_1', x: 2300, y: 0, orientation: 'N', graph_id: 'cell:layout_only' }],
+  })
+  await openVisualize(page)
+  await page.getByTestId('visualize-subview-layout').click()
+  await page.locator('[aria-label*="placed cell layout_only"]').click()
+  await page.getByTestId('visualize-subview-schematic').click()
+  await expect(page.locator('[data-testid="gate-schematic"] [aria-label*="layout_only"]')).toHaveCount(0)
+  await expect(page.getByTestId('gate-schematic-details')).toContainText('Select a cell, port, or net')
 })
