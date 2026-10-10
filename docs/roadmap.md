@@ -6,7 +6,7 @@ This is the current execution order. Phases 1--3 are implemented as engineering 
 
 ### Strategic milestone — open microcontroller from specification to silicon
 
-The active platform milestone is an entirely open, modifiable microcontroller carried from specification through RTL, verification, firmware, physical implementation, manufacturing package, packaged-device bring-up, and documented silicon revisions. It is a demanding end-to-end qualification vehicle for this FPGA/ASIC design platform. The platform remains the primary project in this repository. Once the milestone is mature enough, the microcontroller will be derived into a separate product repository with its own identity, releases, governance, and silicon lifecycle.
+The active platform milestone is an entirely open, modifiable microcontroller carried from specification through RTL, verification, firmware, physical implementation, manufacturing package, packaged-device bring-up, and documented silicon revisions. It is a demanding end-to-end qualification vehicle for this FPGA/ASIC design platform. The platform remains the primary project in this repository. The microcontroller has a dedicated private product repository, Open_MC, which owns implementation, releases, governance and the silicon lifecycle from the first implementation revision.
 
 The milestone's primary clock objective is 250 MHz. A 500 MHz result is an explicit stretch objective whose feasibility must be established for the selected process, libraries, memories, interfaces, corners, voltage, and physical design. Frequency claims require post-route evidence and are qualified per technology.
 

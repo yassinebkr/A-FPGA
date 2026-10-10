@@ -13,8 +13,9 @@ Les chapitres servent à apprendre. Le contrat normatif reste [le contrat MCU](.
 5. [La mémoire et la chaîne de démarrage](05-memoire-et-demarrage.md)
 6. [Périphériques, broches et programmation USB-C](06-peripheriques-et-carte.md)
 7. [Technologie, corners et preuve de fréquence](07-technologie-et-frequence.md)
+8. [Vérification, releases et séparation des dépôts](08-verification-et-releases.md)
 
-Le prochain chapitre couvrira la vérification et les critères de séparation du futur projet MCU. Il sera ajouté après le verrouillage de cette décision.
+Le parcours couvre maintenant les huit décisions du contrat. Il sera enrichi avec les résultats mesurés pendant l’implémentation et le bring-up.
 
 ## Quelques repères
 

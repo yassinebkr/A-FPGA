@@ -1,6 +1,6 @@
 # Open MCU milestone definition
 
-Status: DISCUSSION — architecture decisions are intentionally open.
+Status: CONTRACT LOCKED — implementation qualification remains pending.
 
 ## Position in the project
 
@@ -10,12 +10,7 @@ multi-file architecture, independent verification, firmware, synthesis,
 physical design, manufacturing preparation, packaged-silicon bring-up and
 revision management.
 
-This repository remains the platform repository. The microcontroller is
-expected to become a separate derived project once its architecture and
-evidence are sufficiently mature. That future repository will own the MCU's
-product identity, releases, governance, documentation, firmware distribution
-and silicon revisions. Until that split is approved, MCU work stays clearly
-identified as milestone evidence inside this repository.
+This repository remains the platform repository. The microcontroller now has a dedicated private product repository at https://github.com/yassinebkr/Open_MC. Product RTL, firmware, verification, physical manifests, board material and silicon releases belong there from the first implementation revision. This platform repository owns orchestration, reusable EDA and assurance infrastructure, and qualification evidence bound to exact Open_MC commits. Public release remains gated by provenance, verification and silicon-release criteria.
 
 The frequency objectives are 250 MHz as the primary target and 500 MHz as a
 technology-dependent stretch target. Neither is a tape-out claim until backed
@@ -111,19 +106,28 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    triggers an explicit architecture, memory or technology decision. Treat
    500 MHz as a separate future technology profile.
 
-8. **Verification, release and repository split gates**
-   Define ISA compliance, independent references, coverage, formal, CDC/RDC,
-   equivalence, DRC/LVS, post-layout and bring-up evidence. Define the exact
-   maturity threshold and provenance package that permits creating the derived
-   MCU repository.
+8. **Verification, release and repository split gates — DECIDED**
+   Develop product material in the dedicated private Open_MC repository and
+   bind every platform result to exact A-FPGA and Open_MC commits. Gate imported
+   material on license and provenance records. Gate the core on RISC-V
+   compliance, independent differential references, reproducible random tests,
+   formal properties and reviewed functional coverage. Gate the SoC on boot,
+   memory, bus-error, interrupt, debug and peripheral firmware tests. Require a
+   versioned lint policy, CDC/RDC, assertions, justified coverage exclusions,
+   reproducible synthesis and RTL-to-netlist equivalence. Gate physical releases
+   on the Point 7 criteria and freeze GDS, netlists, constraints, reports,
+   firmware, board data, tools, licenses and hashes. Complete silicon bring-up
+   and characterization before a production claim. Publication of Open_MC and
+   each manufactured release requires all applicable gates; repository creation
+   and early private development are authorized immediately.
 
 ## Phase exit
 
-This definition phase closes when all eight decisions are reviewed, their
-tradeoffs and open risks are durable, a core/SoC architecture is selected, and
-the 250 MHz objective has a measured technology plan. The next phase can then
-implement a bounded MCU baseline within the platform while preserving a clean
-future extraction boundary.
+The definition contract is locked after review of all eight decisions. The
+architecture direction and 250 MHz measurement plan are durable; final core
+selection remains gated by the reproducible technology comparison in Point 2.
+Implementation now begins as a bounded baseline in Open_MC, while A-FPGA
+qualifies each exact product revision.
 
 ## Learning track
 
