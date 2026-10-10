@@ -110,11 +110,42 @@ def timing_paths_unavailable(reason: str) -> dict[str, Any]:
     return unavailable(SCHEMA_VERSION, reason)
 
 
-# Ordered reports SiliconCompiler's opensta step writes for a completed run.
-_REPORT_GLOBS = (
-    "timing/0/reports/timing/setup.topN.rpt",
-    "timing/0/reports/timing/hold.topN.rpt",
-)
+# Ordered reports SiliconCompiler's OpenSTA steps write for a completed run.
+# ``timing`` is the historical screening step.  Full flows use named stages;
+# the discovery helper below selects the deepest available stage without
+# rerunning or changing the build.
+_REPORT_NAMES = ("setup.topN.rpt", "hold.topN.rpt")
+
+
+def _timing_report_root(job0: Path) -> Path | None:
+    """Find the latest available ordered-report directory in one job."""
+    candidates = [path for path in job0.glob("*/0/reports/timing")
+                  if path.is_dir() and any((path / name).is_file()
+                                           for name in _REPORT_NAMES)]
+    if not candidates:
+        return None
+    # SiliconCompiler's stage names are stable but lexical ordering places
+    # ``synthesis`` after some physical steps.  Rank known stages explicitly,
+    # then use the path as a deterministic tie-breaker for custom flows.
+    stage_rank = {
+        "timing": 10,
+        "synthesis.timing": 20,
+        "floorplan.macro_placement": 30,
+        "floorplan.pin_placement": 35,
+        "floorplan.tapcell": 40,
+        "floorplan.power_grid": 45,
+        "place.global": 50,
+        "place.detailed": 55,
+        "cts.clock_tree_synthesis": 60,
+        "cts.repair_timing": 65,
+        "route.global": 70,
+        "route.detailed": 75,
+        "route.detailed_antenna_repair": 80,
+        "route.antenna_repair": 85,
+        "write.views": 90,
+    }
+    return max(candidates, key=lambda path: (
+        stage_rank.get(path.parts[-4], 1), str(path)))
 
 
 def collect_timing_paths(build_dir: str | os.PathLike, top_module: str,
@@ -129,18 +160,22 @@ def collect_timing_paths(build_dir: str | os.PathLike, top_module: str,
     """
     job0 = Path(build_dir) / top_module / "job0"
     reports: dict[str, str] = {}
-    for pattern in _REPORT_GLOBS:
-        matches = sorted(job0.glob(pattern))
-        if not matches:
+    report_root = _timing_report_root(job0)
+    if report_root is None:
+        return timing_paths_unavailable(
+            "the STA run produced no ordered timing-path reports")
+    for report_path in (report_root / name for name in _REPORT_NAMES):
+        if not report_path.is_file():
             continue
-        label = pattern.rsplit("/", 1)[-1].replace(".rpt", "")
+        label = report_path.name.replace(".rpt", "")
         try:
-            reports[label] = matches[-1].read_text(encoding="utf-8", errors="replace")[:_MAX_REPORT_BYTES]
+            reports[label] = report_path.read_text(
+                encoding="utf-8", errors="replace")[:_MAX_REPORT_BYTES]
         except OSError:
             continue
     # Scenario corners carry their own labels so setup/hold/corner stay
     # distinguishable in the UI.
-    for corner_dir in sorted((job0 / "timing/0/reports/timing/scenarios").glob("*")):
+    for corner_dir in sorted((report_root / "scenarios").glob("*")):
         for report in sorted(corner_dir.glob("*.topN.rpt")):
             label = f"{report.stem}.{corner_dir.name}"
             try:

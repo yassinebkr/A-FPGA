@@ -151,6 +151,12 @@ class Job:
         self.log_path = str(manager.jobs_root / job_id / "job.log")
         self._log_fp = None
         self._future: asyncio.Future | None = None
+        # Completed jobs retain their result so the event-loop-bound Future
+        # can be released.  The manager keeps finished jobs in its registry
+        # for history, and retaining every Future/task there pins old
+        # asyncio loops when callers use repeated ``asyncio.run`` sessions.
+        self._result: str | None = None
+        self._failure: BaseException | None = None
         self.task: asyncio.Task | None = None
 
     async def emit(self, line: str) -> None:
@@ -225,7 +231,14 @@ class Job:
     async def wait(self) -> str:
         """Await the runner's result string. Shielded: if the awaiting caller
         (e.g. the chat task) is cancelled, the job itself keeps running."""
-        return await asyncio.shield(self._future)
+        future = self._future
+        if future is not None:
+            return await asyncio.shield(future)
+        if self.status == "done":
+            return self._result or ""
+        if self.status == "failed" and self._failure is not None:
+            raise self._failure
+        raise JobCancelledError(self.id)
 
     def set_outcome(self, outcome: str) -> None:
         if outcome not in {"success", "failure", "inconclusive"}:
@@ -258,6 +271,29 @@ class JobManager:
         self._loop: asyncio.AbstractEventLoop | None = None
         self._start_lock: asyncio.Lock | None = None
         self._lock_loop: asyncio.AbstractEventLoop | None = None
+
+    def __del__(self):
+        """Stop an abandoned aiosqlite worker during best-effort teardown.
+
+        The application lifespan calls :meth:`stop` explicitly.  A manager
+        created by an isolated caller can outlive the event loop that started
+        it, though, especially when a synchronous harness uses
+        ``asyncio.run`` repeatedly.  ``aiosqlite.Connection.__del__`` warns
+        when its worker is still attached at garbage collection and the
+        worker can later try to notify a closed loop.  ``Connection.stop`` is
+        deliberately synchronous and does not require an event loop, so it is
+        safe for this last-resort path.  Normal async cleanup remains the
+        authoritative path and waits for queued work to finish.
+        """
+        db = getattr(self, "_db", None)
+        if db is None:
+            return
+        try:
+            db.stop()
+        except Exception:
+            # Destructors must never surface teardown errors.
+            pass
+        self._db = None
 
     # -- lifecycle ----------------------------------------------------------
 
@@ -444,6 +480,10 @@ class JobManager:
             await asyncio.shield(finalize)
         except asyncio.CancelledError:
             await finalize
+        # The registry keeps terminal jobs for history. Release the task's
+        # loop reference once finalization has completed; ``wait`` uses the
+        # retained result/error for any later callers.
+        job.task = None
 
     async def _finalize_job(self, job: Job, result, failure) -> None:
         job.finished_at = _now()
@@ -477,11 +517,16 @@ class JobManager:
         job._notify_status()
         if not job._future.done():
             if job.status == "done":
+                job._result = result
                 job._future.set_result(result)
             elif job.status == "failed":
+                job._failure = failure
                 job._future.set_exception(failure)
             else:
                 job._future.set_exception(JobCancelledError(job.id))
+        # All current waiters have been notified. Keeping this future in a
+        # long-lived job registry would retain the event loop that created it.
+        job._future = None
 
     # -- subscriptions --------------------------------------------------------
 

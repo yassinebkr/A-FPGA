@@ -90,6 +90,29 @@ def test_submit_runs_trivial_job(tmp_path):
     asyncio.run(main())
 
 
+def test_completed_job_releases_event_loop_handles(tmp_path):
+    """Retained job history must not pin the loop that created the job."""
+    async def main():
+        mgr = make_manager(tmp_path)
+        try:
+            async def runner(job):
+                return "completed"
+
+            job = mgr.submit("test", {}, runner=runner)
+            assert await job.wait() == "completed"
+            assert job._future is None
+            # ``wait`` is released by the result future before the runner
+            # task gets its final scheduling turn to clear its registry ref.
+            await asyncio.sleep(0)
+            assert job.task is None
+            # A later caller still receives the durable in-memory result.
+            assert await job.wait() == "completed"
+        finally:
+            await mgr.stop()
+
+    asyncio.run(main())
+
+
 def test_job_detail_exposes_evidence_only_from_manifest_run_id(tmp_path):
     async def main():
         mgr = make_manager(tmp_path)

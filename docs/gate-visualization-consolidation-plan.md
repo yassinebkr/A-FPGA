@@ -1,6 +1,7 @@
 # Gate visualization consolidation plan
 
-Status: IN PROGRESS — C0–C4 complete; C5 is next.
+Status: C0–C6 complete for the bounded scope; large-design interaction
+criterion remains OPEN.
 
 ## Objective
 
@@ -439,9 +440,8 @@ is absent from the C4 build.
   minified / 116.68 kB gzip, with separate visualization and Markdown
   chunks.
 - cd frontend && npm run test:browser — 46 passed in 25.0 seconds.
-- The C4 browser regression specifically passed:
-  npx playwright test tests/browser/g2-gate-schematic.spec.js -g
-  "defers visualization".
+- The C4 browser regression specifically passed with:
+  `npm run test:browser -- --grep "defers visualization"`.
 - No paid model call, tool installation, or EDA run was made during C4.
 
 #### C4 closure and limitations
@@ -521,3 +521,96 @@ public APIs and artifact schemas. C3 is complete for the backend contract
 scope. C5 still owns large-netlist qualification, measured parsing/transfer
 latency, browser memory, and long-task limits. Full C4 acceptance remains
 recorded above under its frontend-owned scope.
+
+### C5 — complete for bounded large-netlist qualification; interaction budget open (2026-10-10)
+
+#### Backend qualification evidence
+
+The deterministic `netlist_qualification` fixture was run for the small,
+medium, and 100,000-cell large profiles with `node_limit=500`. The large
+profile generated 23,433,590 bytes of raw Yosys-shaped input, built a
+28,434,411-byte canonical artifact in 3,388.512 ms, completed the canonical
+round-trip in 1,360.013 ms, and served a 300,858-byte bounded graph in
+15.393 ms. The returned graph contained 500 nodes and was explicitly
+truncated at the server limit; the persisted artifact remained complete.
+
+The medium profile measured 360,172 raw bytes, 436,744 persisted bytes,
+19.558 ms round-trip, 4.189 ms bounded-query time, and 341,568 bytes for the
+500-node response. Small and medium hierarchy and deterministic digest checks
+also passed. This is parser/query evidence for synthetic Yosys-shaped data;
+it does not represent an EDA run or browser memory.
+
+#### Browser qualification evidence
+
+The browser fixture represents 150,000 cells while requesting only bounded
+500-node and 1,000-node graph windows. The isolated passing performance run
+measured 1,539 ms initial large-view load, 295,888 and 591,992 response
+bytes, 16,659,932 bytes baseline JS heap, 32,348,312 bytes at 500 nodes,
+46,435,932 bytes at 1,000 nodes, 29,776,000 bytes heap growth, and 1,164,384
+bytes residual heap after navigation cleanup. Nine long tasks were observed;
+the maximum was 181 ms. Zoom measured 141 ms. Earlier runs recorded 132–133
+ms zoom and 174–176 ms maximum long task; one parallel rerun reached 328 ms
+for the same zoom probe. The variation reinforces the unresolved interaction
+budget rather than closing it.
+
+The 150,000-cell test proves bounded transfer, explicit truncation, limit
+escalation, cleanup, and superseded-request handling. The current budget is
+not met: the plan permits no long task above 100 ms, and the large-view zoom
+path is above that budget. C5 therefore closes the bounded-data contract and
+records the performance blocker for a later optimization phase.
+
+#### Existing Ibex read-only qualification
+
+The read-only qualification helper was exercised against the existing Ibex
+build. It observed 12,298 cells across 429 modules; the netlist artifact was
+5.17 MB and took 449 ms to collect, 64 STA paths occupied 520 kB and took
+156 ms, and the layout view took 254 ms for a 2.38 MB response capped at
+20,000 components. The result remains `partial`: layout mapping is partial
+and the bounded physical collection is truncated. The helper launched no
+EDA or model process and persisted no new artifact.
+
+#### C5 acceptance and limitations
+
+- Small, medium, and synthetic 100,000-cell backend profiles are
+  deterministic and bounded.
+- The 150,000-cell browser fixture keeps transfer and heap growth bounded,
+  exposes truncation, escalates to 1,000 nodes, and ignores a superseded
+  request after navigation.
+- Browser interaction responsiveness remains open because the measured zoom
+  and long-task values exceed the 100 ms budget. C5 is complete as a bounded
+  qualification phase with this explicit unmet criterion.
+- No paid model call and no new EDA run were made for C5.
+
+### C6 — complete for final audit and documentation; Part 6 remains conditionally open (2026-10-10)
+
+#### Final checks
+
+- `cd backend && .venv/bin/python -m pytest -q` — **577 passed**, one upstream
+  Starlette/anyio deprecation warning. The lifecycle cleanup fix also keeps
+  `PytestUnhandledThreadExceptionWarning` from being emitted by the test
+  process.
+- `cd frontend && npm run lint` — **zero warnings and zero errors**.
+- `cd frontend && npm run build` — passed; main JavaScript remains
+  **378.40 kB** minified / **116.68 kB** gzip, with separate visualization
+  and Markdown chunks.
+- `cd frontend && npm run test:browser` — **50 passed** with the isolated
+  performance case excluded from the normal suite.
+- `cd frontend && npm run test:browser:perf` — **1 passed**; the isolated
+  C5 report measured 141 ms zoom and 181 ms maximum long task, both above the
+  declared 100 ms interaction target.
+- `git diff --check` — required before integration; the concurrent C5 code
+  changes must be included in the final parent-side check.
+
+The existing synthesized netlist, STA, and physical-layout evidence remains
+readable after restart through the durable artifact paths. The existing Ibex
+qualification is explicitly partial as recorded above. C6 updates the
+documentation and preserves the evidence boundary; it does not promote
+partial physical evidence to signoff.
+
+#### Closure decision
+
+C6 is complete for the final audit, evidence ledger, and documentation
+reconciliation. Part 6 is not labelled fully closed because its seventh
+criterion requires representative large-design interaction performance, and
+the measured zoom/long-task values exceed the declared budget. The next
+performance phase must reduce those values and rerun the C5 browser report.

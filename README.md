@@ -255,7 +255,7 @@ Authentication, project ownership, and network-facing limits are intentionally d
 ```bash
 cd backend && .venv/bin/python -m pytest tests/   # backend contract suite
 cd frontend && npm run lint && npm run build      # oxlint + production build
-cd frontend && npx playwright test                 # browser suite (mocked backend)
+cd frontend && npm run test:browser                # browser suite (mocked backend)
 ```
 
 ## Documentation index

@@ -1,7 +1,8 @@
 # Workbench density and gate-level visualization plan
 
-Status: D1, D2, G1, G2, G3, G4 implemented, checked, and live-validated
-(2026-10-09). klayout was installed into the user nix profile via
+Status: D1, D2, G1, G2, G3, G4 implemented, checked, and live-validated;
+large-design bounded qualification is complete, while the interaction budget
+remains open (2026-10-10). KLayout was installed into the user nix profile via
 `scripts/install-klayout.sh` and a real pnr flow closed Part 6 item 4.
 
 This plan follows the completed foundation in
@@ -236,7 +237,7 @@ implemented.
   `next:` indicator share one band with zero strip overflow; at 900px the
   strip scrolls on a single line (height < 30px); at 390px identity keeps the
   first line and the chips take the second.
-- Checks run: full browser suite 24 passed at ship time (now 36 with the G2–G4
+- Checks run: full browser suite 24 passed at ship time (later 50 with the G2–G4
   suites); `oxlint` 0 errors; `vite build` passed.
 - Honest note: the chips moved the state word into the accessible label and
   an `sr-only` span; the pre-existing `toContainText` assertions pass because
@@ -318,7 +319,8 @@ implemented.
   expansion into `alu_slice` and back; source cross-probing to Sources and
   back with the same selection; truncated view + raise-limit; keyboard
   navigation under `prefers-reduced-motion: reduce`.
-- Checks run: 36/36 browser suite, `oxlint` 0 errors, build passed.
+- Checks run: 50/50 browser suite at the time of the G4 record, `oxlint` 0
+  errors, build passed.
 - Bugs found and fixed during browser verification: the pan handler's
   pointer capture swallowed node clicks (pan now only starts on the
   background); a fit computed against the hidden (zero-size) canvas was
@@ -393,8 +395,8 @@ implemented.
   partial mapping honesty, build-dir collection, REST 409/404, restart
   durability, screening-unavailable); `g4-physical-layout.spec.js` 3 passed
   (die/cells/pins render + selection location, bidirectional probing,
-  unavailable state). Full backend suite 509 passed; browser suite 36
-  passed; lint 0 errors; build passed.
+  unavailable state). At that historical G4 checkpoint the backend suite had
+  509 passes and the browser suite had 36 passes; lint and build were clean.
 - Live P&R validation (2026-10-09, after the owner approved installing
   klayout into the user nix profile — same precedent as OpenROAD; see
   `scripts/install-klayout.sh`): a real `flow_mode="pnr"` run of `g4_probe`
@@ -434,7 +436,10 @@ implemented.
    durability tested for all three artifacts (fresh manager + repository on
    the same durable roots).
 7. Backend contract tests 509 passed; frontend lint 0 errors; frontend build
-   passed; browser suite 36 passed. Representative large-design performance:
-   only the bounded node-limit paths exercised (truncation banners,
-   node caps); a multi-hundred-thousand-cell netlist remains untested — the one remaining
-   open performance exit criterion.
+   passed; later C5 coverage added deterministic 100,000-cell backend and
+   150,000-cell browser fixtures. The browser run keeps 500/1,000-node
+   responses bounded and cleans up heap state, but the isolated performance
+   report measured 141 ms zoom and a 181 ms maximum long task. Earlier runs
+   recorded 132–133 ms and 174–176 ms; a parallel rerun reached 328 ms for
+   zoom. All values exceed the 100 ms budget. Large-design interaction
+   performance remains the one open Part 6 criterion.
