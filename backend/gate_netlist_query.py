@@ -137,9 +137,23 @@ def bounded_graph(artifact: Mapping, *, module: str | None = None,
                 elif direction == "input":
                     entry["loads"].append(pin_ref)
 
-    net_lookup = {f"{module_name}:{net['id']}": {**net, "module": module_name}
-                  for module_name in sorted({node["module"] for node in nodes})
-                  for net in modules[module_name]["nets"]}
+    # A bounded graph may select a few hundred cells from a multi-million-net
+    # module.  Index only the nets referenced by those selected nodes, and
+    # stop scanning a deterministically ordered net list once every reference
+    # has been resolved.  This keeps the response bound meaningful for large
+    # artifacts while retaining the existing fail-closed behavior for a
+    # malformed reference (the net is simply omitted below).
+    needed_net_keys = set(net_pins)
+    net_lookup: dict[str, dict[str, Any]] = {}
+    for module_name in sorted({node["module"] for node in nodes}):
+        for net in modules[module_name]["nets"]:
+            key = f"{module_name}:{net['id']}"
+            if key in needed_net_keys:
+                net_lookup[key] = {**net, "module": module_name}
+                if len(net_lookup) == len(needed_net_keys):
+                    break
+        if len(net_lookup) == len(needed_net_keys):
+            break
 
     nets = []
     edges = []
@@ -261,4 +275,3 @@ def _port_touches(module: Mapping, port: Mapping, cells: set[str]) -> bool:
             if refs & port_nets:
                 return True
     return False
-
