@@ -232,6 +232,7 @@ export default function GateSchematic({ job, onOpenSource, onSelectionChange, on
       <div className="flex min-h-0 flex-1">
         <GateSchematicCanvas
           containerRef={containerRef} svgRef={svgRef} graph={graph} layout={layout}
+          positionById={positionById}
           loading={loading} scope={scope} view={view} reduceMotion={reduceMotion}
           routes={routes} emphasis={emphasis} selection={selection} pathHighlight={pathHighlight}
           selectNode={selectNode} onKeyDown={onKeyDown} onPointerDown={onPointerDown}

@@ -1,8 +1,16 @@
 import { defineConfig, devices } from '@playwright/test'
 
+const perfQualification = process.env.PLAYWRIGHT_PERF === '1'
+
 export default defineConfig({
   testDir: './tests/browser',
   fullyParallel: false,
+  // The large-netlist stress measurement is intentionally isolated. The
+  // normal suite keeps all functional C5 coverage while avoiding noisy heap
+  // and frame timings from unrelated parallel browser pages.
+  grep: perfQualification ? /@perf/ : undefined,
+  grepInvert: perfQualification ? undefined : /@perf/,
+  workers: perfQualification ? 1 : undefined,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: [['list']],

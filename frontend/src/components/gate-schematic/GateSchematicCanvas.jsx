@@ -1,7 +1,7 @@
 import CellGlyph from './CellGlyph'
 
 export default function GateSchematicCanvas({
-  containerRef, svgRef, graph, layout, loading, scope, view, reduceMotion,
+  containerRef, svgRef, graph, layout, positionById, loading, scope, view, reduceMotion,
   routes, emphasis, selection, pathHighlight, selectNode, onKeyDown,
   onPointerDown, onPointerMove, onPointerUp, minimap, viewportRect,
   onMinimapClick,
@@ -17,7 +17,7 @@ export default function GateSchematicCanvas({
             return <polyline key={`${route.net}-${index}`} points={route.points.map((point) => point.join(',')).join(' ')} fill="none" stroke={selection?.type === 'net' && selection.id === route.net ? '#fbbf24' : '#3f3f46'} strokeWidth={emphasis ? (emphasized ? 1.4 : 0.6) : 1} opacity={emphasis ? (emphasized ? 1 : 0.15) : 0.8} strokeLinejoin="round" />
           })}
           {(graph.nodes ?? []).map((node) => {
-            const position = layout.positions.find((item) => item.id === node.id)
+            const position = positionById.get(node.id)
             if (!position) return null
             return <CellGlyph key={node.id} node={node} pos={position} selected={selection?.type === 'node' && selection.id === node.id} dimmed={emphasis ? !emphasis.nodes.has(node.id) : false} pathHighlighted={Boolean(pathHighlight?.nodes.has(node.id))} onSelect={selectNode} />
           })}
