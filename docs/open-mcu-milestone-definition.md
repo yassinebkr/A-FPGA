@@ -78,7 +78,8 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    technology macros make the larger profile physically unsuitable. Store
    firmware in external SPI flash, validate its versioned image and CRC32, copy
    it into SRAM and execute it there. Support variable-latency memory handshakes,
-   JTAG and UART recovery, UART firmware loading and a deterministic startup SRAM test. Defer execute-in-place
+   JTAG and UART recovery, UART firmware loading and a deterministic
+   startup SRAM test. Defer execute-in-place
    caching and generalized ECC; decide optional parity from the actual SRAM
    macro widths and timing models. Use technology-independent wrappers around
    every ROM and SRAM implementation.
@@ -97,10 +98,18 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    Derive ESD, open-drain, voltage-level, pad-ring and bonding details from the
    provider-approved IO libraries and package.
 
-7. **Technology and frequency feasibility matrix**
-   Evaluate the selected architecture at 100, 150, 200 and 250 MHz across
-   declared corners and physical assumptions. Treat 500 MHz as a separate
-   profile requiring its own technology and architecture decision.
+7. **Technology and frequency feasibility matrix — DECIDED**
+   Keep a technology-independent simulation profile and use IHP SG13G2 as the
+   primary physical candidate, subject to written provider confirmation of the
+   exact PDK, standard-cell, SRAM, IO, package and shuttle revisions. Retain
+   SG13CMOS5L as a comparison profile without manufacturing-target status.
+   Measure the core, core-memory subsystem and complete chip successively at
+   100, 150, 200 and 250 MHz over declared PVT corners. Accept the 250 MHz
+   product objective only after clean post-route multi-corner timing, electrical
+   rules, clock and power integrity, DRC, LVS, antenna and equivalence evidence;
+   require silicon characterization for the final frequency claim. Any miss
+   triggers an explicit architecture, memory or technology decision. Treat
+   500 MHz as a separate future technology profile.
 
 8. **Verification, release and repository split gates**
    Define ISA compliance, independent references, coverage, formal, CDC/RDC,

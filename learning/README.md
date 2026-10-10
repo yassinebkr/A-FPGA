@@ -12,8 +12,9 @@ Les chapitres servent à apprendre. Le contrat normatif reste [le contrat MCU](.
 4. [L’interconnexion OBI](04-interconnexion-obi.md)
 5. [La mémoire et la chaîne de démarrage](05-memoire-et-demarrage.md)
 6. [Périphériques, broches et programmation USB-C](06-peripheriques-et-carte.md)
+7. [Technologie, corners et preuve de fréquence](07-technologie-et-frequence.md)
 
-Les prochains chapitres couvriront la technologie physique, puis la vérification jusqu'au silicium. Ils seront ajoutés après le verrouillage de leurs décisions.
+Le prochain chapitre couvrira la vérification et les critères de séparation du futur projet MCU. Ils seront ajoutés après le verrouillage de leurs décisions.
 
 ## Quelques repères
 
