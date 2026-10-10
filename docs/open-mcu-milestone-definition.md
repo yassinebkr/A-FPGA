@@ -72,10 +72,16 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    extension slot with an OBI slave interface and interrupt. Reserve a future
    extension-master capability without activating it in the first silicon.
 
-5. **Memory system and boot chain**
-   Size ROM and SRAM from software needs and available technology macros;
-   define initialization, firmware loading, execute-in-place expectations and
-   technology-independent wrappers.
+5. **Memory system and boot chain — DECIDED**
+   Provide 8 KiB of immutable boot ROM and target 128 KiB of SRAM split into
+   four banks, with a contract-compatible 64 KiB fallback if the selected
+   technology macros make the larger profile physically unsuitable. Store
+   firmware in external SPI flash, validate its versioned image and CRC32, copy
+   it into SRAM and execute it there. Support variable-latency memory handshakes,
+   JTAG recovery and a deterministic startup SRAM test. Defer execute-in-place
+   caching and generalized ECC; decide optional parity from the actual SRAM
+   macro widths and timing models. Use technology-independent wrappers around
+   every ROM and SRAM implementation.
 
 6. **Peripheral, IO and package baseline**
    Candidate first-prototype scope: UART, SPI master, I2C master, GPIO and a
