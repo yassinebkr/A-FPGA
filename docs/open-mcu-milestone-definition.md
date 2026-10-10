@@ -62,9 +62,15 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    lockstep, pervasive ECC and safety redundancy are deferred; memory-specific
    integrity is decided with the memory system.
 
-4. **Interconnect and extension contract**
-   Select the internal bus, arbitration rules, address-map ownership,
-   peripheral protocol and accelerator/user-domain boundary.
+4. **Interconnect and extension contract — DECIDED**
+   Use 32-bit OBI with separate instruction and data paths, hierarchical
+   registered interconnect cuts and at most one outstanding transfer per master
+   in the first prototype. Support byte, half-word and word accesses,
+   deterministic bounded arbitration and explicit errors for invalid addresses
+   or stalled targets. Map peripherals into memory and generate RTL and
+   software constants from one centrally owned address map. Expose a stable
+   extension slot with an OBI slave interface and interrupt. Reserve a future
+   extension-master capability without activating it in the first silicon.
 
 5. **Memory system and boot chain**
    Size ROM and SRAM from software needs and available technology macros;
