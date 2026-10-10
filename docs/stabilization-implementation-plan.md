@@ -146,28 +146,33 @@ The next roadmap decision is the architecture and implementation-target matrix
 for the larger SoC direction. Frequency goals will be stated per target and per
 evidence level.
 
-## Phase 4  -  Tiny Tapeout wrapper and official hardening
+## Phase 4  -  Define and qualify the open microcontroller
 
 Implementation status: NOT STARTED.
 
-1. Wrap the qualified core in the exact supported Tiny Tapeout interface and freeze clock, reset, I/O, memory, and software-loading behavior.
-2. Add provider-specific pin, area, power-domain, and configuration requirements. Verify wrapper/core boundaries independently.
-3. Run the official pinned Tiny Tapeout hardening and precheck flow. Preserve GDS, LEF, netlists, reports, constraints, logs, containers, and hashes.
-4. Distinguish provider acceptance, open-source hardening evidence, and foundry signoff.
+1. Freeze the product contract: license, RV32 ISA profile, privilege and exception behavior, debug, interrupts, pipeline, memory map, boot, bus, peripherals, clocks, resets, power intent, IO and modification boundaries.
+2. Select the implementation profiles. IHP SG13G2 is the leading open physical candidate and must pass a versioned PDK/library/MPW-readiness review. A separate simulation profile remains technology-independent.
+3. Build the MCU incrementally as a multi-file hardware project with independently reviewed reference models, ISA compliance, firmware tests, assertions, functional coverage, formal properties, CDC/RDC and production lint.
+4. Integrate ROM, SRAM interfaces, interconnect, timer, interrupt controller, GPIO, UART, SPI and debug in bounded increments. Freeze a reproducible boot and firmware demonstration.
+5. Establish 250 MHz as the primary implementation objective and 500 MHz as the stretch objective. Preserve measured baselines and require explicit architectural hypotheses for timing revisions.
 
-Exit: a reproducible official hardening/precheck result exists for the exact wrapped project, or a bounded blocker report names the failed provider requirement.
+Exit: the complete MCU and firmware satisfy the frozen functional contract, all applicable verification gates, and reproducible pre-layout timing evidence for the selected target.
 
-## Phase 5  -  Generate and qualify our own small RV32I
+## Phase 5  -  Manufacture, bring up and revise the open microcontroller
 
 Implementation status: NOT STARTED.
 
-1. Freeze the ISA subset, privilege assumptions, exceptions, memory interface, reset, latency/throughput, debug/software loading, and implementation goals.
-2. Generate modules incrementally using bounded structured file patches rather than one monolithic response.
-3. Require module tests, independent ISA comparison, formal properties, regressions, and compliance before physical optimization.
-4. Compare against the known-core baseline. Preserve best verified revisions and never repair timing by silently changing behavior.
-5. Apply the Phase 3 evidence and Phase 4 wrapper/hardening gates.
+1. Run placement, CTS, routing, extraction, multi-corner STA, electrical checks, DRC, LVS, antenna, equivalence and gate-level checks using the exact provider-accepted stack.
+2. Freeze GDS, netlists, constraints, reports, firmware, test vectors, tool/container identities, licenses and hashes as one release candidate.
+3. Complete provider review, MPW submission, packaging choice, test-board design and a documented manufacturing handoff.
+4. Bring up returned silicon with clock, reset, debug, memory, peripheral, power and frequency characterization. Compare measurements with pre-silicon evidence.
+5. Record defects and modifications as versioned engineering changes, rerun affected gates and manufacture a revised candidate when justified.
 
-Exit: the generated core satisfies its frozen contract and the same gates as the known core, or reports a bounded reproducible gap.
+Exit: a packaged device executes the frozen firmware demonstration, carries traceable manufacturing evidence, and has a reproducible modification/revision procedure. The release report records the achieved frequency; 250 MHz is the product target and 500 MHz remains a stretch target until measured on silicon.
+
+## Future milestone  -  Linux-capable RV64 SoC around 1 GHz
+
+Retain a Linux-capable open RISC-V SoC around 1 GHz as a later product milestone. CVA6 and Cheshire are current reference candidates. This milestone requires an application-class core, MMU, caches, high-performance memory subsystem, scalable interconnect, boot/software platform and a more advanced implementation technology. It is intentionally outside the active MCU execution path.
 
 ## Remaining work retained after this roadmap
 

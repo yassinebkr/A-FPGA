@@ -4,6 +4,14 @@ This is the current execution order. Phases 1--3 are implemented as engineering 
 
 ## Active roadmap
 
+### Strategic direction — open microcontroller from specification to silicon
+
+The active product milestone is an entirely open, modifiable microcontroller carried from specification through RTL, verification, firmware, physical implementation, manufacturing package, packaged-device bring-up, and documented silicon revisions. The primary clock objective is 250 MHz. A 500 MHz result is an explicit stretch objective whose feasibility must be established for the selected process, libraries, memories, interfaces, corners, voltage, and physical design. Frequency claims require post-route evidence and are qualified per technology.
+
+The initial architecture is expected to be a compact 32-bit RISC-V microcontroller-class SoC. ISA profile, privilege model, pipeline, interrupt/debug architecture, memory map, SRAM/ROM strategy, bus, peripherals, boot path, IO, package, process, license, and software contract remain decisions to freeze before RTL implementation. IHP SG13G2 is the leading open physical-target candidate; its early-access status and MPW acceptance requirements must be qualified before selection.
+
+A Linux-capable 64-bit RISC-V SoC targeting approximately 1 GHz is retained as a future milestone. CVA6/Cheshire remain useful reference systems for that later stage and for large-project platform qualification. Work on that milestone resumes after the microcontroller has completed a silicon bring-up and revision loop.
+
 ### Phase 1 — Architecture-first generation (implemented)
 
 Implemented and verified. A strict versioned `ArchitectureContract` captures the target technology (FPGA or ASIC), clock target in MHz and ns, latency and throughput, pipeline stages, multiplier/DSP strategy, memory/register strategy, and top module. The contract is canonically serialized, persisted with a SHA-256 digest, and revalidated after project reload. `define_architecture` is the first tool for design chats. The controller gates lint, simulation, and synthesis against the approved contract; changing the contract digest invalidates prior RTL checkpoints. The focused Phase 1 suite passes 25 tests.
