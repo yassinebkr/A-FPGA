@@ -51,9 +51,16 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    preserve a clean core wrapper so the platform and later derived MCU project
    can replace or evolve the core without rewriting the SoC.
 
-3. **Execution, control and safety behavior**
-   Freeze reset, traps, interrupts, debug, counters, protection, boot modes
-   and deterministic fault behavior.
+3. **Execution, control and safety behavior — DECIDED**
+   Boot autonomously through immutable ROM and external SPI flash, with
+   standard RISC-V JTAG debug as the recovery and bring-up path. Support
+   machine timer, software and peripheral interrupts in direct and vectored
+   modes; expose 64-bit cycle and retired-instruction counters. Implement eight
+   PMP regions, precise exceptions and deterministic reporting for illegal
+   instructions, misaligned accesses and protection faults. Use one main clock
+   domain, immediate reset assertion and synchronous reset release. General
+   lockstep, pervasive ECC and safety redundancy are deferred; memory-specific
+   integrity is decided with the memory system.
 
 4. **Interconnect and extension contract**
    Select the internal bus, arbitration rules, address-map ownership,
