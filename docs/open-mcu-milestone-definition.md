@@ -31,12 +31,15 @@ architecture and verification ownership remain independent.
 
 ## Decision sequence
 
-Each point is discussed and recorded before the next point is frozen. No
-product RTL generation starts during this definition sequence.
+Each point is discussed and recorded before the next point is frozen. Discussion is reserved for choices with material consequences for performance, area, verification, manufacturability, software compatibility or future evolution. Conventional choices with no meaningful project-specific tradeoff are recorded with a short rationale. No product RTL generation starts during this definition sequence.
 
-1. **ISA and software contract**
-   Freeze the exact RV32 profile, privilege expectations, atomicity needs,
-   toolchain ABI, exception behavior and software compatibility target.
+1. **ISA and software contract — DECIDED**
+   Baseline: RV32IMC with Zicsr and Zifencei, one core, Machine mode,
+   little-endian and the ilp32 ABI. Misaligned accesses raise deterministic
+   exceptions. The initial profile excludes A, F, D and V. Software targets
+   are bare-metal, newlib, FreeRTOS and Zephyr. Multiplication and division
+   implementation details remain a Point 2 architecture decision. Linux,
+   Supervisor mode and an MMU belong to the future application-class milestone.
 
 2. **Core and pipeline architecture**
    Compare CVE2, Ibex and CV32E40P-class options, register-file choices and
