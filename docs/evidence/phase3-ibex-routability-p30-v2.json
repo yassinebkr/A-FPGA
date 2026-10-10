@@ -1,0 +1,93 @@
+{
+  "artifacts": {
+    "gds": {
+      "bytes": 1587257,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.gds/0/outputs/ibex_core.gds.gz",
+      "sha256": "deef942f73668eee62c01f24407f61f90cb0a0172a2856275cee6c7e664e69b2"
+    },
+    "lec_netlist": {
+      "bytes": 1217104,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.views/0/outputs/ibex_core.lec.vg",
+      "sha256": "773143cf6619f2bc425f31fd1c9a208a0a8ab02f58db7f83306bd266e2d3b759"
+    },
+    "lvs_netlist": {
+      "bytes": 3119345,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.views/0/outputs/ibex_core.lvs.vg",
+      "sha256": "c42d26057cd999a5e3976eab8302138778ccf27cf04f3aa89321d63a7018e2d6"
+    },
+    "physical_netlist": {
+      "bytes": 3119345,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.views/0/outputs/ibex_core.vg",
+      "sha256": "c42d26057cd999a5e3976eab8302138778ccf27cf04f3aa89321d63a7018e2d6"
+    },
+    "sdf_fast": {
+      "bytes": 4733179,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.views/0/outputs/ibex_core.fast.sdf",
+      "sha256": "7be6949d27a13d5d707747172132c929bf2d258e4ad1a6e7703cf90051f510cf"
+    },
+    "sdf_slow": {
+      "bytes": 4732447,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.views/0/outputs/ibex_core.slow.sdf",
+      "sha256": "1ff61affd3924efe29c85736df73bbe7cbe2f78ef175b3f6c1ba79bc9ff032ef"
+    },
+    "sdf_typical": {
+      "bytes": 4732907,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.views/0/outputs/ibex_core.typical.sdf",
+      "sha256": "c86c5e848e31f34d4746e80ec0b2e3c4663e61895fb6252f8f654f147e6dace9"
+    },
+    "spef_typical": {
+      "bytes": 8451448,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/write.views/0/outputs/ibex_core.typical.spef",
+      "sha256": "30751387602aa43b998029f0816a3d9713959af7b56f22aa7d89a8a6b685125f"
+    }
+  },
+  "clock_period_ns": 20.0,
+  "consumed_sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+  "decision": "fail_closed_no_promotion",
+  "detailed_route_violations": 0,
+  "final_metrics": {
+    "cell_area_um2": 77028.9,
+    "cells": 12676,
+    "electrical_rule_violations": 791,
+    "fmax_mhz": 44.7903,
+    "hold_slack_ns": -0.0251634,
+    "leakage_power_mw": 0.00127405,
+    "peak_power_mw": 10.8148,
+    "setup_slack_ns": -2.32625,
+    "unconstrained_functional_endpoints": 0
+  },
+  "floorplan_density_percent": 30.0,
+  "log": "/mnt/cold-hdd/riscv-qualification/phase3-ibex-routability-p30-v2.log",
+  "log_sha256": "1a82b4a1e26901a60c18e5e6460b1aff0bac9b3757ec1e2b7c0b4010bfade0d5",
+  "manifest": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core/job0/ibex_core.pkg.json",
+  "manifest_sha256": "ed5f89e41885dfad974ee2da0d536f54909468499e32fc634d5e6c8370f27482",
+  "outcome": "routed_timing_and_electrical_open",
+  "placement_density": 0.5,
+  "pnr_completed": true,
+  "product_frequency_goal_mhz": 50.0,
+  "qualification_limits": [
+    "OpenROAD detailed-route DRC is clean; independent KLayout DRC and LVS were not run by this ASIC flow.",
+    "Post-layout equivalence and SDF gate-level simulation remain unproven.",
+    "Skywater130 demo PDK evidence is engineering screening, not foundry signoff."
+  ],
+  "remaining_antenna_violations": 0,
+  "reviewed_sdc": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v2/ibex_core.sdc",
+  "reviewed_sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+  "run_id": "phase3-ibex-routability-p30-v2",
+  "schema": "bounded-pnr-run/v1",
+  "signoff_claimed": false,
+  "source_artifact": "/mnt/cold-hdd/phase2-sv2v/.f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5.sv2v-output/ibex_core.v",
+  "source_artifact_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "status": "completed_with_violations",
+  "synthesis_strategy": "AREA3",
+  "target": "skywater130_demo",
+  "terminal_stage": "write.views",
+  "tool_versions": {
+    "klayout": "0.30.12",
+    "openroad": "26Q2",
+    "opensta": "3.1.0",
+    "siliconcompiler": "0.38.7",
+    "yosys": "0.50"
+  },
+  "top_module": "ibex_core"
+}

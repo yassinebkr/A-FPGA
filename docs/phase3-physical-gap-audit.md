@@ -1,7 +1,7 @@
 # Phase 3 routed-Ibex physical-gap audit
 
-Date: 2026-10-09
-Status: bounded reviewed-constraint P&R attempted; failed at global routing
+Date: 2026-10-10
+Status: bounded P&R completed; physical acceptance fails on timing and slew
 
 ## Scope
 
@@ -65,7 +65,7 @@ The Phase 3 execution order is:
    hashed manifest job root; the run record cross-checks RTL, manifest, tools,
    and target. Evidence:
    `docs/evidence/phase3-ibex-baseline-physical-gate.json`.
-4. **Attempted once, failed closed:** the exact reviewed SDC (SHA-256
+4. **Historical first attempt, failed closed:** the exact reviewed SDC (SHA-256
    `4f9f6ac1...`) was consumed at 20 ns with the pinned converted Ibex RTL
    (SHA-256 `068c27a0...`) and AREA3. Synthesis, floorplanning, placement and CTS
    completed. Global routing stopped with **46 total overflow** at 64.50%
@@ -75,16 +75,34 @@ The Phase 3 execution order is:
    netlist evidence do not exist. The incomplete candidate is not promoted.
    No retry and no constraint relaxation were performed. Durable record:
    `docs/evidence/phase3-ibex-reviewed-pnr-20ns-v1.json`.
-5. After a candidate passes the constraint and electrical admission gates, pursue
-   synthesis-to-post-layout equivalence and SDF simulation for the exact routed
-   candidate.
+5. **Bounded routability run completed:** a second, explicitly authorized run kept
+   the pinned RTL, reviewed 20 ns SDC, AREA3 strategy and Sky130 demo target. It
+   changed only physical density controls: 30% floorplan utilization and 0.50
+   placement density. Global and detailed routing completed, OpenROAD reported
+   zero detailed-route DRC and zero remaining antenna violations, and final GDS,
+   SPEF, three-corner SDF, LVS and LEC netlists were emitted. Durable records:
+   `docs/evidence/phase3-ibex-routability-p30-v2.json` and
+   `docs/evidence/phase3-ibex-routability-p30-v2-physical-gate.json`.
+6. **Physical gate evaluated, failed closed:** extracted final timing is −2.33 ns
+   setup, −0.03 ns hold and 44.79 MHz Fmax. The final electrical report contains
+   791 max-slew violations. Floating nets, overdriven nets, functional
+   unconstrained endpoints, OpenROAD detailed-route DRC and antenna counts are
+   zero. Maximum reported fanout is 32.
+7. **Post-route equivalence attempted:** the functional Verilog cell model is
+   incompatible with the local Yosys parser. The exact Liberty retry completed
+   inconclusively with 25,700 comparison cells unproven. Both attempts and hashes
+   are preserved under `docs/evidence/phase3-ibex-routability-p30-v2-equivalence*/`.
+   No functional counterexample was reported. SDF files exist; gate-level SDF
+   simulation lacks a qualified Ibex integration testbench and compatible timing
+   cell models, so it remains unexecuted. Independent KLayout DRC and LVS were
+   outside this SiliconCompiler ASIC flow and remain open.
 
 ## Phase boundary
 
-The **pre-P&R Phase 3 gate and its one bounded execution attempt are complete**.
-Full physical Phase 3 closure remains open: a separately authorized follow-up
-must address routability while preserving the reviewed functional and timing
-contract, then pass the physical gate, post-layout equivalence and SDF checks.
-The UI/UX pass may proceed without weakening or bypassing these requirements.
+The reviewed-constraint Phase 3 candidate now completes placement, CTS, global
+routing, detailed routing and view generation. The routability blocker is closed.
+Physical acceptance remains open because setup, hold and max-slew checks fail.
+Post-layout equivalence is inconclusive; SDF simulation, independent KLayout DRC
+and LVS remain open.
 
 No 50 MHz closure, manufacturability, signoff, or provider acceptance is claimed.

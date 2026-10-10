@@ -101,7 +101,7 @@ Exit: explicit constraints exist, no electrical/floating-net violation is unexpl
 
 ## Phase 3  -  Close physical-evidence gaps on the Phase 2 qualified core
 
-Implementation status: BOUNDED P&R ATTEMPT FAILED AT GLOBAL ROUTING — PHYSICAL CLOSURE OPEN (updated 2026-10-09). See `docs/phase3-physical-gap-audit.md`.
+Implementation status: BOUNDED P&R COMPLETED — PHYSICAL ACCEPTANCE FAILS ON TIMING AND SLEW (updated 2026-10-10). See `docs/phase3-physical-gap-audit.md`.
 Phase 2 provides the unchanged Ibex baseline, accepted native-to-converted
 equivalence, independent ISA/lint/formal evidence, and one completed bounded P&R
 screen. This admits Phase 3 without claiming physical qualification or signoff.
@@ -110,12 +110,15 @@ The pre-P&R portion of Phase 3 is complete: the exact 61-port interface,
 reviewed port-specific SDC, deterministic physical-report policy, provenance
 checks, and durable baseline gate evidence exist. The historical routed baseline
 correctly fails admission (setup, slew, capacitance, and constraint mismatch).
-One bounded P&R run consumed the exact reviewed SDC at 20 ns. It passed through
-placement and CTS but failed closed at global routing with 46 total overflow;
-no automatic retry or relaxed constraint was used. Physical closure, 50 MHz
-post-route closure, post-layout equivalence, SDF simulation,
-manufacturability, provider acceptance, and signoff remain open; the UI/UX pass
-does not change those gates.
+The first bounded P&R run failed closed at global routing with 46 total overflow.
+A separately authorized density-controlled run preserved the RTL, reviewed 20 ns
+SDC and synthesis strategy; it completed detailed routing and emitted GDS, SPEF,
+SDF and final netlists. Its physical gate fails on −2.33 ns setup, −0.03 ns hold
+and 791 max-slew violations. OpenROAD detailed-route DRC and antenna are zero;
+floating, overdriven and functional unconstrained endpoints are zero. Post-layout
+equivalence is inconclusive with 25,700 cells unproven. SDF simulation,
+independent KLayout DRC/LVS, 50 MHz closure, manufacturability, provider
+acceptance and signoff remain open.
 
 ## Phase 4  -  Tiny Tapeout wrapper and official hardening
 

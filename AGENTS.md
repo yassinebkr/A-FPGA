@@ -93,5 +93,11 @@ closes the post-load 100 ms interaction gate: zoom is 48 ms and the maximum
 post-load long task is 58 ms. Five load-phase long tasks were recorded, with
 296 ms as the maximum; they remain separately reported startup observations.
 
+The current Ibex Phase 3 candidate completes detailed routing at 20 ns with the
+reviewed constraints and bounded density controls. Its physical gate fails on
+setup, hold, and max-slew; post-layout equivalence is inconclusive, while SDF
+simulation and independent KLayout DRC/LVS remain open. See
+`docs/phase3-physical-gap-audit.md` before making physical-closure claims.
+
 The local Git baseline begins on 2026-10-10. No remote or pre-baseline history
 is assumed. See the active plan and roadmap before declaring a phase complete.

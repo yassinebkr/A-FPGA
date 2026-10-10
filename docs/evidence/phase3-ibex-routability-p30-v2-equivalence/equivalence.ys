@@ -1,0 +1,23 @@
+read_verilog -formal -sv lib/cells.v
+read_verilog -formal -sv gold/reference.v
+prep -top ibex_core -flatten
+memory_map
+opt_clean
+rename -top gold
+design -stash gold
+design -reset
+read_verilog -formal -sv lib/cells.v
+read_verilog -formal -sv gate/candidate.v
+prep -top ibex_core -flatten
+memory_map
+opt_clean
+rename -top gate
+design -stash gate
+design -reset
+design -copy-from gold -as gold gold
+design -copy-from gate -as gate gate
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+equiv_induct -seq 20
+equiv_status -assert

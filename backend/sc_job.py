@@ -21,6 +21,7 @@ Exit code is 0 on success, 1 on failure.
 import argparse
 import hashlib
 import json
+import math
 import os
 import re
 import shutil
@@ -350,7 +351,9 @@ def pick_flow(project, flow_mode: str = "auto",
 def build_project(top_module: str, verilog_path: str, target: str,
                   clock_period_ns: float | None, flow: str,
                   build_dir: str, sdc_path: str | None = None,
-                  synthesis_strategy: str = DEFAULT_TIMING_STRATEGY):
+                  synthesis_strategy: str = DEFAULT_TIMING_STRATEGY,
+                  floorplan_density: float | None = None,
+                  place_density: float | None = None):
     """Construct the ASIC project (design + filesets + target + flow).
     Returns (project, flow_description)."""
     validate_top_module(top_module)
@@ -396,6 +399,22 @@ def build_project(top_module: str, verilog_path: str, target: str,
         project.add_fileset("sdc")
     target_func(project)
 
+    if floorplan_density is not None:
+        if not math.isfinite(floorplan_density) or not 1.0 <= floorplan_density <= 90.0:
+            raise ValueError("floorplan_density must be finite and within [1, 90]")
+        project.constraint.area.set_density(float(floorplan_density))
+    if place_density is not None:
+        if not math.isfinite(place_density) or not 0.1 <= place_density <= 0.95:
+            raise ValueError("place_density must be finite and within [0.1, 0.95]")
+        value = str(float(place_density))
+        for task, step in (
+            ("macro_placement", "floorplan.macro_placement"),
+            ("pin_placement", "floorplan.pin_placement"),
+            ("global_placement", "place.global"),
+        ):
+            project.set("tool", "openroad", "task", task, "var", "place_density",
+                        value, step=step, index="0")
+
     requested = validate_flow_mode(flow)
     synthesis_strategy = validate_synthesis_strategy(synthesis_strategy)
     if flow == "syn-sta":
@@ -424,6 +443,10 @@ def main() -> int:
     ap.add_argument("--flow", choices=sorted(FLOW_MODE_ALIASES), default="auto")
     ap.add_argument("--synthesis-strategy", choices=sorted(SYNTHESIS_STRATEGIES),
                     default=DEFAULT_TIMING_STRATEGY)
+    ap.add_argument("--floorplan-density", type=float, default=None,
+                    help="bounded OpenROAD floorplan utilization percentage")
+    ap.add_argument("--place-density", type=float, default=None,
+                    help="bounded OpenROAD placement target density fraction")
     args = ap.parse_args()
 
     # The standalone runner is also an input boundary.  eda_tools normally
@@ -451,7 +474,9 @@ def main() -> int:
         project, flow_desc = build_project(args.top, args.verilog, args.target,
                                            args.clock_period_ns, args.flow,
                                            args.build_dir, args.sdc,
-                                           args.synthesis_strategy)
+                                           args.synthesis_strategy,
+                                           args.floorplan_density,
+                                           args.place_density)
         project.run()
         ok = True
     except Exception as e:

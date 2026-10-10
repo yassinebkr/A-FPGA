@@ -200,6 +200,38 @@ def test_sc_job_build_project_registers_sdc(tmp_path, monkeypatch):
     assert "sdc" not in filesets2
 
 
+def test_sc_job_build_project_applies_bounded_physical_densities(tmp_path, monkeypatch):
+    import sc_job
+
+    vp = tmp_path / "m.v"
+    vp.write_text("module m(input clk); endmodule\n", encoding="utf-8")
+    monkeypatch.setattr(sc_job.shutil, "which", lambda tool: f"/usr/bin/{tool}")
+
+    project, _ = sc_job.build_project(
+        "m", str(vp), "skywater130_demo", 20.0, "pnr",
+        str(tmp_path / "build"), floorplan_density=30.0, place_density=0.5,
+    )
+
+    assert project.constraint.area.get_density() == 30.0
+    for task, step in (
+        ("macro_placement", "floorplan.macro_placement"),
+        ("pin_placement", "floorplan.pin_placement"),
+        ("global_placement", "place.global"),
+    ):
+        assert project.get(
+            "tool", "openroad", "task", task, "var", "place_density",
+            step=step, index="0",
+        ) == 0.5
+
+    for floorplan_density, place_density in ((0.0, None), (None, 1.0)):
+        with pytest.raises(ValueError):
+            sc_job.build_project(
+                "m", str(vp), "skywater130_demo", 20.0, "pnr",
+                str(tmp_path / "invalid"),
+                floorplan_density=floorplan_density, place_density=place_density,
+            )
+
+
 def test_sc_job_registers_extensionless_artifact_as_verilog(tmp_path, monkeypatch):
     """Content-addressed RTL artifacts do not carry a .v extension."""
     import sc_job

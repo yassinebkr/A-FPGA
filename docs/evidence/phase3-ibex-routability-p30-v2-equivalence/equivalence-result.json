@@ -1,0 +1,30 @@
+{
+  "async_reset_mode": "preserve",
+  "blackbox_markers": {},
+  "cell_library_format": "verilog",
+  "command": [
+    "/home/kwestog/Documents/code/fpga/.tools/eda/bin/yosys",
+    "-Q",
+    "-s",
+    "equivalence.ys",
+    "-l",
+    "equivalence.log"
+  ],
+  "input_sha256": {
+    "candidate": "773143cf6619f2bc425f31fd1c9a208a0a8ab02f58db7f83306bd266e2d3b759",
+    "cell_library": "5be326e4041683e5c18220a582c4739ad65847572ecac5e523dc15f4c4cac928",
+    "reference": "07653d9eb016eb0bdaeb1c5c1a5f3330e414ad1cd60ad708121cfddfa939d81b"
+  },
+  "message": "equivalence did not produce a conclusive result",
+  "ok": false,
+  "output_tail": "\n-- Executing script file `equivalence.ys' --\n\n1. Executing Verilog-2005 frontend: lib/cells.v\nParsing formal SystemVerilog input from `lib/cells.v' to AST representation.\nlib/cells.v:677: ERROR: syntax error, unexpected TOK_SUB_ASSIGN\n\n-- Executing script file `equivalence.ys' --\n\n1. Executing Verilog-2005 frontend: lib/cells.v\nlib/cells.v:677: ERROR: syntax error, unexpected TOK_SUB_ASSIGN\n",
+  "proof_scope": "native asynchronous-reset semantics",
+  "report_digest": "8cddc3720e3194ab4bf01a0502881efe2594b3c89f08012ec9ac66be362c4e8c",
+  "returncode": 1,
+  "schema": "netlist-equivalence/v1",
+  "script_sha256": "890b50bdf883e21a05fa49549417a9ea949eadbd7ababfc944088082f6d96794",
+  "status": "inconclusive",
+  "top_module": "ibex_core",
+  "unproven_count": null,
+  "unresolved_cells": []
+}
