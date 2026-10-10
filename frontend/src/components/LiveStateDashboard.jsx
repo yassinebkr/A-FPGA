@@ -1,9 +1,40 @@
-import { useEffect, useRef, useState } from 'react'
+import { Component, lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { ChevronDown, ChevronRight, Maximize2, Minimize2 } from 'lucide-react'
 import VerilogView from './VerilogView'
-import GateSchematic from './GateSchematic'
-import PhysicalLayout from './PhysicalLayout'
 import JobDetails from './JobDetails'
+
+// Keep graph rendering and the post-P&R canvas out of the initial workbench
+// chunk. The dynamic modules are requested when the Visualize surface opens.
+const GateSchematic = lazy(() => import('./GateSchematic'))
+const PhysicalLayout = lazy(() => import('./PhysicalLayout'))
+
+function VisualizationLoading({ label }) {
+  return <div className="flex h-full items-center justify-center font-mono text-[10px] uppercase tracking-wider text-gray-600">{label}</div>
+}
+
+class VisualizationChunkBoundary extends Component {
+  state = { failed: false }
+
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+
+  render() {
+    if (!this.state.failed) return this.props.children
+    return (
+      <div data-testid="visualization-load-error" className="flex h-full flex-col items-center justify-center gap-2 font-mono text-[10px] text-red-300">
+        <span>visualization chunk failed to load</span>
+        <button
+          type="button"
+          onClick={() => window.location.reload()}
+          className="rounded border border-red-500/40 px-2 py-1 text-[9px] uppercase tracking-wider text-red-300 hover:bg-red-500/10"
+        >
+          retry
+        </button>
+      </div>
+    )
+  }
+}
 
 // Compact PPA numbers: kill float noise (0.28200000000000003) and group large
 // values. Non-numeric values pass through untouched.
@@ -111,22 +142,30 @@ function VisualizationPanel({ selectedJob, onOpenSource, fullscreen = false, onT
       </div>
       <div className="relative min-h-0 flex-1">
         <div className={subview === 'schematic' ? 'absolute inset-0' : 'hidden'}>
-          <GateSchematic
-            job={selectedJob}
-            onOpenSource={onOpenSource}
-            onSelectionChange={setSchematicSelection}
-            onPathChange={setPathCells}
-            externalSelection={externalSelection}
-          />
+          <VisualizationChunkBoundary>
+            <Suspense fallback={<VisualizationLoading label="loading gate schematic…" />}>
+              <GateSchematic
+                job={selectedJob}
+                onOpenSource={onOpenSource}
+                onSelectionChange={setSchematicSelection}
+                onPathChange={setPathCells}
+                externalSelection={externalSelection}
+              />
+            </Suspense>
+          </VisualizationChunkBoundary>
         </div>
         <div className={subview === 'layout' ? 'absolute inset-0' : 'hidden'}>
-          <PhysicalLayout
-            job={selectedJob}
-            selection={schematicSelection}
-            pathCells={pathCells}
-            onSelectComponent={(id) => setExternalSelection({ id, nonce: Date.now() })}
-            onAvailability={setLayoutInfo}
-          />
+          <VisualizationChunkBoundary>
+            <Suspense fallback={<VisualizationLoading label="loading physical layout…" />}>
+              <PhysicalLayout
+                job={selectedJob}
+                selection={schematicSelection}
+                pathCells={pathCells}
+                onSelectComponent={(id) => setExternalSelection({ id, nonce: Date.now() })}
+                onAvailability={setLayoutInfo}
+              />
+            </Suspense>
+          </VisualizationChunkBoundary>
         </div>
       </div>
       <div className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-0.5 border-t border-gray-800 bg-[#0d0d0d] px-3 py-1.5 text-[9px] text-gray-600">
@@ -318,6 +357,10 @@ export default function LiveStateDashboard({ metrics, metricProvenance = {}, ver
   // Preserve the user's selected evidence surface. A new job appears in the
   // active strip without forcibly replacing the source/result being viewed.
   const [tab, setTab] = useState('code')
+  // Keep the visualization mounted after its first visit so selection and
+  // viewport state survive tab switches, while Sources/Jobs users avoid
+  // downloading the graph/layout chunks entirely.
+  const [vizVisited, setVizVisited] = useState(false)
   const [vizFullscreen, setVizFullscreen] = useState(false)
   // Source cross-probing target: set by the schematic (Phase G2) and consumed
   // by the Sources surface, which selects and scrolls to the referenced file
@@ -368,7 +411,7 @@ export default function LiveStateDashboard({ metrics, metricProvenance = {}, ver
         {[['code', 'Sources'], ['jobs', `Jobs${jobList.length ? ` (${jobList.length})` : ''}`], ['results', 'Results'], ['visualize', 'Visualize']].map(([key, label]) => (
           <button
             key={key}
-            onClick={() => setTab(key)}
+            onClick={() => { setTab(key); if (key === 'visualize') setVizVisited(true) }}
             className={`px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider rounded-t-md border border-b-0 transition-colors ${
               tab === key
                 ? 'bg-[#0a0a0a] border-gray-800 text-gray-200'
@@ -399,7 +442,7 @@ export default function LiveStateDashboard({ metrics, metricProvenance = {}, ver
         {/* The Visualize surface stays mounted across tab switches so the
             schematic's scope and selection survive (Phase G2); it is only
             hidden while another surface is active. */}
-        <div className={tab === 'visualize' || vizFullscreen ? 'h-full' : 'hidden'}>
+        {(vizVisited || vizFullscreen) && <div className={tab === 'visualize' || vizFullscreen ? 'h-full' : 'hidden'}>
           <VisualizationPanel
             selectedJob={vizJob}
             onOpenSource={openSource}
@@ -407,7 +450,7 @@ export default function LiveStateDashboard({ metrics, metricProvenance = {}, ver
             visible={tab === 'visualize' || vizFullscreen}
             onToggleFullscreen={() => setVizFullscreen((v) => !v)}
           />
-        </div>
+        </div>}
         {tab !== 'visualize' && (tab === 'code' ? (
           <VerilogView verilog={verilog} hardwareProject={hardwareProject} focusSource={sourceFocus} />
         ) : tab === 'results' ? (

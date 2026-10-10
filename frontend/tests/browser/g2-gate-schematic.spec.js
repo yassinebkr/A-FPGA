@@ -20,6 +20,32 @@ async function openVisualize(page, mock) {
   await expect(page.getByTestId('gate-schematic')).toBeVisible()
 }
 
+test('defers visualization chunks and recovers after a failed chunk load', async ({ page }) => {
+  installMockBackend(page)
+  page.route('http://127.0.0.1:8000/api/jobs', (route) =>
+    route.fulfill({ json: [{ id: 'j-a-syn', kind: 'synthesis', design: 'counter8', status: 'done', outcome: 'success', session: 'proj-a', created_at: new Date(1_000).toISOString() }] }))
+  installNetlistMock(page)
+
+  await page.goto('/')
+  await page.getByText('Alpha', { exact: true }).first().click()
+  const initialResources = await page.evaluate(() =>
+    performance.getEntriesByType('resource').map((entry) => entry.name))
+  expect(initialResources.some((name) => /GateSchematic|PhysicalLayout/.test(name))).toBe(false)
+
+  const gateChunk = /\/src\/components\/GateSchematic\.jsx(?:\?|$)/
+  await page.route(gateChunk, (route) => route.abort())
+  await page.getByText('Visualize', { exact: true }).click()
+  await expect(page.getByTestId('visualization-load-error')).toBeVisible()
+
+  // A fresh load retries the failed lazy module after the transient failure
+  // is removed, while the existing project/job fixtures remain available.
+  await page.unroute(gateChunk)
+  await page.reload()
+  await page.getByText('Alpha', { exact: true }).first().click()
+  await page.getByText('Visualize', { exact: true }).click()
+  await expect(page.getByTestId('gate-schematic')).toBeVisible()
+})
+
 
 test('renders the counter fixture: ports, sequential cell, logic, connections, minimap', async ({ page }) => {
   const mock = installMockBackend(page)

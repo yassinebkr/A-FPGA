@@ -1,12 +1,14 @@
-import { useState, useRef, useEffect } from 'react'
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import { lazy, Suspense, useState, useRef, useEffect } from 'react'
 import { Square } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { parseToolResult } from '@/lib/toolResult'
 import { contractGate } from '@/lib/designContract'
 import DecisionTimeline from './DecisionTimeline'
 import DesignContract from './DesignContract'
+
+// Markdown and GFM are only needed when an assistant message is rendered.
+// Keep the chat shell in the initial application chunk.
+const MarkdownMessage = lazy(() => import('./MarkdownMessage'))
 
 function resultSummary(content) {
   const text = String(content ?? '')
@@ -251,7 +253,9 @@ function Message({ msg }) {
   return (
     <div className="flex justify-start">
       <div className="max-w-[85%] rounded-md bg-[#161616] border border-gray-800 px-3 py-2 text-sm text-gray-200 agent-md">
-        <Markdown remarkPlugins={[remarkGfm]}>{msg.content}</Markdown>
+        <Suspense fallback={<span>{msg.content}</span>}>
+          <MarkdownMessage content={msg.content} />
+        </Suspense>
       </div>
     </div>
   )
