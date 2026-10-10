@@ -41,10 +41,15 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    implementation details remain a Point 2 architecture decision. Linux,
    Supervisor mode and an MMU belong to the future application-class milestone.
 
-2. **Core and pipeline architecture**
-   Compare CVE2, Ibex and CV32E40P-class options, register-file choices and
-   pipeline depths using modification boundaries, verification maturity,
-   area and technology timing evidence.
+2. **Core and pipeline architecture — DIRECTION AGREED**
+   Use a four-stage in-order pipeline with a 32 x 32-bit register file, a
+   pipelined multiplier and an iterative divider. CV32E40P is the primary
+   reference candidate for the first prototype; CVE2/Croc remains the
+   known-silicon functional and physical control. Final core selection remains
+   gated by a reproducible technology comparison covering timing, area, power,
+   verification maturity and modification boundaries. The architecture must
+   preserve a clean core wrapper so the platform and later derived MCU project
+   can replace or evolve the core without rewriting the SoC.
 
 3. **Execution, control and safety behavior**
    Freeze reset, traps, interrupts, debug, counters, protection, boot modes
@@ -60,8 +65,10 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    technology-independent wrappers.
 
 6. **Peripheral, IO and package baseline**
-   Choose the minimum useful peripheral set and derive clocks, resets, pads,
-   pin budget, package assumptions, test access and board-level needs.
+   Candidate first-prototype scope: UART, SPI master, I2C master, GPIO and a
+   timer. I2C multi-master/slave modes and DMA are deferred candidates. Freeze
+   exact capabilities later and derive clocks, resets, open-drain requirements,
+   pads, pin budget, package assumptions, test access and board-level needs.
 
 7. **Technology and frequency feasibility matrix**
    Evaluate the selected architecture at 100, 150, 200 and 250 MHz across
