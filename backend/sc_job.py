@@ -353,7 +353,8 @@ def build_project(top_module: str, verilog_path: str, target: str,
                   build_dir: str, sdc_path: str | None = None,
                   synthesis_strategy: str = DEFAULT_TIMING_STRATEGY,
                   floorplan_density: float | None = None,
-                  place_density: float | None = None):
+                  place_density: float | None = None,
+                  post_route_repair: bool = False):
     """Construct the ASIC project (design + filesets + target + flow).
     Returns (project, flow_description)."""
     validate_top_module(top_module)
@@ -414,6 +415,11 @@ def build_project(top_module: str, verilog_path: str, target: str,
         ):
             project.set("tool", "openroad", "task", task, "var", "place_density",
                         value, step=step, index="0")
+    if post_route_repair:
+        project.set(
+            "tool", "openroad", "task", "post_route_repair_timing",
+            "var", "rsz_enable", True, step="route.repair_timing", index="0",
+        )
 
     requested = validate_flow_mode(flow)
     synthesis_strategy = validate_synthesis_strategy(synthesis_strategy)
@@ -447,6 +453,10 @@ def main() -> int:
                     help="bounded OpenROAD floorplan utilization percentage")
     ap.add_argument("--place-density", type=float, default=None,
                     help="bounded OpenROAD placement target density fraction")
+    ap.add_argument(
+        "--post-route-repair", action="store_true",
+        help="enable OpenROAD DRV/setup/hold repair after global routing",
+    )
     args = ap.parse_args()
 
     # The standalone runner is also an input boundary.  eda_tools normally
@@ -476,7 +486,8 @@ def main() -> int:
                                            args.build_dir, args.sdc,
                                            args.synthesis_strategy,
                                            args.floorplan_density,
-                                           args.place_density)
+                                           args.place_density,
+                                           args.post_route_repair)
         project.run()
         ok = True
     except Exception as e:

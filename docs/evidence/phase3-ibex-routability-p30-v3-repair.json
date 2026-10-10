@@ -1,0 +1,100 @@
+{
+  "artifacts": {
+    "gds": {
+      "bytes": 1608868,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.gds/0/outputs/ibex_core.gds.gz",
+      "sha256": "41374ec3dc047d5e302fd45e3a7c58ffe954cc588b7f76dad3d52ffa3ca75055"
+    },
+    "lec_netlist": {
+      "bytes": 1226488,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.lec.vg",
+      "sha256": "a141596cac84a7129f11533d1c94df4a268f01289898638287e26d5000119a7c"
+    },
+    "lvs_netlist": {
+      "bytes": 3111699,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.lvs.vg",
+      "sha256": "22c699c73ce0c53d638fe940ee9a0678c517be65095a42ada6d8ca7c5539b5d4"
+    },
+    "physical_netlist": {
+      "bytes": 3111699,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.vg",
+      "sha256": "22c699c73ce0c53d638fe940ee9a0678c517be65095a42ada6d8ca7c5539b5d4"
+    },
+    "sdf_fast": {
+      "bytes": 4762498,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.fast.sdf",
+      "sha256": "661753c82e9dad9fdbe230b52ce9b9f578fd84246819607f93757b903f9ff69b"
+    },
+    "sdf_slow": {
+      "bytes": 4761749,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.slow.sdf",
+      "sha256": "81d3f2d701362c09cfa7e50667b4fd3d085ed4c354f618cf408e09d315090e74"
+    },
+    "sdf_typical": {
+      "bytes": 4762169,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.typical.sdf",
+      "sha256": "f413d7ad80017d193b2fd7b06f2b333891e015f764c917c806559d321160abe0"
+    },
+    "spef_typical": {
+      "bytes": 8559969,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.typical.spef",
+      "sha256": "c9efbadb5e6f7b6224513b36445d9438c4fc4b3ed8afebfd6f3a78c4a57b767a"
+    }
+  },
+  "clock_period_ns": 20.0,
+  "consumed_sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+  "decision": "fail_closed_no_promotion",
+  "detailed_route_violations": 0,
+  "final_metrics": {
+    "cell_area_um2": 79871.6,
+    "cells": 12788,
+    "electrical_rule_violations": 106,
+    "fmax_mhz": 45.0018,
+    "hold_slack_ns": -0.0277822,
+    "leakage_power_mw": 0.00127514,
+    "peak_power_mw": 11.5147,
+    "setup_slack_ns": -2.22132,
+    "unconstrained_functional_endpoints": 0
+  },
+  "floorplan_density_percent": 30.0,
+  "log": "/mnt/cold-hdd/riscv-qualification/phase3-ibex-routability-p30-v3-repair.log",
+  "log_sha256": "eaa5e904d9b488c1dad093a6b9957242aa269a13e131aa29cbdfdf9e63a2368e",
+  "manifest": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/ibex_core.pkg.json",
+  "manifest_sha256": "a66991c2b0c82de1e9b50938f2190897bf9af1d97fb19acd3404224516efac2d",
+  "outcome": "routed_timing_and_electrical_open",
+  "placement_density": 0.5,
+  "pnr_completed": true,
+  "post_route_repair": true,
+  "product_frequency_goal_mhz": 50.0,
+  "qualification_limits": [
+    "OpenROAD detailed-route DRC is clean; independent KLayout DRC and LVS were not run by this ASIC flow.",
+    "Post-layout equivalence and SDF gate-level simulation remain unproven for this repaired candidate.",
+    "Skywater130 demo PDK evidence is engineering screening, not foundry signoff."
+  ],
+  "remaining_antenna_violations": 0,
+  "repair_stage_metrics": {
+    "electrical_rule_violations": 164,
+    "fmax_mhz": 43.5669,
+    "hold_slack_ns": 0.010708,
+    "setup_slack_ns": -2.95321
+  },
+  "reviewed_sdc": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core.sdc",
+  "reviewed_sdc_sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6",
+  "run_id": "phase3-ibex-routability-p30-v3-repair",
+  "schema": "bounded-pnr-run/v1",
+  "signoff_claimed": false,
+  "source_artifact": "/mnt/cold-hdd/phase2-sv2v/.f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5.sv2v-output/ibex_core.v",
+  "source_artifact_sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be",
+  "status": "completed_with_violations",
+  "synthesis_strategy": "AREA3",
+  "target": "skywater130_demo",
+  "terminal_stage": "write.views",
+  "tool_versions": {
+    "klayout": "0.30.12",
+    "openroad": "26Q2",
+    "opensta": "3.1.0",
+    "siliconcompiler": "0.38.7",
+    "yosys": "0.50"
+  },
+  "top_module": "ibex_core"
+}

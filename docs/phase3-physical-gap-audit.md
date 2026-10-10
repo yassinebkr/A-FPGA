@@ -96,6 +96,22 @@ The Phase 3 execution order is:
    simulation lacks a qualified Ibex integration testbench and compatible timing
    cell models, so it remains unexecuted. Independent KLayout DRC and LVS were
    outside this SiliconCompiler ASIC flow and remain open.
+8. **Post-route repair flow defect corrected:** the SiliconCompiler graph
+   contained `route.repair_timing`, while OpenROAD skipped the task because its
+   `rsz_enable` variable remained disabled. The local runner now exposes an
+   explicit `--post-route-repair` switch and leaves the default unchanged. A
+   focused unit check proves that the switch reaches the exact OpenROAD task.
+9. **One bounded repair experiment completed:** the experiment preserved the
+   pinned RTL, reviewed 20 ns SDC, AREA3 strategy, 30% floorplan utilization,
+   0.50 placement density, and Sky130 demo target. Final timing is **-2.22 ns**
+   setup, **-0.03 ns** hold, and **45.00 MHz** Fmax. Max-slew violations fell
+   from 791 to **106**, with zero max-capacitance, floating-net, overdriven-net,
+   functional-unconstrained-endpoint, detailed-route DRC, and antenna
+   violations. Cell area rose from 77,028.9 to 79,871.6 um2. The physical gate
+   still fails on setup, hold, and max slew, so the candidate is not promoted.
+   Durable records:
+   `docs/evidence/phase3-ibex-routability-p30-v3-repair.json` and
+   `docs/evidence/phase3-ibex-routability-p30-v3-repair-physical-gate.json`.
 
 ## Phase boundary
 
@@ -104,5 +120,13 @@ routing, detailed routing and view generation. The routability blocker is closed
 Physical acceptance remains open because setup, hold and max-slew checks fail.
 Post-layout equivalence is inconclusive; SDF simulation, independent KLayout DRC
 and LVS remain open.
+
+The bounded repair experiment separates two concerns. Post-route resizing and
+buffering materially improves electrical closure. It cannot remove the
+approximately 22 ns architectural path through the current Ibex integration.
+Further 50 MHz work therefore begins with exact critical-path ownership and a
+reviewed architectural/configuration change, followed by equivalence and one
+new bounded physical screen. Repeating physical-density or repair settings on
+the same netlist is not justified by this evidence.
 
 No 50 MHz closure, manufacturability, signoff, or provider acceptance is claimed.

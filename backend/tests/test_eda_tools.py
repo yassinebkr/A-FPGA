@@ -210,6 +210,7 @@ def test_sc_job_build_project_applies_bounded_physical_densities(tmp_path, monke
     project, _ = sc_job.build_project(
         "m", str(vp), "skywater130_demo", 20.0, "pnr",
         str(tmp_path / "build"), floorplan_density=30.0, place_density=0.5,
+        post_route_repair=True,
     )
 
     assert project.constraint.area.get_density() == 30.0
@@ -222,6 +223,10 @@ def test_sc_job_build_project_applies_bounded_physical_densities(tmp_path, monke
             "tool", "openroad", "task", task, "var", "place_density",
             step=step, index="0",
         ) == 0.5
+    assert project.get(
+        "tool", "openroad", "task", "post_route_repair_timing",
+        "var", "rsz_enable", step="route.repair_timing", index="0",
+    ) is True
 
     for floorplan_density, place_density in ((0.0, None), (None, 1.0)):
         with pytest.raises(ValueError):

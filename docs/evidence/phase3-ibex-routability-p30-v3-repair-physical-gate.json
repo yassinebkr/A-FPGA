@@ -1,0 +1,1214 @@
+{
+  "blockers": [
+    "setup",
+    "hold",
+    "max_slew"
+  ],
+  "functional_unconstrained_endpoints": [],
+  "gate_digest": "743a27855109c95e125906e58ad84404ab44fc3f397d479b97e2cadc6b4de67b",
+  "metrics": {
+    "high_fanout_rows": 50,
+    "hold_slack_ns": -0.03,
+    "maximum_fanout": 32,
+    "setup_slack_ns": -2.22
+  },
+  "physical_only_endpoints": {
+    "ANTENNA_52/DIODE": "inserted_antenna_diode"
+  },
+  "policy": {
+    "functional_unconstrained_endpoint": "fail",
+    "high_fanout": "diagnostic; electrical consequences fail separately",
+    "negative_setup_or_hold_slack": "fail",
+    "physical_only_endpoint": "exact inserted antenna diode classification only",
+    "reviewed_sdc_must_equal_consumed_sdc": true,
+    "slew_capacitance_floating_overdriven_drc_antenna": "fail"
+  },
+  "provenance": {
+    "consumed_sdc": {
+      "bytes": 13943,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core.sdc",
+      "sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6"
+    },
+    "manifest": {
+      "bytes": 8969810,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/ibex_core.pkg.json",
+      "sha256": "a66991c2b0c82de1e9b50938f2190897bf9af1d97fb19acd3404224516efac2d"
+    },
+    "physical_netlist": {
+      "bytes": 3111699,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/outputs/ibex_core.vg",
+      "sha256": "22c699c73ce0c53d638fe940ee9a0678c517be65095a42ada6d8ca7c5539b5d4"
+    },
+    "reviewed_sdc": {
+      "bytes": 13943,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core.sdc",
+      "sha256": "4f9f6ac174f92ed4e5f35ee69b3abf1a75c1d12f8f495fcb7b6a46efb82fdfc6"
+    },
+    "rtl_artifact": {
+      "bytes": 1961503,
+      "path": "/mnt/cold-hdd/phase2-sv2v/.f2b11df80038be65032da2a3cc31c456bba7dbbd3cb17c09e3c1dd598c69acf5.sv2v-output/ibex_core.v",
+      "sha256": "068c27a0531207d003179ad76afed93720007d9dcc25c81a2b7710af4161e6be"
+    },
+    "run_record": {
+      "bytes": 4652,
+      "path": "/home/kwestog/Documents/code/fpga/docs/evidence/phase3-ibex-routability-p30-v3-repair.json",
+      "sha256": "4fd783dab7285b6ffc609aa46de918303e8ce49a1fa7284970bca2ba64cb141d"
+    },
+    "target": {
+      "target": "skywater130_demo"
+    },
+    "toolchain": {
+      "klayout": "0.30.12",
+      "openroad": "26Q2",
+      "opensta": "3.1.0",
+      "siliconcompiler": "0.38.7",
+      "yosys": "0.50"
+    }
+  },
+  "reports": {
+    "antenna": {
+      "bytes": 0,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/route.detailed_antenna_repair/0/reports/route/ibex_core.antenna_post_repair.rpt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "drc": {
+      "bytes": 0,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/route.detailed_antenna_repair/0/reports/checks/ibex_core.drc.rpt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "electrical": {
+      "floating_nets": [],
+      "overdriven_nets": [],
+      "report_digest": "98b337df0f040b1600f7d13c0cd23b22d33fe11978963a41cb604e6f638f6993",
+      "reports": [
+        {
+          "bytes_read": 7807,
+          "category": "drv_violators",
+          "entries": [
+            "_11194_/C",
+            "_09727_/A",
+            "_09834_/A",
+            "_10050_/A",
+            "_10086_/A",
+            "_10108_/A",
+            "_10476_/A",
+            "_10929_/A",
+            "_09585_/A",
+            "_10137_/A",
+            "clone3556/X",
+            "_15405_/B1",
+            "_14765_/B1",
+            "_14956_/B1",
+            "_14986_/B1",
+            "_15311_/B1",
+            "_15328_/B1",
+            "_15427_/B1",
+            "_15100_/B1",
+            "_15234_/B1",
+            "_15370_/B1",
+            "_15024_/B",
+            "_15075_/B1",
+            "_15287_/B1",
+            "_15449_/B1",
+            "_14898_/B1",
+            "_14764_/Y",
+            "_15360_/B1",
+            "_09123_/Y",
+            "_09127_/B",
+            "_13574_/B",
+            "_13421_/A",
+            "_13804_/A1",
+            "_13848_/B",
+            "_13852_/B",
+            "_13561_/B",
+            "_13564_/A1",
+            "id_stage_i/controller_i/instr_compressed_i[8]$_DFFE_PP_/D",
+            "place2434/X",
+            "_15232_/A1",
+            "_15282_/B1",
+            "_15036_/B",
+            "_15376_/B",
+            "_15231_/B",
+            "_15357_/B",
+            "_15445_/B1",
+            "_14743_/B1",
+            "_15424_/C1",
+            "_15325_/B",
+            "_15402_/B",
+            "_15306_/B1",
+            "_14996_/B",
+            "_14943_/B1",
+            "_15109_/B",
+            "_14868_/B1",
+            "_15377_/A1",
+            "_15068_/B1",
+            "_15425_/A1",
+            "_15403_/A1",
+            "_14744_/A1",
+            "_15023_/B",
+            "_15110_/A1",
+            "_15326_/A1",
+            "_15307_/A1",
+            "_14997_/A1",
+            "_14869_/A1",
+            "_15283_/A1",
+            "_15037_/A1",
+            "_15069_/A1",
+            "_15358_/A1",
+            "_15531_/B",
+            "place2111/X",
+            "_13425_/A",
+            "_13515_/B",
+            "_13632_/A",
+            "_13646_/A1",
+            "_13734_/A1",
+            "_13794_/B",
+            "_13844_/B1",
+            "id_stage_i/controller_i/instr_compressed_i[2]$_DFFE_PP_/D",
+            "place2438/X",
+            "_11465_/A1",
+            "_11183_/A1",
+            "_11800_/A2",
+            "_12128_/A2",
+            "_12211_/A2",
+            "_12305_/A2",
+            "_12962_/A2",
+            "_12926_/A2",
+            "_10121_/A2",
+            "_11906_/A",
+            "_11912_/A2",
+            "_10118_/Y",
+            "_12837_/A1",
+            "_12839_/A1",
+            "_10704_/Y",
+            "wire2698/A",
+            "_10247_/B1",
+            "_11517_/A",
+            "_11545_/B1",
+            "_11511_/B1",
+            "_13970_/B2",
+            "place2254/X",
+            "_09677_/Y",
+            "_09678_/A",
+            "wire2688/A"
+          ],
+          "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/reports/checks/drv_violators.rpt",
+          "sha256": "59df7af7c2d234f5c73015bda65335e161546456a1971413d793aadc1ad1c6ac"
+        },
+        {
+          "bytes_read": 0,
+          "category": "floating_nets",
+          "entries": [],
+          "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/reports/checks/floating_nets.rpt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes_read": 0,
+          "category": "overdriven_nets",
+          "entries": [],
+          "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/reports/checks/overdriven_nets.rpt",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes_read": 6144,
+          "category": "unconstrained_endpoints",
+          "entries": [
+            "ANTENNA_52/DIODE"
+          ],
+          "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/reports/timing/unconstrained.rpt",
+          "sha256": "cc834f678964b0f065814b38a13f201a235f14755643026696071501bd137c03"
+        }
+      ],
+      "schema": "physical-evidence/v1",
+      "status": "violations",
+      "unconstrained_endpoints": [
+        "ANTENNA_52/DIODE"
+      ],
+      "violations": [
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11194_/C",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09727_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09834_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10050_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10086_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10108_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10476_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10929_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09585_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10137_/A",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "clone3556/X",
+          "slack": -1.01,
+          "status": "unwaived",
+          "value": 2.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15405_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14765_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14956_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14986_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15311_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15328_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15427_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15100_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15234_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15370_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15024_/B",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15075_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15287_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15449_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14898_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14764_/Y",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15360_/B1",
+          "slack": -0.53,
+          "status": "unwaived",
+          "value": 2.03,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09123_/Y",
+          "slack": -0.35,
+          "status": "unwaived",
+          "value": 1.85,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09127_/B",
+          "slack": -0.35,
+          "status": "unwaived",
+          "value": 1.85,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13574_/B",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13421_/A",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13804_/A1",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13848_/B",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13852_/B",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13561_/B",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13564_/A1",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "id_stage_i/controller_i/instr_compressed_i[8]$_DFFE_PP_/D",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "place2434/X",
+          "slack": -0.1,
+          "status": "unwaived",
+          "value": 1.6,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15232_/A1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15282_/B1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15036_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15376_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15231_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15357_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15445_/B1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14743_/B1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15424_/C1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15325_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15402_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15306_/B1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14996_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14943_/B1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15109_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14868_/B1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15377_/A1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15068_/B1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15425_/A1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15403_/A1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14744_/A1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15023_/B",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15110_/A1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15326_/A1",
+          "slack": -0.07,
+          "status": "unwaived",
+          "value": 1.57,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15307_/A1",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14997_/A1",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_14869_/A1",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15283_/A1",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15037_/A1",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15069_/A1",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15358_/A1",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_15531_/B",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "place2111/X",
+          "slack": -0.06,
+          "status": "unwaived",
+          "value": 1.56,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13425_/A",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13515_/B",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13632_/A",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13646_/A1",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13734_/A1",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13794_/B",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13844_/B1",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "id_stage_i/controller_i/instr_compressed_i[2]$_DFFE_PP_/D",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "place2438/X",
+          "slack": -0.04,
+          "status": "unwaived",
+          "value": 1.54,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11465_/A1",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11183_/A1",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11800_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12128_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12211_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12305_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12962_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12926_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10121_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11906_/A",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11912_/A2",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10118_/Y",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12837_/A1",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_12839_/A1",
+          "slack": -0.02,
+          "status": "unwaived",
+          "value": 1.52,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10704_/Y",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "wire2698/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_10247_/B1",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11517_/A",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11545_/B1",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_11511_/B1",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_13970_/B2",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "place2254/X",
+          "slack": -0.01,
+          "status": "unwaived",
+          "value": 1.51,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09677_/Y",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "_09678_/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        },
+        {
+          "category": "max_slew",
+          "limit": 1.5,
+          "object_name": "wire2688/A",
+          "slack": -0.0,
+          "status": "unwaived",
+          "value": 1.5,
+          "waiver_reason": null
+        }
+      ]
+    },
+    "high_fanout": {
+      "bytes": 3570,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/reports/design/high_fanout.rpt",
+      "sha256": "7dfc16318581ea80fbff53eb729ce07f33e5ac5f5a83b665a4cc9ef50cbd220d"
+    },
+    "hold_slack": {
+      "bytes": 22,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/reports/timing/worst_slack.hold.rpt",
+      "sha256": "79035e770d9cf6baf11aa009447146339939be13e21a58c46b31d1a964864750"
+    },
+    "setup_slack": {
+      "bytes": 22,
+      "path": "/mnt/cold-hdd/sc_builds/phase3-ibex-routability-p30-v3-repair/ibex_core/job0/write.views/0/reports/timing/worst_slack.setup.rpt",
+      "sha256": "6a52e7e89f3e9166d47b0b826caddee60613336789afa84eb6fcc6a7e06622b5"
+    }
+  },
+  "schema": "physical-acceptance-gate/v1",
+  "status": "fail",
+  "violation_counts": {
+    "antenna": 0,
+    "constraint_mismatch": 0,
+    "drc": 0,
+    "floating_nets": 0,
+    "hold": 1,
+    "max_capacitance": 0,
+    "max_slew": 106,
+    "overdriven_nets": 0,
+    "setup": 1,
+    "unconstrained_functional_endpoints": 0
+  }
+}

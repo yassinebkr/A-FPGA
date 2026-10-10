@@ -120,6 +120,15 @@ equivalence is inconclusive with 25,700 cells unproven. SDF simulation,
 independent KLayout DRC/LVS, 50 MHz closure, manufacturability, provider
 acceptance and signoff remain open.
 
+A third bounded run enabled the previously skipped OpenROAD post-route timing
+repair task while preserving every other reviewed input. It improved the final
+screen to 45.00 MHz / -2.22 ns setup and reduced max-slew violations from 791
+to 106. Hold remains -0.03 ns; DRC, antenna, capacitance, floating,
+overdriven, and functional unconstrained counts remain zero. The candidate
+fails closed and is retained as diagnostic evidence. The next timing action is
+an exact critical-path architectural/configuration review; further tuning of
+the same physical controls is outside the bounded experiment.
+
 ## Phase 4  -  Tiny Tapeout wrapper and official hardening
 
 Implementation status: NOT STARTED.
