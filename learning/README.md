@@ -11,8 +11,9 @@ Les chapitres servent à apprendre. Le contrat normatif reste [le contrat MCU](.
 3. [Démarrage, interruptions et débogage](03-controle-et-demarrage.md)
 4. [L’interconnexion OBI](04-interconnexion-obi.md)
 5. [La mémoire et la chaîne de démarrage](05-memoire-et-demarrage.md)
+6. [Périphériques, broches et programmation USB-C](06-peripheriques-et-carte.md)
 
-Les prochains chapitres couvriront les périphériques et les broches, la technologie physique, puis la vérification jusqu'au silicium. Ils seront ajoutés après le verrouillage de leurs décisions.
+Les prochains chapitres couvriront la technologie physique, puis la vérification jusqu'au silicium. Ils seront ajoutés après le verrouillage de leurs décisions.
 
 ## Quelques repères
 

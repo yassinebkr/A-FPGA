@@ -78,16 +78,24 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    technology macros make the larger profile physically unsuitable. Store
    firmware in external SPI flash, validate its versioned image and CRC32, copy
    it into SRAM and execute it there. Support variable-latency memory handshakes,
-   JTAG recovery and a deterministic startup SRAM test. Defer execute-in-place
+   JTAG and UART recovery, UART firmware loading and a deterministic startup SRAM test. Defer execute-in-place
    caching and generalized ECC; decide optional parity from the actual SRAM
    macro widths and timing models. Use technology-independent wrappers around
    every ROM and SRAM implementation.
 
-6. **Peripheral, IO and package baseline**
-   Candidate first-prototype scope: UART, SPI master, I2C master, GPIO and a
-   timer. I2C multi-master/slave modes and DMA are deferred candidates. Freeze
-   exact capabilities later and derive clocks, resets, open-drain requirements,
-   pads, pin budget, package assumptions, test access and board-level needs.
+6. **Peripheral, IO and package baseline — DECIDED**
+   Provide a FIFO-backed 8N1 UART, SPI master with modes 0-3 and two chip
+   selects, I2C master at 100/400 kHz with clock stretching, eight interrupt-
+   capable GPIOs, one 32-bit general timer and a watchdog. Share the SPI bus
+   between boot flash and one external target. Use an external clock and no
+   mandatory PLL in the first silicon. Budget approximately 26 functional
+   signals and target a provider-supported package compatible with a QFN48-
+   class pin count. The development board must provide USB-C programming and
+   console through a USB-to-UART bridge; ROM must support UART recovery and
+   firmware loading, while JTAG remains available for debug. Native USB PHY and
+   device logic, DMA, advanced PWM and complex I2C modes are later profiles.
+   Derive ESD, open-drain, voltage-level, pad-ring and bonding details from the
+   provider-approved IO libraries and package.
 
 7. **Technology and frequency feasibility matrix**
    Evaluate the selected architecture at 100, 150, 200 and 250 MHz across
