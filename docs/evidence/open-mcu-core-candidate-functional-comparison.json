@@ -1,21 +1,45 @@
 {
-  "schema": "open-mcu-core-candidate-functional-comparison/v1",
+  "schema": "open-mcu-core-candidate-functional-comparison/v2",
   "status": "contract_gaps_found",
   "assurance": "bounded_directed_architectural_smoke",
-  "afpga_input_commit": "124d72a1dc94f61d7688bf25fe4de27d8e5a5756",
-  "open_mc_result_commit": "c88afaab53dcdc44f46251080734655cad8352dd",
+  "afpga_input_commit": "12e318e409aadc7b8234e5dbf51c9bf6c129a820",
+  "open_mc_result_commit": "f020cf05592416add0c40dd83bd23e5f70e69cde",
   "tool": "Verilator 5.052 2026-09-05 rev v5.052",
   "testbench_sha256": "f214aa962046811da9e54d1b6c7b3cf700a991f5a72c7aed5a4eb241c0f720d2",
-  "result_sha256": "6f637d7db108e91ea67536d64eab001471614feaf54e2a1154731d670e00f559",
+  "result_sha256": "71576ba070551491fe1b99452d5d02e7c4607f03930a7acd0ea2bccfc4423824",
   "corpus": [
-    {"name": "rv32i_alu_store", "image_sha256": "3a0f154aef3562186878d3e244f6c0d44484d82b4f5af643508c55b17860a095"},
-    {"name": "rv32m_mul_div", "image_sha256": "ed06dfa88159ad52f6f4f210eb21a78d4d53b432e80c899ea77ae928e28b1a7f"},
-    {"name": "rv32c_nop", "image_sha256": "6b57fb22582bf541efdb23c884e1b212c5012643940652a97e69df985eef25d6"},
-    {"name": "zicsr_illegal_trap", "image_sha256": "94bd14bdbeec7ccba47329046e5e663aaebef47f7f182d5dcd80cfe3970c1dec"},
-    {"name": "zifencei", "image_sha256": "f176867e1673b21ef99976eed1cbb98e88579aa885ab7dd63261229a48e60b9c"},
-    {"name": "misaligned_load_trap", "image_sha256": "b824b20776ee6ac63842cd7d23347e8cddd570066d21e05ae9071bb2179537d4"},
-    {"name": "instruction_bus_error", "image_sha256": "9fffeb6c8a9ec79089553452bd672af5191ace26452559784b4cf326f5f5394b"},
-    {"name": "data_bus_error", "image_sha256": "df0421ec5a281c6a3ba4fcf2832f81ff6b0dab57efe97009da73d862c455f203"}
+    {
+      "name": "rv32i_alu_store",
+      "image_sha256": "3a0f154aef3562186878d3e244f6c0d44484d82b4f5af643508c55b17860a095"
+    },
+    {
+      "name": "rv32m_mul_div",
+      "image_sha256": "ed06dfa88159ad52f6f4f210eb21a78d4d53b432e80c899ea77ae928e28b1a7f"
+    },
+    {
+      "name": "rv32c_nop",
+      "image_sha256": "6b57fb22582bf541efdb23c884e1b212c5012643940652a97e69df985eef25d6"
+    },
+    {
+      "name": "zicsr_illegal_trap",
+      "image_sha256": "94bd14bdbeec7ccba47329046e5e663aaebef47f7f182d5dcd80cfe3970c1dec"
+    },
+    {
+      "name": "zifencei",
+      "image_sha256": "f176867e1673b21ef99976eed1cbb98e88579aa885ab7dd63261229a48e60b9c"
+    },
+    {
+      "name": "misaligned_load_trap",
+      "image_sha256": "b824b20776ee6ac63842cd7d23347e8cddd570066d21e05ae9071bb2179537d4"
+    },
+    {
+      "name": "instruction_bus_error",
+      "image_sha256": "9fffeb6c8a9ec79089553452bd672af5191ace26452559784b4cf326f5f5394b"
+    },
+    {
+      "name": "data_bus_error",
+      "image_sha256": "df0421ec5a281c6a3ba4fcf2832f81ff6b0dab57efe97009da73d862c455f203"
+    }
   ],
   "candidates": [
     {
@@ -23,26 +47,51 @@
       "commit": "360d272898d81806be3377193870dbf83a3ea79f",
       "passed": 5,
       "total": 8,
-      "failed": ["misaligned_load_trap", "instruction_bus_error", "data_bus_error"]
+      "failed": [
+        "misaligned_load_trap",
+        "instruction_bus_error",
+        "data_bus_error"
+      ]
     },
     {
       "id": "cve2",
       "commit": "d7f21568028a1114be663599bd42145dccf28928",
       "passed": 7,
       "total": 8,
-      "failed": ["misaligned_load_trap"]
+      "failed": [
+        "misaligned_load_trap"
+      ]
     }
   ],
   "observations": [
     "both pinned load-store units complete the tested misaligned word load",
     "the locked Open_MC contract requires a deterministic misaligned-load exception",
     "the current CV32E40P comparison wrapper discards instruction and data response errors",
-    "CVE2 raises the expected instruction and data access-fault causes in this corpus"
+    "CVE2 raises the expected instruction and data access-fault causes in this corpus",
+    "one additional HPM counter is configured on both comparison wrappers",
+    "the parameter change makes earlier CVE2 physical measurements historical until rerun",
+    "precise bus-error and strict-alignment behavior require reviewed core-internal changes"
   ],
   "decision": {
-    "provisional_timing_baseline": "cv32e40p",
-    "current_contract_compatibility_leader": "cve2",
-    "final_selection": "pending contract repair and broader compliance"
+    "implementation_candidate": "cv32e40p",
+    "independent_control": "cve2",
+    "required_cv32e40p_repairs": [
+      "instruction_response_error",
+      "data_response_error",
+      "strict_alignment",
+      "eight_region_pmp"
+    ],
+    "final_selection": "pending repaired-fork verification, RISCOF, randomized differential tests, PMP, and refreshed physical evidence"
   },
-  "claim_boundary": "Eight directed tests only; no RISCOF compliance, randomized differential, formal, coverage, PMP, or product qualification claim"
+  "claim_boundary": "Eight directed tests on harmonized wrappers only; upstream cores remain unchanged; no repaired-fork, RISCOF, randomized differential, formal, coverage, PMP, timing, area, power, or product qualification claim",
+  "comparison_parameters": {
+    "cv32e40p": [
+      "NUM_MHPMCOUNTERS=1"
+    ],
+    "cve2": [
+      "MHPMCounterNum=1",
+      "MHPMCounterWidth=40",
+      "RV32M=RV32MFast"
+    ]
+  }
 }
