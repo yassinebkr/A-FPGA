@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "open_mc_unit_tests": "17 passed",
+    "patch_applies_to_pinned_checkout": true
+  },
+  "claim_boundary": "Directed functional repair evidence only. Strict alignment, RISCOF, randomized differential testing, formal, coverage, PMP, timing, area, power, and physical qualification remain open.",
+  "date": "2026-10-11",
+  "open_mc_commit": "bd94d96699b90e18a0eee6b2a51eef04845d4dad",
+  "patch": {
+    "path": "patches/cv32e40p/0001-propagate-obi-response-errors.patch",
+    "sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46"
+  },
+  "profile": "repaired",
+  "results": {
+    "data_bus_error": {
+      "mcause": 5,
+      "status": "passed"
+    },
+    "instruction_bus_error": {
+      "mcause": 1,
+      "status": "passed"
+    },
+    "misaligned_load_trap": {
+      "actual": 0,
+      "expected_mcause": 4,
+      "status": "failed"
+    },
+    "repaired_run_1": {
+      "passed": 7,
+      "total": 8
+    },
+    "repaired_run_2": {
+      "passed": 7,
+      "result_sha256": "dc0cedcfb1fc9b1d6f91b709dda87ece30e773f7bea17bbdf73286f11849de0e",
+      "total": 8
+    },
+    "upstream_control": {
+      "passed": 5,
+      "result_sha256": "bddd4832950e04bb50d4742c046af7031d5e975fa963407d12a8ea56aa98a308",
+      "total": 8
+    }
+  },
+  "schema_version": 1,
+  "scope": "bounded_cv32e40p_obi_response_error_repair",
+  "testbench_sha256": "f214aa962046811da9e54d1b6c7b3cf700a991f5a72c7aed5a4eb241c0f720d2",
+  "tool": "Verilator 5.052 2026-09-05 rev v5.052",
+  "upstream_cv32e40p_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}
