@@ -1,0 +1,135 @@
+{
+  "schema": "open-mcu-core-candidate-ihp-comparison/v1",
+  "status": "physical_matrix_complete_functional_gates_pending",
+  "assurance": "pre_cts_pre_route_screening",
+  "afpga_input_commit": "f31ca7010b464ce8f229b3d7cfa74979f3c211e6",
+  "open_mc_result_commit": "e3921254a4ebdc455ebbf23cddba51a6a0be213d",
+  "tools": {
+    "container": "fpga-backend",
+    "yosys": "0.68 (38e001a6f)",
+    "openroad": "26Q3-2077-g1d0a041755"
+  },
+  "technology": {
+    "name": "IHP SG13G2 open PDK",
+    "pdk_commit": "5e6d592e4002946a4616f798c357f0f3c06cf3b6",
+    "corner": "typical 1.20 V 25 C",
+    "liberty_sha256": "7677a8918689f452e80405ad16a83e744709342574f2aedcc507c2758986b396",
+    "technology_lef_sha256": "054f5b7b24d72365b4b1088be1331e04c1c2e3805de9f99c37e71938ed231efc",
+    "standard_cell_lef_sha256": "c9bbc02d0c2cba3b15cd89a208750d25de882f02a2927ae78ba6422109fb01d0"
+  },
+  "constraints": {
+    "clock_uncertainty_fraction": 0.05,
+    "input_delay_fraction": 0.20,
+    "output_delay_fraction": 0.20,
+    "output_load_pf": 0.020,
+    "floorplan_utilization_percent": 40.0,
+    "placement_density": 0.60,
+    "max_repair_utilization_percent": 80.0,
+    "clock_model": "ideal",
+    "parasitics": "placement_estimated"
+  },
+  "candidates": [
+    {
+      "id": "cv32e40p",
+      "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+      "mapped_netlist_sha256": "349bcda4cda55b51de1029c6da513f831728bd8c81c3655f97c5cbe61ca72a08",
+      "measurements": [
+        {
+          "target_mhz": 100,
+          "setup_slack_ns": 0.3213,
+          "tns_ns": 0.0,
+          "estimated_placed_fmax_mhz": 104.4757407330018,
+          "placed_cell_area_um2": 367397.25,
+          "hpwl_um": 979623.83,
+          "estimated_power_w": 0.00767,
+          "timing_met": true,
+          "artifact_sha256": {
+            "openroad_log": "919040b07e9205ee6f75b7153910ecda762ea00b6ecc28c21660e08fc7f8e9d0",
+            "metrics": "ce202eab05d65b5c0da045fb146fc0dce0673ee9298d67fb224746143701b2fb",
+            "def": "a558858a62da4be8769310c92bfc6915e4835f0c88de50e2cc24219da358ffe9",
+            "odb": "82fadd348c277979e27c0042b8ab1792dd0237d741d6967dffddfbc8176bfb89",
+            "verilog": "88dc275c7f2fddf4c1fb7de13f9b2141fb94e580940b999a3b94084c3733bfac"
+          }
+        },
+        {
+          "target_mhz": 150,
+          "setup_slack_ns": -0.9031,
+          "tns_ns": -809.4007,
+          "estimated_placed_fmax_mhz": 127.05188799105554,
+          "placed_cell_area_um2": 388427.96,
+          "hpwl_um": 1012780.58,
+          "estimated_power_w": 0.00836,
+          "timing_met": false,
+          "artifact_sha256": {
+            "openroad_log": "61ef856a5e3f8dda37afb83c12a335e6680e891cf47f3cb6014fc2efd2bd9760",
+            "metrics": "a31a8ba49e248fbe524b193d0a83a8325546a4a2765a9d12469acfa5c015104b",
+            "def": "74eab3050e74ecc369163477d7513116c8b650beb9caf1d32933ddabba2ec0db",
+            "odb": "32157a8cdb6fdc1a15d1c8ad795a18548e2dfc4ae2f7588c04292e18bf2f7b39",
+            "verilog": "0efe66d94f081b2ef822fa4cc77191ce70ac2c2b751e30cfaa36fbe0c79c6232"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cve2",
+      "upstream_commit": "d7f21568028a1114be663599bd42145dccf28928",
+      "mapped_netlist_sha256": "fdb6d88fd1620c8ecd066690d5e6864f718198222a83744c88dea838b281f599",
+      "measurements": [
+        {
+          "target_mhz": 100,
+          "setup_slack_ns": 0.1664,
+          "tns_ns": 0.0,
+          "estimated_placed_fmax_mhz": 102.26900839969456,
+          "placed_cell_area_um2": 323563.79,
+          "hpwl_um": 808147.55,
+          "estimated_power_w": 0.0109,
+          "timing_met": true,
+          "artifact_sha256": {
+            "openroad_log": "2d7647a7ec96a26c0164ca3791f1c980a550243b93f844469595e98957bcd8f1",
+            "metrics": "cfaef86928413586baa992be4fcbe78757e8c72f86873d96e39c4833f02173b3",
+            "def": "dbe3da88356f4044c19feada5cd59b20278ac2343c91b17d551dec799dc4aab5",
+            "odb": "4e45b4a79eefbde68605bdd9ab0bc9cca3d02c0042485f65912e1cb47a18a362",
+            "verilog": "40fb98e56537565e925e77355bec43cc847d84fdab730701ef561acefb1842f6"
+          }
+        },
+        {
+          "target_mhz": 150,
+          "setup_slack_ns": -1.0953,
+          "tns_ns": -538.8311,
+          "estimated_placed_fmax_mhz": 123.04562531786787,
+          "placed_cell_area_um2": 348513.61,
+          "hpwl_um": 839723.52,
+          "estimated_power_w": 0.0123,
+          "timing_met": false,
+          "artifact_sha256": {
+            "openroad_log": "98477466bf3dc5c878bc7f6b7ae93a24cd924afd50355ec6744da40cb81055d8",
+            "metrics": "4e507274a932da778de07e0b44a7cfdc0f6eb776dd4f6cfd780ea5d2fdf2e7f1",
+            "def": "56c570b13eb1c91288fd9007b019f7439822336cea9090e8a51324c41622b053",
+            "odb": "ca34e9b7d9f2ed77cd1d7d2ed2c3714e544e03fbbf4775e644ebe5242fddcd0d",
+            "verilog": "346d83a02774b5a76238338ac36fe1f57de479240149413320749754ab55d6bb"
+          }
+        }
+      ]
+    }
+  ],
+  "electrical_checks": {
+    "max_slew": "no violator rows after repair",
+    "max_capacitance": "no violator rows after repair",
+    "max_fanout": "no violator rows after repair"
+  },
+  "power_basis": "OpenROAD default activity; no workload or SAIF/VCD annotation",
+  "decision": {
+    "provisional_baseline": "cv32e40p",
+    "control": "cve2",
+    "final_selection": "pending",
+    "remaining_gates": [
+      "equivalent product parameters and counters",
+      "directed ISA exception and bus-error tests",
+      "independent differential reference",
+      "PMP disposition",
+      "CV32E40P memory-response-error disposition",
+      "verification maturity and modification-surface review"
+    ]
+  },
+  "claim_boundary": "Pre-CTS, pre-route typical-corner screening only; no 150, 250, 500 MHz product or silicon claim"
+}

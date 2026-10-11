@@ -40,9 +40,11 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    Use a four-stage in-order pipeline with a 32 x 32-bit register file, a
    pipelined multiplier and an iterative divider. CV32E40P is the primary
    reference candidate for the first prototype; CVE2/Croc remains the
-   known-silicon functional and physical control. Final core selection remains
-   gated by a reproducible technology comparison covering timing, area, power,
-   verification maturity and modification boundaries. The architecture must
+   known-silicon functional and physical control. The matched IHP placement matrix closes 100 MHz for both candidates and misses
+   150 MHz for both; CV32E40P leads estimated placed Fmax at 127.0519 MHz while
+   CVE2 uses less area. CV32E40P remains the provisional baseline. Final core
+   selection remains gated by equivalent functional qualification, PMP and bus-
+   error dispositions, verification maturity and modification boundaries. The architecture must
    preserve a clean core wrapper so the platform and later derived MCU project
    can replace or evolve the core without rewriting the SoC.
 
