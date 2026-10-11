@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11",
+  "status": "passed",
+  "scope": "bounded_cv32e40p_provisional_ihp_100mhz_flow_repair",
+  "platform_input_commit": "a93737ff33dcc052d78901972275b0975a6d0909",
+  "open_mc_result_commit": "398125239274fdd3d9934c39f5da2014970061cd",
+  "candidate": {
+    "id": "cv32e40p",
+    "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+    "top": "openmc_cv32e40p_measure_top",
+    "source_files": 30
+  },
+  "container": {
+    "image": "fpga-backend",
+    "image_id": "sha256:0a2c981320f6f2dc8251c6eff9bbc9a5c918b7d9390a6c96966bbf2f3b3b46bd"
+  },
+  "tools": {
+    "sv2v": "sv2v v0.0.13-13-g493a88f",
+    "yosys": "Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0)",
+    "opensta": "OpenSTA 3.1.0 87f2de4392"
+  },
+  "liberty": {
+    "name": "sg13g2_stdcell_typ_1p20V_25C",
+    "sha256": "6f50333c719d8f324c9f8a18197e034ae531de3655002eb9d10c04f281ee0660",
+    "provenance": "pinned OpenSTA IHP test fixture"
+  },
+  "constraints": {
+    "frequency_mhz": 100,
+    "period_ns": 10.0,
+    "clock_uncertainty_ns": 0.5,
+    "input_delay_ns": 2.0,
+    "output_delay_ns": 2.0,
+    "output_load_pf": 0.02,
+    "abc_driving_cell": "sg13g2_buf_4",
+    "abc_output_load_ff": 20.0,
+    "abc_max_fanout": 8,
+    "inputs_missing_delay": 0
+  },
+  "measurement": {
+    "cells": 23838,
+    "area_um2": 310633.8228,
+    "setup_slack_ns": 1.6612,
+    "tns_ns": 0.0,
+    "critical_path_delay_ns": 5.8388,
+    "estimated_screen_fmax_mhz": 128.4510515859423,
+    "timing_met": true
+  },
+  "baseline_delta": {
+    "setup_slack_ns": 7.8041,
+    "tns_ns": 1611.2767,
+    "critical_path_delay_percent": -57.202648,
+    "area_percent": 5.825169,
+    "cells_percent": 10.807419
+  },
+  "top_paths": {
+    "count": 10,
+    "mapped_startpoint": "_47387_",
+    "resolved_startpoint": "u_core.core_i.id_stage_i.decoder_i.instr_rdata_i[15]",
+    "endpoints": [
+      "instr_addr_o[31]",
+      "instr_addr_o[30]",
+      "instr_addr_o[29]",
+      "instr_addr_o[20]",
+      "instr_addr_o[26]",
+      "instr_addr_o[4]",
+      "instr_addr_o[23]",
+      "instr_addr_o[2]",
+      "instr_addr_o[5]",
+      "instr_addr_o[28]"
+    ],
+    "slack_ns": [1.6612, 1.7741, 1.9168, 2.0283, 2.0283, 2.0377, 2.0386, 2.0609, 2.0609, 2.0687]
+  },
+  "electrical_violations": {
+    "max_slew": 0,
+    "max_fanout": 0,
+    "max_capacitance": 0
+  },
+  "local_artifact_sha256": {
+    "mapped_netlist": "b62c9dbff973f560dfc544bebc1300467e5ecad01639b5290c947167805cdcdd",
+    "sta_log": "fb731ec0c62e268a6b451f0f1cce8012db6be9c7e0926c70a88a4d705d2f882d",
+    "stats_json": "356316f99f28276d0f72c67c19a703c22a67b350b90b2c381f035ed20d8662f2",
+    "yosys_log": "1ab90fed3909aa4accc316cb5c61120d2ce62e00c3c016954b0abe235ec4f257",
+    "abc_constraint": "069265ecdfd4b1ed9decd82e0f083901e07c9bd24c5509e971736ae69475b9c6",
+    "abc_script": "de566952cb1a2d312a425f41fc16ebe529f88564cb1868098d13b2a86879e2c4"
+  },
+  "decision": {
+    "one_hundred_mhz_screen": "closed",
+    "next_frequency_mhz": 150,
+    "pipeline_revision": "deferred_pending_repaired_higher_frequency_path"
+  },
+  "claim_boundary": "The 128.4511 MHz value is derived from the 100 MHz mapped critical delay. Placement, routing, extracted parasitics, multi-corner timing and provider-qualified views remain required."
+}
