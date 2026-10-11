@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11",
+  "scope": "open_mcu_cv32e40p_eight_region_pmp",
+  "status": "passed",
+  "open_mc_commit": "ac82dd4dc5893e01e74be8f33d0de92179936b5e",
+  "upstream": {
+    "tag": "cv32e40p_v1.8.3",
+    "commit": "360d272898d81806be3377193870dbf83a3ea79f"
+  },
+  "patches": {
+    "obi_response_errors_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+    "eight_region_pmp_sha256": "5c4778d653b4df289372a8cf6eaa269a77c0c7ceafad1c1cfd69f29815d110b7"
+  },
+  "testbench_sha256": "8863b3a3326910c177aa4b620184323ef5174d9a94a72d4c1a5b7fe5869acbca",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "repeated_runs": [
+    {
+      "result_sha256": "22727556019c28ee698037712a20630555d459a8894af38e246e02f39a3ffd13",
+      "passed": 13,
+      "total": 13
+    },
+    {
+      "result_sha256": "0e6902fe54bab3212a83fd0ade54c047861f7180c5b6b41749cca12361b8b86d",
+      "passed": 13,
+      "total": 13
+    }
+  ],
+  "pmp": {
+    "regions": 8,
+    "privilege_profile": "machine-only",
+    "csr_region7_lock_readback": "passed",
+    "instruction_fault": {
+      "mcause": 1,
+      "external_request": false
+    },
+    "load_fault": {
+      "mcause": 5,
+      "external_request": false
+    },
+    "store_fault": {
+      "mcause": 7,
+      "external_request": false
+    }
+  },
+  "checks": {
+    "unit_tests": "18 passed",
+    "historical_regression": "9/9 preserved"
+  },
+  "claim_boundary": "Bounded directed functional qualification only; RISCOF, randomized differential verification, and refreshed physical evidence remain open."
+}
