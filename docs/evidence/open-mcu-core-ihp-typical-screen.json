@@ -1,0 +1,172 @@
+{
+  "candidates": [
+    {
+      "commit": "360d272898d81806be3377193870dbf83a3ea79f",
+      "id": "cv32e40p",
+      "measurements": [
+        {
+          "area_um2": 293534.9172,
+          "cells": 21513,
+          "clock_uncertainty_ns": 0.5,
+          "critical_path_delay_ns": 13.642900000000001,
+          "estimated_screen_fmax_mhz": 54.97364929743676,
+          "frequency_mhz": 100,
+          "io_delay_ns": 2.0,
+          "output_load_pf": 0.02,
+          "period_ns": 10.0,
+          "setup_slack_ns": -6.1429,
+          "timing_met": false,
+          "tns_ns": -1611.2767
+        },
+        {
+          "area_um2": 293534.9172,
+          "cells": 21513,
+          "clock_uncertainty_ns": 0.33333333333333337,
+          "critical_path_delay_ns": 13.6429,
+          "estimated_screen_fmax_mhz": 54.973649297436765,
+          "frequency_mhz": 150,
+          "io_delay_ns": 1.3333333333333335,
+          "output_load_pf": 0.02,
+          "period_ns": 6.666666666666667,
+          "setup_slack_ns": -8.6429,
+          "timing_met": false,
+          "tns_ns": -6669.7344
+        },
+        {
+          "area_um2": 293534.9172,
+          "cells": 21513,
+          "clock_uncertainty_ns": 0.25,
+          "critical_path_delay_ns": 13.6429,
+          "estimated_screen_fmax_mhz": 54.973649297436765,
+          "frequency_mhz": 200,
+          "io_delay_ns": 1.0,
+          "output_load_pf": 0.02,
+          "period_ns": 5.0,
+          "setup_slack_ns": -9.8929,
+          "timing_met": false,
+          "tns_ns": -9345.748
+        },
+        {
+          "area_um2": 293534.9172,
+          "cells": 21513,
+          "clock_uncertainty_ns": 0.2,
+          "critical_path_delay_ns": 13.6429,
+          "estimated_screen_fmax_mhz": 54.973649297436765,
+          "frequency_mhz": 250,
+          "io_delay_ns": 0.8,
+          "output_load_pf": 0.02,
+          "period_ns": 4.0,
+          "setup_slack_ns": -10.6429,
+          "timing_met": false,
+          "tns_ns": -11242.7119
+        }
+      ],
+      "source_files": 30,
+      "top": "openmc_cv32e40p_measure_top"
+    },
+    {
+      "commit": "d7f21568028a1114be663599bd42145dccf28928",
+      "id": "cve2",
+      "measurements": [
+        {
+          "area_um2": 265796.1054,
+          "cells": 17489,
+          "clock_uncertainty_ns": 0.5,
+          "critical_path_delay_ns": 15.1279,
+          "estimated_screen_fmax_mhz": 49.577271134790685,
+          "frequency_mhz": 100,
+          "io_delay_ns": 2.0,
+          "output_load_pf": 0.02,
+          "period_ns": 10.0,
+          "setup_slack_ns": -7.6279,
+          "timing_met": false,
+          "tns_ns": -11610.875
+        },
+        {
+          "area_um2": 265796.1054,
+          "cells": 17489,
+          "clock_uncertainty_ns": 0.33333333333333337,
+          "critical_path_delay_ns": 15.7946,
+          "estimated_screen_fmax_mhz": 47.4845833386094,
+          "frequency_mhz": 150,
+          "io_delay_ns": 1.3333333333333335,
+          "output_load_pf": 0.02,
+          "period_ns": 6.666666666666667,
+          "setup_slack_ns": -10.7946,
+          "timing_met": false,
+          "tns_ns": -19018.6289
+        },
+        {
+          "area_um2": 265796.1054,
+          "cells": 17489,
+          "clock_uncertainty_ns": 0.25,
+          "critical_path_delay_ns": 16.1279,
+          "estimated_screen_fmax_mhz": 46.50326452916995,
+          "frequency_mhz": 200,
+          "io_delay_ns": 1.0,
+          "output_load_pf": 0.02,
+          "period_ns": 5.0,
+          "setup_slack_ns": -12.3779,
+          "timing_met": false,
+          "tns_ns": -22723.8809
+        },
+        {
+          "area_um2": 265796.1054,
+          "cells": 17489,
+          "clock_uncertainty_ns": 0.2,
+          "critical_path_delay_ns": 16.3279,
+          "estimated_screen_fmax_mhz": 45.93364731533143,
+          "frequency_mhz": 250,
+          "io_delay_ns": 0.8,
+          "output_load_pf": 0.02,
+          "period_ns": 4.0,
+          "setup_slack_ns": -13.3279,
+          "timing_met": false,
+          "tns_ns": -24947.0293
+        }
+      ],
+      "source_files": 26,
+      "top": "openmc_cve2_measure_top"
+    }
+  ],
+  "frequencies_mhz": [
+    100,
+    150,
+    200,
+    250
+  ],
+  "liberty": {
+    "path": "/tech/sg13g2_stdcell_typ_1p20V_25C.lib",
+    "sha256": "6f50333c719d8f324c9f8a18197e034ae531de3655002eb9d10c04f281ee0660",
+    "declared_revision": "0.1.0",
+    "corner": "typical 1.20 V 25 C",
+    "source_repository": "https://github.com/The-OpenROAD-Project/OpenSTA.git",
+    "source_commit": "6541058fda57e5600351cb1e95fc0e66a74b36e0",
+    "source_path": "test/ihp-sg13g2/sg13g2_stdcell_typ_1p20V_25C.lib"
+  },
+  "scope": "provisional_ihp_sg13g2_typical_sta_screen",
+  "status": "passed",
+  "schema_version": 1,
+  "recorded_at": "2026-10-11",
+  "platform_input_commit": "e9cb083",
+  "open_mc_result_commit": "9548ebb",
+  "container": {
+    "image": "fpga-backend",
+    "image_id": "sha256:0a2c981320f6f2dc8251c6eff9bbc9a5c918b7d9390a6c96966bbf2f3b3b46bd"
+  },
+  "tools": {
+    "sv2v": "sv2v v0.0.13-13-g493a88f",
+    "yosys": "Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0)",
+    "opensta": "OpenSTA 3.1.0 87f2de4392"
+  },
+  "qualification": {
+    "provisional_typical_mapping": "closed",
+    "one_hundred_mhz": "failed_both_candidates",
+    "provider_qualified_pdk": "open",
+    "multi_corner_sta": "open",
+    "physical_closure": "open",
+    "functional_comparison": "open",
+    "core_selection": "open"
+  },
+  "claim_boundary": "Pre-layout typical-corner architecture screening only; provider-qualified technology data and complete physical evidence remain required."
+}
