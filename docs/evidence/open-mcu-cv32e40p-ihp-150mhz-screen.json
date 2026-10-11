@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11",
+  "status": "measured_target_miss",
+  "scope": "bounded_cv32e40p_provisional_ihp_150mhz_repaired_screen",
+  "platform_input_commit": "f00f96f9a1efea293d8fa083a22617cf5e12177a",
+  "open_mc_result_commit": "fcfb732359621f85b2a9b23e9cb9fd11bb236463",
+  "candidate_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "constraints": {
+    "frequency_mhz": 150,
+    "period_ns": 6.666666666666667,
+    "clock_uncertainty_ns": 0.33333333333333337,
+    "input_delay_ns": 1.3333333333333335,
+    "output_delay_ns": 1.3333333333333335,
+    "output_load_pf": 0.02,
+    "abc_driving_cell": "sg13g2_buf_4",
+    "abc_output_load_ff": 20.0,
+    "abc_max_fanout": 8
+  },
+  "measurement": {
+    "cells": 23838,
+    "area_um2": 310633.8228,
+    "setup_slack_ns": -0.8388,
+    "tns_ns": -45.5041,
+    "critical_path_delay_ns": 5.8388,
+    "estimated_screen_fmax_mhz": 128.4510515859423,
+    "timing_met": false
+  },
+  "electrical_violations": {
+    "max_slew": 0,
+    "max_fanout": 0,
+    "max_capacitance": 0
+  },
+  "critical_path": {
+    "resolved_startpoint": "u_core.core_i.id_stage_i.decoder_i.instr_rdata_i[15]",
+    "endpoint": "instr_addr_o[31]",
+    "serial_sg13g2_buf_1_count": 23,
+    "serial_buffer_delay_ns": 4.1619,
+    "classification": "logical_fanout_repair_chain_then_instruction_address_logic"
+  },
+  "local_artifact_sha256": {
+    "mapped_netlist": "b62c9dbff973f560dfc544bebc1300467e5ecad01639b5290c947167805cdcdd",
+    "sta_log": "2ad933736cc33c7123c9c0fbe25dd5718945ed5cec0d7957641b3d950703505f",
+    "stats_json": "356316f99f28276d0f72c67c19a703c22a67b350b90b2c381f035ed20d8662f2",
+    "yosys_log": "585f8b3db84b5507211c5825b200a9b685fb49705843f717894fc84ab118701d"
+  },
+  "official_pdk_next_step": {
+    "repository": "https://github.com/IHP-GmbH/IHP-Open-PDK.git",
+    "commit": "5e6d592e4002946a4616f798c357f0f3c06cf3b6",
+    "status": "preview",
+    "tech_lef_sha256": "054f5b7b24d72365b4b1088be1331e04c1c2e3805de9f99c37e71938ed231efc",
+    "stdcell_lef_sha256": "c9bbc02d0c2cba3b15cd89a208750d25de882f02a2927ae78ba6422109fb01d0",
+    "typical_liberty_sha256": "7677a8918689f452e80405ad16a83e744709342574f2aedcc507c2758986b396"
+  },
+  "decision": {
+    "next_experiment": "placement_aware_openroad_fanout_repair_at_150mhz",
+    "pipeline_revision": "deferred_until_physical_buffer_tree_result"
+  },
+  "claim_boundary": "Pre-layout logical screen using a provisional Liberty. The official IHP Open PDK is preview quality; placement-aware repair and full physical qualification remain open."
+}
