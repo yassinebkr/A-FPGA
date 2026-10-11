@@ -1,0 +1,66 @@
+{
+  "candidate_sources": {
+    "cv32e40p": "360d272898d81806be3377193870dbf83a3ea79f",
+    "cve2": "d7f21568028a1114be663599bd42145dccf28928"
+  },
+  "checks": [
+    {
+      "cv32e40p": {
+        "errors": 0,
+        "warnings": 64,
+        "wrapper_warnings": 0
+      },
+      "cve2": {
+        "errors": 0,
+        "warnings": 5,
+        "wrapper_warnings": 0
+      },
+      "environment": "host-local",
+      "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+    },
+    {
+      "cv32e40p": {
+        "errors": 0,
+        "warnings": 64
+      },
+      "cve2": {
+        "errors": 0,
+        "warnings": 5
+      },
+      "environment": "fpga-backend image",
+      "tool": "Verilator 5.052 2026-09-05 rev v5.052"
+    }
+  ],
+  "container_image_id": "sha256:0a2c981320f6f2dc8251c6eff9bbc9a5c918b7d9390a6c96966bbf2f3b3b46bd",
+  "evidence_type": "open_mcu_core_native_elaboration",
+  "qualification": {
+    "core_selection": "open",
+    "functional_equivalence": "open",
+    "native_elaboration_gate": "closed",
+    "synthesis": "open",
+    "timing": "open",
+    "wrapper_boundary_parity": "closed"
+  },
+  "recorded_on": "2026-10-11",
+  "repositories": {
+    "a_fpga": "d6ae07f5dcbd2a4a7f501ab03638b2303f40ef8a",
+    "open_mc": "a00ac6dd4f22b73ae01587fcc6f17dc7b9faf774"
+  },
+  "schema_version": 1,
+  "scope": "native manifests plus identical Open_MC measurement boundaries",
+  "status": "passed",
+  "warning_categories": {
+    "cv32e40p": {
+      "CASEINCOMPLETE": 7,
+      "COMBDLY": 1,
+      "UNOPTFLAT": 2,
+      "WIDTHEXPAND": 26,
+      "WIDTHTRUNC": 28
+    },
+    "cve2": {
+      "COMBDLY": 1,
+      "UNOPTFLAT": 3,
+      "WIDTHTRUNC": 1
+    }
+  }
+}
