@@ -1,0 +1,57 @@
+{
+  "schema": "open-mcu-cv32e40p-rv32i-legacy-regression-evidence/v1",
+  "qualification_kind": "legacy_directed_regression",
+  "outcome": "passed_with_exclusions",
+  "open_mc_commit": "41d61fa0225c3508dc8df4264af14c672d07c02f",
+  "a_fpga_baseline_commit": "977565d2b6d0ff36f4b58cde3300454779fd71b9",
+  "cv32e40p_upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "suite_commit": "844c6660ef3f0d9b96957991109dfd80cc4938e2",
+  "toolchain_gcc_sha256": "343054fc1f9d643a1d877f8ba8f10ce456c4b0e20ede22f3e3c0c0186155a82e",
+  "runner_sha256": "49fa899d03652ce5b2fb7dc9bfbe713384117196d2bfd6cd184617b34267885b",
+  "testbench_sha256": "eddf5b7d0fb1cc4ff968804e55208e799ffe973a47e69c58b83b9eb51ad40e82",
+  "patches": {
+    "obi_response_errors_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+    "eight_region_pmp_sha256": "5c4778d653b4df289372a8cf6eaa269a77c0c7ceafad1c1cfd69f29815d110b7"
+  },
+  "command": "python3 scripts/qualify_cv32e40p_compliance.py --verilator /home/kwestog/Documents/code/fpga/.tools/eda/bin/verilator --artifact-dir <output>",
+  "tools": {
+    "verilator": "Verilator 5.040 2025-08-30 rev v5.040",
+    "gcc": "riscv32-unknown-elf-gcc (crosstool-NG 1.26.0_rc1) 10.2.0"
+  },
+  "summary": {
+    "passed": 44,
+    "excluded": 4,
+    "unexpected_failures": 0,
+    "inconclusive": 0,
+    "total": 48
+  },
+  "expected_exclusions": [
+    "I-EBREAK-01",
+    "I-ECALL-01",
+    "I-MISALIGN_JMP-01",
+    "I-MISALIGN_LDST-01"
+  ],
+  "repeat_runs": [
+    {
+      "path": "/tmp/openmc-cv32-compliance-final-a/result.json",
+      "sha256": "6bb33a6170945d2f5e39855d069bee2235df8ea76f9c84bc2d6d288697f1a097"
+    },
+    {
+      "path": "/tmp/openmc-cv32-compliance-final-b/result.json",
+      "sha256": "6bb33a6170945d2f5e39855d069bee2235df8ea76f9c84bc2d6d288697f1a097"
+    }
+  ],
+  "acceptance_checks": {
+    "byte_identical_repeat_manifests": true,
+    "tracked_suite_and_candidate_clean": true,
+    "commit_match_enforced": true,
+    "patch_hashes_recorded": true,
+    "strict_pass_marker_required": true,
+    "source_reference_symmetry_required": true,
+    "memory_bounds_checked": true,
+    "directed_13_case_regression": "13/13",
+    "open_mc_unit_tests": "21 passed"
+  },
+  "claim_boundary": "This is a pinned legacy RV32I directed regression. Official RISCOF, randomized differential verification, formal proof, coverage, refreshed IHP implementation evidence, and final core selection remain open."
+}

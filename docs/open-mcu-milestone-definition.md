@@ -45,7 +45,7 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    CVE2 uses less area. CV32E40P remains the provisional timing baseline. The untouched-core common corpus passes 5/8 cases on CV32E40P and 7/8 on
    CVE2. The owned response-error, strict-alignment, and eight-region PMP patches pass an expanded thirteen-case CV32E40P corpus twice. Directed checks cover causes 1/4/5/6/7, region 7 lock persistence, and suppression of denied bus transfers. The comparison boundary uses one additional HPM
    counter on both candidates. CV32E40P remains the implementation candidate
-   and CVE2 the independent control. The bounded eight-region PMP gate is complete. Final selection remains gated by broader compliance, randomized differential verification, refreshed physical evidence, and verification maturity. The architecture must
+   and CVE2 the independent control. The bounded eight-region PMP gate is complete. The repaired candidate also reaches 44/48 in the pinned legacy RV32I suite with exactly its four declared exclusions and zero unexpected failures; two hardened manifests are byte-identical. Final selection remains gated by official RISCOF, randomized differential verification, refreshed physical evidence, and verification maturity. The architecture must
    preserve a clean core wrapper so the platform and later derived MCU project
    can replace or evolve the core without rewriting the SoC.
 

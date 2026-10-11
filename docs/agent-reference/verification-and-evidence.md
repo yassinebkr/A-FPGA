@@ -16,6 +16,8 @@ CDC/RDC is conservative structural evidence and remains separate from
 commercial CDC signoff. Coverage, formal, CDC/RDC, production lint policy,
 and generated-design regression qualification remain broader release work.
 
+A `legacy_directed_regression` result records a pinned historical architectural suite with explicit exclusions. It strengthens bounded regression evidence and remains a separate assurance class from an official RISCOF result. New failures, missing references, provenance mismatches, and dirty tracked inputs fail closed.
+
 Independent human-authored reference models exist for `alu8`, `counter8`,
 `arbiter4`, and the frozen `systolic_mm_4x4` corpus. Differential regression
 binds vectors to RTL and records compile/runtime/reference/mismatch outcomes.
