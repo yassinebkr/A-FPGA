@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11",
+  "status": "passed",
+  "scope": "bounded_cv32e40p_provisional_ihp_100mhz_critical_path_diagnostic",
+  "platform_input_commit": "4a9fdef94ccecc78a00b94115156e03378b1e25d",
+  "open_mc_result_commit": "e9d9b9e0bc30b12514c3cdec62db9254f5a5fe3e",
+  "candidate": {
+    "id": "cv32e40p",
+    "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+    "top": "openmc_cv32e40p_measure_top",
+    "source_files": 30
+  },
+  "container": {
+    "image": "fpga-backend",
+    "image_id": "sha256:0a2c981320f6f2dc8251c6eff9bbc9a5c918b7d9390a6c96966bbf2f3b3b46bd"
+  },
+  "tools": {
+    "sv2v": "sv2v v0.0.13-13-g493a88f",
+    "yosys": "Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0)",
+    "opensta": "OpenSTA 3.1.0 87f2de4392"
+  },
+  "liberty": {
+    "name": "sg13g2_stdcell_typ_1p20V_25C",
+    "sha256": "6f50333c719d8f324c9f8a18197e034ae531de3655002eb9d10c04f281ee0660",
+    "source_commit": "6541058fda57e5600351cb1e95fc0e66a74b36e0",
+    "provenance": "pinned OpenSTA IHP test fixture"
+  },
+  "constraints": {
+    "frequency_mhz": 100,
+    "period_ns": 10.0,
+    "clock_uncertainty_ns": 0.5,
+    "input_delay_ns": 2.0,
+    "output_delay_ns": 2.0,
+    "output_load_pf": 0.02,
+    "inputs_missing_delay": 0
+  },
+  "measurement": {
+    "cells": 21513,
+    "area_um2": 293534.9172,
+    "setup_slack_ns": -6.1429,
+    "tns_ns": -1611.2767,
+    "critical_path_delay_ns": 13.6429,
+    "estimated_screen_fmax_mhz": 54.97364929743676,
+    "timing_met": false
+  },
+  "top_paths": {
+    "count": 10,
+    "mapped_startpoint": "_42737_",
+    "resolved_startpoint": "u_core.core_i.id_stage_i.decoder_i.instr_rdata_i[15]",
+    "endpoints": [
+      "instr_addr_o[31]",
+      "instr_addr_o[30]",
+      "instr_addr_o[29]",
+      "instr_addr_o[28]",
+      "instr_addr_o[27]",
+      "instr_addr_o[26]",
+      "instr_addr_o[25]",
+      "instr_addr_o[23]",
+      "instr_addr_o[24]",
+      "instr_addr_o[22]"
+    ],
+    "slack_ns": [-6.1429, -6.0256, -5.9494, -5.7294, -5.6762, -5.4794, -5.3472, -5.2228, -5.2202, -5.1441],
+    "classification": "instruction_decode_to_instruction_address_output"
+  },
+  "electrical_violations": {
+    "max_slew": 2204,
+    "max_fanout": 675,
+    "max_capacitance": 14,
+    "worst_fanout": {
+      "pin": "_42737_/Q",
+      "limit": 8,
+      "actual": 271
+    },
+    "worst_capacitance_pf": {
+      "pin": "_42737_/Q",
+      "limit": 0.3,
+      "actual": 1.0629
+    },
+    "worst_slew_ns": {
+      "limit": 2.5074,
+      "actual": 7.7851
+    }
+  },
+  "local_artifact_sha256": {
+    "mapped_netlist": "789226e71844556a081ae1da8b030cef4913eafcaec219b587283f0aae50ea4b",
+    "sta_log": "04c5c489a8b1d51eeaf694d28b7963ac915cba9528401641c2a16c0d21f7aaa0",
+    "stats_json": "4fb2d220846621aaa40efe5a9b9b165439f75ed01bcad862ce11676f23230c5a",
+    "yosys_log": "42986989c778e9a27ba70f788239f76d57bb02d0af7c4ef3ca54b83649330c44",
+    "converted_rtl": "33359eb831533064cd4d870d35b6252669941022bf3c997985ced6bc3657b388"
+  },
+  "decision": {
+    "next_lever": "configuration_and_flow",
+    "next_experiment": "provider_supported_buffer_and_fanout_repair",
+    "pipeline_revision": "deferred_until_post_repair_path_classification"
+  },
+  "claim_boundary": "Pre-layout typical-corner diagnosis from a pinned OpenSTA test fixture. Provider-qualified libraries, physical implementation, extracted parasitics, multi-corner analysis and silicon evidence remain required."
+}
