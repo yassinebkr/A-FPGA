@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11",
+  "status": "measured_target_miss",
+  "scope": "bounded_cv32e40p_official_ihp_150mhz_placement_screen",
+  "candidate_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "open_mc_result_commit": "f9495b961913acfd364f15bfc162ee8e08a027aa",
+  "pdk": {
+    "repository": "https://github.com/IHP-GmbH/IHP-Open-PDK.git",
+    "commit": "5e6d592e4002946a4616f798c357f0f3c06cf3b6",
+    "status": "preview",
+    "tech_lef_sha256": "054f5b7b24d72365b4b1088be1331e04c1c2e3805de9f99c37e71938ed231efc",
+    "stdcell_lef_sha256": "c9bbc02d0c2cba3b15cd89a208750d25de882f02a2927ae78ba6422109fb01d0",
+    "typical_liberty_sha256": "7677a8918689f452e80405ad16a83e744709342574f2aedcc507c2758986b396"
+  },
+  "tool": {"openroad_version": "26Q3-2077-g1d0a041755"},
+  "constraints": {
+    "frequency_mhz": 150,
+    "period_ns": 6.666666666666667,
+    "clock_uncertainty_ns": 0.33333333333333337,
+    "input_delay_ns": 1.3333333333333335,
+    "output_delay_ns": 1.3333333333333335,
+    "output_load_pf": 0.02,
+    "floorplan_utilization_percent": 40.0,
+    "placement_density": 0.60,
+    "setup_repair_max_utilization_percent": 80.0
+  },
+  "measurement": {
+    "setup_slack_ns": -0.9031,
+    "tns_ns": -809.4007,
+    "estimated_placed_fmax_mhz": 127.05188799105554,
+    "placed_cell_area_um2": 388427.96,
+    "estimated_hpwl_um": 1012780.58,
+    "timing_met": false
+  },
+  "electrical_violations": {"max_slew": 0, "max_fanout": 0, "max_capacitance": 0},
+  "critical_path": {
+    "type": "register_to_register",
+    "buffer_cells": 8,
+    "prior_logical_serial_buffer_cells": 23,
+    "classification": "placement_artifact_resolved_remaining_mapped_core_path"
+  },
+  "local_input_sha256": {"mapped_netlist": "349bcda4cda55b51de1029c6da513f831728bd8c81c3655f97c5cbe61ca72a08"},
+  "local_artifact_sha256": {
+    "openroad_metrics": "a31a8ba49e248fbe524b193d0a83a8325546a4a2765a9d12469acfa5c015104b",
+    "openroad_log": "70de6dcfc1a0e2026e86b845b4d0851e623ecb2ec748414082aa34a931c52a9d",
+    "def": "74eab3050e74ecc369163477d7513116c8b650beb9caf1d32933ddabba2ec0db",
+    "odb": "32157a8cdb6fdc1a15d1c8ad795a18548e2dfc4ae2f7588c04292e18bf2f7b39",
+    "repaired_netlist": "0efe66d94f081b2ef822fa4cc77191ce70ac2c2b751e30cfaa36fbe0c79c6232",
+    "tcl": "ef83fce2c41ec916f932718788b355cab9d07f19931345f6611311d646bff716"
+  },
+  "decision": {
+    "target_150mhz": "open",
+    "logical_fanout_artifact": "resolved",
+    "next_experiment": "bounded_architecture_or_synthesis_restructure"
+  },
+  "claim_boundary": "Placed pre-CTS and pre-route screen with placement-estimated parasitics using a preview PDK. Routed timing, hold, DRC/LVS, equivalence and manufacturing qualification remain open."
+}
