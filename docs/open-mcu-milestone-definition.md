@@ -43,12 +43,11 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    known-silicon functional and physical control. The matched IHP placement matrix closes 100 MHz for both candidates and misses
    150 MHz for both; CV32E40P leads estimated placed Fmax at 127.0519 MHz while
    CVE2 uses less area. CV32E40P remains the provisional timing baseline. The untouched-core common corpus passes 5/8 cases on CV32E40P and 7/8 on
-   CVE2. The owned response-error patch repeatably raises CV32E40P to 7/8 with
-   precise instruction and data access-fault causes. Strict misaligned-access
-   trapping remains open. The comparison boundary uses one additional HPM
+   CVE2. The owned response-error and strict-alignment patches pass an extended
+   nine-case CV32E40P corpus twice. Misaligned loads/stores raise precise causes
+   4/6 before any offending bus transfer. The comparison boundary uses one additional HPM
    counter on both candidates. CV32E40P remains the implementation candidate
-   and CVE2 the independent control. The owned CV32E40P fork must still add
-   strict alignment and eight-region PMP. Final selection remains gated by those repairs, broader
+   and CVE2 the independent control. The owned CV32E40P fork must still add eight-region PMP. Final selection remains gated by those repairs, broader
    compliance, refreshed physical evidence and verification maturity. The architecture must
    preserve a clean core wrapper so the platform and later derived MCU project
    can replace or evolve the core without rewriting the SoC.

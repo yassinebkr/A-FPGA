@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "open_mc_unit_tests": "18 passed",
+    "parameter_default_preserves_upstream_behavior": true
+  },
+  "claim_boundary": "Directed functional evidence only. RISCOF, randomized differential testing, formal, coverage, PMP, refreshed timing/area/power, and physical qualification remain open.",
+  "date": "2026-10-11",
+  "open_mc_commit": "593efe78259fbd936c8c17a8df7892439accde09",
+  "patches": {
+    "response_error_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
+  },
+  "profile": "repaired",
+  "results": {
+    "misaligned_load": {
+      "mcause": 4,
+      "offending_bus_request": false
+    },
+    "misaligned_store": {
+      "mcause": 6,
+      "offending_bus_request": false
+    },
+    "run_a": {
+      "passed": 9,
+      "sha256": "5c8d492f6fabc3392f6c025e482594dac5634d9ed0c3fe777371424044d05e8e",
+      "total": 9
+    },
+    "run_b": {
+      "passed": 9,
+      "sha256": "e81ad0427b730073382f67c3188185517a8cde4030f9e16d72351f79adc80615",
+      "total": 9
+    }
+  },
+  "schema_version": 1,
+  "scope": "bounded_cv32e40p_strict_alignment_repair",
+  "testbench_sha256": "a9adf5887bb9e5c14ff9bbe2a8f4250338ab71e1857ee5136ecff4254cb58636",
+  "tool": "Verilator 5.052 2026-09-05 rev v5.052",
+  "upstream_cv32e40p_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}
