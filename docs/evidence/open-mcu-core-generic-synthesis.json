@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-11",
+  "status": "passed",
+  "scope": "technology_neutral_flattened_synthesis",
+  "platform_commit": "d86d9e47cdb2a29954f716a6a03530e7e382acd3",
+  "open_mc_input_commit": "c343cc927e9e78e993047631eb98729264e1fa1e",
+  "open_mc_result_commit": "f42d3a2",
+  "container": {
+    "image": "fpga-backend",
+    "image_id": "sha256:0a2c981320f6f2dc8251c6eff9bbc9a5c918b7d9390a6c96966bbf2f3b3b46bd"
+  },
+  "tools": {
+    "sv2v": "sv2v v0.0.13-13-g493a88f",
+    "yosys": "Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0)"
+  },
+  "candidates": [
+    {
+      "id": "cv32e40p",
+      "source_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+      "top": "openmc_cv32e40p_measure_top",
+      "source_files": 30,
+      "generic_cells": 24522,
+      "wires": 23069,
+      "wire_bits": 49642
+    },
+    {
+      "id": "cve2",
+      "source_commit": "d7f21568028a1114be663599bd42145dccf28928",
+      "top": "openmc_cve2_measure_top",
+      "source_files": 26,
+      "generic_cells": 19874,
+      "wires": 17422,
+      "wire_bits": 41555
+    }
+  ],
+  "qualification": {
+    "generic_synthesizability": "closed",
+    "technology_mapping": "open",
+    "sta_100_150_200_250_mhz": "open",
+    "physical_area_and_power": "open",
+    "functional_comparison": "open",
+    "core_selection": "open"
+  },
+  "claim_boundary": "Generic-cell counts are structural screening evidence. They are not technology area, timing, power, PVT, or physical-closure results."
+}
