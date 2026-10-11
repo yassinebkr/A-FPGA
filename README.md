@@ -216,7 +216,7 @@ The project distinguishes three levels and never blurs them:
 
 | Level | Meaning |
 |---|---|
-| Screening / estimate | Bounded synthesis+STA evidence from the open-source Sky130 demo-PDK flow (labeled `screening`, `estimated`) |
+| Screening / estimate | Bounded synthesis+STA evidence from declared open-source technology inputs, currently the Sky130 demo flow and the provisional IHP SG13G2 typical-corner profile |
 | Manufacturing candidate | The configured checks, independent reference model, formal/equivalence, CDC/RDC review, implementation reports, and (when available) FPGA hardware-in-the-loop evidence produced a reproducible package with no known failures. This is an engineering result; the signoff level below covers the residual silicon risks. |
 | Commercial/foundry signoff | The shuttle or vendor's approved PDK, libraries, rule decks, and signoff flow, with independent review. This repository must not label a demo-PDK estimate or open-source structural check as signoff. |
 
@@ -240,6 +240,14 @@ The detailed ledger — phases, exit criteria, measured numbers, honest limitati
 - **Implemented**: asynchronous jobs with live logs and cancel; architecture-first generation with a persistent hashed contract; evidence-backed timing optimization; durable jobs/dashboard/layout surfaces; the verification pipeline and evidence APIs above; provider streaming and the Mistral wizard.
 - **Qualified benchmark**: the frozen `systolic_mm_4x4` contract passes three independent 40-vector functional/protocol/latency trials, a 20 ns Sky130 screening run (+0.34 ns slack, 50.86 MHz), and one LibreLane full P&R run with clean DRC/LVS/XOR/antenna gates and positive multi-corner slack. It retains electrical-rule warnings and no post-layout equivalence, so the package qualifies as routed engineering evidence; signoff remains a later step. Exact figures: `docs/roadmap.md`.
 - **Tiny Tapeout**: a local Sky130 hardening run of `tt_um_counter8` completed clean (LibreLane 3.0.14, 80/80 stages); cloud submission and shuttle acceptance are future manual steps — see [docs/tapeout.md](docs/tapeout.md).
+- **Open_MC milestone**: the separate product repository has a locked RV32IMC MCU contract, pinned CV32E40P/CVE2 candidates, reviewed provenance, common measurement wrappers, native elaboration, generic synthesis, and a provisional IHP SG13G2 typical-corner timing screen. At 100 MHz, CV32E40P records -6.1429 ns setup slack and an estimated screening Fmax of 54.97 MHz; CVE2 records -7.6279 ns and 49.58 MHz. Core selection, product RTL, functional qualification, provider-qualified PDK data, memories, IO, multi-corner timing, and physical closure remain open. Durable evidence is in `docs/evidence/open-mcu-core-*.json`.
+
+Open_MC timing convergence combines three measured levers: optimize the selected
+core configuration and synthesis flow while preserving every product feature;
+cut proven critical paths through reviewed pipeline changes; then qualify faster
+standard-cell/library or process options where the provider-supported IHP stack
+cannot sustain the target. The 250 MHz objective stays a product requirement and
+each lever receives its own functional, timing, area, power, and physical evidence.
 
 Qualification commands (no LLM involved; artifacts under `backend/data/qualifications/matmul3/`, gitignored):
 
@@ -269,4 +277,6 @@ cd frontend && npm run test:browser                # browser suite (mocked backe
 | [docs/fpga-profiles.md](docs/fpga-profiles.md) | FPGA profile contract |
 | [docs/jobs-workbench-implementation-plan.md](docs/jobs-workbench-implementation-plan.md) | Jobs workbench plan and completion log |
 | [docs/workbench-density-and-gate-visualization-plan.md](docs/workbench-density-and-gate-visualization-plan.md) | Gate-level viewer plan (D1–G4) and completion log |
+| [docs/open-mcu-milestone-definition.md](docs/open-mcu-milestone-definition.md) | Locked Open_MC product contract and frequency strategy |
+| [docs/evidence/open-mcu-core-ihp-typical-screen.json](docs/evidence/open-mcu-core-ihp-typical-screen.json) | Latest reproducible provisional IHP core timing screen |
 | [AGENTS.md](AGENTS.md) | Full architecture and module-by-module reference |
