@@ -1,0 +1,42 @@
+{
+  "schema": "afpga-openmc-act4-evidence/v1",
+  "status": "passed",
+  "qualification_kind": "act4_baseline_probe",
+  "claim": "ACT4 4.1.0 I-extension self-checking ELFs executed on the repaired CV32E40P fork using the official CV32E40P v1 configuration as a baseline",
+  "repositories": {
+    "a_fpga_baseline_commit": "17feeccd2d3db07fd8dc3a2635f7e749e6988c35",
+    "open_mc_commit": "28b77de0d73bbe8a8d6cef838de66fecec419b7f",
+    "cv32e40p_upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+    "riscv_arch_test_commit": "6e8a45123f14cebfb3df151a0e7b849b4389b33b"
+  },
+  "tools": {
+    "act4_image": "ghcr.io/riscv/act4:4.1.0",
+    "act4_image_digest": "sha256:299dc630299cdcc327464fb8e83406e07bbe3a6a6ce3ba5aaa47b180ba9916a0",
+    "verilator": "Verilator 5.040 2025-08-30 rev v5.040"
+  },
+  "inputs": {
+    "baseline_config": "cv32e40p-v1-rv32imc",
+    "runner_sha256": "cb7c2deae9ec9534a778f6f844135ac475d052f692023700b6519d9be63ed660",
+    "testbench_sha256": "acd868f4a421eada1143b7edc3d885d497a1ec282e2235f9bb6cf099d252efde",
+    "obi_response_errors_patch_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "strict_alignment_patch_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+    "eight_region_pmp_patch_sha256": "5c4778d653b4df289372a8cf6eaa269a77c0c7ceafad1c1cfd69f29815d110b7"
+  },
+  "result": {
+    "extension": "I",
+    "available": 39,
+    "selected": 39,
+    "passed": 39,
+    "failed": 0,
+    "unexpected_failures": [],
+    "manifest_sha256": "a85e6a5b9c492f24b593bfda057a9c06a070b892f3ab50f2422569d95ba5b3f5",
+    "repeat_manifest_sha256": "a85e6a5b9c492f24b593bfda057a9c06a070b892f3ab50f2422569d95ba5b3f5"
+  },
+  "acceptance_checks": {
+    "act4_runs_byte_identical": true,
+    "directed_repair_regression": "13/13 passed",
+    "open_mc_unit_tests": "23 passed",
+    "git_diff_check": "passed"
+  },
+  "claim_boundary": "This closes a bounded ACT4 I-extension baseline probe. Open_MC-specific UDB and Sail configuration review, remaining configured extensions, randomized differential verification, refreshed physical evidence, formal proof, coverage, and final core selection remain open."
+}
