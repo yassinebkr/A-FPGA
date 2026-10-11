@@ -42,9 +42,11 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    reference candidate for the first prototype; CVE2/Croc remains the
    known-silicon functional and physical control. The matched IHP placement matrix closes 100 MHz for both candidates and misses
    150 MHz for both; CV32E40P leads estimated placed Fmax at 127.0519 MHz while
-   CVE2 uses less area. CV32E40P remains the provisional baseline. Final core
-   selection remains gated by equivalent functional qualification, PMP and bus-
-   error dispositions, verification maturity and modification boundaries. The architecture must
+   CVE2 uses less area. CV32E40P remains the provisional timing baseline. The common directed corpus
+   passes 5/8 cases on CV32E40P and 7/8 on CVE2. Both need a reviewed
+   misaligned-exception solution; CV32E40P also needs response-error propagation.
+   Final selection remains gated by those repairs, PMP, broader compliance,
+   verification maturity and modification boundaries. The architecture must
    preserve a clean core wrapper so the platform and later derived MCU project
    can replace or evolve the core without rewriting the SoC.
 
