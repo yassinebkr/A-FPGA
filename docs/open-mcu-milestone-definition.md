@@ -50,18 +50,15 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    - Legacy RV32I suite: 44/48, with four declared exclusions.
    - ACT4 base product profile: 80/80, reproduced byte-identically.
    - ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
-   - Bounded machine interrupt harness: 4/4 in two byte-identical runs. The
+   - Bounded machine interrupt harness: 7/7 in two byte-identical runs. The
      cases cover software direct `mcause=3`, timer direct `mcause=7`, external
-     vectored `mcause=11`, and masked interrupt with no trap; `mcause` and
+     vectored `mcause=11`, masked interrupt with no trap, and three lifecycle cases covering `mret` plus level ACK at `0x20000004`; `mcause` and
      `mepc` are checked.
 
    Six owned patches close the bounded PMP gate across PMPSm 33/33 and PMPZca
    12/12. Instruction checks use the decoded 2- or 4-byte length after alignment,
    while fully inaccessible instruction words are rejected before the bus
-   request. The interrupt result is bounded machine-mode evidence. `mret` and
-   interrupt-controller acknowledgement through MMIO remain open, together
-   with randomized differential verification, refreshed physical evidence and
-   final core selection. Claim boundary: bounded machine-mode interrupt entry and dispatch evidence for the repaired CV32E40P fork; complete ACT4 interrupt certification remains open.
+   request. The interrupt result is bounded machine-mode evidence. Complete ACT4 InterruptsSm certification, randomized differential verification, refreshed physical evidence and final core selection remain open. Claim boundary: bounded machine-mode evidence for the repaired CV32E40P fork; no signoff claim is made.
 
 3. **Execution, control and safety behavior — DECIDED**
    Boot autonomously through immutable ROM and external SPI flash, with
