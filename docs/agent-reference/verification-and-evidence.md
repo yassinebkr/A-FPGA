@@ -16,7 +16,7 @@ CDC/RDC is conservative structural evidence and remains separate from
 commercial CDC signoff. Coverage, formal, CDC/RDC, production lint policy,
 and generated-design regression qualification remain broader release work.
 
-A `legacy_directed_regression` result records a pinned historical architectural suite with explicit exclusions. It strengthens bounded regression evidence and remains a separate assurance class from current ACT4 architectural certification. A bounded `act4_baseline_probe` records official ACT4 self-checking ELF execution against an explicitly named upstream configuration. It becomes architectural-certification evidence only after the product-specific UDB/Sail configuration and required extension set are reviewed. New failures, missing references, provenance mismatches, and dirty tracked inputs fail closed.
+A `legacy_directed_regression` result records a pinned historical architectural suite with explicit exclusions. It strengthens bounded regression evidence and remains a separate assurance class from current ACT4 architectural certification. A bounded `act4_product_profile_probe` records official ACT4 self-checking ELF execution against the owned, hash-bound product UDB/Sail configuration. It becomes broader architectural-certification evidence only after the required extension set is executed and reviewed. New failures, missing references, provenance mismatches, and dirty tracked inputs fail closed.
 
 Independent human-authored reference models exist for `alu8`, `counter8`,
 `arbiter4`, and the frozen `systolic_mm_4x4` corpus. Differential regression

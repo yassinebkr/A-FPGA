@@ -1,0 +1,368 @@
+{
+  "act4": {
+    "image": "ghcr.io/riscv/act4:4.1.0",
+    "image_digest": "sha256:299dc630299cdcc327464fb8e83406e07bbe3a6a6ce3ba5aaa47b180ba9916a0",
+    "product_config": "openmc-cv32e40p-v1_8_3-rv32imc",
+    "sail_config_sha256": "92f4be23917b51fda99ee90849538b5a2d56f858db24526f3de1fcdf0111ac19",
+    "suite_commit": "6e8a45123f14cebfb3df151a0e7b849b4389b33b",
+    "test_config_sha256": "549bb6b1fd59898d1168055fff7c347875ae070e039a0e91ad658ab83e4f7719",
+    "udb_config_sha256": "420d3d257310f6e2e07ec560d200260b226195e03e3aa988df5d286b065bd20c"
+  },
+  "candidate": "cv32e40p",
+  "claim": "ACT4 4.1.0 RV32I I-extension self-checking ELF execution using the owned Open_MC CV32E40P v1.8.3 strict-alignment and 16-entry PMP profile; broader extensions remain required",
+  "failed_tests": [],
+  "patches": {
+    "obi_response_errors_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "sixteen_region_pmp_sha256": "227f64a0bca188ff7f2b0bb80c35a01b9a8806a4ac199e63c6150acd1b5cdd8c",
+    "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
+  },
+  "profile": "repaired",
+  "qualification_kind": "act4_product_profile_probe",
+  "schema": "openmc-cv32e40p-act4/v1",
+  "status": "passed",
+  "summary": {
+    "available": 39,
+    "failed": 0,
+    "passed": 39,
+    "selected": 39
+  },
+  "tests": [
+    {
+      "elf_sha256": "319e325b7e3303e3d84d0a580d36ecddaedb0748a34768b076a8f719eff6a0db",
+      "name": "I-add-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "b2d36d0c1ae761ad67cb119860a26ccf5ce76b87d80ab0c0f125c8a1b2f5d2e8"
+    },
+    {
+      "elf_sha256": "127afdc67f56a362b46c85fa2b3a48d09133f3920206e4769a50f98fa9333779",
+      "name": "I-addi-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "eae39bd9fe252b21dff5627dd778f1738bde966a26396611324fbcd86ae2c790"
+    },
+    {
+      "elf_sha256": "2b24b8061f3d0bbc078f579e3b9fc4f481df08b90b4cc8bfa4d83051e96e4461",
+      "name": "I-and-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "dd9eb0d38153727bdae9728bdacd2fae0f679d7557a0d71248ad977f6cfbf28d"
+    },
+    {
+      "elf_sha256": "f6b51584b967d4746057c44eb4a6f64efa0296d90a3c53a663389a2669c5acef",
+      "name": "I-andi-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "26377325e17ea22fe757627759f90c1b4a7f94449ee9e1bcb2b3e0ec0599a1b5"
+    },
+    {
+      "elf_sha256": "a843155d4c57f2aa3bcd35f9a293264d759f68228b37407d3c6351b4669ee520",
+      "name": "I-auipc-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "6e2c984818ba83e43ceebea0ce3ea9d4f396d35ccadf557eea5b09058cf825fe"
+    },
+    {
+      "elf_sha256": "7b49820b62eacba8bd6108f1a336478d5ed5683115f53df61fcd5f50457e1fef",
+      "name": "I-beq-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "61cb72dc3ff38aef369adb80a5c1b04870ccaa63f7dbbe38bfad7802abce920c"
+    },
+    {
+      "elf_sha256": "b7d454b715307e3bba98d7c48633fb1e2f45df79da9c21dccdfa690ef8419e19",
+      "name": "I-bge-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "d43541fe286318a40ba7fac18b79ac860dd680c1a50ed23e8fb81b40f659bab3"
+    },
+    {
+      "elf_sha256": "e1a56488df5926dc510e4467d7fb6a1280d20f8dc6616441393c679f014e3dd5",
+      "name": "I-bgeu-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "1d6ca837df496421a15496b2b90d1cbd7650e295db7c3da600eedb755f841ffe"
+    },
+    {
+      "elf_sha256": "923d9e3bf0dc77e6c6c6bbef43fdccb1a8e3e874319006088736b80aae65a91f",
+      "name": "I-blt-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "03455de6f6f03b3b45953e0b5a99ea054bb8c1783ca6db50d52a0003f570b0f5"
+    },
+    {
+      "elf_sha256": "bbafe1637512e31677b984b70cdeaaa09ef79bd7eda9cd4968b7f59f41cdc2df",
+      "name": "I-bltu-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "c5c5a189b4aa516b925e9500dc3c25a0e11440c284edbc392e0534811d354220"
+    },
+    {
+      "elf_sha256": "1c4d190dfe2ad2c4e1c50df939ff0e29a225d0a0d7ff3e3ed1569040a4ca1231",
+      "name": "I-bne-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "365fc0c38c23de02493fa9022ea28c0b4f9174770f10ed1631da11606afbb8c4"
+    },
+    {
+      "elf_sha256": "60f9887539a918a1492fc6e74d15f2fceea178c2699acb0762dd93e84e28cfc9",
+      "name": "I-fence-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "9bf5e392a6251df5a82e66b3b36c3555261861f00f203bf3904993082f9a3360"
+    },
+    {
+      "elf_sha256": "94667b6c7cb785dec2c72f17fa3fb3f2c5648df9a6e924a57321eda9a5d1fe89",
+      "name": "I-jal-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f90d0e60b4a7b59c980d636bac62d541416154c27cd634b493da117cbe1163e3"
+    },
+    {
+      "elf_sha256": "f6d351712a9100141602e2717dfbeb8123e193175e2b525e46c8514138388754",
+      "name": "I-jalr-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "cc15bf2d699bf3cd5479f142b44bb469315d8e3c0204ac92f4bffd70edd901c2"
+    },
+    {
+      "elf_sha256": "c099c0d470fcc93aac907b00a08da24a9e57b5aa85d1e225d8a54fae2eb46609",
+      "name": "I-lb-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "bf415026cf9dfedc04382c51866cf2642757721f1d74c77790a476507da119fb"
+    },
+    {
+      "elf_sha256": "c4af772755c67f11cd0cca69791fc4e804f8e953e3612e05e16f046eac537e06",
+      "name": "I-lbu-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "436d770f2aa4635411046c8fa27d3546617f4867a81e7ae1ca846a878987cf24"
+    },
+    {
+      "elf_sha256": "4357314c189d332fa20094c653078d5c84d9139ad7ac107a4815592c2bb10b39",
+      "name": "I-lh-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "4aa44a99cc4708a35078b80c798f4b30a95579a12763800cd9634ac69e7c9c94"
+    },
+    {
+      "elf_sha256": "b25e5b9d692e0d045bb79f4bbabefc0bb42cc2008f16a6267a20c284c484aa7b",
+      "name": "I-lhu-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "6915dc4d0ac4d921df29e03b5845f16ec42c3dd509f00b03998e25c6cc8806dd"
+    },
+    {
+      "elf_sha256": "d034c58a3f50bab3d4445b1e3b96b7a9451ac1a5ac3c570492c333812898a468",
+      "name": "I-lui-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "3f8e7b76117ac1970b981a378c43c979ed09ee7469b26d865d1a4245f2cd2e55"
+    },
+    {
+      "elf_sha256": "c53299027e379c878bacf4a6152aaf09b87d02d8444e8dff2bc26047c6f1ae3f",
+      "name": "I-lw-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "e7d519e6023e36abd0d6fa91d5b992c2f9e1f5862d5d0f51a2d18a69c26157b8"
+    },
+    {
+      "elf_sha256": "30c33b4062ed5cf472a1d507a6327245dab7667e1d35a8bcc3aa448b9195477c",
+      "name": "I-nop-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "290c99ae97af7d837818ca88631a226ec0c59b2a36aadce8c64f88a93bd266fa"
+    },
+    {
+      "elf_sha256": "b064d1e9c244b85931ec347a3dd2e33e93893fc76d4cd8ecfbaedef51d9b79aa",
+      "name": "I-or-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "ca355cc790b15a449ecd96410a96405719cd30e4091ff7c72d6f291b248cbfdb"
+    },
+    {
+      "elf_sha256": "cedc1005ff860cc2105c4761e9c28e8b14c2cfa02a0a27bacbbb1dd52639f986",
+      "name": "I-ori-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "976b8adbbdb9d615965a9ab8377334f8b900cb7527d964940d531d54322be04e"
+    },
+    {
+      "elf_sha256": "1ea550488e0a69d134b53b93d6450110c6151cb1f162387b946edfdad6463f73",
+      "name": "I-sb-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "da49b0f5c08652d4b7b8423b9f5c2ea2085874c5aa4e8d911338f2edeba969e6"
+    },
+    {
+      "elf_sha256": "72580c8ff9e2f45bc3f6a4dfc1d9c133281598cc68f05162c4cdd717983845b8",
+      "name": "I-sh-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "1494845b4346ea95f5968550fdd56195243a01da617888df001501ca7ffc8a6d"
+    },
+    {
+      "elf_sha256": "5da31ecadb8592c40942131d13b9f1b752d7fa58bf92e801ceca8b61d5eb1b73",
+      "name": "I-sll-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "26689435589705eeb1ebd2ae5078608bff39c82f76206ee504d4b93302014e4b"
+    },
+    {
+      "elf_sha256": "0a03a5be239e2f817fad3f0a3c1c048f1779e0106dc89f03a49f9493721b1eed",
+      "name": "I-slli-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "3537eb993bc73dc7d6236d5ab4c76ebe6490c22bd002033c070c48dfbe65e1ba"
+    },
+    {
+      "elf_sha256": "5bc5ee4e9d9a964e8c94e4f4c282cee9472537516308a8c9a8d1c8762b5b2c4d",
+      "name": "I-slt-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "3fc997b2af6fbc42a29fc423a777957dd04501cc9a9017345d25f0cb7b7bdfcd"
+    },
+    {
+      "elf_sha256": "cb0f191011ba17b9b79defb15207872a10489b35b14b2b02bd8cc5b7bd527597",
+      "name": "I-slti-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f7700b30a0c58d369bb90d160fd98a5c57d5e9a3c260547a95ca46871a10ae68"
+    },
+    {
+      "elf_sha256": "f1846cfcae2f802f7cb9dd926fc389c6ecd926306641dd63a838d46de2ab1aec",
+      "name": "I-sltiu-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "7a2cffa8c0cb6c2a38bf12051e7b0eaf9ccc49857c83cc59413bef6b95e9afca"
+    },
+    {
+      "elf_sha256": "faf18b9ba0e233e84b802799336cb465b66c4f625428aa46827b1b92da2d83ed",
+      "name": "I-sltu-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "a165c489f3c1b343957dad17689dfc962760436136e816f609c3671a9c583e3b"
+    },
+    {
+      "elf_sha256": "2612a8830667ebe0eb04b13a79aac63d23e76da10c3aa12bd4fa22c0c42aca57",
+      "name": "I-sra-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "1c8be5e0a43ccd474057ee549a367378ae90f2245336f867505534aef0682bf7"
+    },
+    {
+      "elf_sha256": "e2f0abd0e79af672ff1cab7d287eb3628484b8e9cc7ba14294d78e78f695a4f5",
+      "name": "I-srai-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "a578aaee61ae0fa1f94c154e63b1764b398489f7e6d8bbfa0a5040400f375b5d"
+    },
+    {
+      "elf_sha256": "dd4c6ece24df41e5f8da52f79807e057139242feac45d0b96e8430d2add56e98",
+      "name": "I-srl-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "6b2f3fa807ce2b3ae0532d6d7ddb67777cd829f8718e44f80fb32967f7ba3804"
+    },
+    {
+      "elf_sha256": "4587ad32ed553523e96ba8ac30d7ad62f7f62e8f3dda05c72aa9debf67922654",
+      "name": "I-srli-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "1aba7404867233c76a5d4245c617fd577970393a3330623e8ef8031131e3c9f9"
+    },
+    {
+      "elf_sha256": "190b8eaad3068567540dd65c9fa3dc5b8e91a2b792379ef5efbc9d89c039e1bc",
+      "name": "I-sub-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "7c8536e26220d9a94543623d7d0197bc23e50f33b20b70522cdfeff9941972f2"
+    },
+    {
+      "elf_sha256": "1842edfab425a193f27e271de1a7da5e4916c7ade904dc54dd6f3d1a1ef1cc16",
+      "name": "I-sw-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "1bfba52b447d0735b78f4f9e138082603698fa7152db616aa6064e1deec079ee"
+    },
+    {
+      "elf_sha256": "9f16715f6e40716939193ba1de952c3cbfae2cccef65b76e4aaa3a065ce78594",
+      "name": "I-xor-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "e6bb72c0509bba25a9f4fddfa5a0da96a8f5b1f8621663f73dc46335c8b6c80e"
+    },
+    {
+      "elf_sha256": "4acbc773d10dc06881830b9ff8271734b651e374487c1af214b5fcdd49f3b338",
+      "name": "I-xori-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "9ad54c57dad89c031ad7a55db270cb90ba2791d4d60b62469e28d7c60532fbee"
+    }
+  ],
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "repositories": {
+    "a_fpga_baseline_commit": "89da7e3e9d96382c9d12874fcbe50da2e58b6de6",
+    "open_mc_commit": "0c980470307f63d7df99d88aa401bfe68f39fc85",
+    "cv32e40p_upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+  },
+  "reproducibility": {
+    "runs": 2,
+    "byte_identical": true,
+    "result_sha256": "08d6ba0c4858f2a293a930f4da81828167956d58447ab189c5e51c79707c32f6"
+  },
+  "companion_directed_gate": {
+    "status": "passed",
+    "passed": 14,
+    "total": 14,
+    "result_sha256": "55f555ce854f241177157aa743482711c89113f68e1e25eedf2410ee68340408"
+  },
+  "implementation_hashes": {
+    "act4_runner_sha256": "b9c2c8a6d0c6681fa79d751d17fe7136af52081e188556ae4c915346e32585d5",
+    "directed_runner_sha256": "c47f028f875cd5be8c63f251dc6babe69fc65876d0dc394aeb282f56644f18c2",
+    "wrapper_sha256": "42096927bb7f3c8016e802126a58ce271c2c7627030ba4db662cc8e97ab8d6ec",
+    "testbench_sha256": "acd868f4a421eada1143b7edc3d885d497a1ec282e2235f9bb6cf099d252efde",
+    "pmp_patch_sha256": "227f64a0bca188ff7f2b0bb80c35a01b9a8806a4ac199e63c6150acd1b5cdd8c"
+  },
+  "claim_boundary": "Owned Open_MC v1.8.3 UDB/Sail profile and ACT4 RV32I I-extension execution only. M, C, Zicsr, Zifencei, privileged ACT4 suites, randomized differential verification, refreshed physical evidence, and final core selection remain open."
+}
