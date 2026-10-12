@@ -156,7 +156,7 @@ Current evidence:
 - repaired CV32E40P directed corpus: 15/15;
 - pinned legacy RV32I suite: 44/48 with four declared exclusions;
 - ACT4 base product profile: 80/80, reproduced byte-identically;
-- ACT4 privileged PMP: 33/45.
+- ACT4 privileged PMP: 38/45.
 
 The denied-instruction response repair removes the former fetch deadlocks and
 closes two aligned compressed cases. Twelve semantic failures remain. Final

@@ -245,8 +245,8 @@ The detailed ledger — phases, exit criteria, measured numbers, honest limitati
   - Timing: both close 100 MHz and miss 150 MHz in the matched IHP placement screen. CV32E40P leads estimated placed Fmax at 127.0519 MHz; CVE2 reaches 123.0456 MHz with 10.28% less placed cell area.
   - Directed verification: repaired CV32E40P passes 15/15; the pinned legacy RV32I suite passes 44/48 with four declared exclusions.
   - ACT4 base profile: 80/80 RV32IMC, Zicsr and Zifencei ELFs, reproduced byte-identically.
-  - ACT4 privileged PMP: 33/45. The fourth repair removes denied-fetch deadlocks and closes two aligned compressed cases.
-  - Open gates: twelve PMP semantic failures, interrupt harness, randomized differential verification, refreshed physical evidence and final core selection.
+  - ACT4 privileged PMP: 38/45. The fourth repair completes denied-fetch responses; the fifth preserves fetch faults through trap redirection.
+  - Open gates: seven PMP semantic failures, interrupt harness, randomized differential verification, refreshed physical evidence and final core selection.
 
   Durable evidence is in `docs/evidence/open-mcu-*.json`.
 

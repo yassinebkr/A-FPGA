@@ -49,7 +49,7 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    - Directed repaired-profile corpus: 15/15.
    - Legacy RV32I suite: 44/48, with four declared exclusions.
    - ACT4 base product profile: 80/80, reproduced byte-identically.
-   - ACT4 privileged PMP: 33/45; the gate remains open.
+   - ACT4 privileged PMP: 38/45; the gate remains open.
 
    The fourth repair completes denied instruction fetch responses and closes two
    aligned compressed-access cases. Twelve failures remain across permissions,
