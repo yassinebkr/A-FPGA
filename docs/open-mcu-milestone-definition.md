@@ -37,17 +37,25 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    Supervisor mode and an MMU belong to the future application-class milestone.
 
 2. **Core and pipeline architecture — DIRECTION AGREED**
-   Use a four-stage in-order pipeline with a 32 x 32-bit register file, a
-   pipelined multiplier and an iterative divider. CV32E40P is the primary
-   reference candidate for the first prototype; CVE2/Croc remains the
-   known-silicon functional and physical control. The matched IHP placement matrix closes 100 MHz for both candidates and misses
-   150 MHz for both; CV32E40P leads estimated placed Fmax at 127.0519 MHz while
-   CVE2 uses less area. CV32E40P remains the provisional timing baseline. The untouched-core common corpus passes 5/8 cases on CV32E40P and 7/8 on
-   CVE2. The owned response-error, strict-alignment, and sixteen-region PMP patches pass an expanded fifteen-case CV32E40P corpus twice. Directed checks cover causes 1/4/5/6/7, region 7 and 15 lock persistence, and suppression of denied bus transfers. The comparison boundary uses one additional HPM
-   counter on both candidates. CV32E40P remains the implementation candidate
-   and CVE2 the independent control. The bounded sixteen-region PMP gate is complete. The repaired candidate also reaches 44/48 in the pinned legacy RV32I suite with exactly its four declared exclusions and zero unexpected failures; two hardened manifests are byte-identical. The ACT4 4.1.0 product-profile probe validates the owned Open_MC v1.8.3 UDB/Sail configuration and passes all 80 generated RV32IMC, Zicsr, and Zifencei self-checking ELFs twice with byte-identical manifests. The bounded ACT4 Machine-mode PMP probe reproducibly passes 31/45 and exposes fourteen blocking failures across XWR, address-mode, priority, and compressed-access behavior. Final selection remains gated by PMP semantic repair, interrupt-harness coverage, randomized differential verification, refreshed physical evidence, and verification maturity. The architecture must
-   preserve a clean core wrapper so the platform and later derived MCU project
-   can replace or evolve the core without rewriting the SoC.
+   Use a four-stage in-order pipeline with a 32 × 32-bit register file, a
+   pipelined multiplier and an iterative divider. Keep a clean core wrapper so
+   the platform and derived MCU can evolve independently.
+
+   Measured status:
+
+   - CV32E40P is the implementation candidate; CVE2/Croc is the control.
+   - Both close 100 MHz and miss 150 MHz in the matched IHP placement screen.
+   - Estimated placed Fmax: CV32E40P 127.0519 MHz; CVE2 123.0456 MHz.
+   - Directed repaired-profile corpus: 15/15.
+   - Legacy RV32I suite: 44/48, with four declared exclusions.
+   - ACT4 base product profile: 80/80, reproduced byte-identically.
+   - ACT4 privileged PMP: 33/45; the gate remains open.
+
+   The fourth repair completes denied instruction fetch responses and closes two
+   aligned compressed-access cases. Twelve failures remain across permissions,
+   address modes, priority and compressed boundaries. Final selection still
+   requires PMP repair, interrupt-harness coverage, randomized differential
+   verification and refreshed physical evidence.
 
 3. **Execution, control and safety behavior — DECIDED**
    Boot autonomously through immutable ROM and external SPI flash, with

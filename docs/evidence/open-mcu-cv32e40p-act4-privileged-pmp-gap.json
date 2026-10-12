@@ -8,10 +8,11 @@
       "PMPZca"
     ],
     "product_config": "openmc-cv32e40p-v1_8_3-rv32imc",
+    "requested_cases": [],
     "sail_config_sha256": "92f4be23917b51fda99ee90849538b5a2d56f858db24526f3de1fcdf0111ac19",
     "suite_commit": "6e8a45123f14cebfb3df151a0e7b849b4389b33b",
     "test_config_sha256": "549bb6b1fd59898d1168055fff7c347875ae070e039a0e91ad658ab83e4f7719",
-    "udb_config_sha256": "420d3d257310f6e2e07ec560d200260b226195e03e3aa988df5d286b065bd20c"
+    "udb_config_sha256": "853900adca980906bedb9ebf7009754e5f6b765c083596fdc89791075d45c5ab"
   },
   "candidate": "cv32e40p",
   "claim": "ACT4 4.1.0 bounded Machine-mode PMP self-checking ELF execution using the owned Open_MC CV32E40P v1.8.3 strict-alignment and 16-entry PMP profile; interrupt-harness coverage and randomized differential verification remain required",
@@ -24,8 +25,8 @@
     },
     "PMPZca": {
       "available": 12,
-      "failed": 6,
-      "passed": 6,
+      "failed": 4,
+      "passed": 8,
       "selected": 12
     }
   },
@@ -38,8 +39,6 @@
     "PMPSm_napot_legal_lxwr-01-00",
     "PMPSm_priority-00",
     "PMPSm_tor_legal_lxwr-01-00",
-    "PMPZca_aligned_na4-00",
-    "PMPZca_aligned_tor-00",
     "PMPZca_legal_lwrx-00",
     "PMPZca_misaligned_na4-00",
     "PMPZca_misaligned_napot-00",
@@ -47,6 +46,7 @@
   ],
   "patches": {
     "obi_response_errors_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "pmp_ifetch_response_sha256": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
     "sixteen_region_pmp_sha256": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
     "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
   },
@@ -56,8 +56,8 @@
   "status": "failed",
   "summary": {
     "available": 45,
-    "failed": 14,
-    "passed": 31,
+    "failed": 12,
+    "passed": 33,
     "selected": 45
   },
   "tests": [
@@ -146,7 +146,7 @@
       "elf_sha256": "7d0836fbf4b3180eeccbbf6cd802b80e725f87223dafb64aaf0a67cbff686888",
       "extension": "PMPSm",
       "name": "PMPSm_cfg_XWR_all-01-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-01-00 cycles=200001 pc=00001f00 data_addr=00000224\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_cfg_XWR_all-01-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x00000268\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[96995] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_cfg_XWR_all-01-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "c7120796044d7c851e2f5ae45fa6e16d507da5bd5f31b80d3a6ec1d6f2111e4a"
@@ -155,7 +155,7 @@
       "elf_sha256": "8c529668be48d8db7b9ac5ced2cae5f2f105c5436031f29e63867396ab32a10c",
       "extension": "PMPSm",
       "name": "PMPSm_cfg_XWR_all-02-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-02-00 cycles=200001 pc=00001f00 data_addr=000003a4\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_cfg_XWR_all-02-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x000006e8\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[108225] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_cfg_XWR_all-02-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "0c5f18aa09d1b87f43ba8b68a977341018199fef9b55549e2182c42dbb8384eb"
@@ -164,7 +164,7 @@
       "elf_sha256": "251bac607d9062d0fcd3e0c96f49af57e8a056e6300de8724ee9acef01ebf81d",
       "extension": "PMPSm",
       "name": "PMPSm_cfg_XWR_all-03-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-03-00 cycles=200001 pc=00001f00 data_addr=000003a4\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_cfg_XWR_all-03-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x000003e8\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[98125] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_cfg_XWR_all-03-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "f55002486bf10ed3be622a3aaef52eab7c45d744be51172f0595fd45ccb4a27c"
@@ -173,7 +173,7 @@
       "elf_sha256": "90d69f22d93fe75dc0d5d590a403563192805e1433688892ea309573298286c9",
       "extension": "PMPSm",
       "name": "PMPSm_cfg_XWR_all-04-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-04-00 cycles=200001 pc=00001f00 data_addr=00000224\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_cfg_XWR_all-04-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x00000268\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[96995] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_cfg_XWR_all-04-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "4edcb9adf61ed99d43b0c3887ed7666fa3d05fe1161bd4b39fe9728ff2459d85"
@@ -254,7 +254,7 @@
       "elf_sha256": "18b02f48760ede87ce4594ed741d5b5c79c6bb3fbbffa0e0e042cd5460930ef9",
       "extension": "PMPSm",
       "name": "PMPSm_na4_legal_lxwr-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_na4_legal_lxwr-00 cycles=200001 pc=00001ca4 data_addr=00000013\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_na4_legal_lxwr-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x000002a8\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[97235] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_na4_legal_lxwr-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "b7007dcdb108946e49573f0e6e3d13dba30a2f8badcb58a5920c4d41098c2bad"
@@ -263,7 +263,7 @@
       "elf_sha256": "f0a3004411556558481bf9e363d7104d9475fc9b21a8d5139cc720b53ce33f41",
       "extension": "PMPSm",
       "name": "PMPSm_napot_legal_lxwr-01-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_napot_legal_lxwr-01-00 cycles=200001 pc=00001400 data_addr=00000204\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_napot_legal_lxwr-01-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x00000348\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[98225] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_napot_legal_lxwr-01-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "9aa7e155b410ca7bbffc1869f27930d9a69777152d564c15d974bc7b86d02bcf"
@@ -326,7 +326,7 @@
       "elf_sha256": "f81095a95bd72587f2c34009b5270209b21e5c296e90c8d00a738f026aed33b3",
       "extension": "PMPSm",
       "name": "PMPSm_priority-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_priority-00 cycles=200001 pc=00005214 data_addr=00000000\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_priority-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x00000288\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[99515] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_priority-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "7a587f0632e6782f29c34755a0d0a22ff33615513206bdffa35e641d2cf5bf36"
@@ -344,7 +344,7 @@
       "elf_sha256": "54dcb954b533668f371fe142e93784ce9ef75b36494c684674fb5a1abec12c11",
       "extension": "PMPSm",
       "name": "PMPSm_tor_legal_lxwr-01-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_tor_legal_lxwr-01-00 cycles=200001 pc=00001a58 data_addr=00000300\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPSm_tor_legal_lxwr-01-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000007\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Store/AMO access fault\nRVCP: XEPC:    0x00000348\nRVCP: XCAUSE:  0x00000007\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[98005] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPSm_tor_legal_lxwr-01-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "ec5131d3c92880eb2ce03eef51d6e03c51ab430028f877eb782bd12755575529"
@@ -362,9 +362,9 @@
       "elf_sha256": "9a990799e44e12ef18ab55a6a420e83f652e06519a9ed04cc4b96aa5a4ab68bd",
       "extension": "PMPZca",
       "name": "PMPZca_aligned_na4-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_aligned_na4-00 cycles=200001 pc=000016c4 data_addr=0000121c\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
-      "returncode": 1,
-      "status": "failed",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
       "vmem_sha256": "9ed63ff86bf6848f89e9ffaabbe79e7c0a7e4ad7a7ed55d07a5e5004375dac8b"
     },
     {
@@ -389,9 +389,9 @@
       "elf_sha256": "397b5e7cc9f22511f3dd0c21c7b1b32e6a1b24982b0c0da3fddf38e5140c2f91",
       "extension": "PMPZca",
       "name": "PMPZca_aligned_tor-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_aligned_tor-00 cycles=200001 pc=00001204 data_addr=00000000\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
-      "returncode": 1,
-      "status": "failed",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
       "vmem_sha256": "4bf9de4408e26b7518702b70263ab1d3d2696902ab1697958ea53886155e30c0"
     },
     {
@@ -425,7 +425,7 @@
       "elf_sha256": "fd91e196863a9b059981e8ae197f3b6e01828d4a2717960c0588254ac739bb39",
       "extension": "PMPZca",
       "name": "PMPZca_legal_lwrx-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_legal_lwrx-00 cycles=200001 pc=00001100 data_addr=00000202\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPZca_legal_lwrx-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000002\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Illegal instruction\nRVCP: XEPC:    0x00005012\nRVCP: XCAUSE:  0x00000002\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[96235] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPZca_legal_lwrx-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "c9017ff8fe7f429a6c63f2b92cb1028235dceb0696bf704b08e4766744d883a3"
@@ -434,7 +434,7 @@
       "elf_sha256": "07b2b967b630b5a59e01fb0927868b57f3ea5b311cbf88c9078f0f988896275b",
       "extension": "PMPZca",
       "name": "PMPZca_misaligned_na4-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_misaligned_na4-00 cycles=200001 pc=000016dc data_addr=000050b4\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPZca_misaligned_na4-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Trap count mismatch.\"\nRVCP: Expected trap signature byte count: 0x00000010\nRVCP: Actual trap signature byte count:       0x00000000\nRVCP: DIAGNOSIS: DUT recorded FEWER traps (missing traps).\nRVCP: Trap signature byte difference: 0x00000010\nRVCP: HINT: Missing traps may indicate: exception not raised when expected,\nRVCP:       incorrect CSR state preventing trap (e.g. xIE disabled), trap\nRVCP:       delegation causing handler in wrong mode, or PMP/page fault missed.\nRVCP: END OF DEBUG INFORMATION\n\n[65555] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPZca_misaligned_na4-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "800544191109db777073f8998ebe44b1ae7d24c2543b7178f15857899a6175aa"
@@ -443,7 +443,7 @@
       "elf_sha256": "c0b7f45f188b6ecb09b746cba55e8ff7fb0c56aec518ddc5904311034b2088ee",
       "extension": "PMPZca",
       "name": "PMPZca_misaligned_napot-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_misaligned_napot-00 cycles=200001 pc=00000a00 data_addr=000002a2\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPZca_misaligned_napot-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000002\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Illegal instruction\nRVCP: XEPC:    0x000043b0\nRVCP: XCAUSE:  0x00000002\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[97165] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPZca_misaligned_napot-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "a5241b8e87f17a25a404edfa0d5df797d7af2c8ed5135fbd9521765bbca736f8"
@@ -461,47 +461,30 @@
       "elf_sha256": "e5bb87722f270960b2f7053ccee43873aca53c97bb6ed23bc5eb32efa24ef6da",
       "extension": "PMPZca",
       "name": "PMPZca_misaligned_tor-00",
-      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_misaligned_tor-00 cycles=200001 pc=0000198c data_addr=00006dbe\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "output_tail": "\nRVCP-SUMMARY: TEST FAILED - Test File \"PMPZca_misaligned_tor-00.S\"\n\nRVCP: DEBUG INFORMATION FOLLOWS\nRVCP: Test Info: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: ===== TRAP FAILURE DIAGNOSTICS =====\nRVCP: Failure: \"Mismatch in mcause value! Trap was being handled in M-Mode.\"\nRVCP: Trap handler mode: M-mode\nRVCP: Mismatching field: XCAUSE (trap signature word 1)\nRVCP: Expected value: 0x00000001\nRVCP: Actual value:   0x00000002\nRVCP: Expected cause: Instruction access fault\nRVCP: Actual cause:   Illegal instruction\nRVCP: XEPC:    0x000043b0\nRVCP: XCAUSE:  0x00000002\nRVCP: XTVAL:   0x00000000\nRVCP: XSTATUS: 0x00001800\nRVCP: HINT: XCAUSE mismatch means a different exception or interrupt type was\nRVCP:       observed. Check: instruction encoding correctness, CSR accessibility\nRVCP:       at current privilege, PMP/page table configuration, extension support.\nRVCP: END OF DEBUG INFORMATION\n\n[97085] %Fatal: core_candidate_tb.sv:157: Assertion failed in openmc_core_functional_tb: ACT4_FAIL case=PMPZca_misaligned_tor-00 code=00000001\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:157: Verilog $stop\nAborting...\n",
       "returncode": 1,
       "status": "failed",
       "vmem_sha256": "42db41c0fe00a032ed1b82e97265f3693ce8841da7eee95ec0aeefeb97ab21c3"
     }
   ],
   "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
-  "repositories": {
-    "a_fpga_baseline_commit": "3a2f20dc7af60fb74cbd3e9b9d84d0cf293ebc4f",
-    "open_mc_commit": "575ee24",
-    "cv32e40p_upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
-  },
-  "reproducibility": {
-    "runs": 2,
-    "byte_identical": true,
-    "result_sha256": "64b1bdcb6df055de9cd4c52ed56ade03c9ef65b4459200cd8f7180e4f2456ecf"
-  },
-  "bounds": {
-    "max_cycles_per_test": 200000,
-    "host_timeout_seconds_per_test": 30
-  },
-  "implementation_hashes": {
-    "act4_runner_sha256": "ee83b7b6ea132199fd55cad50894ab9e4d0a52948549a5c9851f6e8bf5fb0cde",
-    "testbench_sha256": "80898c0cb18f06ca9d255d2c948ccf20d532f3bc164c90b3df49a1dc5fb61e9a",
-    "pmp_patch_sha256": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f"
-  },
   "diagnosis": {
-    "gate": "privileged_machine_mode_pmp",
-    "result": "blocked",
     "verified_repairs": [
-      "subword PMP checks use aligned OBI word address plus byte enable",
-      "expanded directed corpus passes 15 of 15"
+      "subword PMP checks use aligned OBI word addresses plus byte enables",
+      "denied instruction fetches now complete the OBI response with rvalid plus error",
+      "directed repaired-profile corpus remains 15/15"
     ],
-    "failing_families": [
-      "XWR combinations",
-      "NA4/NAPOT/TOR legal access",
-      "PMP priority",
-      "aligned compressed access",
-      "misaligned compressed access"
+    "measured_progress": "ACT4 improved from 31/45 to 33/45; aligned NA4 and TOR compressed-access cases now pass",
+    "reproducibility": "two final 45-case runs produced byte-identical result manifests",
+    "remaining_failure_groups": [
+      "eight PMPSm XWR/address-mode/priority cases",
+      "four PMPZca permission or misaligned-boundary cases"
     ],
-    "next_action": "repair the owned PMP semantics and rerun the same immutable 45-ELF corpus"
+    "next_action": "repair precise fault priority and compressed-instruction boundary semantics, then rerun the same immutable 45-ELF corpus"
   },
-  "claim_boundary": "Deterministic failure evidence for the bounded ACT4 PMPSm and applicable PMPZca suites. InterruptsSm, broader privileged behavior, randomized differential verification, refreshed physical evidence, and final core selection remain open."
+  "result_sha256": "1accc385c27bb550007be55af02b24551cbfb7afa1792f3793cc3e33877ece3e",
+  "runner_sha256": "df436f988cbb79a9c7c5e80ba047a7b102b5adb923c56cb171e74e80e0c761c4",
+  "testbench_sha256": "019fbdd3a18132244e1bde4ebaa34013d871d57b863a337a9ecf0e9f0d35ee7a",
+  "open_mc_commit": "e8eb36c66a59b8231dc4857c71142c7f30383871",
+  "claim_boundary": "Deterministic failure evidence for the bounded ACT4 PMPSm and applicable PMPZca suites. Twelve failures, interrupt-harness coverage, randomized differential verification, refreshed physical evidence, and final core selection remain open."
 }
