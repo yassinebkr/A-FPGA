@@ -1,0 +1,503 @@
+{
+  "act4": {
+    "extension_groups": [],
+    "image": "ghcr.io/riscv/act4:4.1.0",
+    "image_digest": "sha256:299dc630299cdcc327464fb8e83406e07bbe3a6a6ce3ba5aaa47b180ba9916a0",
+    "privileged_suites": [
+      "PMPSm",
+      "PMPZca"
+    ],
+    "product_config": "openmc-cv32e40p-v1_8_3-rv32imc",
+    "sail_config_sha256": "92f4be23917b51fda99ee90849538b5a2d56f858db24526f3de1fcdf0111ac19",
+    "suite_commit": "6e8a45123f14cebfb3df151a0e7b849b4389b33b",
+    "test_config_sha256": "549bb6b1fd59898d1168055fff7c347875ae070e039a0e91ad658ab83e4f7719",
+    "udb_config_sha256": "420d3d257310f6e2e07ec560d200260b226195e03e3aa988df5d286b065bd20c"
+  },
+  "candidate": "cv32e40p",
+  "claim": "ACT4 4.1.0 bounded Machine-mode PMP self-checking ELF execution using the owned Open_MC CV32E40P v1.8.3 strict-alignment and 16-entry PMP profile; interrupt-harness coverage and randomized differential verification remain required",
+  "extension_summary": {
+    "PMPSm": {
+      "available": 33,
+      "failed": 8,
+      "passed": 25,
+      "selected": 33
+    },
+    "PMPZca": {
+      "available": 12,
+      "failed": 6,
+      "passed": 6,
+      "selected": 12
+    }
+  },
+  "failed_tests": [
+    "PMPSm_cfg_XWR_all-01-00",
+    "PMPSm_cfg_XWR_all-02-00",
+    "PMPSm_cfg_XWR_all-03-00",
+    "PMPSm_cfg_XWR_all-04-00",
+    "PMPSm_na4_legal_lxwr-00",
+    "PMPSm_napot_legal_lxwr-01-00",
+    "PMPSm_priority-00",
+    "PMPSm_tor_legal_lxwr-01-00",
+    "PMPZca_aligned_na4-00",
+    "PMPZca_aligned_tor-00",
+    "PMPZca_legal_lwrx-00",
+    "PMPZca_misaligned_na4-00",
+    "PMPZca_misaligned_napot-00",
+    "PMPZca_misaligned_tor-00"
+  ],
+  "patches": {
+    "obi_response_errors_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "sixteen_region_pmp_sha256": "227f64a0bca188ff7f2b0bb80c35a01b9a8806a4ac199e63c6150acd1b5cdd8c",
+    "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
+  },
+  "profile": "repaired",
+  "qualification_kind": "act4_product_profile_probe",
+  "schema": "openmc-cv32e40p-act4/v1",
+  "status": "failed",
+  "summary": {
+    "available": 45,
+    "failed": 14,
+    "passed": 31,
+    "selected": 45
+  },
+  "tests": [
+    {
+      "elf_sha256": "d0db5eab08b01466389570803ee11d5db739b375c01df0a0c4603487933df31d",
+      "extension": "PMPSm",
+      "name": "PMPSm_all_entries_check-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "3b95f65571f8220291acab93d5a0486c21965ffc4a3676ea73f072d0d0fea4cc"
+    },
+    {
+      "elf_sha256": "92a9b94d3f40d4822019682e55848017da424cd597aab0c91a6c881bb33f58a5",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_A_all-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "061b121a0565559e0e081fe2bb1eb3202890991f4bf725c3bd8c288a3fc3fb3c"
+    },
+    {
+      "elf_sha256": "34023ad1fa6942990f4fd2015827c3035f7f87d7575b5411895c469ae38e97e9",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_A_off_all-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "4fc27a069b0e8326645bf57f07b40384344d033fec2a8cf0d516203484eeb4af"
+    },
+    {
+      "elf_sha256": "73296212ba57eb3c6dd8f9ca80aef1f75811096d56e8f2845de918f932e316b0",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_A_tor_bot-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "8fd96034bd8b90fe8341aebd0a466c0d63c5c3f532d73aafa17fa6fde5fd77c6"
+    },
+    {
+      "elf_sha256": "592cdf96727f1b502183146c299bbf567d58b206fdbc1f3196bc9186f0515c67",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_A_tor_zero-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f7346a9857db6d2c9fd4355251f89cb5e2e1fc33d5f8562bea69834c19abdb0a"
+    },
+    {
+      "elf_sha256": "2b80bc984ae792c61c7e197ab3b6d6fbf72fb66ae46e4f3a336043f0aa2a6ef4",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_L_access_all-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f1b4f7e4d9ba2f5d7258c1a0beb686e315cf4f3b1b9fe7b8b00d5a6cac9e70cd"
+    },
+    {
+      "elf_sha256": "b32f8c9a434130c9198658c682e2b334451da1253c5fae2010c6d527ed2426e6",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_L_modify_napot-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "9b97b9b6a113a5d5108c079eb1c59512ae256004311a7d5e179bac89f135fb76"
+    },
+    {
+      "elf_sha256": "71ce1c266295f32dc0138a9029de5100c6b902ca77a8280e01b90d49de263c5d",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_L_modify_off-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "a5a7461c807e326187376bd833935733ed33a7397373970e17a937f9b906031e"
+    },
+    {
+      "elf_sha256": "76fa04096f7e1efdcad8f26b9b76e8fb31e6968b082a771996813a4febc7223b",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_L_modify_tor-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "9cd6e924752c8b039f70ed0d7d39dc3edd934ce08ea0548a876abc04fd51dc65"
+    },
+    {
+      "elf_sha256": "7d0836fbf4b3180eeccbbf6cd802b80e725f87223dafb64aaf0a67cbff686888",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_XWR_all-01-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-01-00 cycles=200001 pc=00001f00 data_addr=00000224\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "c7120796044d7c851e2f5ae45fa6e16d507da5bd5f31b80d3a6ec1d6f2111e4a"
+    },
+    {
+      "elf_sha256": "8c529668be48d8db7b9ac5ced2cae5f2f105c5436031f29e63867396ab32a10c",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_XWR_all-02-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-02-00 cycles=200001 pc=00001f00 data_addr=000003a4\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "0c5f18aa09d1b87f43ba8b68a977341018199fef9b55549e2182c42dbb8384eb"
+    },
+    {
+      "elf_sha256": "251bac607d9062d0fcd3e0c96f49af57e8a056e6300de8724ee9acef01ebf81d",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_XWR_all-03-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-03-00 cycles=200001 pc=00001f00 data_addr=000003a4\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "f55002486bf10ed3be622a3aaef52eab7c45d744be51172f0595fd45ccb4a27c"
+    },
+    {
+      "elf_sha256": "90d69f22d93fe75dc0d5d590a403563192805e1433688892ea309573298286c9",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_XWR_all-04-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_cfg_XWR_all-04-00 cycles=200001 pc=00001f00 data_addr=00000224\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "4edcb9adf61ed99d43b0c3887ed7666fa3d05fe1161bd4b39fe9728ff2459d85"
+    },
+    {
+      "elf_sha256": "2c72016539ec4b37f36152d4e30abdadf78eeddbccf92a65e2eafc749cc10968",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_na4_all-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "9c5914b9fc7454a214e8b27616e85b7352a5123ef64368698fc4aaf48e440c05"
+    },
+    {
+      "elf_sha256": "0d2429ee228284cd3760e17c7eeb07f7fbc5a09cd2849fad2d2439558d27eae4",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_napot_all-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "b9cd21a8ffd9f78a79b920bc6058f208763ee6c7a04f83e80a7b65799dc11e34"
+    },
+    {
+      "elf_sha256": "4ba23d3a9396ffa32edd233efac8c28777634023b49fd8604eeaf8c7a299b52d",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_tor_all-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "08ce61b57d59e3be40f2794d9b9bd05d37fc153e1d5f3feda0c082fdb2130a8c"
+    },
+    {
+      "elf_sha256": "10cb90e7f104542bc07f70d5ded3962dafce6fa386afcbc7fd1d40f48ff9829a",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_tor_check-01-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "0ddb4efb43ca6fa211bbef981e6c3bc998bc9fc873efcbd1c7864e2f96e4d76f"
+    },
+    {
+      "elf_sha256": "a47e7f4fc8222e1d7fffb38d77dcf6aa07c1cb03dff4a2313f9d57f77e56cf94",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_tor_check-02-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "6069a5991c74fef1018c709fa39dea12ec5e1ab84ef413e80963aad65563384a"
+    },
+    {
+      "elf_sha256": "99ba8daa8aad58c8ea00424c2eb6eaff34941d4992f072429b9e3bd19ac9baed",
+      "extension": "PMPSm",
+      "name": "PMPSm_cfg_tor_check-03-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "4b3048f480c072dccee2d727d9ce89978d0ee9bb146159f76b4e9704f4acc788"
+    },
+    {
+      "elf_sha256": "3a64f16927b61691401b55d638bd2ce49f550130e21dc5e8e6bea368b48f8c54",
+      "extension": "PMPSm",
+      "name": "PMPSm_grain-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f4e1e992d62572db2e711f4ca6922defbd977eb2ffd9b30f8fb42a867173cad9"
+    },
+    {
+      "elf_sha256": "866d5b654c0f13a398ae0f37a4d394a42bc68bbb789f476382f1ae356933bcd3",
+      "extension": "PMPSm",
+      "name": "PMPSm_grain_check-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "26edcf921642fb15703e87617889bc3c7658590f78d5c63df70579a9eeaee6e8"
+    },
+    {
+      "elf_sha256": "18b02f48760ede87ce4594ed741d5b5c79c6bb3fbbffa0e0e042cd5460930ef9",
+      "extension": "PMPSm",
+      "name": "PMPSm_na4_legal_lxwr-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_na4_legal_lxwr-00 cycles=200001 pc=00001ca4 data_addr=00000013\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "b7007dcdb108946e49573f0e6e3d13dba30a2f8badcb58a5920c4d41098c2bad"
+    },
+    {
+      "elf_sha256": "f0a3004411556558481bf9e363d7104d9475fc9b21a8d5139cc720b53ce33f41",
+      "extension": "PMPSm",
+      "name": "PMPSm_napot_legal_lxwr-01-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_napot_legal_lxwr-01-00 cycles=200001 pc=00001400 data_addr=00000204\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "9aa7e155b410ca7bbffc1869f27930d9a69777152d564c15d974bc7b86d02bcf"
+    },
+    {
+      "elf_sha256": "a7dc818c0b4d41ad36bd54c89f9779be9dcab884f2f7a000307e81d0a39654b2",
+      "extension": "PMPSm",
+      "name": "PMPSm_napot_legal_lxwr-02-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f605040561904655f4881840a200334ecb96bb36b1fcc49b094af4ccfd593907"
+    },
+    {
+      "elf_sha256": "5e7ce4bbe4b283558cd99c215387334e43e6c6486b3b7ed194bb215291d5fe88",
+      "extension": "PMPSm",
+      "name": "PMPSm_pmpcfg_walk_01-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "7084845dfa4176fd359a4a6d0f50f21d0823d71cde4d0ddf4835eaf0c63352fe"
+    },
+    {
+      "elf_sha256": "8719076e1d4af22065aa626dd6c557c745362fdfe594979568d11d2d4d78aa4f",
+      "extension": "PMPSm",
+      "name": "PMPSm_pmpcfg_walk_02-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "e74578a0c9916d4a3d0636baa223a624bb6a41fdcdaa5a2af23e91a304fb8886"
+    },
+    {
+      "elf_sha256": "60e58313dd5844049894b8b5419c77b03efd1fbb3f53e81b7cbb253dda009794",
+      "extension": "PMPSm",
+      "name": "PMPSm_pmpcfg_walk_03-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "77fb338aabc39f5c7eee38ccbe776b0c87179998831bbc2e99e78de294a1b0dc"
+    },
+    {
+      "elf_sha256": "267a6f24dd2d573777c860a8caaed1a5c48184b4c248bf908d1e69b93e92aac3",
+      "extension": "PMPSm",
+      "name": "PMPSm_pmpcfg_walk_04-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f8a0c334f379a726ede1e3c207c26f42d9c6b347f326d1f1e7ef9e98e10bc039"
+    },
+    {
+      "elf_sha256": "a6a87058c020ee4f56e7ba18b954efbe09c3202df4b7d488f6776f30d992f456",
+      "extension": "PMPSm",
+      "name": "PMPSm_pmpcfg_walk_05-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "ee11c644d7a9ca3c045f776d78f95ec6d71638cd74f139b1f8dbb0e876fd3221"
+    },
+    {
+      "elf_sha256": "f81095a95bd72587f2c34009b5270209b21e5c296e90c8d00a738f026aed33b3",
+      "extension": "PMPSm",
+      "name": "PMPSm_priority-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_priority-00 cycles=200001 pc=00005214 data_addr=00000000\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "7a587f0632e6782f29c34755a0d0a22ff33615513206bdffa35e641d2cf5bf36"
+    },
+    {
+      "elf_sha256": "855278f43723ebb4343810346f7e5e44fa3f1693cc412a0b66697c54fb001413",
+      "extension": "PMPSm",
+      "name": "PMPSm_priority_off-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "070a6bbda680a7871c6c88a7682e4bf6ffb2ed568fb5ef0b3d150ac0b6db45f1"
+    },
+    {
+      "elf_sha256": "54dcb954b533668f371fe142e93784ce9ef75b36494c684674fb5a1abec12c11",
+      "extension": "PMPSm",
+      "name": "PMPSm_tor_legal_lxwr-01-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPSm_tor_legal_lxwr-01-00 cycles=200001 pc=00001a58 data_addr=00000300\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "ec5131d3c92880eb2ce03eef51d6e03c51ab430028f877eb782bd12755575529"
+    },
+    {
+      "elf_sha256": "03c72608c3da0511a1b1c5a3afe361a737c761dd0bf4c7252c4271682170be3f",
+      "extension": "PMPSm",
+      "name": "PMPSm_tor_legal_lxwr-02-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "96f4a11f25d7946af601ad341c11247a54244a930a1dee3af514307fa573dd0c"
+    },
+    {
+      "elf_sha256": "9a990799e44e12ef18ab55a6a420e83f652e06519a9ed04cc4b96aa5a4ab68bd",
+      "extension": "PMPZca",
+      "name": "PMPZca_aligned_na4-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_aligned_na4-00 cycles=200001 pc=000016c4 data_addr=0000121c\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "9ed63ff86bf6848f89e9ffaabbe79e7c0a7e4ad7a7ed55d07a5e5004375dac8b"
+    },
+    {
+      "elf_sha256": "8aa099891474a28f744b6bfb7f24912b8341d6f3f4eb28e17386a1eb7cfe8bba",
+      "extension": "PMPZca",
+      "name": "PMPZca_aligned_napot-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "4474ff0e89418c8716212cfb7965f23cc69a2980ae9dae15ad5c332ff888627e"
+    },
+    {
+      "elf_sha256": "302c59701c34d8da5fa684324346ac53af8bf4f1b634927ad5b08190e6de3ace",
+      "extension": "PMPZca",
+      "name": "PMPZca_aligned_off-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "796201c62fa944cf58bc5a572ff8b3cd987078cccb180db8659205e39e231553"
+    },
+    {
+      "elf_sha256": "397b5e7cc9f22511f3dd0c21c7b1b32e6a1b24982b0c0da3fddf38e5140c2f91",
+      "extension": "PMPZca",
+      "name": "PMPZca_aligned_tor-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_aligned_tor-00 cycles=200001 pc=00001204 data_addr=00000000\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "4bf9de4408e26b7518702b70263ab1d3d2696902ab1697958ea53886155e30c0"
+    },
+    {
+      "elf_sha256": "8986f7be6b5128dcde6c76e72c146450229d2eca70803b1e48e7312847e2bef6",
+      "extension": "PMPZca",
+      "name": "PMPZca_cret_na4-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "479c73dba135b5de3e14dc20c62348fa1ab142d22eda3584d2e45ef0be75b0aa"
+    },
+    {
+      "elf_sha256": "ae5e94ec06aaa9c7455c00c30c762559bcdffb439f28237d3f3fe293569f419f",
+      "extension": "PMPZca",
+      "name": "PMPZca_cret_napot-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "0b6ec3b61e23b17d63fabd02e6a97c64874ab2b883bd71d7274dddf3a85c823e"
+    },
+    {
+      "elf_sha256": "211b060341cf93283c0fac124efc779229b623c25c15336d13ec54da88354822",
+      "extension": "PMPZca",
+      "name": "PMPZca_cret_tor-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "a576d0bbaec36723dc257e4af2115084e6cc3a30b2e5625d6e50a701cc7ec76f"
+    },
+    {
+      "elf_sha256": "fd91e196863a9b059981e8ae197f3b6e01828d4a2717960c0588254ac739bb39",
+      "extension": "PMPZca",
+      "name": "PMPZca_legal_lwrx-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_legal_lwrx-00 cycles=200001 pc=00001100 data_addr=00000202\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "c9017ff8fe7f429a6c63f2b92cb1028235dceb0696bf704b08e4766744d883a3"
+    },
+    {
+      "elf_sha256": "07b2b967b630b5a59e01fb0927868b57f3ea5b311cbf88c9078f0f988896275b",
+      "extension": "PMPZca",
+      "name": "PMPZca_misaligned_na4-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_misaligned_na4-00 cycles=200001 pc=000016dc data_addr=000050b4\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "800544191109db777073f8998ebe44b1ae7d24c2543b7178f15857899a6175aa"
+    },
+    {
+      "elf_sha256": "c0b7f45f188b6ecb09b746cba55e8ff7fb0c56aec518ddc5904311034b2088ee",
+      "extension": "PMPZca",
+      "name": "PMPZca_misaligned_napot-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_misaligned_napot-00 cycles=200001 pc=00000a00 data_addr=000002a2\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "a5241b8e87f17a25a404edfa0d5df797d7af2c8ed5135fbd9521765bbca736f8"
+    },
+    {
+      "elf_sha256": "08ad7c9b67a87bc65bc02c724b6b29aa3dc4865eaea9d2a50feec8dbd43945a4",
+      "extension": "PMPZca",
+      "name": "PMPZca_misaligned_off-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "f76f164d2304b159ee3b082fa7b4199c6a60d8b77e6d5aefb43c731932028cdc"
+    },
+    {
+      "elf_sha256": "e5bb87722f270960b2f7053ccee43873aca53c97bb6ed23bc5eb32efa24ef6da",
+      "extension": "PMPZca",
+      "name": "PMPZca_misaligned_tor-00",
+      "output_tail": "[2000055] %Fatal: core_candidate_tb.sv:95: Assertion failed in openmc_core_functional_tb: TIMEOUT case=PMPZca_misaligned_tor-00 cycles=200001 pc=0000198c data_addr=00006dbe\n%Error: /home/kwestog/Documents/code/fpga/.open-mc-bootstrap/verification/core_candidate_tb.sv:95: Verilog $stop\nAborting...\n",
+      "returncode": 1,
+      "status": "failed",
+      "vmem_sha256": "42db41c0fe00a032ed1b82e97265f3693ce8841da7eee95ec0aeefeb97ab21c3"
+    }
+  ],
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "repositories": {
+    "a_fpga_baseline_commit": "3a2f20dc7af60fb74cbd3e9b9d84d0cf293ebc4f",
+    "open_mc_commit": "f438ea634235004803fca38a322aa2f7429f745c",
+    "cv32e40p_upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+  },
+  "reproducibility": {
+    "runs": 2,
+    "byte_identical": true,
+    "result_sha256": "ab28a4940d3598b12d4b00f3ac78f2903a00bcac821fa7e0915377bac6a5a821"
+  },
+  "bounds": {
+    "max_cycles_per_test": 200000,
+    "host_timeout_seconds_per_test": 30
+  },
+  "implementation_hashes": {
+    "act4_runner_sha256": "ee83b7b6ea132199fd55cad50894ab9e4d0a52948549a5c9851f6e8bf5fb0cde",
+    "testbench_sha256": "80898c0cb18f06ca9d255d2c948ccf20d532f3bc164c90b3df49a1dc5fb61e9a",
+    "pmp_patch_sha256": "227f64a0bca188ff7f2b0bb80c35a01b9a8806a4ac199e63c6150acd1b5cdd8c"
+  },
+  "diagnosis": {
+    "gate": "privileged_machine_mode_pmp",
+    "result": "blocked",
+    "failing_families": [
+      "XWR combinations",
+      "NA4/NAPOT/TOR legal access",
+      "PMP priority",
+      "aligned compressed access",
+      "misaligned compressed access"
+    ],
+    "next_action": "repair the owned PMP semantics and rerun the same immutable 45-ELF corpus"
+  },
+  "claim_boundary": "Deterministic failure evidence for the bounded ACT4 PMPSm and applicable PMPZca suites. InterruptsSm, broader privileged behavior, randomized differential verification, refreshed physical evidence, and final core selection remain open."
+}
