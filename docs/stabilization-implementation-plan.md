@@ -157,12 +157,16 @@ Current evidence:
 - pinned legacy RV32I suite: 44/48 with four declared exclusions;
 - ACT4 base product profile: 80/80, reproduced byte-identically;
 - ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
+- bounded machine interrupt harness: 4/4, reproduced in two byte-identical runs.
 
 Six owned patches now close the bounded PMP gate across PMPSm 33/33 and PMPZca
 12/12. The final repair checks the aligned instruction over its decoded 2- or
 4-byte length and preserves early denial for fully inaccessible instruction
-words. Final selection still requires interrupt-harness coverage, randomized
-differential verification and refreshed physical evidence. See
+words. The interrupt harness covers direct software (`mcause=3`), direct timer
+(`mcause=7`), vectored external (`mcause=11`) and masked-no-trap behavior. It
+checks `mcause` and `mepc` in both reproduced runs. `mret`, interrupt-controller
+acknowledgement through MMIO, randomized differential verification and refreshed
+physical evidence remain open. Claim boundary: bounded machine-mode interrupt entry and dispatch evidence for the repaired CV32E40P fork; complete ACT4 interrupt certification remains open. See
 `docs/croc-reference-audit.md`, `docs/open-mcu-milestone-definition.md`, and
 `docs/evidence/open-mcu-core-candidate-ihp-comparison.json`.
 

@@ -1,0 +1,61 @@
+{
+  "schema": "openmc-cv32e40p-interrupts/v1",
+  "status": "passed",
+  "scope": "bounded_machine_interrupt_harness",
+  "candidate": "cv32e40p",
+  "profile": "repaired",
+  "claim": "Bounded machine-mode interrupt entry, cause capture, return-PC capture, direct/vectored dispatch and masking on the repaired Open_MC CV32E40P profile.",
+  "claim_boundary": "Bounded local Verilator machine-interrupt evidence for the repaired CV32E40P fork; complete ACT4 interrupt certification remains open.",
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "result_sha256": "231a653bfbd623d3f70db3e1ce6f9ee935d7e029abe52ab09d4dba949a7dcbd4",
+  "repeat_result_sha256": "231a653bfbd623d3f70db3e1ce6f9ee935d7e029abe52ab09d4dba949a7dcbd4",
+  "testbench_sha256": "24f59124a952840be8b1770ffc11a5789b252a3346ed96e1639d404249a9ea7f",
+  "summary": {
+    "selected": 4,
+    "passed": 4,
+    "failed": 0
+  },
+  "tests": [
+    {
+      "name": "software_direct",
+      "status": "passed",
+      "mode": "direct",
+      "mcause": "0x80000003",
+      "mepc": "0x0000001c",
+      "image_sha256": "0c9d9e1b0ba7430f91e6e3838c776c0803f1673966dfe69548a080289a06b982"
+    },
+    {
+      "name": "timer_direct",
+      "status": "passed",
+      "mode": "direct",
+      "mcause": "0x80000007",
+      "mepc": "0x0000001c",
+      "image_sha256": "a9f80a46a1cd9f92f148ba523077b0130fa93b23002be2ff0fa4bc4be2450985"
+    },
+    {
+      "name": "external_vectored",
+      "status": "passed",
+      "mode": "vectored",
+      "mcause": "0x8000000b",
+      "mepc": "0x00000020",
+      "image_sha256": "0f9d73afa6f76c2e6f73e1a6bdba2fd1f545c40380547c8d4f4ff259fc5d1958"
+    },
+    {
+      "name": "masked",
+      "status": "passed",
+      "mode": "direct",
+      "mcause": null,
+      "mepc": null,
+      "expected": "no trap",
+      "image_sha256": "94c2c253734dc4e6a3f30e5e4093e04af631d518cbd2029468e0534d412f1d8b"
+    }
+  ],
+  "open_gates": [
+    "mret return-path coverage",
+    "interrupt-controller acknowledgement through MMIO",
+    "randomized differential verification",
+    "complete ACT4 interrupt certification"
+  ],
+  "reproducibility": "The final run and repeat run selected the same four cases and produced byte-identical result manifests."
+}

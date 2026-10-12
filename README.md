@@ -246,9 +246,10 @@ The detailed ledger — phases, exit criteria, measured numbers, honest limitati
   - Directed verification: repaired CV32E40P passes 15/15; the pinned legacy RV32I suite passes 44/48 with four declared exclusions.
   - ACT4 base profile: 80/80 RV32IMC, Zicsr and Zifencei ELFs, reproduced byte-identically.
   - ACT4 privileged PMP: 45/45 twice with byte-identical manifests. PMPSm passes 33/33 and PMPZca passes 12/12.
-  - Open gates: interrupt harness, randomized differential verification, refreshed physical evidence and final core selection.
+  - Interrupt harness: 4/4 bounded machine-mode cases, reproduced in two byte-identical runs. Direct software interrupt reaches `mcause=3`, direct timer interrupt reaches `mcause=7`, vectored external interrupt reaches `mcause=11`, and a masked interrupt produces no trap. `mcause` and `mepc` are checked.
+  - Open gates: `mret` and interrupt-controller acknowledgement through MMIO, randomized differential verification, refreshed physical evidence and final core selection. Claim boundary: bounded machine-mode interrupt entry and dispatch evidence for the repaired CV32E40P fork; complete ACT4 interrupt certification remains open.
 
-  Durable evidence is in `docs/evidence/open-mcu-*.json`.
+  Durable evidence is in `docs/evidence/open-mcu-*.json`. The interrupt gate record is [open-mcu-cv32e40p-interrupt-gate.json](docs/evidence/open-mcu-cv32e40p-interrupt-gate.json).
 
 Open_MC keeps **250 MHz** as the product target. Timing work is tracked in three independent workstreams:
 
