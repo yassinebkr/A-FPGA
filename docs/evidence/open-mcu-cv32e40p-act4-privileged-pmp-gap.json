@@ -47,7 +47,7 @@
   ],
   "patches": {
     "obi_response_errors_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
-    "sixteen_region_pmp_sha256": "227f64a0bca188ff7f2b0bb80c35a01b9a8806a4ac199e63c6150acd1b5cdd8c",
+    "sixteen_region_pmp_sha256": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
     "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
   },
   "profile": "repaired",
@@ -470,13 +470,13 @@
   "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
   "repositories": {
     "a_fpga_baseline_commit": "3a2f20dc7af60fb74cbd3e9b9d84d0cf293ebc4f",
-    "open_mc_commit": "f438ea634235004803fca38a322aa2f7429f745c",
+    "open_mc_commit": "575ee24",
     "cv32e40p_upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
   },
   "reproducibility": {
     "runs": 2,
     "byte_identical": true,
-    "result_sha256": "ab28a4940d3598b12d4b00f3ac78f2903a00bcac821fa7e0915377bac6a5a821"
+    "result_sha256": "64b1bdcb6df055de9cd4c52ed56ade03c9ef65b4459200cd8f7180e4f2456ecf"
   },
   "bounds": {
     "max_cycles_per_test": 200000,
@@ -485,11 +485,15 @@
   "implementation_hashes": {
     "act4_runner_sha256": "ee83b7b6ea132199fd55cad50894ab9e4d0a52948549a5c9851f6e8bf5fb0cde",
     "testbench_sha256": "80898c0cb18f06ca9d255d2c948ccf20d532f3bc164c90b3df49a1dc5fb61e9a",
-    "pmp_patch_sha256": "227f64a0bca188ff7f2b0bb80c35a01b9a8806a4ac199e63c6150acd1b5cdd8c"
+    "pmp_patch_sha256": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f"
   },
   "diagnosis": {
     "gate": "privileged_machine_mode_pmp",
     "result": "blocked",
+    "verified_repairs": [
+      "subword PMP checks use aligned OBI word address plus byte enable",
+      "expanded directed corpus passes 15 of 15"
+    ],
     "failing_families": [
       "XWR combinations",
       "NA4/NAPOT/TOR legal access",
