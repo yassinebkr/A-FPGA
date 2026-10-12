@@ -49,13 +49,13 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    - Directed repaired-profile corpus: 15/15.
    - Legacy RV32I suite: 44/48, with four declared exclusions.
    - ACT4 base product profile: 80/80, reproduced byte-identically.
-   - ACT4 privileged PMP: 38/45; the gate remains open.
+   - ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
 
-   The fourth repair completes denied instruction fetch responses and closes two
-   aligned compressed-access cases. Twelve failures remain across permissions,
-   address modes, priority and compressed boundaries. Final selection still
-   requires PMP repair, interrupt-harness coverage, randomized differential
-   verification and refreshed physical evidence.
+   Six owned patches close the bounded PMP gate across PMPSm 33/33 and PMPZca
+   12/12. Instruction checks use the decoded 2- or 4-byte length after alignment,
+   while fully inaccessible instruction words are rejected before the bus
+   request. Final selection still requires interrupt-harness coverage,
+   randomized differential verification and refreshed physical evidence.
 
 3. **Execution, control and safety behavior — DECIDED**
    Boot autonomously through immutable ROM and external SPI flash, with

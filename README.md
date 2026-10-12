@@ -245,17 +245,20 @@ The detailed ledger — phases, exit criteria, measured numbers, honest limitati
   - Timing: both close 100 MHz and miss 150 MHz in the matched IHP placement screen. CV32E40P leads estimated placed Fmax at 127.0519 MHz; CVE2 reaches 123.0456 MHz with 10.28% less placed cell area.
   - Directed verification: repaired CV32E40P passes 15/15; the pinned legacy RV32I suite passes 44/48 with four declared exclusions.
   - ACT4 base profile: 80/80 RV32IMC, Zicsr and Zifencei ELFs, reproduced byte-identically.
-  - ACT4 privileged PMP: 38/45. The fourth repair completes denied-fetch responses; the fifth preserves fetch faults through trap redirection.
-  - Open gates: seven PMP semantic failures, interrupt harness, randomized differential verification, refreshed physical evidence and final core selection.
+  - ACT4 privileged PMP: 45/45 twice with byte-identical manifests. PMPSm passes 33/33 and PMPZca passes 12/12.
+  - Open gates: interrupt harness, randomized differential verification, refreshed physical evidence and final core selection.
 
   Durable evidence is in `docs/evidence/open-mcu-*.json`.
 
-Open_MC timing convergence combines three measured levers: optimize the selected
-core configuration and synthesis flow while preserving every product feature;
-cut proven critical paths through reviewed pipeline changes; then qualify faster
-standard-cell/library or process options where the provider-supported IHP stack
-cannot sustain the target. The 250 MHz objective stays a product requirement and
-each lever receives its own functional, timing, area, power, and physical evidence.
+Open_MC keeps **250 MHz** as the product target. Timing work is tracked in three independent workstreams:
+
+| Workstream | Decision rule | Required evidence |
+|---|---|---|
+| Core and implementation flow | Improve configuration, constraints, mapping, buffering and physical implementation first | Functional regression, timing, area, power and routed results |
+| Pipeline | Change the RTL only when a measured critical path justifies a stage boundary or execution-unit revision | ISA regression, precise-exception checks and before/after physical measurements |
+| Technology | Evaluate faster supported cells, memories or processes when the current IHP stack reaches its measured limit | Provider support, PVT timing, physical closure, cost and manufacturability |
+
+Every frequency result must identify its configuration, library, process corner and implementation stage. The 250 MHz requirement remains open until post-route evidence closes it.
 
 Qualification commands (no LLM involved; artifacts under `backend/data/qualifications/matmul3/`, gitignored):
 

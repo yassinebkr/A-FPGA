@@ -156,11 +156,12 @@ Current evidence:
 - repaired CV32E40P directed corpus: 15/15;
 - pinned legacy RV32I suite: 44/48 with four declared exclusions;
 - ACT4 base product profile: 80/80, reproduced byte-identically;
-- ACT4 privileged PMP: 38/45.
+- ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
 
-The denied-instruction response repair removes the former fetch deadlocks and
-closes two aligned compressed cases. Twelve semantic failures remain. Final
-selection requires PMP repair, interrupt-harness coverage, randomized
+Six owned patches now close the bounded PMP gate across PMPSm 33/33 and PMPZca
+12/12. The final repair checks the aligned instruction over its decoded 2- or
+4-byte length and preserves early denial for fully inaccessible instruction
+words. Final selection still requires interrupt-harness coverage, randomized
 differential verification and refreshed physical evidence. See
 `docs/croc-reference-audit.md`, `docs/open-mcu-milestone-definition.md`, and
 `docs/evidence/open-mcu-core-candidate-ihp-comparison.json`.
