@@ -56,11 +56,17 @@ Passed gates for the repaired CV32E40P profile:
   reference model `9c191bb73399a082807f2731f303a0ff2bb318133a2fccb417bf8973316fc2af`.
   Memory-data comparison is unavailable because the upstream monitor leaves those
   fields empty.
+- CSR/fence RVFI differential: 4 deterministic seeds × 32 generated operations,
+  with 52/52 expected architectural retirements compared per case and 54
+  observed records including two trailing post-halt records. All four cases
+  passed twice. Manifest `e582da9dbad34ea878444e2d80f099bccc467b6791159c448e3bd69f903fcf3b`;
+  the bounded lane covers `mscratch` (0x340), `fence`, and `fence.i` with MIE
+  disabled. Counters/time and other CSRs remain excluded.
 
 Open gates:
 
-1. Extend randomized differential coverage to CSR, fence, interrupt, PMP, and
-   fault behavior.
+1. Scale randomized differential coverage beyond the closed CSR/fence slice and
+   synchronize the interrupt, PMP, and fault lanes.
 2. Complete ACT4 InterruptsSm certification.
 3. Refresh physical evidence with the selected configuration and technology.
 4. Select the final core and bind the product decision to reviewed evidence.

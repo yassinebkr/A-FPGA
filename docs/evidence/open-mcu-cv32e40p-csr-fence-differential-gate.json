@@ -1,0 +1,52 @@
+{
+  "boundary": "Bounded deterministic RV32IMC-free CSR/fence RVFI differential. The permitted CSR is mscratch (0x340) with full 32-bit read/write storage; fence and fence.i are architectural no-ops. MIE/interrupts are disabled. Counters, time and all other CSR/system operations are excluded.",
+  "candidate": "cv32e40p",
+  "claim": "Bounded local Verilator and independent-reference evidence. Manufacturing and foundry signoff remain open.",
+  "comparison": "Independent Python RVFI reference versus repaired CV32E40P; PC, instruction, order, GPR writes, memory address/masks, next-PC transitions, and selected mscratch CSR effects are compared.",
+  "manifest_sha256": "e582da9dbad34ea878444e2d80f099bccc467b6791159c448e3bd69f903fcf3b",
+  "open_gates": [
+    "synchronized interrupt differential coverage",
+    "synchronized PMP and fault differential coverage",
+    "larger randomized campaigns and broader CSR scale-up",
+    "refreshed physical evidence",
+    "final core selection"
+  ],
+  "profile": "repaired_six_patch",
+  "provenance": {
+    "base_rvfi_gate_after_changes": "passed",
+    "evidence_runner": "scripts/qualify_cv32e40p_csr_fence.py",
+    "reference_model": "scripts/rvfi_reference.py",
+    "repeatability": "all four cases passed twice with the same manifest and per-seed trace digests"
+  },
+  "qualification_kind": "bounded_randomized_rvfi_reference_comparison",
+  "runs": {
+    "run_a": {
+      "manifest_sha256": "e582da9dbad34ea878444e2d80f099bccc467b6791159c448e3bd69f903fcf3b",
+      "status": "passed"
+    },
+    "run_b": {
+      "manifest_sha256": "e582da9dbad34ea878444e2d80f099bccc467b6791159c448e3bd69f903fcf3b",
+      "status": "passed"
+    }
+  },
+  "schema": "openmc-cv32e40p-csr-fence-differential/v1",
+  "status": "passed",
+  "summary": {
+    "cases_passed": 4,
+    "cases_total": 4,
+    "compared_retirements_per_case": 52,
+    "expected_retirements_per_case": 52,
+    "mismatches": 0,
+    "observed_records_per_case": 54,
+    "operations_per_seed": 32,
+    "repeats_passed": 2,
+    "seeds": 4,
+    "trailing_records_ignored_per_case": 2
+  },
+  "trace_sha256_by_seed": {
+    "0": "d2aa4b5765388ca5c82446bcd36b8ac0fd5436a9989ddce6b3292f37be7ee2b2",
+    "1": "05c6953e81c7aff2810ab7711adf75a293f556cab49da2b473c8b54c351a9418",
+    "2": "92fe94baa05f1cf82ae2c76a3a9d4db44dff36851afdddcfc06ec40f5e954058",
+    "3": "e8b95094c1a606aa5825bd4dd76795c9c32dc5a93307d6eb67d31e52b8be9de4"
+  }
+}
