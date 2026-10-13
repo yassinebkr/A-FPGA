@@ -1,6 +1,6 @@
 {
   "candidate": "cv32e40p",
-  "claim_boundary": "Deterministic firmware execution through the integrated core, reset/IRQ boundary, decoded boot ROM, fallback SRAM and FIFO-backed UART TX/RX loopback. UART recovery loading, other peripherals, production memories, CDC/RDC netlist analysis, physical implementation and manufacturing signoff remain open.",
+  "claim_boundary": "Deterministic firmware execution through the integrated core, reset/IRQ boundary, decoded boot ROM, fallback SRAM, FIFO-backed UART TX/RX loopback and the integrated general-timer aperture. Timer firmware interrupt service, UART recovery loading, other peripherals, production memories, CDC/RDC netlist analysis, physical implementation and manufacturing signoff remain open.",
   "compile_returncode": 0,
   "expected_signature": "0x0000005a",
   "expected_uart_rx_byte": "0x41",
@@ -11,6 +11,10 @@
     "boot_rom": {
       "base": "0x00000000",
       "bytes": 8192
+    },
+    "general_timer": {
+      "base": "0x10001000",
+      "bytes": 4096
     },
     "sram_fallback": {
       "base": "0x00010000",
@@ -30,9 +34,12 @@
     "rtl/product/openmc_boot_memory.sv": "92333983f648ebf9796c2a0231e61e52b2d124e71db11ce3343d8d71f1b56b40",
     "rtl/product/openmc_interrupt_boundary.sv": "2f819a82d44d19fb127dbf67bcc99468853db893bed7bb7110566fd4e61b8e03",
     "rtl/product/openmc_mcu_core_top.sv": "f4d69dc85d8ecffffd91aebd4bb974c02bba699d7ae18fdb1e9003da2b13349f",
-    "rtl/product/openmc_mcu_minimal_soc.sv": "a1ca0b731327c0a101a0df8292eb41e0ec80954a766dd6f936146f4a8e2e8af5",
+    "rtl/product/openmc_mcu_minimal_soc.sv": "ac7a6a2f80f0c19cd900a8cfeacf374d9c7472a7d6e95950a3938d4bd6968648",
     "rtl/product/openmc_obi_interconnect.sv": "eb05bce82800911cd664be176d4fd8b6ff4411aaf41dee94234da54a73e452f0",
+    "rtl/product/openmc_peripheral_stub.sv": "70d4f991bf938c6a4d41df53eb99c5359a1c38ddafc05b574c59e3d7db90131a",
+    "rtl/product/openmc_peripheral_subsystem.sv": "2494966571cdacf9189c71cbd6a41f5258a9435b72da971bbb8960a0880c6743",
     "rtl/product/openmc_reset_sync.sv": "bbedce2f17d307f229f299c3c2b40e83be0cdf92556b5f7c469c3a9d18545940",
+    "rtl/product/openmc_timer.sv": "698b15e65a6fe59ce07de0f3fd72c7052f7859ad838b1a6992585e00a5c6a648",
     "rtl/product/openmc_uart.sv": "40fdddf9a9b88d74352c5475bc616e770456c0c8be5445fc77b5eb269a31c726",
     "verification/mcu_minimal_firmware.S": "49ec7ea657ff6773abebfd2b902f3ed0d80119b8717ef2a3ffa499168d0a0fbb",
     "verification/mcu_minimal_firmware.hex": "aa7396f33763ea0544190232bb06b35092ee9632c96b25e13d02f374cb8e42e8",

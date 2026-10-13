@@ -1,0 +1,25 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "reset state",
+    "prescaled counting",
+    "one-shot compare interrupt",
+    "pending clear",
+    "periodic retrigger",
+    "enable stop/resume",
+    "MMIO access errors"
+  ],
+  "checks_passed": 7,
+  "claim_boundary": "Bounded deterministic RTL qualification of timer MMIO, prescaler, compare, one-shot/periodic and interrupt behavior. Clock accuracy, low-power behavior, netlist timing, physical implementation and manufacturing signoff remain open.",
+  "log_marker": "TIMER_GATE_PASS checks=7",
+  "log_tail": "",
+  "qualification_kind": "isolated_general_timer_directed_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-timer-gate/v1",
+  "sources": {
+    "rtl/product/openmc_timer.sv": "698b15e65a6fe59ce07de0f3fd72c7052f7859ad838b1a6992585e00a5c6a648",
+    "verification/timer_gate_tb.sv": "76a39e028263c013e33e0cc545727e98565b7be7d9849cb1ab0c83be9a7f6a85"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}
