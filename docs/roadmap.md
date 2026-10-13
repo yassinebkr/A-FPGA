@@ -33,6 +33,37 @@ physical acceptance fails on setup, hold, and max-slew. See
 [docs/phase3-physical-gap-audit.md](phase3-physical-gap-audit.md). New physical
 experiments require an explicit hypothesis and evidence budget.
 
+## Global checkpoint — 2026-10-13
+
+The A-FPGA platform has working generation, persistent projects and evidence,
+bounded verification, asynchronous EDA jobs, multifile RTL support, netlist and
+physical views, and completed C0–C6 visualization qualification. Remaining
+platform polish includes project import/export, job and metric presentation,
+physical visualization depth, and general UX finish.
+
+Open_MC has an eight-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
+Zicsr, Zifencei and PMP evidence; bounded Sail, RVFI, CSR/fence, synchronous
+fault, PMP access-fault and interrupt-lifecycle evidence; 62 unit tests; and
+documented reproducible artifacts. Physical evidence requires refresh for this
+baseline. The 250 MHz product objective remains subject to selected-technology
+post-route evidence; 500 MHz is a technology-dependent stretch objective.
+
+Ordered continuation gates:
+
+1. Complete ACT4 `InterruptsSm` certification and independent interrupt comparison.
+2. Extend differential campaigns for PMP, faults, CSR/fence and interrupts.
+3. Add broader functional coverage, assertions and formal properties.
+4. Complete production lint, CDC/RDC and wider equivalence.
+5. Refresh physical qualification with the eight-patch baseline.
+6. Close timing, slew and fanout, then complete DRC/LVS and SDF post-layout simulation.
+7. Select the final core and technology from reviewed evidence.
+8. Integrate the complete SoC: memories, UART, SPI, I²C, boot and programming.
+9. Run an FPGA prototype when hardware budget is available.
+10. Complete packaging and manufacturing preparation.
+
+The later milestone is a Linux-capable RV64 design around 1 GHz, after the
+RV32 product and its manufacturing evidence.
+
 ## Open_MC active gates
 
 Passed gates for the repaired CV32E40P profile:
