@@ -33,7 +33,7 @@
     "rtl/product/openmc_mcu_minimal_soc.sv": "a1ca0b731327c0a101a0df8292eb41e0ec80954a766dd6f936146f4a8e2e8af5",
     "rtl/product/openmc_obi_interconnect.sv": "eb05bce82800911cd664be176d4fd8b6ff4411aaf41dee94234da54a73e452f0",
     "rtl/product/openmc_reset_sync.sv": "bbedce2f17d307f229f299c3c2b40e83be0cdf92556b5f7c469c3a9d18545940",
-    "rtl/product/openmc_uart.sv": "15bd242aec2ee84dafaf0c30123680baeaacf2e5ef60861e5c13dcaef1c196db",
+    "rtl/product/openmc_uart.sv": "40fdddf9a9b88d74352c5475bc616e770456c0c8be5445fc77b5eb269a31c726",
     "verification/mcu_minimal_firmware.S": "49ec7ea657ff6773abebfd2b902f3ed0d80119b8717ef2a3ffa499168d0a0fbb",
     "verification/mcu_minimal_firmware.hex": "aa7396f33763ea0544190232bb06b35092ee9632c96b25e13d02f374cb8e42e8",
     "verification/mcu_minimal_soc_tb.sv": "a4cf9d2bc42754a50f665532dfff0834d7f56d64c1b08ab423af00f715aa10aa"

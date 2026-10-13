@@ -1,0 +1,26 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "reset and idle status",
+    "programmable baud divisor",
+    "8N1 TX serialization",
+    "8N1 RX and interrupt",
+    "framing detection and clear",
+    "RX FIFO full and overrun",
+    "TX FIFO overflow",
+    "MMIO access errors"
+  ],
+  "checks_passed": 8,
+  "claim_boundary": "Bounded deterministic RTL qualification of UART MMIO, FIFO, TX/RX, error and interrupt behavior. Analog pad behavior, baud tolerance sweep, metastability/MTBF, netlist CDC, timing, physical implementation and UART recovery firmware remain open.",
+  "log_marker": "UART_GATE_PASS checks=8",
+  "log_tail": "",
+  "qualification_kind": "isolated_uart_directed_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-uart-gate/v1",
+  "sources": {
+    "rtl/product/openmc_uart.sv": "40fdddf9a9b88d74352c5475bc616e770456c0c8be5445fc77b5eb269a31c726",
+    "verification/uart_gate_tb.sv": "a5d55405ba48097130b02791510dfd5777e46f8b2fb61b0cee2b70c4b2c557ae"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}
