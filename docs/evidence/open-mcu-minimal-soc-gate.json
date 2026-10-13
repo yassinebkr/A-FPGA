@@ -1,0 +1,33 @@
+{
+  "candidate": "cv32e40p",
+  "claim_boundary": "Deterministic firmware execution through the integrated core, reset/IRQ boundary, boot ROM and fallback SRAM. Arbitration, production memories, peripherals, boot-image validation, CDC/RDC netlist analysis, physical implementation and manufacturing signoff remain open.",
+  "compile_returncode": 0,
+  "expected_signature": "0x0000005a",
+  "log_marker": "MCU_MINIMAL_SOC_PASS cycles=9 signature=0000005a",
+  "log_tail": "",
+  "memory_map": {
+    "boot_rom": {
+      "base": "0x00000000",
+      "bytes": 8192
+    },
+    "sram_fallback": {
+      "base": "0x00010000",
+      "bytes": 65536
+    }
+  },
+  "qualification_kind": "integrated_boot_rom_sram_firmware_execution",
+  "run_returncode": 0,
+  "schema": "openmc-mcu-minimal-soc/v1",
+  "sources": {
+    "rtl/product/openmc_boot_memory.sv": "92333983f648ebf9796c2a0231e61e52b2d124e71db11ce3343d8d71f1b56b40",
+    "rtl/product/openmc_interrupt_boundary.sv": "2f819a82d44d19fb127dbf67bcc99468853db893bed7bb7110566fd4e61b8e03",
+    "rtl/product/openmc_mcu_core_top.sv": "f4d69dc85d8ecffffd91aebd4bb974c02bba699d7ae18fdb1e9003da2b13349f",
+    "rtl/product/openmc_mcu_minimal_soc.sv": "51c502b4a676bb39d8ec3384119b46ff264587e8491c69bb1144be54437fd852",
+    "rtl/product/openmc_reset_sync.sv": "bbedce2f17d307f229f299c3c2b40e83be0cdf92556b5f7c469c3a9d18545940",
+    "verification/mcu_minimal_firmware.hex": "fd5cf77554b3e84203642f00059b8b887b4cf9f29c2f90932fe0ae592f492940",
+    "verification/mcu_minimal_soc_tb.sv": "0cfb7f6c66af7b9b71e564b262f3f04a5111f4fcde694c51fa377757ac94c2c9"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}

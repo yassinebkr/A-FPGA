@@ -100,7 +100,11 @@ Passed gates for the repaired CV32E40P profile:
   through this boundary with a frozen IRQ map. Its two runs are byte-identical
   under manifest `54d410244aa46cad1046656a9fac78782124594243af1a2712cead78001f8d3d`.
   Memory/interconnect integration and firmware execution through this top are
-  the next functional gate.
+  the next functional gate. The first executable slice now closes that bounded
+  gate: an 8 KiB ROM firmware reaches the repaired core and writes signature
+  `0x5a` through data OBI into the 64 KiB SRAM fallback at cycle 9. Two runs
+  are byte-identical under manifest
+  `9c1d1e0d33e608fc7df223c7f06592664ed77f367eb8bf115a1d6a88f9d499ec`.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,
