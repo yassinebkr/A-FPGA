@@ -92,7 +92,10 @@ Passed gates for the repaired CV32E40P profile:
   audit fails closed: 19 interrupt inputs have one sampling stage, the raw
   interrupt bus drives wake-up logic, and reset deassertion remains unqualified.
   A reviewed MCU-boundary synchronizer and reset-release architecture is the
-  next required repair.
+  next required repair. That boundary is now implemented and qualified in
+  isolation: selected asynchronous level IRQs use two marked stages, reset
+  releases through two stages, and wake indication uses synchronized state.
+  MCU-top integration and netlist-aware CDC/RDC remain open.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,

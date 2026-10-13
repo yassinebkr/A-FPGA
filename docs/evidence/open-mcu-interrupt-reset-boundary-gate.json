@@ -1,0 +1,25 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "asynchronous reset assertion",
+    "two-edge reset release",
+    "direct synchronous interrupt",
+    "two-stage asynchronous level interrupt",
+    "sub-cycle pulse exclusion",
+    "held-level capture",
+    "synchronized wake indication"
+  ],
+  "claim_boundary": "Deterministic four-state-free RTL simulation of the isolated boundary. Metastability, MTBF, physical synchronizer placement, integrated netlist CDC/RDC, and manufacturing signoff remain open.",
+  "integration_status": "staged_not_integrated_into_mcu_top",
+  "log_marker": "INTERRUPT_RESET_BOUNDARY_PASS",
+  "qualification_kind": "isolated_product_boundary_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-interrupt-reset-boundary/v1",
+  "sources": {
+    "rtl/product/openmc_interrupt_boundary.sv": "2f819a82d44d19fb127dbf67bcc99468853db893bed7bb7110566fd4e61b8e03",
+    "rtl/product/openmc_reset_sync.sv": "bbedce2f17d307f229f299c3c2b40e83be0cdf92556b5f7c469c3a9d18545940",
+    "verification/interrupt_reset_boundary_tb.sv": "3c69a0e753e7e2b677a83b17667a4cd49b7f2cb3f56b2e9d3c96d5bb7d855160"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}
