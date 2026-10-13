@@ -1,0 +1,24 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "external reset release",
+    "warning precedes reset",
+    "bounded system reset hold",
+    "persistent watchdog cause",
+    "software cause clear"
+  ],
+  "checks_passed": 5,
+  "claim_boundary": "Bounded deterministic RTL qualification of watchdog warning-before-reset, reset hold and persistent reset-cause behavior in one clock domain. Physical reset-tree implementation, analog reset conditioning, CDC/RDC netlist analysis and manufacturing signoff remain open.",
+  "log_marker": "WATCHDOG_RESET_GATE_PASS checks=5 hold_cycles=3",
+  "log_tail": "",
+  "qualification_kind": "watchdog_system_reset_directed_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-watchdog-reset-gate/v1",
+  "sources": {
+    "rtl/product/openmc_system_reset_controller.sv": "61bb459f7ae3702084f3e5036193e99b15072e4c62292baddbe41c3156420513",
+    "rtl/product/openmc_watchdog.sv": "05006be5b67ec507c4c922867b90be0e79475e89fad5a76fe31b19f9714d7e7e",
+    "verification/watchdog_reset_gate_tb.sv": "886951c79e4cf2ed505dc46da24cb6956d33fba157d69a6a1ec893169e0a9b7b"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}

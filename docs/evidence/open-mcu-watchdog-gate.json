@@ -18,8 +18,8 @@
   "run_returncode": 0,
   "schema": "openmc-watchdog-gate/v1",
   "sources": {
-    "rtl/product/openmc_watchdog.sv": "336e292218d368b3110c7e80f4d56c56d89728065c638caad51d69de92622933",
-    "verification/watchdog_gate_tb.sv": "17277b7206c097edc1242869cfb530a671909c3507ac98e2bd9e97196e6d59a9"
+    "rtl/product/openmc_watchdog.sv": "05006be5b67ec507c4c922867b90be0e79475e89fad5a76fe31b19f9714d7e7e",
+    "verification/watchdog_gate_tb.sv": "e6f1d612a39dce7d8c8997e8c7a2c9f549a98dbbfbfa69bb31a6b1b2e85e768e"
   },
   "status": "passed",
   "tool": "Verilator 5.040 2025-08-30 rev v5.040"
