@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "status": "passed",
+  "qualification_kind": "bounded_rvfi_trace_reference_comparison",
+  "claim_boundary": "Bounded RV32I/M instruction-level comparison through the controlled halt store. CSR, fence, interrupt, PMP, fault and general MMIO operations remain outside this corpus.",
+  "manifest_sha256": "d66f94dbce9091aac84a94376b6e6f0e8815154588acedf9b04dfdf45688282b",
+  "trace_sha256": "62561f51afd4b93aa2c9b6d45a541182eddd25897d6e63a750c1b27d1317ae78",
+  "reference_model_sha256": "9c191bb73399a082807f2731f303a0ff2bb318133a2fccb417bf8973316fc2af",
+  "monitor_adaptation_sha256": "c782fdb3f12be783f4978acd53c4aead38be8c11921830786405d721aa97db75",
+  "corpus_instructions": 17,
+  "reference_records": 16,
+  "compared_records": 16,
+  "trailing_records_ignored": 2,
+  "mismatches": 0,
+  "coverage": {
+    "pc": 16,
+    "instruction": 16,
+    "order": 16,
+    "gpr_write": 16,
+    "memory_address": 16,
+    "memory_masks": 16,
+    "next_pc_transitions": 15
+  },
+  "memory_data_comparison": {
+    "status": "unavailable",
+    "reason": "The upstream RVFI monitor leaves m_mem.rdata and m_mem.wdata empty."
+  },
+  "runs": {
+    "run_a": {"status": "passed", "manifest_sha256": "d66f94dbce9091aac84a94376b6e6f0e8815154588acedf9b04dfdf45688282b"},
+    "run_b": {"status": "passed", "manifest_sha256": "d66f94dbce9091aac84a94376b6e6f0e8815154588acedf9b04dfdf45688282b"}
+  }
+}

@@ -48,15 +48,22 @@ Passed gates for the repaired CV32E40P profile:
   twice with the repaired six-patch profile. Manifest
   `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
   trace `bd35ee3f755ed34f0d397f93f151d189917f2b879604921bfae66c3a6e9ad0aa`.
+- RVFI instruction-level reference comparison: 16/16 architectural retirements
+  match twice with zero mismatches. Two post-halt records are explicitly ignored;
+  15 next-PC transitions are covered. Manifest
+  `d66f94dbce9091aac84a94376b6e6f0e8815154588acedf9b04dfdf45688282b`, trace
+  `62561f51afd4b93aa2c9b6d45a541182eddd25897d6e63a750c1b27d1317ae78`, and
+  reference model `9c191bb73399a082807f2731f303a0ff2bb318133a2fccb417bf8973316fc2af`.
+  Memory-data comparison is unavailable because the upstream monitor leaves those
+  fields empty.
 
 Open gates:
 
-1. Complete independent instruction-level comparison against the reference.
-2. Extend randomized differential coverage to CSR, fence, interrupt, PMP, and
+1. Extend randomized differential coverage to CSR, fence, interrupt, PMP, and
    fault behavior.
-3. Complete ACT4 InterruptsSm certification.
-4. Refresh physical evidence with the selected configuration and technology.
-5. Select the final core and bind the product decision to reviewed evidence.
+2. Complete ACT4 InterruptsSm certification.
+3. Refresh physical evidence with the selected configuration and technology.
+4. Select the final core and bind the product decision to reviewed evidence.
 
 The evidence records are in [docs/evidence](evidence/). The product contract
 and frequency strategy are in
