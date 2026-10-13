@@ -63,10 +63,23 @@ Passed gates for the repaired CV32E40P profile:
   the bounded lane covers `mscratch` (0x340), `fence`, and `fence.i` with MIE
   disabled. Counters/time and other CSRs remain excluded.
 
+Failed and open gates:
+
+- Synchronous-fault differential: **0/3**. Illegal instruction, misaligned
+  word load, and misaligned word store each produced the expected `mcause`,
+  `mepc`, one trap, `mret` resume, and deterministic signature. Every case
+  returned `mtval=0`; the independent expectations are `0xffffffff` for the
+  illegal instruction and address `1` for both misaligned accesses. The pinned
+  `cv32e40p_cs_registers.sv` hard-wires `CSR_MTVAL` reads to zero and has no
+  mtval state/update path. Evidence artifact
+  `930e30a54dc41216eed006dae3e0673fa3d43eb6f2aa7bcbc6199a4017a19dd9` records
+  the failed gate. An owned mtval repair and rerun are required.
+
 Open gates:
 
-1. Scale randomized differential coverage beyond the closed CSR/fence slice and
-   synchronize the interrupt, PMP, and fault lanes.
+1. Repair mtval state/update behavior, rerun the three-case synchronous-fault
+   differential, then scale randomized differential coverage beyond the closed
+   CSR/fence slice and synchronize the interrupt and PMP lanes.
 2. Complete ACT4 InterruptsSm certification.
 3. Refresh physical evidence with the selected configuration and technology.
 4. Select the final core and bind the product decision to reviewed evidence.

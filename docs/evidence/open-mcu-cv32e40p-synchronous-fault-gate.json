@@ -1,0 +1,123 @@
+{
+  "artifact_sha256": "930e30a54dc41216eed006dae3e0673fa3d43eb6f2aa7bcbc6199a4017a19dd9",
+  "candidate": "cv32e40p",
+  "claim": "Bounded local Verilator evidence for direct machine handling and independent synchronous-fault expectations on repaired CV32E40P; the gate remains open because mtval is not architecturally reported.",
+  "claim_boundary": "Exactly three cases: illegal instruction, misaligned word load, and misaligned word store. Each handler records mcause, mepc, mtval, and trap count, advances mepc, executes mret, and reaches a deterministic signature. Interrupts, PMP access faults, bus errors, compressed faults, randomized fault streams, S-mode, formal proof, physical timing, and manufacturing signoff are outside this boundary.",
+  "evidence_artifact": "docs/evidence/open-mcu-cv32e40p-synchronous-fault-gate.json",
+  "open_gates": [
+    "owned mtval state/update repair",
+    "repeat the three-case synchronous-fault differential",
+    "randomized interrupt/PMP/fault differential coverage",
+    "refreshed physical evidence",
+    "final core selection"
+  ],
+  "profile": "repaired_six_patch",
+  "provenance": {
+    "patches": {
+      "obi_response_errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+      "pmp_aligned_check": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+      "pmp_fetch_latch": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+      "pmp_ifetch_response": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+      "sixteen_region_pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+      "strict_alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
+    },
+    "rtl_blocker": "cv32e40p_cs_registers.sv hard-wires CSR_MTVAL reads to zero and has no mtval state/update path",
+    "runner_sha256": "eeee3decc58ce659e1491eafd3b8b67a73c0ab2515eb2f97f610124ae43d43f1",
+    "testbench_sha256": "b2fc0aa0f4e9e534379786335ebeb5654d5340b9dccef7ff47b0e216498d12a7"
+  },
+  "qualification_kind": "bounded_independent_fault_reference",
+  "required_repair": "Add architectural mtval state and update it for illegal instruction and misaligned load/store exceptions, then rerun this exact three-case lane.",
+  "runner": "scripts/qualify_cv32e40p_fault_differential.py",
+  "schema": "openmc-cv32e40p-synchronous-fault-differential/v1",
+  "source_artifact": ".cache/cv32e40p-fault-differential/result.json",
+  "status": "failed",
+  "summary": {
+    "correct_mcause": 3,
+    "correct_mepc": 3,
+    "correct_mret_resume": 3,
+    "correct_signatures": 3,
+    "correct_trap_count": 3,
+    "failed": 3,
+    "mtval_mismatches": 3,
+    "passed": 0,
+    "selected": 3,
+    "trap_count_expected": 1
+  },
+  "testbench": "verification/fault_differential_tb.sv",
+  "tests": [
+    {
+      "expected": {
+        "instruction": "0xffffffff",
+        "mcause": "0x00000002",
+        "mepc": "0x00000010",
+        "mtval": "0xffffffff",
+        "signature": "0x00000012",
+        "trap_count": 1
+      },
+      "mismatches": [
+        "mtval"
+      ],
+      "name": "illegal_instruction",
+      "observed": {
+        "mcause": "0x00000002",
+        "mepc": "0x00000010",
+        "mret_resume": true,
+        "mtval": "0x00000000",
+        "signature": "0x00000012",
+        "trap_count": 1
+      },
+      "returncode": 1,
+      "status": "failed"
+    },
+    {
+      "expected": {
+        "instruction": "0x0001a483",
+        "mcause": "0x00000004",
+        "mepc": "0x00000010",
+        "mtval": "0x00000001",
+        "signature": "0x00000034",
+        "trap_count": 1
+      },
+      "mismatches": [
+        "mtval"
+      ],
+      "name": "misaligned_load",
+      "observed": {
+        "mcause": "0x00000004",
+        "mepc": "0x00000010",
+        "mret_resume": true,
+        "mtval": "0x00000000",
+        "signature": "0x00000034",
+        "trap_count": 1
+      },
+      "returncode": 1,
+      "status": "failed"
+    },
+    {
+      "expected": {
+        "instruction": "0x0001a023",
+        "mcause": "0x00000006",
+        "mepc": "0x00000010",
+        "mtval": "0x00000001",
+        "signature": "0x00000056",
+        "trap_count": 1
+      },
+      "mismatches": [
+        "mtval"
+      ],
+      "name": "misaligned_store",
+      "observed": {
+        "mcause": "0x00000006",
+        "mepc": "0x00000010",
+        "mret_resume": true,
+        "mtval": "0x00000000",
+        "signature": "0x00000056",
+        "trap_count": 1
+      },
+      "returncode": 1,
+      "status": "failed"
+    }
+  ],
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}
