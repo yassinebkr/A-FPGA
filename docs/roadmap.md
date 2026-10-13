@@ -88,7 +88,11 @@ Passed gates for the repaired CV32E40P profile:
   Its deterministic timing matrix passes 16/16 twice under byte-identical hash
   `15b8246a8c1377301573fbbb7bb077be4218c5f6c595e765282cbff4210c7f1e`;
   the independent comparison passes 16/16. Deeper nesting, sub-cycle phase
-  behavior, and CDC/RDC analysis remain open.
+  behavior, and CDC/RDC closure remain open. The first conservative structural
+  audit fails closed: 19 interrupt inputs have one sampling stage, the raw
+  interrupt bus drives wake-up logic, and reset deassertion remains unqualified.
+  A reviewed MCU-boundary synchronizer and reset-release architecture is the
+  next required repair.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,

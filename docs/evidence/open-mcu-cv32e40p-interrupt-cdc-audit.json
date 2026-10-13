@@ -1,0 +1,45 @@
+{
+  "assumed_async_inputs": [
+    "irq_software_i",
+    "irq_timer_i",
+    "irq_external_i",
+    "irq_fast_i[15:0]"
+  ],
+  "candidate": "cv32e40p",
+  "claim_boundary": "Pattern-based source audit of the pinned interrupt controller. It is conservative engineering evidence and does not replace netlist-aware commercial CDC/RDC signoff.",
+  "findings": [
+    {
+      "count": 19,
+      "id": "CDC-IRQ-001",
+      "message": "Interrupt inputs enter one sampling register without a two-stage synchronizer.",
+      "severity": "error"
+    },
+    {
+      "count": 19,
+      "id": "CDC-IRQ-002",
+      "message": "Raw interrupt inputs drive combinational wake-up logic.",
+      "severity": "error"
+    },
+    {
+      "count": 1,
+      "id": "RDC-RST-001",
+      "message": "Asynchronous reset assertion is present; reset release synchronization belongs to the SoC integration contract and remains unproven.",
+      "severity": "review"
+    }
+  ],
+  "qualification_kind": "conservative_structural_cdc_rdc_audit",
+  "raw_combinational_wakeup": true,
+  "required_repairs": [
+    "Add or instantiate reviewed synchronizers for interrupt sources that are asynchronous to clk_i.",
+    "Define the wake-up path CDC protocol and prove pulse/level capture semantics.",
+    "Synchronize reset deassertion per clock domain and verify RDC structurally.",
+    "Re-run functional interrupt gates after integration and use a dedicated CDC/RDC checker."
+  ],
+  "sampled_once": true,
+  "schema": "openmc-cv32e40p-interrupt-cdc-audit/v1",
+  "source": "rtl/cv32e40p_int_controller.sv",
+  "source_sha256": "24df51d9cb33f5c8760a8cfbc7931aafc94c2ab0523c7df55b2635e7778af16f",
+  "status": "failed",
+  "two_stage_synchronizer_detected": false,
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}
