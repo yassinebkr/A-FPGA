@@ -1,0 +1,95 @@
+{
+  "candidate": "cv32e40p",
+  "claim_boundary": "Bounded local Verilator evidence for CV32E40P custom fast interrupt causes 16, 23, and 31, fast-source priority, priority over external interrupts, and entry-time CSR snapshots. All sixteen lines individually, lifecycle acknowledgement, nested handlers, asynchronous behavior, formal proof, physical timing, and manufacturing signoff remain open.",
+  "patches": {
+    "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+    "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+    "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+    "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+    "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+    "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+    "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d"
+  },
+  "priority_rule": "fast 31 down to 16, then external 11, software 3, timer 7",
+  "profile": "repaired_eight_patch",
+  "qualification_kind": "bounded_cv32e40p_custom_fast_interrupts",
+  "schema": "openmc-cv32e40p-fast-interrupts/v1",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 6,
+    "selected": 6
+  },
+  "testbench_sha256": "ce4b28f0446f7869616b2e3773e9c3f2ab87e86a183961c1f1cd6a123b2497ed",
+  "tests": [
+    {
+      "enabled_mask": 65536,
+      "expected_cause": 16,
+      "fast_mask": 1,
+      "image_sha256": "2f64846cd103ad5dcd0487bb381316825b09e50fab3ef3be565698570445e5f8",
+      "log_tail": "INTERRUPT_PASS case=fast_16 mcause=80000010 mode=fast cycles=147 mepc=00000020 mstatus=00001880 mie=00010000 mip=00010000",
+      "name": "fast_16",
+      "returncode": 0,
+      "standard_mask": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 8388608,
+      "expected_cause": 23,
+      "fast_mask": 128,
+      "image_sha256": "9572ea9a1cf348d6103c669f3bd752712f48c92e3eaff49c42f170b69e4fc43a",
+      "log_tail": "INTERRUPT_PASS case=fast_23 mcause=80000017 mode=fast cycles=147 mepc=00000020 mstatus=00001880 mie=00800000 mip=00800000",
+      "name": "fast_23",
+      "returncode": 0,
+      "standard_mask": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 2147483648,
+      "expected_cause": 31,
+      "fast_mask": 32768,
+      "image_sha256": "dc9cfc7c9adc24435c892bc548f6a9aaadd3f7329186e1b6df53fb5f1523892d",
+      "log_tail": "INTERRUPT_PASS case=fast_31 mcause=8000001f mode=fast cycles=147 mepc=00000020 mstatus=00001880 mie=80000000 mip=80000000",
+      "name": "fast_31",
+      "returncode": 0,
+      "standard_mask": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 2147549184,
+      "expected_cause": 31,
+      "fast_mask": 32769,
+      "image_sha256": "92b905613a5fb0253fed3a9d237ffb6dda5e3fbc975971996f1006e3516e75cd",
+      "log_tail": "INTERRUPT_PASS case=fast_31_over_16 mcause=8000001f mode=fast cycles=147 mepc=00000020 mstatus=00001880 mie=80010000 mip=80010000",
+      "name": "fast_31_over_16",
+      "returncode": 0,
+      "standard_mask": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 67584,
+      "expected_cause": 16,
+      "fast_mask": 1,
+      "image_sha256": "abbadded12491b0ea13bd73285e6868ba28cf458450d5a5118eee7152fcb1214",
+      "log_tail": "INTERRUPT_PASS case=fast_16_over_external mcause=80000010 mode=fast cycles=147 mepc=00000020 mstatus=00001880 mie=00010800 mip=00010800",
+      "name": "fast_16_over_external",
+      "returncode": 0,
+      "standard_mask": 2048,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 2155874304,
+      "expected_cause": 31,
+      "fast_mask": 32896,
+      "image_sha256": "0d8b3bc1e1268f45ed0818984693dba0fe1ea4182e7d70429f9320e6f3cad624",
+      "log_tail": "INTERRUPT_PASS case=fast_31_over_23_external mcause=8000001f mode=fast cycles=147 mepc=00000020 mstatus=00001880 mie=80800800 mip=80800800",
+      "name": "fast_31_over_23_external",
+      "returncode": 0,
+      "standard_mask": 2048,
+      "status": "passed"
+    }
+  ],
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}

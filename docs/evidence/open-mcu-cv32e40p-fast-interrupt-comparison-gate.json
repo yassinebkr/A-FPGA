@@ -1,0 +1,19 @@
+{
+  "checked_semantics": [
+    "custom causes 16/23/31",
+    "descending fast priority",
+    "priority over external interrupt",
+    "mepc",
+    "entry-time mstatus/mie/mip"
+  ],
+  "claim_boundary": "Independent comparison of six bounded fast-interrupt observations. Full line sweep, lifecycle, nested handlers, asynchronous behavior, and formal proof remain open.",
+  "failures": [],
+  "schema": "openmc-cv32e40p-fast-interrupt-comparison/v1",
+  "source_result_sha256": "ce36b843e11f741a259a0188054fafdba36dc268bad7ada6b93867b8b328482d",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 6,
+    "selected": 6
+  }
+}
