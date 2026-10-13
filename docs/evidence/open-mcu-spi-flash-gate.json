@@ -1,0 +1,31 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "continuous READ transaction",
+    "image magic",
+    "image version",
+    "payload size",
+    "load and entry addresses",
+    "CRC32 field",
+    "payload bytes",
+    "chip-select release"
+  ],
+  "checks_passed": 8,
+  "claim_boundary": "Bounded deterministic qualification of mode-0 READ 0x03, continuous CS, versioned image header, CRC32 field and payload bytes. Boot-ROM CRC execution, copy to SRAM, external Flash electrical timing and manufacturing signoff remain open.",
+  "fixture_reproduced": true,
+  "log_marker": "SPI_FLASH_GATE_PASS checks=8 bytes=44 crc32=c893ee78",
+  "log_tail": "",
+  "qualification_kind": "spi_flash_model_and_versioned_image_directed_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-spi-flash-gate/v1",
+  "sources": {
+    "rtl/product/openmc_spi_master.sv": "df2f4c26eb2c83d7c85959a15119f4b072c5d1623e2dfddbc55c784b049a663b",
+    "scripts/build_flash_image.py": "f5e4b33d13b0bf2ecbcb74216861381e5183530b38214a9a40dff916f88cb4dd",
+    "verification/openmc_spi_flash_model.sv": "7a493b6e9a63867624bf0b5bfd3f67223c3d243ffeec45692a39bbb16cf2ff9b",
+    "verification/spi_flash_gate_tb.sv": "6da3a2549863f5d31971001038ca67799ff26b53cd737b017210f4ea468f7ec8",
+    "verification/spi_flash_image.hex": "b13876b1150de08a21e9c45ae6f574de1c9e1933516744b83dbfaec618a0d6dd",
+    "verification/spi_flash_payload.bin": "01eb405c6216e2c1a43f80431ff52db0f1b594d1bca334784635c699aa093b46"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}
