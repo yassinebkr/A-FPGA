@@ -165,7 +165,7 @@ Six owned patches now close the bounded PMP gate across PMPSm 33/33 and PMPZca
 4-byte length and preserves early denial for fully inaccessible instruction
 words. The interrupt harness covers direct software (`mcause=3`), direct timer
 (`mcause=7`), vectored external (`mcause=11`) and masked-no-trap behavior. It
-checks `mcause` and `mepc` in both reproduced runs. `mret`, interrupt-controller acknowledgement, simultaneous standard-source priority, and entry-time CSR snapshots are covered. ACT4 InterruptsSm and the independent eleven-case interrupt comparison pass twice. Deterministic assertion timing passes 28/28 twice across four seeds. The bounded fast-interrupt lane passes 6/6 twice. Its complete line sweep, lifecycle and nesting, randomized PMP/fault coverage, refreshed physical evidence and final core selection remain open. Manufacturing and foundry signoff remain open. See
+checks `mcause` and `mepc` in both reproduced runs. `mret`, interrupt-controller acknowledgement, simultaneous standard-source priority, and entry-time CSR snapshots are covered. ACT4 InterruptsSm and the independent eleven-case interrupt comparison pass twice. Deterministic assertion timing passes 28/28 twice across four seeds. The fast-interrupt line sweep and lifecycle gate passes 20/20 twice. Nesting, randomized PMP/fault coverage, refreshed physical evidence and final core selection remain open. Manufacturing and foundry signoff remain open. See
 `docs/croc-reference-audit.md`, `docs/open-mcu-milestone-definition.md`, and
 `docs/evidence/open-mcu-core-candidate-ihp-comparison.json`.
 

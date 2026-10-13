@@ -1,0 +1,20 @@
+{
+  "checked_semantics": [
+    "all fast causes 16 through 31",
+    "entry CSR snapshots",
+    "descending multi-line priority",
+    "single handler entry",
+    "single level-source acknowledgement",
+    "mret completion"
+  ],
+  "claim_boundary": "Independent comparison of the 16-line sweep and four bounded lifecycle observations. Nested handlers, asynchronous behavior, and formal proof remain open.",
+  "failures": [],
+  "schema": "openmc-cv32e40p-fast-interrupt-sweep-comparison/v1",
+  "source_result_sha256": "c8fd1714dc0c623aadcd1f2745b6116dc29cd3fdd6ed2897b2482b5927ff457f",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 20,
+    "selected": 20
+  }
+}

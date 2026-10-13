@@ -62,8 +62,8 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    while fully inaccessible instruction words are rejected before the bus
    request. ACT4 InterruptsSm and the independent eleven-case interrupt
    comparison now pass twice. Deterministic interrupt assertion timing passes
-   28/28 twice across four seeds. Fast interrupts pass 6/6 twice for selected
-   causes and priority conflicts. Their complete sweep/lifecycle/nesting and randomized PMP/fault coverage,
+   28/28 twice across four seeds. Fast interrupts pass 20/20 twice across all
+   causes and four representative lifecycle cases. Nested handlers and randomized PMP/fault coverage,
    refreshed physical evidence and final core selection remain open.
    Manufacturing and foundry signoff remain open.
 
@@ -160,8 +160,8 @@ The bounded architectural differential evidence covers 16 deterministic seeds ×
 128 arithmetic/data-state operations against Sail 0.13.1 from the pinned ACT4
 image, passed twice with byte-identical manifests. ACT4 InterruptsSm and the
 independent eleven-case interrupt comparison pass twice. Deterministic
-assertion timing passes 28/28 twice. Fast interrupts pass 6/6 twice; their
-complete sweep/lifecycle/nesting and randomized
+assertion timing passes 28/28 twice. Fast interrupts pass 20/20 twice across
+all lines and representative lifecycle cases. Nested handlers and randomized
 interrupt/PMP/fault differential, refreshed physical evidence, and final core
 selection remain open.
 

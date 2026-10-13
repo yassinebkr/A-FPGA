@@ -1,0 +1,251 @@
+{
+  "candidate": "cv32e40p",
+  "claim_boundary": "Local Verilator evidence for each CV32E40P fast interrupt line, exact cause, entry CSR state, and bounded level-asserted acknowledgement/mret lifecycle at representative boundary lines. Nested handlers, asynchronous clock-domain behavior, formal proof, physical timing, and manufacturing signoff remain open.",
+  "patches": {
+    "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+    "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+    "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+    "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+    "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+    "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+    "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d"
+  },
+  "profile": "repaired_eight_patch",
+  "qualification_kind": "cv32e40p_fast_interrupt_full_line_and_lifecycle",
+  "schema": "openmc-cv32e40p-fast-interrupt-sweep/v1",
+  "scope": "all_16_fast_lines_individually_plus_four_level_ack_mret_lifecycle_cases",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "lifecycle": 4,
+    "line_sweep": 16,
+    "passed": 20,
+    "selected": 20
+  },
+  "testbench_sha256": "ce4b28f0446f7869616b2e3773e9c3f2ab87e86a183961c1f1cd6a123b2497ed",
+  "tests": [
+    {
+      "enabled_mask": 65536,
+      "expected_cause": 16,
+      "fast_mask": 1,
+      "image_sha256": "2f64846cd103ad5dcd0487bb381316825b09e50fab3ef3be565698570445e5f8",
+      "log_tail": "INTERRUPT_PASS case=fast_line_16 mcause=80000010 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00010000 mip=00010000",
+      "mode": "sweep",
+      "name": "fast_line_16",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 131072,
+      "expected_cause": 17,
+      "fast_mask": 2,
+      "image_sha256": "e6200427f2da8e577333f608192a45b14de061d38ab0feb8cdc632cf92d51260",
+      "log_tail": "INTERRUPT_PASS case=fast_line_17 mcause=80000011 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00020000 mip=00020000",
+      "mode": "sweep",
+      "name": "fast_line_17",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 262144,
+      "expected_cause": 18,
+      "fast_mask": 4,
+      "image_sha256": "3b7a6210d6f2a2e48d838cade234661d951e249adfd6afdd8731b44dc61cce52",
+      "log_tail": "INTERRUPT_PASS case=fast_line_18 mcause=80000012 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00040000 mip=00040000",
+      "mode": "sweep",
+      "name": "fast_line_18",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 524288,
+      "expected_cause": 19,
+      "fast_mask": 8,
+      "image_sha256": "7095be4caedaab30f68da5b118783db79441cc42ac4aac1ad961c47df7a1b39b",
+      "log_tail": "INTERRUPT_PASS case=fast_line_19 mcause=80000013 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00080000 mip=00080000",
+      "mode": "sweep",
+      "name": "fast_line_19",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 1048576,
+      "expected_cause": 20,
+      "fast_mask": 16,
+      "image_sha256": "1738fedf1c1cb1968eb092ee448fa0002ac6399715545394a87b7f53142fc40c",
+      "log_tail": "INTERRUPT_PASS case=fast_line_20 mcause=80000014 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00100000 mip=00100000",
+      "mode": "sweep",
+      "name": "fast_line_20",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 2097152,
+      "expected_cause": 21,
+      "fast_mask": 32,
+      "image_sha256": "4973de15293b6fd9b5699550ad65f30c6d7aadb3d56f2719dddac4989fdb674e",
+      "log_tail": "INTERRUPT_PASS case=fast_line_21 mcause=80000015 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00200000 mip=00200000",
+      "mode": "sweep",
+      "name": "fast_line_21",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 4194304,
+      "expected_cause": 22,
+      "fast_mask": 64,
+      "image_sha256": "d628ae53b4dbf9d1066e040fe4bbd5db0d49c5db5e5337619fc50148afc7afc0",
+      "log_tail": "INTERRUPT_PASS case=fast_line_22 mcause=80000016 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00400000 mip=00400000",
+      "mode": "sweep",
+      "name": "fast_line_22",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 8388608,
+      "expected_cause": 23,
+      "fast_mask": 128,
+      "image_sha256": "9572ea9a1cf348d6103c669f3bd752712f48c92e3eaff49c42f170b69e4fc43a",
+      "log_tail": "INTERRUPT_PASS case=fast_line_23 mcause=80000017 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=00800000 mip=00800000",
+      "mode": "sweep",
+      "name": "fast_line_23",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 16777216,
+      "expected_cause": 24,
+      "fast_mask": 256,
+      "image_sha256": "15f219cdd56b393ee21c4d1b9c20c7c56efcac6f7fc1d9234c3701031f155eac",
+      "log_tail": "INTERRUPT_PASS case=fast_line_24 mcause=80000018 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=01000000 mip=01000000",
+      "mode": "sweep",
+      "name": "fast_line_24",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 33554432,
+      "expected_cause": 25,
+      "fast_mask": 512,
+      "image_sha256": "3f446c31668f081b7625a5cae5c9bdd54d1522fe5d7340e35c8394d5b4365c9e",
+      "log_tail": "INTERRUPT_PASS case=fast_line_25 mcause=80000019 mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=02000000 mip=02000000",
+      "mode": "sweep",
+      "name": "fast_line_25",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 67108864,
+      "expected_cause": 26,
+      "fast_mask": 1024,
+      "image_sha256": "a7f34d86a1af6eb5f903ecfe9fe66f8db668e88f9e35e4c9291427ff24761593",
+      "log_tail": "INTERRUPT_PASS case=fast_line_26 mcause=8000001a mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=04000000 mip=04000000",
+      "mode": "sweep",
+      "name": "fast_line_26",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 134217728,
+      "expected_cause": 27,
+      "fast_mask": 2048,
+      "image_sha256": "50cd7dcba406b69d96ffe9efe934789beeadddf8ef47a3552ffbf6b85a5ebbf2",
+      "log_tail": "INTERRUPT_PASS case=fast_line_27 mcause=8000001b mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=08000000 mip=08000000",
+      "mode": "sweep",
+      "name": "fast_line_27",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 268435456,
+      "expected_cause": 28,
+      "fast_mask": 4096,
+      "image_sha256": "e8d9341c09db6a86b2183868592f47948da31cab97fda734a337c04422d2b318",
+      "log_tail": "INTERRUPT_PASS case=fast_line_28 mcause=8000001c mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=10000000 mip=10000000",
+      "mode": "sweep",
+      "name": "fast_line_28",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 536870912,
+      "expected_cause": 29,
+      "fast_mask": 8192,
+      "image_sha256": "e08a477a6f319fbd31f9158f39dc70455267cd936b274fc4062c39fd3939c15b",
+      "log_tail": "INTERRUPT_PASS case=fast_line_29 mcause=8000001d mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=20000000 mip=20000000",
+      "mode": "sweep",
+      "name": "fast_line_29",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 1073741824,
+      "expected_cause": 30,
+      "fast_mask": 16384,
+      "image_sha256": "5e92081918dec8a6a4b0f299c65bc57910a3b1ffaf335508d2d453c924281e26",
+      "log_tail": "INTERRUPT_PASS case=fast_line_30 mcause=8000001e mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=40000000 mip=40000000",
+      "mode": "sweep",
+      "name": "fast_line_30",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 2147483648,
+      "expected_cause": 31,
+      "fast_mask": 32768,
+      "image_sha256": "dc9cfc7c9adc24435c892bc548f6a9aaadd3f7329186e1b6df53fb5f1523892d",
+      "log_tail": "INTERRUPT_PASS case=fast_line_31 mcause=8000001f mode=sweep cycles=147 mepc=00000020 mstatus=00001880 mie=80000000 mip=80000000",
+      "mode": "sweep",
+      "name": "fast_line_31",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 65536,
+      "expected_cause": 16,
+      "fast_mask": 1,
+      "image_sha256": "51fae95bb42594dd44c84986b9d15574d8881477a46fdaad80e8410d24cd46af",
+      "log_tail": "INTERRUPT_PASS case=fast_lifecycle_16 mcause=80000010 mode=lifecycle cycles=147 mepc=00000020 handlers=1 acks=1",
+      "mode": "lifecycle",
+      "name": "fast_lifecycle_16",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 8388608,
+      "expected_cause": 23,
+      "fast_mask": 128,
+      "image_sha256": "8d250baecb00d71428a90001bd22e8094fa29c41c940f1dd55aa94218bfcde7c",
+      "log_tail": "INTERRUPT_PASS case=fast_lifecycle_23 mcause=80000017 mode=lifecycle cycles=147 mepc=00000020 handlers=1 acks=1",
+      "mode": "lifecycle",
+      "name": "fast_lifecycle_23",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 2147483648,
+      "expected_cause": 31,
+      "fast_mask": 32768,
+      "image_sha256": "82d1b9cd5499b369763feae73d8a88dfa4328cb7f5b493d871811a4c99e6bda4",
+      "log_tail": "INTERRUPT_PASS case=fast_lifecycle_31 mcause=8000001f mode=lifecycle cycles=147 mepc=00000020 handlers=1 acks=1",
+      "mode": "lifecycle",
+      "name": "fast_lifecycle_31",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "enabled_mask": 2147549184,
+      "expected_cause": 31,
+      "fast_mask": 32769,
+      "image_sha256": "62137844e5cc77c345eaf392ad5f7a13c4fd38526aa888f17eb65d38426af483",
+      "log_tail": "INTERRUPT_PASS case=fast_lifecycle_31_over_16 mcause=8000001f mode=lifecycle cycles=147 mepc=00000020 handlers=1 acks=1",
+      "mode": "lifecycle",
+      "name": "fast_lifecycle_31_over_16",
+      "returncode": 0,
+      "status": "passed"
+    }
+  ],
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}

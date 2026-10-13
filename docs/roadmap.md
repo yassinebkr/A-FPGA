@@ -80,7 +80,10 @@ Passed gates for the repaired CV32E40P profile:
   hash `fc9c7df85cad4064036ff0ce8f76c2ed4717daa68e9209d29691f040178921d8`.
   Fast interrupts pass 6/6 twice for causes 16, 23, 31 and priority conflicts
   under hash `ce36b843e11f741a259a0188054fafdba36dc268bad7ada6b93867b8b328482d`.
-  The complete 16-line sweep, lifecycle, nested handlers, and asynchronous behavior remain open.
+  The complete line sweep and four lifecycle cases pass 20/20 twice under
+  byte-identical hash
+  `c8fd1714dc0c623aadcd1f2745b6116dc29cd3fdd6ed2897b2482b5927ff457f`.
+  Nested handlers and asynchronous behavior remain open.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,
