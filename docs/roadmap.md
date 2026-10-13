@@ -44,8 +44,18 @@ Passed gates for the repaired CV32E40P profile:
   and mcause/mepc checks.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
+- Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,
+  misaligned word load, and misaligned word store. Observed `mtval` values are
+  `0xffffffff`, `1`, and `1`; `mcause`, `mepc`, one trap, `mret` resume, and
+  signatures match. Patch 0007 SHA-256 is
+  `7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4`; the
+  byte-identical manifest is
+  `29b77a98edb1a48ddcb737eac6330f4d18db9772df748a2f6e8e62d5a167b4fe`.
+  Unsupported mtval trap classes remain open. Directed repaired-profile
+  coverage is 15/15; RVFI has 18 records and zero reference mismatches; 57
+  nested unit tests pass.
 - RVFI trace-integrity: 17 corpus instructions and 18 retire records, passed
-  twice with the repaired six-patch profile. Manifest
+  twice with the repaired seven-patch profile. Manifest
   `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
   trace `bd35ee3f755ed34f0d397f93f151d189917f2b879604921bfae66c3a6e9ad0aa`.
 - RVFI instruction-level reference comparison: 16/16 architectural retirements
@@ -63,23 +73,18 @@ Passed gates for the repaired CV32E40P profile:
   the bounded lane covers `mscratch` (0x340), `fence`, and `fence.i` with MIE
   disabled. Counters/time and other CSRs remain excluded.
 
-Failed and open gates:
+Historical superseded gate:
 
-- Synchronous-fault differential: **0/3**. Illegal instruction, misaligned
-  word load, and misaligned word store each produced the expected `mcause`,
-  `mepc`, one trap, `mret` resume, and deterministic signature. Every case
-  returned `mtval=0`; the independent expectations are `0xffffffff` for the
-  illegal instruction and address `1` for both misaligned accesses. The pinned
-  `cv32e40p_cs_registers.sv` hard-wires `CSR_MTVAL` reads to zero and has no
-  mtval state/update path. Evidence artifact
-  `930e30a54dc41216eed006dae3e0673fa3d43eb6f2aa7bcbc6199a4017a19dd9` records
-  the failed gate. An owned mtval repair and rerun are required.
+The prior synchronous-fault differential recorded **0/3** because the six-patch
+profile returned `mtval=0` for illegal instruction and misaligned load/store
+cases. Its independent expectations were `0xffffffff` and address `1`; the
+historical artifact remains at
+`930e30a54dc41216eed006dae3e0673fa3d43eb6f2aa7bcbc6199a4017a19dd9`.
 
 Open gates:
 
-1. Repair mtval state/update behavior, rerun the three-case synchronous-fault
-   differential, then scale randomized differential coverage beyond the closed
-   CSR/fence slice and synchronize the interrupt and PMP lanes.
+1. Scale randomized differential coverage beyond the closed CSR/fence slice
+   and synchronize the interrupt and PMP lanes.
 2. Complete ACT4 InterruptsSm certification.
 3. Refresh physical evidence with the selected configuration and technology.
 4. Select the final core and bind the product decision to reviewed evidence.
@@ -126,7 +131,9 @@ and frequency strategy are in
 - Tiny Tapeout hardening is an engineering step. Provider acceptance and foundry
   signoff remain separate open gates.
 - Open_MC gates establish bounded architectural evidence for the repaired
-  profile. The remaining assurance scope includes complete ISA certification, silicon behavior,
+  profile. Patch 0007 changes the repaired candidate RTL, so prior physical
+  evidence is historical and superseded until refreshed. The remaining
+  assurance scope includes complete ISA certification, silicon behavior,
   manufacturing readiness, or final core selection.
 - Commercial/foundry signoff requires an approved PDK, libraries, rule decks,
   signoff flow, and independent review.

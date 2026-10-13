@@ -1,0 +1,24 @@
+{
+  "schema": "open-mcu-cv32e40p-mtval-repair-gate/v1",
+  "status": "passed",
+  "date": "2026-10-13",
+  "candidate": "cv32e40p",
+  "profile": "repaired_seven_patch",
+  "claim": "Open_MC patch 0007 closes the bounded mtval synchronous-fault gate for the three reviewed machine-mode cases.",
+  "nested_evidence": ".open-mc-bootstrap/verification/evidence/cv32e40p-mtval-repair-gate.json",
+  "patch_0007_sha256": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+  "byte_identical_manifest_sha256": "29b77a98edb1a48ddcb737eac6330f4d18db9772df748a2f6e8e62d5a167b4fe",
+  "summary": {
+    "fault_gate": "3/3 twice",
+    "illegal_mtval": "0xffffffff",
+    "misaligned_load_mtval": "1",
+    "misaligned_store_mtval": "1",
+    "directed_repaired_profile": "15/15",
+    "rvfi_records": 18,
+    "rvfi_reference_mismatches": 0,
+    "nested_unit_tests": 57
+  },
+  "semantics": "Cause 2 records instruction bits; causes 4 and 6 record the latched faulting address. Reset clears mtval; unsupported trap classes retain prior mtval and remain open.",
+  "historical_superseded_evidence": ".open-mc-bootstrap/verification/evidence/cv32e40p-synchronous-fault-gate.json",
+  "physical_evidence": "Patch 0007 changes the repaired candidate RTL, invalidating prior physical evidence until refreshed."
+}
