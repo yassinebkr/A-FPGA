@@ -1,0 +1,27 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "reset state",
+    "minimum clock divider",
+    "mode 0 loopback",
+    "mode 1 loopback",
+    "mode 2 loopback",
+    "mode 3 loopback",
+    "continuous chip select",
+    "RX interrupt and dequeue",
+    "FIFO and MMIO errors"
+  ],
+  "checks_passed": 9,
+  "claim_boundary": "Bounded deterministic RTL qualification of SPI modes 0-3, both chip selects, continuous chip-select transactions, clock divider, FIFO loopback, interrupt and MMIO errors. External flash protocol, pad timing, netlist timing, physical implementation and manufacturing signoff remain open.",
+  "log_marker": "SPI_GATE_PASS checks=9",
+  "log_tail": "",
+  "qualification_kind": "isolated_spi_master_directed_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-spi-gate/v1",
+  "sources": {
+    "rtl/product/openmc_spi_master.sv": "df2f4c26eb2c83d7c85959a15119f4b072c5d1623e2dfddbc55c784b049a663b",
+    "verification/spi_gate_tb.sv": "4ec5b0b584fb2c27107b1cb2a9f6c523ad3ee7cb10ff93fed532d04cb58a35e9"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}
