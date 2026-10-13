@@ -1,10 +1,11 @@
 {
   "candidate": "cv32e40p",
-  "claim_boundary": "Deterministic firmware execution through the integrated core, reset/IRQ boundary, decoded boot ROM, fallback SRAM and the first FIFO-backed UART TX slice. UART RX and recovery loading, other peripherals, production memories, CDC/RDC netlist analysis, physical implementation and manufacturing signoff remain open.",
+  "claim_boundary": "Deterministic firmware execution through the integrated core, reset/IRQ boundary, decoded boot ROM, fallback SRAM and FIFO-backed UART TX/RX loopback. UART recovery loading, other peripherals, production memories, CDC/RDC netlist analysis, physical implementation and manufacturing signoff remain open.",
   "compile_returncode": 0,
   "expected_signature": "0x0000005a",
-  "expected_uart_byte": "0x41",
-  "log_marker": "MCU_MINIMAL_SOC_PASS cycles=12 signature=0000005a uart=41",
+  "expected_uart_rx_byte": "0x41",
+  "expected_uart_tx_byte": "0x41",
+  "log_marker": "MCU_MINIMAL_SOC_PASS cycles=61 signature=0000005a uart_tx=41 uart_rx=41",
   "log_tail": "",
   "memory_map": {
     "boot_rom": {
@@ -18,22 +19,24 @@
     "uart": {
       "base": "0x10000000",
       "bytes": 4096,
+      "rx_fifo_bytes": 16,
       "tx_fifo_bytes": 16
     }
   },
-  "qualification_kind": "integrated_boot_rom_sram_uart_firmware_execution",
+  "qualification_kind": "integrated_boot_rom_sram_uart_loopback_firmware_execution",
   "run_returncode": 0,
   "schema": "openmc-mcu-minimal-soc/v1",
   "sources": {
     "rtl/product/openmc_boot_memory.sv": "92333983f648ebf9796c2a0231e61e52b2d124e71db11ce3343d8d71f1b56b40",
     "rtl/product/openmc_interrupt_boundary.sv": "2f819a82d44d19fb127dbf67bcc99468853db893bed7bb7110566fd4e61b8e03",
     "rtl/product/openmc_mcu_core_top.sv": "f4d69dc85d8ecffffd91aebd4bb974c02bba699d7ae18fdb1e9003da2b13349f",
-    "rtl/product/openmc_mcu_minimal_soc.sv": "efc2305f123b3b2eb6788ea8b0cab429227cbc7d50e053eb3614bcafe06320c9",
+    "rtl/product/openmc_mcu_minimal_soc.sv": "a1ca0b731327c0a101a0df8292eb41e0ec80954a766dd6f936146f4a8e2e8af5",
     "rtl/product/openmc_obi_interconnect.sv": "eb05bce82800911cd664be176d4fd8b6ff4411aaf41dee94234da54a73e452f0",
     "rtl/product/openmc_reset_sync.sv": "bbedce2f17d307f229f299c3c2b40e83be0cdf92556b5f7c469c3a9d18545940",
-    "rtl/product/openmc_uart.sv": "32d8d4dd7207a01414bb20ab915cc3ca4d21d075080a45d427c1a550f088d355",
-    "verification/mcu_minimal_firmware.hex": "76d659eb693511ed53ccd419254488390aac84a3eecd3907f3c0e3966710af40",
-    "verification/mcu_minimal_soc_tb.sv": "78c09420c6bf9d08fd8a4c2c64b5c700b3a671337baf6a2ba42c0e5168ffb23b"
+    "rtl/product/openmc_uart.sv": "15bd242aec2ee84dafaf0c30123680baeaacf2e5ef60861e5c13dcaef1c196db",
+    "verification/mcu_minimal_firmware.S": "49ec7ea657ff6773abebfd2b902f3ed0d80119b8717ef2a3ffa499168d0a0fbb",
+    "verification/mcu_minimal_firmware.hex": "aa7396f33763ea0544190232bb06b35092ee9632c96b25e13d02f374cb8e42e8",
+    "verification/mcu_minimal_soc_tb.sv": "a4cf9d2bc42754a50f665532dfff0834d7f56d64c1b08ab423af00f715aa10aa"
   },
   "status": "passed",
   "tool": "Verilator 5.040 2025-08-30 rev v5.040",
