@@ -76,7 +76,9 @@ Passed gates for the repaired CV32E40P profile:
   `d5f9be65fbdca4f2926a685edda2342fb7037db548db1a6848e612f4f7c1c69d`.
 - Independent interrupt semantic comparison: 11/11 twice with byte-identical
   hash `eb4b948c1f50f1b056ba08064fc81cdee313cb1b930ee6b36cfe02727f3cf4dc`.
-  Random assertion timing, fast interrupts, and nested interrupts remain open.
+  Deterministic assertion timing passes 28/28 twice across four seeds under
+  hash `fc9c7df85cad4064036ff0ce8f76c2ed4717daa68e9209d29691f040178921d8`.
+  Fast interrupts, nested handlers, and asynchronous behavior remain open.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,

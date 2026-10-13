@@ -1,0 +1,19 @@
+{
+  "checked_semantics": [
+    "deterministic assertion-cycle derivation",
+    "machine interrupt cause",
+    "interrupted mepc",
+    "simultaneous-source priority",
+    "entry-time CSR snapshots"
+  ],
+  "claim_boundary": "Independent comparison of the bounded deterministic standard machine-interrupt timing campaign. Fast interrupts, nested handlers, asynchronous clock-domain behavior, and formal proof remain open.",
+  "failures": [],
+  "schema": "openmc-cv32e40p-interrupt-timing-comparison/v1",
+  "source_result_sha256": "fc9c7df85cad4064036ff0ce8f76c2ed4717daa68e9209d29691f040178921d8",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 28,
+    "selected": 28
+  }
+}

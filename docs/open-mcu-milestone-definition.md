@@ -61,7 +61,8 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    12/12. Instruction checks use the decoded 2- or 4-byte length after alignment,
    while fully inaccessible instruction words are rejected before the bus
    request. ACT4 InterruptsSm and the independent eleven-case interrupt
-   comparison now pass twice. Extended randomized interrupt/PMP/fault coverage,
+   comparison now pass twice. Deterministic interrupt assertion timing passes
+   28/28 twice across four seeds. Fast/nested interrupt and randomized PMP/fault coverage,
    refreshed physical evidence and final core selection remain open.
    Manufacturing and foundry signoff remain open.
 
@@ -157,7 +158,8 @@ immutable dependency manifest for imported material.
 The bounded architectural differential evidence covers 16 deterministic seeds ×
 128 arithmetic/data-state operations against Sail 0.13.1 from the pinned ACT4
 image, passed twice with byte-identical manifests. ACT4 InterruptsSm and the
-independent eleven-case interrupt comparison pass twice. Extended randomized
+independent eleven-case interrupt comparison pass twice. Deterministic
+assertion timing passes 28/28 twice. Fast/nested interrupt and randomized
 interrupt/PMP/fault differential, refreshed physical evidence, and final core
 selection remain open.
 
