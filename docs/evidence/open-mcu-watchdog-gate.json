@@ -1,0 +1,26 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "reset state",
+    "prescaled counting",
+    "early-warning interrupt",
+    "software refresh",
+    "timeout reset pulse",
+    "invalid refresh key",
+    "interrupt/reset controls",
+    "MMIO access errors"
+  ],
+  "checks_passed": 8,
+  "claim_boundary": "Bounded deterministic RTL qualification of watchdog MMIO, prescaler, early warning, software refresh, timeout reset request and control behavior. SoC reset sequencing, clock accuracy, low-power behavior, netlist timing, physical implementation and manufacturing signoff remain open.",
+  "log_marker": "WATCHDOG_GATE_PASS checks=8",
+  "log_tail": "",
+  "qualification_kind": "isolated_watchdog_directed_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-watchdog-gate/v1",
+  "sources": {
+    "rtl/product/openmc_watchdog.sv": "336e292218d368b3110c7e80f4d56c56d89728065c638caad51d69de92622933",
+    "verification/watchdog_gate_tb.sv": "17277b7206c097edc1242869cfb530a671909c3507ac98e2bd9e97196e6d59a9"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}
