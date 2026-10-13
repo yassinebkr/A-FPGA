@@ -96,6 +96,11 @@ Passed gates for the repaired CV32E40P profile:
   isolation: selected asynchronous level IRQs use two marked stages, reset
   releases through two stages, and wake indication uses synchronized state.
   MCU-top integration and netlist-aware CDC/RDC remain open.
+  The first `openmc_mcu_core_top` now elaborates the complete repaired core
+  through this boundary with a frozen IRQ map. Its two runs are byte-identical
+  under manifest `54d410244aa46cad1046656a9fac78782124594243af1a2712cead78001f8d3d`.
+  Memory/interconnect integration and firmware execution through this top are
+  the next functional gate.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,

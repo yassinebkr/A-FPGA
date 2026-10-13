@@ -1,0 +1,39 @@
+{
+  "async_mask": "0x00400800",
+  "candidate": "cv32e40p",
+  "claim_boundary": "Full repaired-core elaboration through the product reset and interrupt boundary. Memory interconnect, peripherals, behavioral firmware through this top, netlist CDC/RDC, physical placement, and manufacturing signoff remain open.",
+  "irq_map": {
+    "extension_async": 22,
+    "external_async": 11,
+    "general_timer": 20,
+    "gpio": 19,
+    "i2c": 18,
+    "software": 3,
+    "spi": 17,
+    "timer": 7,
+    "uart": 16,
+    "watchdog": 21
+  },
+  "log_tail": "",
+  "patches": {
+    "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+    "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+    "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+    "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+    "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+    "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+    "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d"
+  },
+  "qualification_kind": "integrated_product_boundary_elaboration",
+  "returncode": 0,
+  "schema": "openmc-mcu-core-top/v1",
+  "sources": {
+    "rtl/product/openmc_interrupt_boundary.sv": "2f819a82d44d19fb127dbf67bcc99468853db893bed7bb7110566fd4e61b8e03",
+    "rtl/product/openmc_mcu_core_top.sv": "f4d69dc85d8ecffffd91aebd4bb974c02bba699d7ae18fdb1e9003da2b13349f",
+    "rtl/product/openmc_reset_sync.sv": "bbedce2f17d307f229f299c3c2b40e83be0cdf92556b5f7c469c3a9d18545940"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}
