@@ -83,7 +83,9 @@ Passed gates for the repaired CV32E40P profile:
   The complete line sweep and four lifecycle cases pass 20/20 twice under
   byte-identical hash
   `c8fd1714dc0c623aadcd1f2745b6116dc29cd3fdd6ed2897b2482b5927ff457f`.
-  Nested handlers and asynchronous behavior remain open.
+  Controlled two-level nesting passes 4/4 twice under byte-identical hash
+  `ef9b0771c1904ee80b7e50acb5a38796338d94a3e08c02f06268fd57edcf76d2`.
+  Deeper nesting, arbitrary arrival timing, and asynchronous behavior remain open.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,

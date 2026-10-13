@@ -1,0 +1,21 @@
+{
+  "checked_semantics": [
+    "outer machine cause",
+    "fast31 preemption cause",
+    "outer and inner mepc domains",
+    "single outer acknowledgement",
+    "single nested trigger",
+    "single inner acknowledgement",
+    "double mret mainline completion"
+  ],
+  "claim_boundary": "Independent comparison of four controlled two-level nesting observations. Deeper nesting, arbitrary arrival timing, asynchronous behavior, and formal proof remain open.",
+  "failures": [],
+  "schema": "openmc-cv32e40p-nested-interrupt-comparison/v1",
+  "source_result_sha256": "ef9b0771c1904ee80b7e50acb5a38796338d94a3e08c02f06268fd57edcf76d2",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 4,
+    "selected": 4
+  }
+}
