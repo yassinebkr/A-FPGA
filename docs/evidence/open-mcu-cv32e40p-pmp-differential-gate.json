@@ -1,0 +1,13 @@
+{
+  "schema": "openmc-cv32e40p-pmp-differential/v2",
+  "status": "passed",
+  "candidate": "cv32e40p",
+  "profile": "repaired_eight_patch",
+  "qualification_kind": "bounded_independent_pmp_access_fault_reference",
+  "nested_evidence": ".open-mc-bootstrap/verification/evidence/cv32e40p-pmp-differential-gate.json",
+  "result_sha256": "4fa5fec6b131366e2edd2b9c4894e9bfcb17d0760d1ac494040ffe0abfdc9a22",
+  "patch_0008_sha256": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d",
+  "summary": {"passed": 3, "selected": 3, "repeats_passed": 2, "blocked_bus_requests": 0},
+  "cases": {"load": {"mcause": 5, "mepc": 36, "mtval": 8192}, "store": {"mcause": 7, "mepc": 36, "mtval": 8192}, "instruction": {"mcause": 1, "mepc": 128, "mtval": 128}},
+  "remaining_gaps": ["ACT4 InterruptsSm", "larger randomized CSR/fence/interrupt/PMP/fault differential", "refreshed physical evidence", "final core selection"]
+}

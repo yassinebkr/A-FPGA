@@ -52,10 +52,20 @@ Passed gates for the repaired CV32E40P profile:
   byte-identical manifest is
   `29b77a98edb1a48ddcb737eac6330f4d18db9772df748a2f6e8e62d5a167b4fe`.
   Unsupported mtval trap classes remain open. Directed repaired-profile
-  coverage is 15/15; RVFI has 18 records and zero reference mismatches; 57
+  coverage is 15/15; RVFI has 18 records and zero reference mismatches; 62
   nested unit tests pass.
+- PMP access-fault differential: **3/3 twice** on the repaired eight-patch
+  profile. Load/store denials at `0x2000` report `mcause=5/7`, `mepc=0x24`,
+  `mtval=0x2000`; instruction denial at `0x80` reports `mcause=1`,
+  `mepc=0x80`, `mtval=0x80`. Each case records one trap, the expected
+  signature (`5`, `7`, `1`), and zero denied bus requests. Patch 0008 SHA-256 is
+  `a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d`; the
+  byte-identical result hash is
+  `4fa5fec6b131366e2edd2b9c4894e9bfcb17d0760d1ac494040ffe0abfdc9a22`. The
+  pre-0008 failed result remains historical in
+  `.open-mc-bootstrap/verification/evidence/cv32e40p-pmp-differential-pre-0008.json`.
 - RVFI trace-integrity: 17 corpus instructions and 18 retire records, passed
-  twice with the repaired seven-patch profile. Manifest
+  twice with the repaired eight-patch profile. Manifest
   `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
   trace `bd35ee3f755ed34f0d397f93f151d189917f2b879604921bfae66c3a6e9ad0aa`.
 - RVFI instruction-level reference comparison: 16/16 architectural retirements
@@ -83,8 +93,9 @@ historical artifact remains at
 
 Open gates:
 
-1. Scale randomized differential coverage beyond the closed CSR/fence slice
-   and synchronize the interrupt and PMP lanes.
+1. Scale randomized differential coverage beyond the closed CSR/fence and
+   bounded three-case PMP slices; qualify the remaining interrupt, fault, and PMP
+   randomized campaigns.
 2. Complete ACT4 InterruptsSm certification.
 3. Refresh physical evidence with the selected configuration and technology.
 4. Select the final core and bind the product decision to reviewed evidence.
@@ -131,7 +142,7 @@ and frequency strategy are in
 - Tiny Tapeout hardening is an engineering step. Provider acceptance and foundry
   signoff remain separate open gates.
 - Open_MC gates establish bounded architectural evidence for the repaired
-  profile. Patch 0007 changes the repaired candidate RTL, so prior physical
+  profile. Patch 0008 is the current repaired candidate RTL; prior physical
   evidence is historical and superseded until refreshed. The remaining
   assurance scope includes complete ISA certification, silicon behavior,
   manufacturing readiness, or final core selection.
