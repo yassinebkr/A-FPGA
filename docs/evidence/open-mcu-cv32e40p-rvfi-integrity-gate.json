@@ -1,0 +1,25 @@
+{
+  "artifact_manifest_sha256": "a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a",
+  "claim_boundary": "Bounded RVFI retire-stream integrity for the repaired CV32E40P six-patch profile. Independent instruction-level comparison remains open; CSR, fence, interrupt, PMP, fault and general MMIO operations remain outside this corpus.",
+  "corpus_instructions": 17,
+  "date": "2026-10-13",
+  "open_mc_commit": "79d4fb56f43370ff24aec129dbc02e3c862ee356",
+  "profile": "repaired_six_patch",
+  "qualification_kind": "bounded_rvfi_trace_integrity",
+  "runs": {
+    "run_a": {
+      "status": "passed",
+      "trace_records": 18
+    },
+    "run_b": {
+      "status": "passed",
+      "trace_records": 18
+    }
+  },
+  "schema_version": 1,
+  "status": "passed",
+  "trace_records": 18,
+  "trace_sha256": "bd35ee3f755ed34f0d397f93f151d189917f2b879604921bfae66c3a6e9ad0aa",
+  "upstream_cv32e40p_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "verilator": "5.040"
+}

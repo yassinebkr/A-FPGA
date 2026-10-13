@@ -44,10 +44,14 @@ Passed gates for the repaired CV32E40P profile:
   and mcause/mepc checks.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
+- RVFI trace-integrity: 17 corpus instructions and 18 retire records, passed
+  twice with the repaired six-patch profile. Manifest
+  `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
+  trace `bd35ee3f755ed34f0d397f93f151d189917f2b879604921bfae66c3a6e9ad0aa`.
 
 Open gates:
 
-1. Compare the RVFI retire trace against the reference.
+1. Complete independent instruction-level comparison against the reference.
 2. Extend randomized differential coverage to CSR, fence, interrupt, PMP, and
    fault behavior.
 3. Complete ACT4 InterruptsSm certification.
