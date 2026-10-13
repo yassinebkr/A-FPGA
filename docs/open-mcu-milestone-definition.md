@@ -52,7 +52,7 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    - ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
    Bounded Sail differential: 16 deterministic seeds × 128 operations, passed
    twice with byte-identical manifests against Sail 0.13.1 from the pinned ACT4 image.
-   - Bounded machine interrupt harness: 7/7 in two byte-identical runs. The
+   - Bounded machine interrupt harness: 11/11 in two byte-identical runs. The
      cases cover software direct `mcause=3`, timer direct `mcause=7`, external
      vectored `mcause=11`, masked interrupt with no trap, and three lifecycle cases covering `mret` plus level ACK at `0x20000004`; `mcause` and
      `mepc` are checked.
@@ -60,7 +60,7 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    Six owned patches close the bounded PMP gate across PMPSm 33/33 and PMPZca
    12/12. Instruction checks use the decoded 2- or 4-byte length after alignment,
    while fully inaccessible instruction words are rejected before the bus
-   request. ACT4 InterruptsSm and the independent seven-case interrupt
+   request. ACT4 InterruptsSm and the independent eleven-case interrupt
    comparison now pass twice. Extended randomized interrupt/PMP/fault coverage,
    refreshed physical evidence and final core selection remain open.
    Manufacturing and foundry signoff remain open.
@@ -157,7 +157,7 @@ immutable dependency manifest for imported material.
 The bounded architectural differential evidence covers 16 deterministic seeds ×
 128 arithmetic/data-state operations against Sail 0.13.1 from the pinned ACT4
 image, passed twice with byte-identical manifests. ACT4 InterruptsSm and the
-independent seven-case interrupt comparison pass twice. Extended randomized
+independent eleven-case interrupt comparison pass twice. Extended randomized
 interrupt/PMP/fault differential, refreshed physical evidence, and final core
 selection remain open.
 

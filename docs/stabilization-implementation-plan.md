@@ -158,14 +158,14 @@ Current evidence:
 - ACT4 base product profile: 80/80, reproduced byte-identically;
 - ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
 - bounded Sail differential: 16 deterministic seeds × 128 operations, passed twice with byte-identical manifests against Sail 0.13.1.
-- bounded machine interrupt harness: 7/7, reproduced in two byte-identical runs; lifecycle cases cover `mret` return and level IRQ MMIO ACK.
+- bounded machine interrupt harness: 11/11, reproduced in two byte-identical runs; lifecycle, simultaneous priority, and entry-time CSR snapshots are covered.
 
 Six owned patches now close the bounded PMP gate across PMPSm 33/33 and PMPZca
 12/12. The final repair checks the aligned instruction over its decoded 2- or
 4-byte length and preserves early denial for fully inaccessible instruction
 words. The interrupt harness covers direct software (`mcause=3`), direct timer
 (`mcause=7`), vectored external (`mcause=11`) and masked-no-trap behavior. It
-checks `mcause` and `mepc` in both reproduced runs. `mret` and interrupt-controller acknowledgement through MMIO are covered by the lifecycle cases. ACT4 InterruptsSm and the independent seven-case interrupt comparison now pass twice. Extended randomized interrupt/PMP/fault coverage, refreshed physical evidence and final core selection remain open. Manufacturing and foundry signoff remain open. See
+checks `mcause` and `mepc` in both reproduced runs. `mret`, interrupt-controller acknowledgement, simultaneous standard-source priority, and entry-time CSR snapshots are covered. ACT4 InterruptsSm and the independent eleven-case interrupt comparison pass twice. Random assertion timing, fast/nested interrupts, randomized PMP/fault coverage, refreshed physical evidence and final core selection remain open. Manufacturing and foundry signoff remain open. See
 `docs/croc-reference-audit.md`, `docs/open-mcu-milestone-definition.md`, and
 `docs/evidence/open-mcu-core-candidate-ihp-comparison.json`.
 

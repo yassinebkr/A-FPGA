@@ -69,14 +69,14 @@ Passed gates for the repaired CV32E40P profile:
 
 - ACT4 RV32IMC, Zicsr, and Zifencei: 80/80, reproduced byte-identically.
 - Privileged PMP: 45/45 twice. PMPSm: 33/33. PMPZca: 12/12.
-- Interrupt lifecycle harness: 7/7 twice. It covers machine-mode entry,
-  masking, mret, software/timer/external acknowledgement at 0x20000004,
-  and mcause/mepc checks.
+- Interrupt harness: 11/11 twice. It covers entry, masking, direct/vectored
+  dispatch, `mret`, acknowledgement, simultaneous-source priority, and
+  entry-time `mstatus`/`mie`/`mip`.
 - ACT4 `InterruptsSm-00`: 1/1 twice with byte-identical hash
   `d5f9be65fbdca4f2926a685edda2342fb7037db548db1a6848e612f4f7c1c69d`.
-- Independent interrupt semantic comparison: 7/7 twice with byte-identical
-  hash `691bedcd7d45212fa1146ad1b2ee11cb6c91bdf83e5600f652e49c7560be586c`.
-  Simultaneous-priority randomization and full CSR snapshots remain open.
+- Independent interrupt semantic comparison: 11/11 twice with byte-identical
+  hash `eb4b948c1f50f1b056ba08064fc81cdee313cb1b930ee6b36cfe02727f3cf4dc`.
+  Random assertion timing, fast interrupts, and nested interrupts remain open.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,

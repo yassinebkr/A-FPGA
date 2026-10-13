@@ -1,6 +1,6 @@
 {
   "candidate": "cv32e40p",
-  "claim_boundary": "Local Verilator evidence for machine interrupt entry, mcause, mepc, direct/vectored dispatch, masking, mret return and level-interrupt MMIO acknowledgement on the repaired CV32E40P fork; randomized differential verification, physical timing and manufacturing signoff remain open.",
+  "claim_boundary": "Local Verilator evidence for machine interrupt entry, mcause, mepc, direct/vectored dispatch, masking, mret return, level-interrupt acknowledgement, simultaneous standard-source priority, and entry-time mstatus/mie/mip snapshots on the repaired CV32E40P fork; broader randomized timing, fast interrupts, nested interrupts, physical timing and manufacturing signoff remain open.",
   "mret_coverage": "software_timer_external_return_and_mmio_ack",
   "patches": {
     "mtval": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
@@ -12,40 +12,41 @@
     "sixteen_region_pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
     "strict_alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
   },
+  "priority_coverage": "all non-empty simultaneous combinations of two or more standard machine interrupt sources",
   "profile": "repaired_eight_patch",
-  "schema": "openmc-cv32e40p-interrupts/v2",
-  "scope": "bounded_machine_interrupt_harness_with_lifecycle",
+  "schema": "openmc-cv32e40p-interrupts/v3",
+  "scope": "bounded_machine_interrupt_harness_with_lifecycle_priority_and_csr_snapshots",
   "status": "passed",
   "summary": {
     "failed": 0,
-    "passed": 7,
-    "selected": 7
+    "passed": 11,
+    "selected": 11
   },
-  "testbench_sha256": "216891f5e1440605208d4d028f9512f07ac837061df636cc23c58e024725bafb",
+  "testbench_sha256": "aad306ca5968e8e87906feb7b8b0452303edacf686dcc5f959994e85fe5c7af0",
   "tests": [
     {
-      "image_sha256": "991b0d7a06263d9524d40429dd05695e7d6ecb94575f577d5141e94285e7eaa9",
-      "log_tail": "INTERRUPT_PASS case=software_direct mcause=80000003 mode=direct cycles=138 mepc=0000001c",
+      "image_sha256": "15f7beca15baef735e62be70eb5645967ef81a46967ff652879433ba77c17662",
+      "log_tail": "INTERRUPT_PASS case=software_direct mcause=80000003 mode=direct cycles=147 mepc=0000001c mstatus=00001880 mie=00000008 mip=00000000",
       "name": "software_direct",
       "returncode": 0,
       "status": "passed"
     },
     {
-      "image_sha256": "9f433acce2ea586c6c28e83b9f418253c178d593d62af13356d2bb5c566febf4",
-      "log_tail": "INTERRUPT_PASS case=timer_direct mcause=80000007 mode=direct cycles=138 mepc=0000001c",
+      "image_sha256": "1e8a92adcac680363dbc962ac09dde7b058ec5ed4ffb4d5ff3ea3d11b4c6f07c",
+      "log_tail": "INTERRUPT_PASS case=timer_direct mcause=80000007 mode=direct cycles=147 mepc=0000001c mstatus=00001880 mie=00000080 mip=00000000",
       "name": "timer_direct",
       "returncode": 0,
       "status": "passed"
     },
     {
-      "image_sha256": "b0deacaba42387c330a5efea95dc9c76692dcbcbaab2fb7ed8fba7c22235e9d0",
-      "log_tail": "INTERRUPT_PASS case=external_vectored mcause=8000000b mode=vectored cycles=138 mepc=00000020",
+      "image_sha256": "4c491e1f74513a962a7bf4a3c12096cd58fe5642214d5a60a1f5bc95ce65e812",
+      "log_tail": "INTERRUPT_PASS case=external_vectored mcause=8000000b mode=vectored cycles=147 mepc=00000020 mstatus=00001880 mie=00000800 mip=00000000",
       "name": "external_vectored",
       "returncode": 0,
       "status": "passed"
     },
     {
-      "image_sha256": "fd09a5020978bcf70b129c3d4c5505d26fb0cfb13334fb35e51694ba9ccf60cc",
+      "image_sha256": "9c7c54d0d993d374f1b2c2044c7215890e41fbaa5a2f9a2ef2f790f056e56615",
       "log_tail": "INTERRUPT_PASS case=masked mcause=none mode=direct cycles=125",
       "name": "masked",
       "returncode": 0,
@@ -69,6 +70,34 @@
       "image_sha256": "899de3d9e71d2a335449ea4eed141324c1bccde7f1148f87e1a2d17557d344b1",
       "log_tail": "INTERRUPT_PASS case=external_mret_ack mcause=8000000b mode=lifecycle cycles=147 mepc=0000001c handlers=1 acks=1",
       "name": "external_mret_ack",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "image_sha256": "86a6ae42be36be14faee6c3f587b3271d43da0b54804e2ae430b2186daae7d00",
+      "log_tail": "INTERRUPT_PASS case=software_timer_priority mcause=80000003 mode=priority cycles=147 mepc=00000020 mstatus=00001880 mie=00000088 mip=00000088",
+      "name": "software_timer_priority",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "image_sha256": "3e0c0a8de178b70d521e9053d305e26b96a691f06b1aa4aeb7580e70ab172d31",
+      "log_tail": "INTERRUPT_PASS case=software_external_priority mcause=8000000b mode=priority cycles=147 mepc=00000020 mstatus=00001880 mie=00000808 mip=00000808",
+      "name": "software_external_priority",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "image_sha256": "811c0f7e535dea54d7a2ccfdd9202d6143d0604c8063759ac521de0d7b906a72",
+      "log_tail": "INTERRUPT_PASS case=timer_external_priority mcause=8000000b mode=priority cycles=147 mepc=00000020 mstatus=00001880 mie=00000880 mip=00000880",
+      "name": "timer_external_priority",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "image_sha256": "c5c913592c7b7213254c34e13e85a848490125a1d4a18b7c681411f01dc8f472",
+      "log_tail": "INTERRUPT_PASS case=all_machine_priority mcause=8000000b mode=priority cycles=147 mepc=00000020 mstatus=00001880 mie=00000888 mip=00000888",
+      "name": "all_machine_priority",
       "returncode": 0,
       "status": "passed"
     }

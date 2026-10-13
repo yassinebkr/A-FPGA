@@ -5,9 +5,11 @@
     "interrupted mepc",
     "masking",
     "single handler and acknowledgement",
-    "mret completion"
+    "mret completion",
+    "simultaneous standard-source priority",
+    "entry-time mstatus/mie/mip snapshots"
   ],
-  "claim_boundary": "Independent comparison of seven public harness observations. ACT4 InterruptsSm supplies broader architectural coverage; randomized simultaneous-priority and CSR snapshots remain open.",
+  "claim_boundary": "Independent comparison of eleven public harness observations, including all multi-source combinations of standard machine interrupts. ACT4 InterruptsSm supplies broader architectural coverage; randomized assertion timing, fast and nested interrupts remain open.",
   "failures": [],
   "patches": {
     "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
@@ -21,11 +23,11 @@
   },
   "schema": "openmc-cv32e40p-interrupt-comparison/v1",
   "scope": "independent_semantic_check_of_bounded_machine_interrupt_harness",
-  "source_result_sha256": "cc32f8acecd6cfcf8fcfca43934ea01c20c89afe8399fcccdf8ac6d89f007642",
+  "source_result_sha256": "f6b1d4946e46677a0d8398de0c40642ed3e4a4077c18d8d25eddc769d54ecb00",
   "status": "passed",
   "summary": {
     "failed": 0,
-    "passed": 7,
-    "selected": 7
+    "passed": 11,
+    "selected": 11
   }
 }
