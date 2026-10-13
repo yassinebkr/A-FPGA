@@ -157,6 +157,7 @@ Current evidence:
 - pinned legacy RV32I suite: 44/48 with four declared exclusions;
 - ACT4 base product profile: 80/80, reproduced byte-identically;
 - ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
+- bounded Sail differential: 16 deterministic seeds × 128 operations, passed twice with byte-identical manifests against Sail 0.13.1.
 - bounded machine interrupt harness: 7/7, reproduced in two byte-identical runs; lifecycle cases cover `mret` return and level IRQ MMIO ACK.
 
 Six owned patches now close the bounded PMP gate across PMPSm 33/33 and PMPZca
@@ -164,8 +165,7 @@ Six owned patches now close the bounded PMP gate across PMPSm 33/33 and PMPZca
 4-byte length and preserves early denial for fully inaccessible instruction
 words. The interrupt harness covers direct software (`mcause=3`), direct timer
 (`mcause=7`), vectored external (`mcause=11`) and masked-no-trap behavior. It
-checks `mcause` and `mepc` in both reproduced runs. `mret` and interrupt-controller acknowledgement through MMIO are covered by the lifecycle cases. Randomized differential verification and refreshed
-physical evidence and final core selection remain open. Claim boundary: bounded machine-mode evidence for the repaired CV32E40P fork; complete ACT4 interrupt certification remains open. See
+checks `mcause` and `mepc` in both reproduced runs. `mret` and interrupt-controller acknowledgement through MMIO are covered by the lifecycle cases. The remaining gates are RVFI retire-trace comparison, extended randomized CSR/fence/interrupt/PMP/fault differential coverage, complete ACT4 InterruptsSm certification, refreshed physical evidence and final core selection. Manufacturing and foundry signoff remain open. See
 `docs/croc-reference-audit.md`, `docs/open-mcu-milestone-definition.md`, and
 `docs/evidence/open-mcu-core-candidate-ihp-comparison.json`.
 
@@ -190,6 +190,13 @@ Implementation status: NOT STARTED.
 Exit: a packaged device executes the frozen firmware demonstration, carries traceable manufacturing evidence, and has a reproducible modification/revision procedure. The release report records the achieved frequency; 250 MHz is the product target and 500 MHz remains a stretch target until measured on silicon.
 
 ## Future milestone  -  Linux-capable RV64 SoC around 1 GHz
+
+The repaired CV32E40P bounded differential gate passes 16 deterministic seeds
+with 128 arithmetic/data-state operations per seed against Sail 0.13.1 from
+the pinned ACT4 image. This is bounded engineering evidence. Sail was passed twice with byte-identical
+manifests. RVFI retire trace, extended CSR/fence/interrupt/PMP/fault
+randomized differential, InterruptsSm certification, refreshed physical evidence
+and final core selection remain open. Manufacturing and foundry signoff remain open.
 
 Retain a Linux-capable open RISC-V SoC around 1 GHz as a later product milestone. CVA6 and Cheshire are current reference candidates. This milestone requires an application-class core, MMU, caches, high-performance memory subsystem, scalable interconnect, boot/software platform and a more advanced implementation technology. It is intentionally outside the active MCU execution path.
 

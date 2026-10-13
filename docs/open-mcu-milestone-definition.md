@@ -50,6 +50,8 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    - Legacy RV32I suite: 44/48, with four declared exclusions.
    - ACT4 base product profile: 80/80, reproduced byte-identically.
    - ACT4 privileged PMP: 45/45 twice with byte-identical manifests.
+   Bounded Sail differential: 16 deterministic seeds × 128 operations, passed
+   twice with byte-identical manifests against Sail 0.13.1 from the pinned ACT4 image.
    - Bounded machine interrupt harness: 7/7 in two byte-identical runs. The
      cases cover software direct `mcause=3`, timer direct `mcause=7`, external
      vectored `mcause=11`, masked interrupt with no trap, and three lifecycle cases covering `mret` plus level ACK at `0x20000004`; `mcause` and
@@ -58,7 +60,7 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    Six owned patches close the bounded PMP gate across PMPSm 33/33 and PMPZca
    12/12. Instruction checks use the decoded 2- or 4-byte length after alignment,
    while fully inaccessible instruction words are rejected before the bus
-   request. The interrupt result is bounded machine-mode evidence. Complete ACT4 InterruptsSm certification, randomized differential verification, refreshed physical evidence and final core selection remain open. Claim boundary: bounded machine-mode evidence for the repaired CV32E40P fork; no signoff claim is made.
+   request. The interrupt result is bounded machine-mode evidence. The remaining gates are RVFI retire-trace comparison, extended randomized CSR/fence/interrupt/PMP/fault differential coverage, complete ACT4 InterruptsSm certification, refreshed physical evidence and final core selection. Manufacturing and foundry signoff remain open.
 
 3. **Execution, control and safety behavior — DECIDED**
    Boot autonomously through immutable ROM and external SPI flash, with
@@ -148,5 +150,12 @@ must reject qualification evidence whose Open_MC revision lacks a reviewed,
 immutable dependency manifest for imported material.
 
 ## Learning track
+
+The bounded architectural differential evidence covers 16 deterministic seeds ×
+128 arithmetic/data-state operations against Sail 0.13.1 from the pinned ACT4
+image, passed twice with byte-identical manifests. Open gates are RVFI retire
+trace comparison, extended CSR/fence/interrupt/PMP/fault randomized
+differential, InterruptsSm certification, refreshed physical evidence, and final
+core selection.
 
 The French-language [learning path](../learning/README.md) explains each frozen decision for readers new to processor and silicon design. It is non-normative and grows after each decision is locked; this contract remains the engineering source of truth.

@@ -1,0 +1,10 @@
+{
+  "schema": "openmc-cv32e40p-random-differential/v1",
+  "status": "passed",
+  "candidate": "cv32e40p",
+  "summary": {"seeds": 16, "operations_per_seed": 128, "passed": 16},
+  "manifest_sha256": "759e459924142f7d3aca4ab871a21316a0d0145407566095a6b73fbfcf8cc41a",
+  "boundary": "Bounded final architectural signature differential across 16 deterministic seeds x128 operations, Sail 0.13.1 from the pinned ACT4 image versus repaired CV32E40P. RVFI retire trace, CSR/fence/interrupt/PMP/fault random differential, refreshed physical evidence and final core selection remain open.",
+  "provenance": {"act4_image_digest": "sha256:299dc630299cdcc327464fb8e83406e07bbe3a6a6ce3ba5aaa47b180ba9916a0", "repeatability": "two byte-identical manifests"},
+  "claim": "Engineering verification evidence. Manufacturing and foundry signoff remain open."
+}
