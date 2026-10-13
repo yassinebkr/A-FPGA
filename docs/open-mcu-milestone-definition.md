@@ -60,7 +60,10 @@ Each point is discussed and recorded before the next point is frozen. Discussion
    Six owned patches close the bounded PMP gate across PMPSm 33/33 and PMPZca
    12/12. Instruction checks use the decoded 2- or 4-byte length after alignment,
    while fully inaccessible instruction words are rejected before the bus
-   request. The interrupt result is bounded machine-mode evidence. The remaining gates are RVFI retire-trace comparison, extended randomized CSR/fence/interrupt/PMP/fault differential coverage, complete ACT4 InterruptsSm certification, refreshed physical evidence and final core selection. Manufacturing and foundry signoff remain open.
+   request. ACT4 InterruptsSm and the independent seven-case interrupt
+   comparison now pass twice. Extended randomized interrupt/PMP/fault coverage,
+   refreshed physical evidence and final core selection remain open.
+   Manufacturing and foundry signoff remain open.
 
 3. **Execution, control and safety behavior — DECIDED**
    Boot autonomously through immutable ROM and external SPI flash, with
@@ -153,9 +156,9 @@ immutable dependency manifest for imported material.
 
 The bounded architectural differential evidence covers 16 deterministic seeds ×
 128 arithmetic/data-state operations against Sail 0.13.1 from the pinned ACT4
-image, passed twice with byte-identical manifests. Open gates are RVFI retire
-trace comparison, extended CSR/fence/interrupt/PMP/fault randomized
-differential, InterruptsSm certification, refreshed physical evidence, and final
-core selection.
+image, passed twice with byte-identical manifests. ACT4 InterruptsSm and the
+independent seven-case interrupt comparison pass twice. Extended randomized
+interrupt/PMP/fault differential, refreshed physical evidence, and final core
+selection remain open.
 
 The French-language [learning path](../learning/README.md) explains each frozen decision for readers new to processor and silicon design. It is non-normative and grows after each decision is locked; this contract remains the engineering source of truth.

@@ -1,0 +1,62 @@
+{
+  "act4": {
+    "extension_groups": [],
+    "image": "ghcr.io/riscv/act4:4.1.0",
+    "image_digest": "sha256:299dc630299cdcc327464fb8e83406e07bbe3a6a6ce3ba5aaa47b180ba9916a0",
+    "included_testbench_sha256": "19db7b70059af087eea9568d0237b99e5559517f071a8f114201f6c3f87e2ce6",
+    "privileged_suites": [
+      "InterruptsSm"
+    ],
+    "product_config": "openmc-cv32e40p-v1_8_3-rv32imc",
+    "requested_cases": [],
+    "sail_config_sha256": "92f4be23917b51fda99ee90849538b5a2d56f858db24526f3de1fcdf0111ac19",
+    "suite_commit": "6e8a45123f14cebfb3df151a0e7b849b4389b33b",
+    "test_config_sha256": "549bb6b1fd59898d1168055fff7c347875ae070e039a0e91ad658ab83e4f7719",
+    "testbench": "verification/act4_interrupt_tb.sv",
+    "testbench_sha256": "c54c7a633769a8a010a4abf6c03388e9a8b03374c7fa523a595dd5a0a1c3dcc4",
+    "udb_config_sha256": "853900adca980906bedb9ebf7009754e5f6b765c083596fdc89791075d45c5ab"
+  },
+  "candidate": "cv32e40p",
+  "claim": "ACT4 4.1.0 bounded InterruptsSm self-checking ELF execution using the owned Open_MC CV32E40P repaired eight-patch profile; independent interrupt comparison and randomized differential verification remain required",
+  "extension_summary": {
+    "InterruptsSm": {
+      "available": 1,
+      "failed": 0,
+      "passed": 1,
+      "selected": 1
+    }
+  },
+  "failed_tests": [],
+  "patches": {
+    "mtval_sha256": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+    "obi_response_errors_sha256": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "pmp_aligned_check_sha256": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+    "pmp_fault_reporting_sha256": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d",
+    "pmp_fetch_latch_sha256": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+    "pmp_ifetch_response_sha256": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+    "sixteen_region_pmp_sha256": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+    "strict_alignment_sha256": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052"
+  },
+  "profile": "repaired",
+  "qualification_kind": "act4_interruptssm_probe",
+  "schema": "openmc-cv32e40p-act4/v1",
+  "status": "passed",
+  "summary": {
+    "available": 1,
+    "failed": 0,
+    "passed": 1,
+    "selected": 1
+  },
+  "tests": [
+    {
+      "elf_sha256": "c8b9d985206cc044b1463a73ffbcfe872037763149ed2a286f6d622ed339912b",
+      "extension": "InterruptsSm",
+      "name": "InterruptsSm-00",
+      "output_tail": "",
+      "returncode": 0,
+      "status": "passed",
+      "vmem_sha256": "271f575ee080dd9b9c266b3c069ed20b20209d21775363da09f0d6f5e103a8ac"
+    }
+  ],
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}

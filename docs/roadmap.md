@@ -42,24 +42,23 @@ platform polish includes project import/export, job and metric presentation,
 physical visualization depth, and general UX finish.
 
 Open_MC has an eight-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
-Zicsr, Zifencei and PMP evidence; bounded Sail, RVFI, CSR/fence, synchronous
-fault, PMP access-fault and interrupt-lifecycle evidence; 62 unit tests; and
+Zicsr, Zifencei, PMP and `InterruptsSm` evidence; bounded Sail, RVFI, CSR/fence,
+synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 73 unit tests; and
 documented reproducible artifacts. Physical evidence requires refresh for this
 baseline. The 250 MHz product objective remains subject to selected-technology
 post-route evidence; 500 MHz is a technology-dependent stretch objective.
 
 Ordered continuation gates:
 
-1. Complete ACT4 `InterruptsSm` certification and independent interrupt comparison.
-2. Extend differential campaigns for PMP, faults, CSR/fence and interrupts.
-3. Add broader functional coverage, assertions and formal properties.
-4. Complete production lint, CDC/RDC and wider equivalence.
-5. Refresh physical qualification with the eight-patch baseline.
-6. Close timing, slew and fanout, then complete DRC/LVS and SDF post-layout simulation.
-7. Select the final core and technology from reviewed evidence.
-8. Integrate the complete SoC: memories, UART, SPI, I²C, boot and programming.
-9. Run an FPGA prototype when hardware budget is available.
-10. Complete packaging and manufacturing preparation.
+1. Extend differential campaigns for PMP, faults, CSR/fence and interrupts.
+2. Add broader functional coverage, assertions and formal properties.
+3. Complete production lint, CDC/RDC and wider equivalence.
+4. Refresh physical qualification with the eight-patch baseline.
+5. Close timing, slew and fanout, then complete DRC/LVS and SDF post-layout simulation.
+6. Select the final core and technology from reviewed evidence.
+7. Integrate the complete SoC: memories, UART, SPI, I²C, boot and programming.
+8. Run an FPGA prototype when hardware budget is available.
+9. Complete packaging and manufacturing preparation.
 
 The later milestone is a Linux-capable RV64 design around 1 GHz, after the
 RV32 product and its manufacturing evidence.
@@ -73,6 +72,11 @@ Passed gates for the repaired CV32E40P profile:
 - Interrupt lifecycle harness: 7/7 twice. It covers machine-mode entry,
   masking, mret, software/timer/external acknowledgement at 0x20000004,
   and mcause/mepc checks.
+- ACT4 `InterruptsSm-00`: 1/1 twice with byte-identical hash
+  `d5f9be65fbdca4f2926a685edda2342fb7037db548db1a6848e612f4f7c1c69d`.
+- Independent interrupt semantic comparison: 7/7 twice with byte-identical
+  hash `691bedcd7d45212fa1146ad1b2ee11cb6c91bdf83e5600f652e49c7560be586c`.
+  Simultaneous-priority randomization and full CSR snapshots remain open.
 - Sail differential: 16 deterministic seeds × 128 operations against Sail
   0.13.1 from the pinned ACT4 image.
 - Synchronous-fault mtval repair: **3/3 twice** for illegal instruction,
@@ -127,9 +131,8 @@ Open gates:
 1. Scale randomized differential coverage beyond the closed CSR/fence and
    bounded three-case PMP slices; qualify the remaining interrupt, fault, and PMP
    randomized campaigns.
-2. Complete ACT4 InterruptsSm certification.
-3. Refresh physical evidence with the selected configuration and technology.
-4. Select the final core and bind the product decision to reviewed evidence.
+2. Refresh physical evidence with the selected configuration and technology.
+3. Select the final core and bind the product decision to reviewed evidence.
 
 The evidence records are in [docs/evidence](evidence/). The product contract
 and frequency strategy are in

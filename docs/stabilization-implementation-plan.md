@@ -165,7 +165,7 @@ Six owned patches now close the bounded PMP gate across PMPSm 33/33 and PMPZca
 4-byte length and preserves early denial for fully inaccessible instruction
 words. The interrupt harness covers direct software (`mcause=3`), direct timer
 (`mcause=7`), vectored external (`mcause=11`) and masked-no-trap behavior. It
-checks `mcause` and `mepc` in both reproduced runs. `mret` and interrupt-controller acknowledgement through MMIO are covered by the lifecycle cases. The remaining gates are RVFI retire-trace comparison, extended randomized CSR/fence/interrupt/PMP/fault differential coverage, complete ACT4 InterruptsSm certification, refreshed physical evidence and final core selection. Manufacturing and foundry signoff remain open. See
+checks `mcause` and `mepc` in both reproduced runs. `mret` and interrupt-controller acknowledgement through MMIO are covered by the lifecycle cases. ACT4 InterruptsSm and the independent seven-case interrupt comparison now pass twice. Extended randomized interrupt/PMP/fault coverage, refreshed physical evidence and final core selection remain open. Manufacturing and foundry signoff remain open. See
 `docs/croc-reference-audit.md`, `docs/open-mcu-milestone-definition.md`, and
 `docs/evidence/open-mcu-core-candidate-ihp-comparison.json`.
 
@@ -195,8 +195,8 @@ The repaired CV32E40P bounded differential gate passes 16 deterministic seeds
 with 128 arithmetic/data-state operations per seed against Sail 0.13.1 from
 the pinned ACT4 image. This is bounded engineering evidence. Sail was passed twice with byte-identical
 manifests. RVFI retire trace, extended CSR/fence/interrupt/PMP/fault
-randomized differential, InterruptsSm certification, refreshed physical evidence
-and final core selection remain open. Manufacturing and foundry signoff remain open.
+randomized differential, refreshed physical evidence and final core selection
+remain open. Manufacturing and foundry signoff remain open.
 
 Retain a Linux-capable open RISC-V SoC around 1 GHz as a later product milestone. CVA6 and Cheshire are current reference candidates. This milestone requires an application-class core, MMU, caches, high-performance memory subsystem, scalable interconnect, boot/software platform and a more advanced implementation technology. It is intentionally outside the active MCU execution path.
 
