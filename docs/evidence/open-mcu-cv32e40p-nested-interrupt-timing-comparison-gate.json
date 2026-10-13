@@ -1,0 +1,12 @@
+{
+  "claim_boundary": "Independent semantic comparison of sixteen synchronous nested-interrupt timing observations; CDC/RDC and sub-cycle behavior remain open.",
+  "failures": [],
+  "schema": "openmc-cv32e40p-nested-interrupt-timing-comparison/v1",
+  "source_result_sha256": "15b8246a8c1377301573fbbb7bb077be4218c5f6c595e765282cbff4210c7f1e",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 16,
+    "selected": 16
+  }
+}

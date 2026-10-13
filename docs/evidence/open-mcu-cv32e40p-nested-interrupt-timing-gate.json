@@ -1,0 +1,238 @@
+{
+  "candidate": "cv32e40p",
+  "claim_boundary": "Deterministic synchronous sampling of four outer sources at four assertion/preemption timings. CDC/RDC analysis, sub-cycle phase variation, metastability, deeper nesting, formal proof, physical timing, and manufacturing signoff remain open.",
+  "patches": {
+    "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+    "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+    "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+    "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+    "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+    "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+    "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+    "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d"
+  },
+  "profile": "repaired_eight_patch",
+  "qualification_kind": "bounded_deterministic_nested_interrupt_timing",
+  "schema": "openmc-cv32e40p-nested-interrupt-timing/v1",
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 16,
+    "selected": 16
+  },
+  "testbench_sha256": "0c1d715617a76eb8f28d3894a2e224fd9739e121cd2e48904fcbf413a9c2f8cc",
+  "tests": [
+    {
+      "base_case": "software_then_fast31",
+      "image_sha256": "6b1745729e013859d9820cca758ba84eb3c5d6cc291f518467cca465e54d3d6f",
+      "irq_at_cycle": 84,
+      "log_tail": "INTERRUPT_PASS case=software_then_fast31_at84_delay0 outer_mcause=80000003 inner_mcause=8000001f mode=nested cycles=158 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "software_then_fast31_at84_delay0",
+      "nested_fast_delay": 0,
+      "outer_cause": 3,
+      "outer_kind": "software",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "software_then_fast31",
+      "image_sha256": "6b1745729e013859d9820cca758ba84eb3c5d6cc291f518467cca465e54d3d6f",
+      "irq_at_cycle": 103,
+      "log_tail": "INTERRUPT_PASS case=software_then_fast31_at103_delay1 outer_mcause=80000003 inner_mcause=8000001f mode=nested cycles=177 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "software_then_fast31_at103_delay1",
+      "nested_fast_delay": 1,
+      "outer_cause": 3,
+      "outer_kind": "software",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "software_then_fast31",
+      "image_sha256": "6b1745729e013859d9820cca758ba84eb3c5d6cc291f518467cca465e54d3d6f",
+      "irq_at_cycle": 127,
+      "log_tail": "INTERRUPT_PASS case=software_then_fast31_at127_delay2 outer_mcause=80000003 inner_mcause=8000001f mode=nested cycles=201 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "software_then_fast31_at127_delay2",
+      "nested_fast_delay": 2,
+      "outer_cause": 3,
+      "outer_kind": "software",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "software_then_fast31",
+      "image_sha256": "6b1745729e013859d9820cca758ba84eb3c5d6cc291f518467cca465e54d3d6f",
+      "irq_at_cycle": 151,
+      "log_tail": "INTERRUPT_PASS case=software_then_fast31_at151_delay4 outer_mcause=80000003 inner_mcause=8000001f mode=nested cycles=225 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "software_then_fast31_at151_delay4",
+      "nested_fast_delay": 4,
+      "outer_cause": 3,
+      "outer_kind": "software",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "timer_then_fast31",
+      "image_sha256": "ca9812228b509711efb5d1c6dc9043480559260fab6921f048732d306fcadcc0",
+      "irq_at_cycle": 84,
+      "log_tail": "INTERRUPT_PASS case=timer_then_fast31_at84_delay0 outer_mcause=80000007 inner_mcause=8000001f mode=nested cycles=158 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "timer_then_fast31_at84_delay0",
+      "nested_fast_delay": 0,
+      "outer_cause": 7,
+      "outer_kind": "timer",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "timer_then_fast31",
+      "image_sha256": "ca9812228b509711efb5d1c6dc9043480559260fab6921f048732d306fcadcc0",
+      "irq_at_cycle": 103,
+      "log_tail": "INTERRUPT_PASS case=timer_then_fast31_at103_delay1 outer_mcause=80000007 inner_mcause=8000001f mode=nested cycles=177 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "timer_then_fast31_at103_delay1",
+      "nested_fast_delay": 1,
+      "outer_cause": 7,
+      "outer_kind": "timer",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "timer_then_fast31",
+      "image_sha256": "ca9812228b509711efb5d1c6dc9043480559260fab6921f048732d306fcadcc0",
+      "irq_at_cycle": 127,
+      "log_tail": "INTERRUPT_PASS case=timer_then_fast31_at127_delay2 outer_mcause=80000007 inner_mcause=8000001f mode=nested cycles=201 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "timer_then_fast31_at127_delay2",
+      "nested_fast_delay": 2,
+      "outer_cause": 7,
+      "outer_kind": "timer",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "timer_then_fast31",
+      "image_sha256": "ca9812228b509711efb5d1c6dc9043480559260fab6921f048732d306fcadcc0",
+      "irq_at_cycle": 151,
+      "log_tail": "INTERRUPT_PASS case=timer_then_fast31_at151_delay4 outer_mcause=80000007 inner_mcause=8000001f mode=nested cycles=225 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "timer_then_fast31_at151_delay4",
+      "nested_fast_delay": 4,
+      "outer_cause": 7,
+      "outer_kind": "timer",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "external_then_fast31",
+      "image_sha256": "a1240fc4a9fb14d2bd48949635a95f6e067c71d971066af6d30e45783a55341f",
+      "irq_at_cycle": 84,
+      "log_tail": "INTERRUPT_PASS case=external_then_fast31_at84_delay0 outer_mcause=8000000b inner_mcause=8000001f mode=nested cycles=158 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "external_then_fast31_at84_delay0",
+      "nested_fast_delay": 0,
+      "outer_cause": 11,
+      "outer_kind": "external",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "external_then_fast31",
+      "image_sha256": "a1240fc4a9fb14d2bd48949635a95f6e067c71d971066af6d30e45783a55341f",
+      "irq_at_cycle": 103,
+      "log_tail": "INTERRUPT_PASS case=external_then_fast31_at103_delay1 outer_mcause=8000000b inner_mcause=8000001f mode=nested cycles=177 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "external_then_fast31_at103_delay1",
+      "nested_fast_delay": 1,
+      "outer_cause": 11,
+      "outer_kind": "external",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "external_then_fast31",
+      "image_sha256": "a1240fc4a9fb14d2bd48949635a95f6e067c71d971066af6d30e45783a55341f",
+      "irq_at_cycle": 127,
+      "log_tail": "INTERRUPT_PASS case=external_then_fast31_at127_delay2 outer_mcause=8000000b inner_mcause=8000001f mode=nested cycles=201 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "external_then_fast31_at127_delay2",
+      "nested_fast_delay": 2,
+      "outer_cause": 11,
+      "outer_kind": "external",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "external_then_fast31",
+      "image_sha256": "a1240fc4a9fb14d2bd48949635a95f6e067c71d971066af6d30e45783a55341f",
+      "irq_at_cycle": 151,
+      "log_tail": "INTERRUPT_PASS case=external_then_fast31_at151_delay4 outer_mcause=8000000b inner_mcause=8000001f mode=nested cycles=225 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "external_then_fast31_at151_delay4",
+      "nested_fast_delay": 4,
+      "outer_cause": 11,
+      "outer_kind": "external",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "fast16_then_fast31",
+      "image_sha256": "df9e188695855737087d4b128e3f8722c092026f7dd8e05083a1520b16393a3a",
+      "irq_at_cycle": 84,
+      "log_tail": "INTERRUPT_PASS case=fast16_then_fast31_at84_delay0 outer_mcause=80000010 inner_mcause=8000001f mode=nested cycles=158 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "fast16_then_fast31_at84_delay0",
+      "nested_fast_delay": 0,
+      "outer_cause": 16,
+      "outer_kind": "fast",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "fast16_then_fast31",
+      "image_sha256": "df9e188695855737087d4b128e3f8722c092026f7dd8e05083a1520b16393a3a",
+      "irq_at_cycle": 103,
+      "log_tail": "INTERRUPT_PASS case=fast16_then_fast31_at103_delay1 outer_mcause=80000010 inner_mcause=8000001f mode=nested cycles=177 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "fast16_then_fast31_at103_delay1",
+      "nested_fast_delay": 1,
+      "outer_cause": 16,
+      "outer_kind": "fast",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "fast16_then_fast31",
+      "image_sha256": "df9e188695855737087d4b128e3f8722c092026f7dd8e05083a1520b16393a3a",
+      "irq_at_cycle": 127,
+      "log_tail": "INTERRUPT_PASS case=fast16_then_fast31_at127_delay2 outer_mcause=80000010 inner_mcause=8000001f mode=nested cycles=201 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "fast16_then_fast31_at127_delay2",
+      "nested_fast_delay": 2,
+      "outer_cause": 16,
+      "outer_kind": "fast",
+      "returncode": 0,
+      "status": "passed"
+    },
+    {
+      "base_case": "fast16_then_fast31",
+      "image_sha256": "df9e188695855737087d4b128e3f8722c092026f7dd8e05083a1520b16393a3a",
+      "irq_at_cycle": 151,
+      "log_tail": "INTERRUPT_PASS case=fast16_then_fast31_at151_delay4 outer_mcause=80000010 inner_mcause=8000001f mode=nested cycles=225 outer_mepc=00000020 inner_mepc=00000140 outer_ack=1 triggers=1 inner_ack=1",
+      "name": "fast16_then_fast31_at151_delay4",
+      "nested_fast_delay": 4,
+      "outer_cause": 16,
+      "outer_kind": "fast",
+      "returncode": 0,
+      "status": "passed"
+    }
+  ],
+  "timing_points": [
+    {
+      "irq_at_cycle": 84,
+      "nested_fast_delay": 0
+    },
+    {
+      "irq_at_cycle": 103,
+      "nested_fast_delay": 1
+    },
+    {
+      "irq_at_cycle": 127,
+      "nested_fast_delay": 2
+    },
+    {
+      "irq_at_cycle": 151,
+      "nested_fast_delay": 4
+    }
+  ],
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040",
+  "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f"
+}
