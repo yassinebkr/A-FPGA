@@ -1,0 +1,23 @@
+{
+  "build_returncode": 0,
+  "checks": [
+    "ROM fetch",
+    "SRAM base fetch",
+    "SRAM upper-bound fetch",
+    "unaligned fetch error",
+    "unmapped fetch error"
+  ],
+  "checks_passed": 5,
+  "claim_boundary": "Bounded deterministic RTL qualification of instruction reads from initialized ROM and data-populated SRAM. CPU execution after SPI copy is qualified separately.",
+  "log_marker": "SRAM_INSTRUCTION_FETCH_PASS checks=5",
+  "log_tail": "",
+  "qualification_kind": "rom_and_sram_instruction_fetch_directed_rtl",
+  "run_returncode": 0,
+  "schema": "openmc-sram-instruction-fetch-gate/v1",
+  "sources": {
+    "rtl/product/openmc_boot_memory.sv": "716f6686ee466a4a03d9ee558662fb2488dec8d1291ae3240ca30461e6422303",
+    "verification/sram_instruction_fetch_tb.sv": "9d33ea8242f0e107eb678d7028e7506302a8e71e64a6d9c2e9ed2ffcffb86efa"
+  },
+  "status": "passed",
+  "tool": "Verilator 5.040 2025-08-30 rev v5.040"
+}
