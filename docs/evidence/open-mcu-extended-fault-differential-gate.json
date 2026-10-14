@@ -1,0 +1,463 @@
+{
+  "candidate": "cv32e40p",
+  "claim_boundary": "Four deterministic seeds cover instruction-response error, load-response error, store-response error and reserved compressed encoding 0x0000 with independent precise-trap expectations. Other compressed encodings, delayed bus responses, multiple outstanding faults, formal proof and physical signoff remain open.",
+  "profile": "repaired_nine_patch",
+  "provenance": {
+    "base_script_sha256": "dd1e53c57d977ac9a0f879c1db238c10197a63bdb10df1a3b25fed4de24c2e06",
+    "patches": {
+      "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+      "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+      "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+      "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+      "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+      "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+      "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+      "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d",
+      "0009-repair-bus-and-compressed-mtval": "18fd7dde7971f3ea95aa2dce8cd55caad5c7e14cfdb7a3a36bbe44e74a28f056"
+    },
+    "script_sha256": "e570a2c9e3d7cf75eed9969fb43c2471bbd9fc121311bef3989cf2888b3684c4",
+    "testbench_sha256": "863841c0df554414f17694584f0ca869cb6e82775b2321ce4d0a5b66c70bca4d",
+    "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+    "verilator": "Verilator 5.040 2025-08-30 rev v5.040"
+  },
+  "qualification_kind": "seeded_bus_error_and_compressed_fault_reference",
+  "schema": "openmc-cv32e40p-extended-fault-differential/v1",
+  "seeds": [
+    17,
+    37,
+    67,
+    101
+  ],
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 16,
+    "selected": 16
+  },
+  "tests": [
+    {
+      "expected": {
+        "cause": 1,
+        "instruction": 19,
+        "mtval": 52,
+        "pc": 52,
+        "signature": 273,
+        "trap_count": 1
+      },
+      "fault_class": "instruction_bus_error",
+      "image_sha256": "8acb83d9b21389cec11876e374513aa313494cc242d78a094f99cb7ae5245e2c",
+      "injection": {
+        "instr_error": 52
+      },
+      "name": "instruction_bus_error-seed-17",
+      "observed": {
+        "cycles": 53,
+        "mcause": 1,
+        "mepc": 52,
+        "mtval": 52,
+        "signature": 273,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 17,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 5,
+        "instruction": 107651,
+        "mtval": 8244,
+        "pc": 28,
+        "signature": 529,
+        "trap_count": 1
+      },
+      "fault_class": "load_bus_error",
+      "image_sha256": "a2e2efef237bd43b5faf0bc591cc4bbfe6ba90d3422a6516a3c672258116cbd5",
+      "injection": {
+        "data_error": 8244
+      },
+      "name": "load_bus_error-seed-17",
+      "observed": {
+        "cycles": 49,
+        "mcause": 5,
+        "mepc": 28,
+        "mtval": 8244,
+        "signature": 529,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 17,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 7,
+        "instruction": 10592291,
+        "mtval": 8212,
+        "pc": 44,
+        "signature": 785,
+        "trap_count": 1
+      },
+      "fault_class": "store_bus_error",
+      "image_sha256": "9500bc5a6e0cdda2d1cc2a510b4301bf11d4f45fdb0335d571f9a90a45f8e6ab",
+      "injection": {
+        "data_error": 8212
+      },
+      "name": "store_bus_error-seed-17",
+      "observed": {
+        "cycles": 53,
+        "mcause": 7,
+        "mepc": 44,
+        "mtval": 8212,
+        "signature": 785,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 17,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 2,
+        "instruction": 0,
+        "mtval": 0,
+        "pc": 40,
+        "signature": 1041,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_compressed",
+      "image_sha256": "23ded551330157c7b88134cf0f9e86d79d897dc548d8c234df0539f7a31ba0e0",
+      "injection": {},
+      "name": "illegal_compressed-seed-17",
+      "observed": {
+        "cycles": 52,
+        "mcause": 2,
+        "mepc": 40,
+        "mtval": 0,
+        "signature": 1041,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 17,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 1,
+        "instruction": 19,
+        "mtval": 24,
+        "pc": 24,
+        "signature": 293,
+        "trap_count": 1
+      },
+      "fault_class": "instruction_bus_error",
+      "image_sha256": "f4f1cdd4e7a5eb05bc4215806889368ec94598abc0b8468e24dbcbff1fd98efa",
+      "injection": {
+        "instr_error": 24
+      },
+      "name": "instruction_bus_error-seed-37",
+      "observed": {
+        "cycles": 46,
+        "mcause": 1,
+        "mepc": 24,
+        "mtval": 24,
+        "signature": 293,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 37,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 5,
+        "instruction": 107651,
+        "mtval": 8268,
+        "pc": 36,
+        "signature": 549,
+        "trap_count": 1
+      },
+      "fault_class": "load_bus_error",
+      "image_sha256": "c6d5fc192588ac12cb0dba75c53d37cf69d743e02d851f77b591f37297183b9d",
+      "injection": {
+        "data_error": 8268
+      },
+      "name": "load_bus_error-seed-37",
+      "observed": {
+        "cycles": 51,
+        "mcause": 5,
+        "mepc": 36,
+        "mtval": 8268,
+        "signature": 549,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 37,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 7,
+        "instruction": 10592291,
+        "mtval": 8312,
+        "pc": 32,
+        "signature": 805,
+        "trap_count": 1
+      },
+      "fault_class": "store_bus_error",
+      "image_sha256": "c6b5fbd10590eb3a6db87a7fc9ae053f8baadf915d7ef7a87f6275d9bb889364",
+      "injection": {
+        "data_error": 8312
+      },
+      "name": "store_bus_error-seed-37",
+      "observed": {
+        "cycles": 50,
+        "mcause": 7,
+        "mepc": 32,
+        "mtval": 8312,
+        "signature": 805,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 37,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 2,
+        "instruction": 0,
+        "mtval": 0,
+        "pc": 44,
+        "signature": 1061,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_compressed",
+      "image_sha256": "eb93a6112fc7083747da78df95dc5243182b88984e2fd425d7e8e094cdaa1ce5",
+      "injection": {},
+      "name": "illegal_compressed-seed-37",
+      "observed": {
+        "cycles": 53,
+        "mcause": 2,
+        "mepc": 44,
+        "mtval": 0,
+        "signature": 1061,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 37,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 1,
+        "instruction": 19,
+        "mtval": 36,
+        "pc": 36,
+        "signature": 323,
+        "trap_count": 1
+      },
+      "fault_class": "instruction_bus_error",
+      "image_sha256": "b3019ba687b88daf91a9684519c8a3be9faa60a603b16ef799a0a099e92204bd",
+      "injection": {
+        "instr_error": 36
+      },
+      "name": "instruction_bus_error-seed-67",
+      "observed": {
+        "cycles": 49,
+        "mcause": 1,
+        "mepc": 36,
+        "mtval": 36,
+        "signature": 323,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 67,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 5,
+        "instruction": 107651,
+        "mtval": 8272,
+        "pc": 24,
+        "signature": 579,
+        "trap_count": 1
+      },
+      "fault_class": "load_bus_error",
+      "image_sha256": "43885bdc230a06b523edc151f493f561537d2b0f9eef0b3298834f510ae05c81",
+      "injection": {
+        "data_error": 8272
+      },
+      "name": "load_bus_error-seed-67",
+      "observed": {
+        "cycles": 48,
+        "mcause": 5,
+        "mepc": 24,
+        "mtval": 8272,
+        "signature": 579,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 67,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 7,
+        "instruction": 10592291,
+        "mtval": 8268,
+        "pc": 40,
+        "signature": 835,
+        "trap_count": 1
+      },
+      "fault_class": "store_bus_error",
+      "image_sha256": "0deecca58701d7252b655ca0f49653a63d3a4a40a36640c724c4b1eaa687c285",
+      "injection": {
+        "data_error": 8268
+      },
+      "name": "store_bus_error-seed-67",
+      "observed": {
+        "cycles": 52,
+        "mcause": 7,
+        "mepc": 40,
+        "mtval": 8268,
+        "signature": 835,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 67,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 2,
+        "instruction": 0,
+        "mtval": 0,
+        "pc": 24,
+        "signature": 1091,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_compressed",
+      "image_sha256": "ca413b85368675be8d16d00c29d4bccaaca7110ec093eb5581d63d66c8a9ae6f",
+      "injection": {},
+      "name": "illegal_compressed-seed-67",
+      "observed": {
+        "cycles": 48,
+        "mcause": 2,
+        "mepc": 24,
+        "mtval": 0,
+        "signature": 1091,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 67,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 1,
+        "instruction": 19,
+        "mtval": 44,
+        "pc": 44,
+        "signature": 357,
+        "trap_count": 1
+      },
+      "fault_class": "instruction_bus_error",
+      "image_sha256": "e04da569e7a227f5662e457b1b1eee108a6546351dfc5a8cc1c483b07f1a0df1",
+      "injection": {
+        "instr_error": 44
+      },
+      "name": "instruction_bus_error-seed-101",
+      "observed": {
+        "cycles": 51,
+        "mcause": 1,
+        "mepc": 44,
+        "mtval": 44,
+        "signature": 357,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 101,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 5,
+        "instruction": 107651,
+        "mtval": 8208,
+        "pc": 32,
+        "signature": 613,
+        "trap_count": 1
+      },
+      "fault_class": "load_bus_error",
+      "image_sha256": "8e1f88feb7d3e0a5ab3844cbafccc1a21769c396265343ec0b954ca37c592eab",
+      "injection": {
+        "data_error": 8208
+      },
+      "name": "load_bus_error-seed-101",
+      "observed": {
+        "cycles": 50,
+        "mcause": 5,
+        "mepc": 32,
+        "mtval": 8208,
+        "signature": 613,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 101,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 7,
+        "instruction": 10592291,
+        "mtval": 8256,
+        "pc": 48,
+        "signature": 869,
+        "trap_count": 1
+      },
+      "fault_class": "store_bus_error",
+      "image_sha256": "1b75276cc5e64024ae1ea32be16c1b8b0dce0fb93a152a497d56722501505bbb",
+      "injection": {
+        "data_error": 8256
+      },
+      "name": "store_bus_error-seed-101",
+      "observed": {
+        "cycles": 54,
+        "mcause": 7,
+        "mepc": 48,
+        "mtval": 8256,
+        "signature": 869,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 101,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "cause": 2,
+        "instruction": 0,
+        "mtval": 0,
+        "pc": 40,
+        "signature": 1125,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_compressed",
+      "image_sha256": "9a1c731414aac0f8a8179743461a35da493f7f54590da452c59d0d7f0b83d29a",
+      "injection": {},
+      "name": "illegal_compressed-seed-101",
+      "observed": {
+        "cycles": 52,
+        "mcause": 2,
+        "mepc": 40,
+        "mtval": 0,
+        "signature": 1125,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 101,
+      "status": "passed"
+    }
+  ]
+}

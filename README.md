@@ -126,8 +126,11 @@ This repository stores qualification evidence bound to exact revisions.
   byte-identical manifests against Sail 0.13.1 from the pinned ACT4 image.
 - Seeded synchronous faults: 12/12 across four seeds with independently checked
   `mcause`, `mepc`, `mtval`, trap count and `mret` recovery.
-- Open gates: seeded PMP and interrupt campaigns, bus-error and compressed-fault
-  coverage, refreshed physical evidence, and final core selection.
+- Seeded PMP: 12/12. Seeded interrupt timing: 28/28. Bus and reserved-compressed
+  faults: 16/16. All three artifacts bind the repaired nine-patch profile.
+- Open gates: wider PMP configurations, delayed and simultaneous bus faults,
+  more compressed encodings, formal proof, refreshed physical evidence, and
+  final core selection.
 
 Evidence records are indexed under
 [`docs/evidence/open-mcu-*.json`](docs/evidence/) and the milestone contract

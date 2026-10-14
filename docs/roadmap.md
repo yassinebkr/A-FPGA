@@ -41,7 +41,7 @@ physical views, and completed C0–C6 visualization qualification. Remaining
 platform polish includes project import/export, job and metric presentation,
 physical visualization depth, and general UX finish.
 
-Open_MC has an eight-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
+Open_MC has a nine-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
 Zicsr, Zifencei, PMP and `InterruptsSm` evidence; bounded Sail, RVFI, CSR/fence,
 synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 129 unit tests; and
 documented reproducible artifacts. Physical evidence requires refresh for this
@@ -50,10 +50,11 @@ post-route evidence; 500 MHz is a technology-dependent stretch objective.
 
 Ordered continuation gates:
 
-1. Extend differential campaigns for PMP, faults, CSR/fence and interrupts.
+1. Extend the closed seeded campaigns with randomized PMP configuration,
+   delayed/simultaneous bus faults and additional compressed encodings.
 2. Add broader functional coverage, assertions and formal properties.
 3. Complete production lint, CDC/RDC and wider equivalence.
-4. Refresh physical qualification with the eight-patch baseline.
+4. Refresh physical qualification with the nine-patch baseline.
 5. Close timing, slew and fanout, then complete DRC/LVS and SDF post-layout simulation.
 6. Select the final core and technology from reviewed evidence.
 7. Integrate the complete SoC: memories, UART, SPI, I²C, boot and programming.
@@ -131,6 +132,12 @@ Passed gates for the repaired CV32E40P profile:
   the fault PC, misaligned address and signature for illegal instruction,
   misaligned word load and misaligned word store. Exact trap state and `mret`
   recovery match the independent reference in every case.
+- Seeded PMP differential: **12/12** across four seeds for load, store and
+  instruction denials, with exact trap state and denied-bus isolation.
+- Seeded interrupt timing: **28/28** across four seeds and seven active
+  standard machine-interrupt scenarios on the nine-patch profile.
+- Bus/compressed faults: **16/16** across four seeds for instruction/load/store
+  response errors and reserved compressed encoding `0x0000`.
 - RVFI trace-integrity: 17 corpus instructions and 18 retire records, passed
   twice with the repaired eight-patch profile. Manifest
   `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
@@ -160,9 +167,8 @@ historical artifact remains at
 
 Open gates:
 
-1. Extend the seeded campaign to PMP and interrupts, then add bus-error and
-   compressed-instruction fault classes. The first 12-case synchronous-fault
-   slice is closed.
+1. Extend seeded coverage to randomized PMP configuration, delayed and
+   simultaneous bus errors, and more compressed encodings.
 2. Refresh physical evidence with the selected configuration and technology.
 3. Select the final core and bind the product decision to reviewed evidence.
 
@@ -208,7 +214,7 @@ and frequency strategy are in
 - Tiny Tapeout hardening is an engineering step. Provider acceptance and foundry
   signoff remain separate open gates.
 - Open_MC gates establish bounded architectural evidence for the repaired
-  profile. Patch 0008 is the current repaired candidate RTL; prior physical
+  profile. Patch 0009 is the current repaired candidate RTL; prior physical
   evidence is historical and superseded until refreshed. The remaining
   assurance scope includes complete ISA certification, silicon behavior,
   manufacturing readiness, or final core selection.

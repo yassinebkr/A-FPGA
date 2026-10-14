@@ -1,0 +1,375 @@
+{
+  "candidate": "cv32e40p",
+  "claim_boundary": "Four deterministic seeds vary pre-fault instruction history, data-fault PC and signature across load, store and instruction PMP denials. PMP modes, region boundaries and denied addresses remain the three reviewed baseline configurations; randomized PMP configuration and physical signoff remain open.",
+  "profile": "repaired_nine_patch",
+  "provenance": {
+    "base_script_sha256": "afa15190d0d9a108da5bc316937616ebf08bf04d601682b187934bc5788f0018",
+    "patches": {
+      "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+      "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+      "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+      "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+      "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+      "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+      "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+      "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d",
+      "0009-repair-bus-and-compressed-mtval": "18fd7dde7971f3ea95aa2dce8cd55caad5c7e14cfdb7a3a36bbe44e74a28f056"
+    },
+    "script_sha256": "422f425a8588968b38dede07415265df5ded8aac3e87272ae12dd1e9736beec3",
+    "testbench_sha256": "c6446a7a94451075059568e79d14a3682364fd5b5f1abc46c2a184fcfbded321",
+    "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+    "verilator": "Verilator 5.040 2025-08-30 rev v5.040"
+  },
+  "qualification_kind": "seeded_bounded_independent_pmp_access_fault_reference",
+  "schema": "openmc-cv32e40p-random-pmp-differential/v1",
+  "seeds": [
+    13,
+    31,
+    59,
+    97
+  ],
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 12,
+    "selected": 12
+  },
+  "tests": [
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 5,
+        "mepc": 44,
+        "mtval": 8192,
+        "signature": 1037,
+        "traps": 1
+      },
+      "image_sha256": "a013ea4ea788b8dfe998adc8f97c2f41dab78f7ab5f695b26140e85cf9645b4a",
+      "name": "pmp_load_access_fault-seed-13",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_load_access_fault-seed-13",
+        "mcause": 5,
+        "mepc": 44,
+        "mtval": 8192,
+        "signature": 1037,
+        "traps": 1
+      },
+      "pmp_class": "pmp_load_access_fault",
+      "seed": 13,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 7,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1293,
+        "traps": 1
+      },
+      "image_sha256": "cd6f10b3930833dd871867de0e69a4470e1f920c0fee7191a4d618acdc12399a",
+      "name": "pmp_store_access_fault-seed-13",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_store_access_fault-seed-13",
+        "mcause": 7,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1293,
+        "traps": 1
+      },
+      "pmp_class": "pmp_store_access_fault",
+      "seed": 13,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1549,
+        "traps": 1
+      },
+      "image_sha256": "1c13a42ca256beeb7db98d255e2525a33761a2f96dcaad40ca45702add1225cc",
+      "name": "pmp_instruction_access_fault-seed-13",
+      "observed": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "case": "pmp_instruction_access_fault-seed-13",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1549,
+        "traps": 1
+      },
+      "pmp_class": "pmp_instruction_access_fault",
+      "seed": 13,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 5,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1055,
+        "traps": 1
+      },
+      "image_sha256": "bdfbf5556e12be205658c401e908b5baa08a55920d0c80f760f097b7798d8b33",
+      "name": "pmp_load_access_fault-seed-31",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_load_access_fault-seed-31",
+        "mcause": 5,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1055,
+        "traps": 1
+      },
+      "pmp_class": "pmp_load_access_fault",
+      "seed": 31,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 7,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1311,
+        "traps": 1
+      },
+      "image_sha256": "c6b8988e500fafc99aabcb2e55b585e36e7b13e5d90e0b8660ca9ccc17909b63",
+      "name": "pmp_store_access_fault-seed-31",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_store_access_fault-seed-31",
+        "mcause": 7,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1311,
+        "traps": 1
+      },
+      "pmp_class": "pmp_store_access_fault",
+      "seed": 31,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1567,
+        "traps": 1
+      },
+      "image_sha256": "b6c6d3c63aec2626bac78cc8ab2e68a6dd87e744f5bba110b1618a0173f05ec8",
+      "name": "pmp_instruction_access_fault-seed-31",
+      "observed": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "case": "pmp_instruction_access_fault-seed-31",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1567,
+        "traps": 1
+      },
+      "pmp_class": "pmp_instruction_access_fault",
+      "seed": 31,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 5,
+        "mepc": 40,
+        "mtval": 8192,
+        "signature": 1083,
+        "traps": 1
+      },
+      "image_sha256": "e7a4a282858d50486d4ae7245471d3baa21b4b362fd2ebec7491d2ada03363e8",
+      "name": "pmp_load_access_fault-seed-59",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_load_access_fault-seed-59",
+        "mcause": 5,
+        "mepc": 40,
+        "mtval": 8192,
+        "signature": 1083,
+        "traps": 1
+      },
+      "pmp_class": "pmp_load_access_fault",
+      "seed": 59,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 7,
+        "mepc": 64,
+        "mtval": 8192,
+        "signature": 1339,
+        "traps": 1
+      },
+      "image_sha256": "74309e2add19f59ac7a56d1945633117d13b4a0070cfa7122f2df8b225a34d50",
+      "name": "pmp_store_access_fault-seed-59",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_store_access_fault-seed-59",
+        "mcause": 7,
+        "mepc": 64,
+        "mtval": 8192,
+        "signature": 1339,
+        "traps": 1
+      },
+      "pmp_class": "pmp_store_access_fault",
+      "seed": 59,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1595,
+        "traps": 1
+      },
+      "image_sha256": "3abd53f37feab6533fb24507bf320d396f16d9f7f2e66ec063ae19e856922d21",
+      "name": "pmp_instruction_access_fault-seed-59",
+      "observed": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "case": "pmp_instruction_access_fault-seed-59",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1595,
+        "traps": 1
+      },
+      "pmp_class": "pmp_instruction_access_fault",
+      "seed": 59,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 5,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1121,
+        "traps": 1
+      },
+      "image_sha256": "c365437f30a2c7fdab35d3105ec3cca3d014f2eb33009663f723f74b187ad314",
+      "name": "pmp_load_access_fault-seed-97",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_load_access_fault-seed-97",
+        "mcause": 5,
+        "mepc": 48,
+        "mtval": 8192,
+        "signature": 1121,
+        "traps": 1
+      },
+      "pmp_class": "pmp_load_access_fault",
+      "seed": 97,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "mcause": 7,
+        "mepc": 52,
+        "mtval": 8192,
+        "signature": 1377,
+        "traps": 1
+      },
+      "image_sha256": "6938c80697396ea6550e2d8e49eb9c70bcc36cf2eaea84fce2a3b35cc4cd0441",
+      "name": "pmp_store_access_fault-seed-97",
+      "observed": {
+        "blocked_address": 8192,
+        "blocked_bus_request": 0,
+        "blocked_kind": "data",
+        "case": "pmp_store_access_fault-seed-97",
+        "mcause": 7,
+        "mepc": 52,
+        "mtval": 8192,
+        "signature": 1377,
+        "traps": 1
+      },
+      "pmp_class": "pmp_store_access_fault",
+      "seed": 97,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1633,
+        "traps": 1
+      },
+      "image_sha256": "e6987f1fa533116e89f6562bc123406eeb059b52d667d7fde21cd876601a29c4",
+      "name": "pmp_instruction_access_fault-seed-97",
+      "observed": {
+        "blocked_address": 128,
+        "blocked_bus_request": 0,
+        "blocked_kind": "instruction",
+        "case": "pmp_instruction_access_fault-seed-97",
+        "mcause": 1,
+        "mepc": 128,
+        "mtval": 128,
+        "signature": 1633,
+        "traps": 1
+      },
+      "pmp_class": "pmp_instruction_access_fault",
+      "seed": 97,
+      "status": "passed"
+    }
+  ]
+}

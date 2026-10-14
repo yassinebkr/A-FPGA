@@ -1,9 +1,9 @@
 {
   "candidate": "cv32e40p",
   "claim_boundary": "Four deterministic seeds vary fault PC, misaligned address and signature across illegal instruction, misaligned word load and misaligned word store. Bus errors, compressed-instruction faults, PMP, interrupts, formal proof, physical timing and manufacturing signoff remain outside this lane.",
-  "profile": "repaired_eight_patch",
+  "profile": "repaired_nine_patch",
   "provenance": {
-    "base_script_sha256": "e86810ce395654ac8bdaec02e60c1569445652e18c9f6bcbb87d74608bb768f0",
+    "base_script_sha256": "dd1e53c57d977ac9a0f879c1db238c10197a63bdb10df1a3b25fed4de24c2e06",
     "patches": {
       "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
       "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
@@ -12,10 +12,11 @@
       "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
       "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
       "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
-      "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d"
+      "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d",
+      "0009-repair-bus-and-compressed-mtval": "18fd7dde7971f3ea95aa2dce8cd55caad5c7e14cfdb7a3a36bbe44e74a28f056"
     },
-    "script_sha256": "1323d237f11274250693cf2b9c047910d0c3dcc117b92744bf8a56e3df53621b",
-    "testbench_sha256": "b2fc0aa0f4e9e534379786335ebeb5654d5340b9dccef7ff47b0e216498d12a7",
+    "script_sha256": "4b7f43165d12074ab4f20888b49f460e8d44ad9837f30c1fd56eb9b54be8b139",
+    "testbench_sha256": "863841c0df554414f17694584f0ca869cb6e82775b2321ce4d0a5b66c70bca4d",
     "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
     "verilator": "Verilator 5.040 2025-08-30 rev v5.040"
   },
