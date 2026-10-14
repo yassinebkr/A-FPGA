@@ -11,7 +11,7 @@
     "SRAM payload execution",
     "invalid-image diagnostic"
   ],
-  "claim_boundary": "The CV32E40P executes immutable RV32I boot code which drives the SPI master, validates OMC1 bounds and CRC32, copies the payload and transfers control to SRAM. The Flash model is digital mode-0 READ-only; electrical timing, recovery boot, secure boot and manufacturing signoff remain open.",
+  "claim_boundary": "The CV32E40P executes immutable RV32I boot code which drives the SPI master, validates OMC1 bounds and CRC32, copies the payload and transfers control to SRAM. The Flash model is digital mode-0 READ-only; electrical timing, secure boot and manufacturing signoff remain open. UART recovery is qualified separately.",
   "compile_returncode": 0,
   "fixture_reproduced": true,
   "log_marker": "SPI_BOOT_PASS case=valid cycles=7510 signature=0000005a pc=00010030",
@@ -20,8 +20,8 @@
   "run_returncode": 0,
   "schema": "openmc-spi-boot/v1",
   "sources": {
-    "firmware/boot_rom.S": "e30f5cead7f987899afb73cfcdd722a7be5ccc9c1e455f3b50e3085ab3d69484",
-    "firmware/boot_rom.hex": "a2a24a07614300bcd30b371f9699c3ef751825f72cb33ea1daa32af215d4314b",
+    "firmware/boot_rom.S": "672a875014a7e3765b2a1e268b889f1205fe3d8ed68277e3da578702081213df",
+    "firmware/boot_rom.hex": "e87cf405ca1473df054cc50f59e846378923729e83d1074adf6c3182c8959ecc",
     "rtl/product/openmc_boot_memory.sv": "72511765a4c01ed0de970c8ee2f6999ac7fbf50c3a161b64fb24912cc409f171",
     "rtl/product/openmc_interrupt_boundary.sv": "2f819a82d44d19fb127dbf67bcc99468853db893bed7bb7110566fd4e61b8e03",
     "rtl/product/openmc_mcu_core_top.sv": "f4d69dc85d8ecffffd91aebd4bb974c02bba699d7ae18fdb1e9003da2b13349f",
