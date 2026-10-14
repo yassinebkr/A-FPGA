@@ -6,7 +6,7 @@
     "misaligned_store"
   ],
   "claim_boundary": "Local Verilator evidence for exactly three direct machine synchronous faults on repaired CV32E40P: illegal instruction, misaligned word load, and misaligned word store. The handler records mcause, mepc, mtval, and one trap count, advances mepc, executes mret, and reaches a deterministic signature. Interrupts, PMP access faults, bus errors, compressed faults, randomized fault streams, S-mode, formal proof, physical timing, and manufacturing signoff are outside the claim.",
-  "profile": "repaired_nine_patch",
+  "profile": "repaired_ten_patch",
   "provenance": {
     "patches": {
       "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",

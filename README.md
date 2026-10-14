@@ -15,7 +15,7 @@ origin controls, and resource limits are future work. Bind development servers t
 | Platform | Architecture contracts, durable jobs, evidence APIs, timing optimization, and visualization foundation are implemented. |
 | Benchmark | The frozen `systolic_mm_4x4` corpus has repeated functional/protocol qualification and bounded Sky130 implementation evidence. |
 | Tiny Tapeout | Local `tt_um_counter8` hardening is clean. Provider submission and acceptance remain future work. |
-| Open_MC | RV32IMC baseline, PMP gate, interrupt lifecycle gate, and Sail differential gate are passed for the repaired CV32E40P profile. |
+| Open_MC | The `repaired_ten_patch` CV32E40P source baseline is pinned at commit `322d4c94`; its bounded PMP, fault, interrupt, SRAM-fetch and Sail/RVFI lanes are recorded. |
 | Physical direction | IHP SG13G2 remains the leading open candidate. Physical refresh and final core selection are open. |
 
 Open_MC targets 250 MHz. A 500 MHz result is a technology-dependent stretch
@@ -126,15 +126,17 @@ This repository stores qualification evidence bound to exact revisions.
   byte-identical manifests against Sail 0.13.1 from the pinned ACT4 image.
 - Seeded synchronous faults: 12/12 across four seeds with independently checked
   `mcause`, `mepc`, `mtval`, trap count and `mret` recovery.
-- Seeded PMP: 12/12. Seeded interrupt timing: 28/28. Bus and reserved-compressed
-  faults: 16/16. All three artifacts bind the repaired nine-patch profile.
-- Open gates: wider PMP configurations, delayed and simultaneous bus faults,
-  more compressed encodings, formal proof, refreshed physical evidence, and
-  final core selection.
+- Seeded PMP: 12/12. Seeded interrupt timing: 28/28. Bus and
+  reserved-compressed faults: 36/36. The current source baseline uses the
+  `repaired_ten_patch` profile.
+- Open gates: broader formal proof, routed physical closure, post-layout
+  equivalence, final core selection, and complete SoC integration.
 
 Evidence records are indexed under
 [`docs/evidence/open-mcu-*.json`](docs/evidence/) and the milestone contract
 is [docs/open-mcu-milestone-definition.md](docs/open-mcu-milestone-definition.md).
+The current product source is pinned by the
+[Open_MC revision record](docs/evidence/open-mcu-current-revision.json).
 
 ## Tests
 

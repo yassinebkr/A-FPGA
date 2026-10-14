@@ -6,7 +6,7 @@
     "pmp_instruction_access_fault"
   ],
   "claim_boundary": "Exactly three deterministic machine-mode PMP access-fault cases with explicit blocked transaction, cause, mepc, mtval, trap-count and signature checks. ACT4 PMP, randomized PMP streams, interrupts, S-mode, and physical signoff remain outside this lane.",
-  "profile": "repaired_nine_patch",
+  "profile": "repaired_ten_patch",
   "provenance": {
     "patches": {
       "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",

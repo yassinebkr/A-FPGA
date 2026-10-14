@@ -172,7 +172,7 @@
   ],
   "platform_input_commit": "90b42a9952f6323f92a29f8b116651d514dc0427",
   "profile": {
-    "label": "repaired_nine_patch",
+    "label": "repaired_ten_patch",
     "note": "label is pinned by the qualification tests; profile identity is the ordered patch SHA set (patches 0001-0010, including the revised 0003)",
     "patch_count": 10,
     "patches": {

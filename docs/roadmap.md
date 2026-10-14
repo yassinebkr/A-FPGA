@@ -41,16 +41,18 @@ physical views, and completed C0–C6 visualization qualification. Remaining
 platform polish includes project import/export, job and metric presentation,
 physical visualization depth, and general UX finish.
 
-Open_MC has a ten-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
+Open_MC commit `322d4c94f83ff8427fa430ca8b32236142cf482c` is the current
+`repaired_ten_patch` CV32E40P baseline. It has reproduced ACT4 RV32IMC,
 Zicsr, Zifencei, PMP and `InterruptsSm` evidence; bounded Sail, RVFI, CSR/fence,
-synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 129 unit tests; and
+synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 137 unit tests; and
 documented reproducible artifacts. The first physical-mapping attempt exposed an
 unsynthesizable `while` loop inside the patch-0003 PMP `region_matches` function;
 patch 0003 is revised to a statically bounded loop
 ([patch-0003 synthesis repair](evidence/open-mcu-cv32e40p-patch0003-synthesis-repair.json),
 new SHA-256 `12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5`)
 and the PMP-, fault-, and formal-evidence lanes are refreshed on the revised
-profile. The 250 MHz product objective remains subject to selected-technology
+profile. The exact source pin and bounded check summary are recorded in the
+[current Open_MC revision](evidence/open-mcu-current-revision.json). The 250 MHz product objective remains subject to selected-technology
 post-route evidence; 500 MHz is a technology-dependent stretch objective.
 
 Ordered continuation gates:

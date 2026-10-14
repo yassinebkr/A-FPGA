@@ -1,7 +1,7 @@
 {
   "candidate": "cv32e40p",
   "claim_boundary": "Four deterministic seeds cover delayed instruction/load/store responses, coincident data and prefetched-instruction errors, and four reserved compressed encodings with independent precise-trap expectations. Asynchronous CDC effects, unbounded delay, more than two coincident faults, formal proof and physical signoff remain open.",
-  "profile": "repaired_nine_patch",
+  "profile": "repaired_ten_patch",
   "provenance": {
     "base_script_sha256": "6a568d11a72002e19e59f49ed3620843ba93dca2ffe93f4dfe2e96c77843d6ad",
     "patches": {

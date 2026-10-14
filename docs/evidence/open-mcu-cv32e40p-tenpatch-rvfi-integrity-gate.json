@@ -8,7 +8,7 @@
     "instruction_count": 17,
     "signature_address": 4096
   },
-  "profile": "repaired_nine_patch",
+  "profile": "repaired_ten_patch",
   "provenance": {
     "monitor_adaptation": {
       "description": "Swap upstream m_mem.rmask/m_mem.wmask assignments to match data_we semantics; leave upstream m_mem.rdata/m_mem.wdata unpopulated and exclude their comparison.",
