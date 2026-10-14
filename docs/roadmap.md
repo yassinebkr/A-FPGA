@@ -136,8 +136,13 @@ Passed gates for the repaired CV32E40P profile:
   instruction denials, with exact trap state and denied-bus isolation.
 - Seeded interrupt timing: **28/28** across four seeds and seven active
   standard machine-interrupt scenarios on the nine-patch profile.
-- Bus/compressed faults: **16/16** across four seeds for instruction/load/store
-  response errors and reserved compressed encoding `0x0000`.
+- Bus/compressed faults: **36/36** across four seeds for delayed instruction,
+  load and store responses, coincident data and prefetched-instruction errors,
+  and four reserved compressed encodings. The simultaneous cases exposed a real
+  exception-precision defect — a persistent prefetched fetch-fault level
+  preempted the older in-flight data-fault trap and overwrote mcause/mtval —
+  repaired by patch `0010-preserve-serviced-data-fault` (exception redirects
+  discard the faulted prefetch; it is refetched from the handler return).
 - RVFI trace-integrity: 17 corpus instructions and 18 retire records, passed
   twice with the repaired eight-patch profile. Manifest
   `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
@@ -214,7 +219,7 @@ and frequency strategy are in
 - Tiny Tapeout hardening is an engineering step. Provider acceptance and foundry
   signoff remain separate open gates.
 - Open_MC gates establish bounded architectural evidence for the repaired
-  profile. Patch 0009 is the current repaired candidate RTL; prior physical
+  profile. Patch 0010 is the current repaired candidate RTL; prior physical
   evidence is historical and superseded until refreshed. The remaining
   assurance scope includes complete ISA certification, silicon behavior,
   manufacturing readiness, or final core selection.
