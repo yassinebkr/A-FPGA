@@ -41,20 +41,29 @@ physical views, and completed C0–C6 visualization qualification. Remaining
 platform polish includes project import/export, job and metric presentation,
 physical visualization depth, and general UX finish.
 
-Open_MC has a nine-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
+Open_MC has a ten-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
 Zicsr, Zifencei, PMP and `InterruptsSm` evidence; bounded Sail, RVFI, CSR/fence,
 synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 129 unit tests; and
-documented reproducible artifacts. Physical evidence requires refresh for this
-baseline. The 250 MHz product objective remains subject to selected-technology
+documented reproducible artifacts. The first physical-mapping attempt exposed an
+unsynthesizable `while` loop inside the patch-0003 PMP `region_matches` function;
+patch 0003 is revised to a statically bounded loop
+([patch-0003 synthesis repair](evidence/open-mcu-cv32e40p-patch0003-synthesis-repair.json),
+new SHA-256 `12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5`)
+and the PMP-, fault-, and formal-evidence lanes are refreshed on the revised
+profile. The 250 MHz product objective remains subject to selected-technology
 post-route evidence; 500 MHz is a technology-dependent stretch objective.
 
 Ordered continuation gates:
 
 1. Extend the closed seeded campaigns with randomized PMP configuration,
    delayed/simultaneous bus faults and additional compressed encodings.
+   Closed at the screen level: the seeded campaign covers these classes 36/36
+   on the revised ten-patch profile.
 2. Add broader functional coverage, assertions and formal properties.
 3. Complete production lint, CDC/RDC and wider equivalence.
-4. Refresh physical qualification with the nine-patch baseline.
+4. Refresh physical qualification with the ten-patch baseline. Closed at the
+   mapped and placed screening level (100 MHz met); routed closure remains
+   gate 5.
 5. Close timing, slew and fanout, then complete DRC/LVS and SDF post-layout simulation.
 6. Select the final core and technology from reviewed evidence.
 7. Integrate the complete SoC: memories, UART, SPI, I²C, boot and programming.
@@ -142,11 +151,28 @@ Passed gates for the repaired CV32E40P profile:
   exception-precision defect — a persistent prefetched fetch-fault level
   preempted the older in-flight data-fault trap and overwrote mcause/mtval —
   repaired by patch `0010-preserve-serviced-data-fault` (exception redirects
-  discard the faulted prefetch; it is refetched from the handler return).
+  discard the faulted prefetch; it is refetched from the handler return). The
+  full campaign is re-run **36/36** on the revised ten-patch profile after the
+  patch-0003 synthesis repair; the refreshed artifact binds all ten patch
+  SHA-256 digests.
+- Ten-patch physical refresh: the repaired profile maps to IHP SG13G2 through
+  sv2v 0.0.13.1, Yosys 0.50 and OpenSTA 3.1.0 with the pinned provisional
+  Liberty. The PMP-enabled mapping uses 25,421 cells and 325,905.8 um²; the
+  screen meets 100 MHz (+2.3553 ns setup slack) and misses 150/200/250 MHz.
+  On the official preview IHP PDK, the 100 MHz placement-aware screen passes
+  (+0.6334 ns, TNS 0, placed area 390,982.5 um², estimated placed Fmax
+  109.22 MHz) and the 150 MHz screen records an honest miss (-0.7374 ns, TNS
+  -638 ns). Records:
+  [mapping screen](evidence/open-mcu-cv32e40p-tenpatch-ihp-typical-screen.json),
+  [100 MHz placement](evidence/open-mcu-cv32e40p-tenpatch-ihp-100mhz-placement.json),
+  [150 MHz placement](evidence/open-mcu-cv32e40p-tenpatch-ihp-150mhz-placement.json).
 - RVFI trace-integrity: 17 corpus instructions and 18 retire records, passed
   twice with the repaired eight-patch profile. Manifest
   `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
   trace `bd35ee3f755ed34f0d397f93f151d189917f2b879604921bfae66c3a6e9ad0aa`.
+  Refreshed twice on the revised ten-patch profile, byte-identical, with the
+  same retire count and zero errors; the refreshed record is
+  [ten-patch RVFI gate](evidence/open-mcu-cv32e40p-tenpatch-rvfi-integrity-gate.json).
 - RVFI instruction-level reference comparison: 16/16 architectural retirements
   match twice with zero mismatches. Two post-halt records are explicitly ignored;
   15 next-PC transitions are covered. Manifest
@@ -160,7 +186,17 @@ Passed gates for the repaired CV32E40P profile:
   observed records including two trailing post-halt records. All four cases
   passed twice. Manifest `e582da9dbad34ea878444e2d80f099bccc467b6791159c448e3bd69f903fcf3b`;
   the bounded lane covers `mscratch` (0x340), `fence`, and `fence.i` with MIE
-  disabled. Counters/time and other CSRs remain excluded.
+  disabled. Counters/time and other CSRs remain excluded. Refreshed twice on
+  the revised ten-patch profile, byte-identical:
+  [ten-patch CSR/fence gate](evidence/open-mcu-cv32e40p-tenpatch-csr-fence-gate.json).
+  The pinned RV32I legacy regression is also refreshed twice on the revised
+  profile, byte-identical, with 44/48 passed and only the four documented
+  upstream exclusions:
+  [ten-patch RV32I regression](evidence/open-mcu-cv32e40p-tenpatch-rv32i-legacy-regression.json).
+  The PMP access-fault and synchronous-fault differentials are refreshed
+  byte-identically twice on the revised profile:
+  [PMP](evidence/open-mcu-cv32e40p-tenpatch-pmp-differential-gate.json),
+  [synchronous fault](evidence/open-mcu-cv32e40p-tenpatch-synchronous-fault-gate.json).
 
 Historical superseded gate:
 
@@ -172,10 +208,15 @@ historical artifact remains at
 
 Open gates:
 
-1. Extend seeded coverage to randomized PMP configuration, delayed and
-   simultaneous bus errors, and more compressed encodings.
-2. Refresh physical evidence with the selected configuration and technology.
-3. Select the final core and bind the product decision to reviewed evidence.
+1. Refresh the interrupt lifecycle/timing/nesting and fast-interrupt lanes on
+   the revised patch-0003 profile (their committed evidence still binds the
+   pre-repair patch SHA).
+2. Reproduce ACT4 RV32IMC/Zicsr/Zifencei/PMP/InterruptsSm on the revised
+   profile; this environment currently has no container runtime for the
+   pinned ACT4 image.
+3. Close routed timing at a met target: CTS, routing, hold, extraction,
+   DRC/LVS and SDF post-layout simulation for the 100 MHz screen.
+4. Select the final core and bind the product decision to reviewed evidence.
 
 The evidence records are in [docs/evidence](evidence/). The product contract
 and frequency strategy are in
@@ -219,8 +260,10 @@ and frequency strategy are in
 - Tiny Tapeout hardening is an engineering step. Provider acceptance and foundry
   signoff remain separate open gates.
 - Open_MC gates establish bounded architectural evidence for the repaired
-  profile. Patch 0010 is the current repaired candidate RTL; prior physical
-  evidence is historical and superseded until refreshed. The remaining
+  profile. Patches 0010 and the revised 0003 form the current repaired
+  candidate RTL. Refreshed formal, differential and physical screening
+  evidence binds the revised profile; routed physical closure, the
+  interrupt-lane refresh and the ACT4 reproduction remain open. The remaining
   assurance scope includes complete ISA certification, silicon behavior,
   manufacturing readiness, or final core selection.
 - Commercial/foundry signoff requires an approved PDK, libraries, rule decks,

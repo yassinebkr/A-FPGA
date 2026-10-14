@@ -1,0 +1,100 @@
+{
+  "candidate_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "claim_boundary": "The repaired RTL is requalified by the lanes listed above on the ten-patch profile. Physical results are provisional pre-layout and placed screens; routed timing, hold, CTS, DRC/LVS, equivalence, and silicon characterization remain open. Lanes listed as pending refresh still bind the pre-repair patch SHA and cannot support closure claims for the revised profile.",
+  "defect": {
+    "description": "The region_matches function in the patch-0003 sixteen-region PMP computed the NAPOT trailing-ones count with a data-dependent while loop. Yosys classifies any function containing a while loop as constant-eval-only (has_const_only_constructs), so every synthesis of the repaired profile failed with: Function \\region_matches can only be called with constant arguments.",
+    "discovered_by": "first physical-mapping attempt of the ten-patch profile (IHP SG13G2 screen)",
+    "tool_evidence": [
+      "Yosys 0.50 (git b5170e139) fails",
+      "Yosys 0.69 fails identically",
+      "sv2v 0.0.13 release and sv2v 0.0.13.1 both leave the function intact in the converted Verilog"
+    ]
+  },
+  "platform_input_commit": "90b42a9952f6323f92a29f8b116651d514dc0427",
+  "recorded_at": "2026-10-14",
+  "repair": {
+    "change": "while ((trailing_ones < 31) && pmp_addr_i[index][trailing_ones]) trailing_ones++; replaced by a statically bounded for loop over bit_index 0..30 with the identical run-length condition (bit_index == trailing_ones) && pmp_addr_i[index][bit_index].",
+    "file": "rtl/cv32e40p_pmp.sv (patch 0003-enable-sixteen-region-pmp)",
+    "patch_sha256_after": "12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5",
+    "patch_sha256_before": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+    "semantics": "identical consecutive-trailing-ones count capped at 31; napot_mask and all region-match decisions unchanged"
+  },
+  "requalification": {
+    "lanes": [
+      {
+        "evidence": "open-mcu-extended-fault-differential-gate.json",
+        "evidence_sha256": "de341f8639fffbfe627ebd5870372235a1c5693c8c06f94ec4d53b6f84496d2c",
+        "lane": "seeded extended fault differential",
+        "result": "36/36 passed, seeds 17/37/67/101",
+        "runs": 1
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-pmp-differential-gate.json",
+        "evidence_sha256": "e7f68b9e6f1cc80aefa9cd9be2983bd163652c40ef1161150e6caf0faa793c35",
+        "lane": "PMP access-fault differential",
+        "result": "3/3 passed, byte-identical twice",
+        "runs": 2
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-synchronous-fault-gate.json",
+        "evidence_sha256": "9ac8e06e1be045cccf3eb908b74acca2ca25cd0e80aff5885ee71f818f479b87",
+        "lane": "synchronous-fault differential",
+        "result": "3/3 passed, byte-identical twice",
+        "runs": 2
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-rvfi-integrity-gate.json",
+        "evidence_sha256": "787bd73a55aaa87ec71a0dae9b6773ec07a31b320e9ea78f6f11331acff5d726",
+        "lane": "RVFI retire-stream integrity + reference comparison",
+        "result": "passed, 18 records, 16 reference-compared, zero errors, byte-identical twice; trace 62561f51afd4b93aa2c9b6d45a541182eddd25897d6e63a750c1b27d1317ae78 unchanged from the pre-repair profile (corpus exercises no PMP region match)",
+        "runs": 2
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-csr-fence-gate.json",
+        "evidence_sha256": "25e1767865ec63fd1d92d88b77d13fb3fbd0d684ad5c17dfb82c3808a77f40dc",
+        "lane": "CSR/fence RVFI differential",
+        "result": "4/4 seeds passed, byte-identical twice",
+        "runs": 2
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-rv32i-legacy-regression.json",
+        "evidence_sha256": "f28af165532c5ce031a2986ef5d1b3c97adcc65ab2212fa8801b3d387d087472",
+        "lane": "pinned RV32I architectural regression",
+        "result": "44/48 passed with the four documented upstream exclusions and zero unexpected failures, byte-identical twice",
+        "runs": 2
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-ihp-typical-screen.json",
+        "evidence_sha256": "2ddb062bf5dbd10d85ddd64f2d0ea7b2310a1f09db1f3902025ac067c76c6e8f",
+        "lane": "IHP SG13G2 typical mapping screen 100/150/200/250 MHz",
+        "result": "mapping succeeds; 25,421 cells, 325,905.8 um2; 100 MHz met (+2.3553 ns), 150/200/250 MHz miss",
+        "runs": 1
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-ihp-100mhz-placement.json",
+        "evidence_sha256": "93148d973a40f2f3d4fec33faf6a0c6234b690984f36e5ec777c52a68e466c19",
+        "lane": "official-PDK placement screen 100 MHz",
+        "result": "passed, setup slack +0.6334 ns, TNS 0, placed area 390,982.5 um2, estimated placed Fmax 109.22 MHz",
+        "runs": 1
+      },
+      {
+        "evidence": "open-mcu-cv32e40p-tenpatch-ihp-150mhz-placement.json",
+        "evidence_sha256": "f538a3260b8e574c49a0ea84c7744c3e72c2c538b186c8188e6c9bb4008cf8ad",
+        "lane": "official-PDK placement screen 150 MHz",
+        "result": "measured miss, setup slack -0.7374 ns, TNS -638.0487 ns, placed area 412,503.1 um2, estimated placed Fmax 130.72 MHz",
+        "runs": 1
+      }
+    ],
+    "qualifier": "Verilator 5.040 rev v5.040; every lane applies the full ten-patch set to a fresh copy of the pinned checkout"
+  },
+  "schema_version": 1,
+  "scope": "cv32e40p_patch0003_unsynthesizable_construct_repair",
+  "status": "repaired_and_requalified",
+  "superseded_evidence": {
+    "lanes_pending_refresh": [
+      "interrupt lifecycle/timing/nesting and fast-interrupt lanes (functionally independent of PMP region matching; provenance still binds the old 0003 SHA)",
+      "ACT4 RV32IMC/Zicsr/Zifencei/PMP/InterruptsSm reproduction (blocked in this environment: no container runtime for the pinned ACT4 image)"
+    ],
+    "note": "All previously committed CV32E40P lane records bind the pre-repair patch-0003 SHA 246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f and remain historical; the refreshed records above bind 12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5."
+  }
+}

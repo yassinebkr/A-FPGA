@@ -1,0 +1,201 @@
+{
+  "candidate": "cv32e40p",
+  "candidate_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+  "claim_boundary": "Pre-layout logical screen on the ten-patch repaired profile (PMP enabled) using a provisional Liberty and a preview official IHP PDK. Multi-corner STA, extraction, CTS, routing, hold, DRC/LVS, equivalence and silicon characterization remain open. The 250 MHz product objective is not supported by this evidence.",
+  "constraints": {
+    "abc_driving_cell": "sg13g2_buf_4",
+    "abc_max_fanout": 8,
+    "abc_output_load_ff": 20.0,
+    "clock_gates": "ihp_sg13g2_clock_gates.sv (sg13g2_lgcp_1)",
+    "clock_uncertainty_fraction": 0.05,
+    "frequencies_mhz": [
+      100,
+      150,
+      200,
+      250
+    ],
+    "input_delay_fraction": 0.2,
+    "mapping_strategy": "abc_constrained_buffer_upsize_dnsize",
+    "output_delay_fraction": 0.2,
+    "output_load_pf": 0.02
+  },
+  "decision": {
+    "met_target_mhz": 100,
+    "next_experiment": "pmp_aware_critical_path_review_and_routed_timing_at_100mhz",
+    "product_objective_250mhz": "not met on this provisional screen; subject to provider-qualified PDK and post-route evidence"
+  },
+  "liberty": {
+    "name": "sg13g2_stdcell_typ_1p20V_25C",
+    "provenance": "pinned OpenSTA IHP test fixture (physical/ihp-sg13g2-typical-screening.toml)",
+    "sha256": "6f50333c719d8f324c9f8a18197e034ae531de3655002eb9d10c04f281ee0660"
+  },
+  "local_artifact_sha256": {
+    "cv32e40p-100mhz-mapped.v": "ad51908bb642bf76dd44921729c20f90949cf186579bf03e9abc95a4e17d505a",
+    "cv32e40p-100mhz-sta.log": "10aa6dab7689d296a16322e0ef80679c8f6cf6df68badddff9a68a5139fa9932",
+    "cv32e40p-100mhz-stats.json": "49ca382f80c31e367f00e35967a347880e2779ac3e4f4c4329a818de942d97b0",
+    "cv32e40p-100mhz-yosys.log": "9f7216fda49ffe7afdfc2ab5e318c8ff3062ca1f9366865bcda71061da8be2d2",
+    "cv32e40p-100mhz.abc.constr": "069265ecdfd4b1ed9decd82e0f083901e07c9bd24c5509e971736ae69475b9c6",
+    "cv32e40p-100mhz.abc.script": "de566952cb1a2d312a425f41fc16ebe529f88564cb1868098d13b2a86879e2c4",
+    "cv32e40p-100mhz.tcl": "e8be8ff9b141df50aae0795abe96d26d91f1c5c38b2447efa99d0ee33017bd7b",
+    "cv32e40p-100mhz.ys": "b98f7a0fc08cf0390febb5aac0ff43844141bbbd17d1942d1fd71b97296c1594",
+    "cv32e40p-150mhz-mapped.v": "ad51908bb642bf76dd44921729c20f90949cf186579bf03e9abc95a4e17d505a",
+    "cv32e40p-150mhz-sta.log": "ac64f46dee461e949f57de9dff60780fc29e607239b25dc89813acc39e49691c",
+    "cv32e40p-150mhz-stats.json": "49ca382f80c31e367f00e35967a347880e2779ac3e4f4c4329a818de942d97b0",
+    "cv32e40p-150mhz-yosys.log": "e22e439059781a6f782bf044d963dbd0f1600171a0812a95123b422558b6f9be",
+    "cv32e40p-150mhz.abc.constr": "069265ecdfd4b1ed9decd82e0f083901e07c9bd24c5509e971736ae69475b9c6",
+    "cv32e40p-150mhz.abc.script": "de566952cb1a2d312a425f41fc16ebe529f88564cb1868098d13b2a86879e2c4",
+    "cv32e40p-150mhz.tcl": "a124f5aac5c34b160699618a6a63f15a6058b8f828ff06c8b1251f019b3a83db",
+    "cv32e40p-150mhz.ys": "a1f88ddd3f05c4030428bbec6429547483d948f370431e108cbdf9977e2280f2",
+    "cv32e40p-200mhz-mapped.v": "ad51908bb642bf76dd44921729c20f90949cf186579bf03e9abc95a4e17d505a",
+    "cv32e40p-200mhz-sta.log": "adbc9c00a1d79015e428c515bcb02cd0adc0b7af049c98cbea8d514936f9c3ee",
+    "cv32e40p-200mhz-stats.json": "49ca382f80c31e367f00e35967a347880e2779ac3e4f4c4329a818de942d97b0",
+    "cv32e40p-200mhz-yosys.log": "bcd064de7c32d22accbef7f7a9331acf1d360945d8ed11bda8611198cd6f95b8",
+    "cv32e40p-200mhz.abc.constr": "069265ecdfd4b1ed9decd82e0f083901e07c9bd24c5509e971736ae69475b9c6",
+    "cv32e40p-200mhz.abc.script": "de566952cb1a2d312a425f41fc16ebe529f88564cb1868098d13b2a86879e2c4",
+    "cv32e40p-200mhz.tcl": "f590e9b1bb449bc80d6597995584d96ffa8c82ea8e81e0a742fd7c63719d4bf9",
+    "cv32e40p-200mhz.ys": "2de9bd79655805a18d5d8512049c3ca85b46730f89605f65a50dae8dd1219d52",
+    "cv32e40p-250mhz-mapped.v": "ad51908bb642bf76dd44921729c20f90949cf186579bf03e9abc95a4e17d505a",
+    "cv32e40p-250mhz-sta.log": "dad135ccbf4b4f848649036768a231c02d6565fb35a44a78636b2ac23352cbd2",
+    "cv32e40p-250mhz-stats.json": "49ca382f80c31e367f00e35967a347880e2779ac3e4f4c4329a818de942d97b0",
+    "cv32e40p-250mhz-yosys.log": "0b9879bd8811ae92ba5823f730e7c47bd9ecc2b40d567fbee1bd57aa90d6de7b",
+    "cv32e40p-250mhz.abc.constr": "069265ecdfd4b1ed9decd82e0f083901e07c9bd24c5509e971736ae69475b9c6",
+    "cv32e40p-250mhz.abc.script": "de566952cb1a2d312a425f41fc16ebe529f88564cb1868098d13b2a86879e2c4",
+    "cv32e40p-250mhz.tcl": "b5faab0e2c6da3b0d4816fe5eb4d8b0802f7fc337213e58725a5b25bbe46d86a",
+    "cv32e40p-250mhz.ys": "3305f177b75771eebd750ff375b447ab0457a6fbdc623c38f669ca724e27384c",
+    "cv32e40p-converted.v": "20cff57f601cc477236f4cc78f277e632c869f05a055cb8d585c215f8aeeb815"
+  },
+  "measurement": [
+    {
+      "abc_constraint": {
+        "driving_cell": "sg13g2_buf_4",
+        "max_fanout": 8,
+        "output_load_ff": 20.0
+      },
+      "area_um2": 325905.7788,
+      "artifacts": {
+        "directory": "../verification/evidence/tenpatch-refresh/ihp-map",
+        "mapped_netlist": "cv32e40p-100mhz-mapped.v",
+        "sta_report": "cv32e40p-100mhz-sta.log",
+        "yosys_log": "cv32e40p-100mhz-yosys.log"
+      },
+      "cells": 25421,
+      "clock_uncertainty_ns": 0.5,
+      "critical_path_delay_ns": 5.1447,
+      "estimated_screen_fmax_mhz": 145.78109510758645,
+      "frequency_mhz": 100,
+      "io_delay_ns": 2.0,
+      "mapping_strategy": "abc_constrained_buffer_upsize_dnsize",
+      "output_load_pf": 0.02,
+      "period_ns": 10.0,
+      "setup_slack_ns": 2.3553,
+      "timing_met": true,
+      "tns_ns": 0.0
+    },
+    {
+      "abc_constraint": {
+        "driving_cell": "sg13g2_buf_4",
+        "max_fanout": 8,
+        "output_load_ff": 20.0
+      },
+      "area_um2": 325905.7788,
+      "artifacts": {
+        "directory": "../verification/evidence/tenpatch-refresh/ihp-map",
+        "mapped_netlist": "cv32e40p-150mhz-mapped.v",
+        "sta_report": "cv32e40p-150mhz-sta.log",
+        "yosys_log": "cv32e40p-150mhz-yosys.log"
+      },
+      "cells": 25421,
+      "clock_uncertainty_ns": 0.33333333333333337,
+      "critical_path_delay_ns": 5.1969,
+      "estimated_screen_fmax_mhz": 144.3168042486867,
+      "frequency_mhz": 150,
+      "io_delay_ns": 1.3333333333333335,
+      "mapping_strategy": "abc_constrained_buffer_upsize_dnsize",
+      "output_load_pf": 0.02,
+      "period_ns": 6.666666666666667,
+      "setup_slack_ns": -0.1969,
+      "timing_met": false,
+      "tns_ns": -37.9097
+    },
+    {
+      "abc_constraint": {
+        "driving_cell": "sg13g2_buf_4",
+        "max_fanout": 8,
+        "output_load_ff": 20.0
+      },
+      "area_um2": 325905.7788,
+      "artifacts": {
+        "directory": "../verification/evidence/tenpatch-refresh/ihp-map",
+        "mapped_netlist": "cv32e40p-200mhz-mapped.v",
+        "sta_report": "cv32e40p-200mhz-sta.log",
+        "yosys_log": "cv32e40p-200mhz-yosys.log"
+      },
+      "cells": 25421,
+      "clock_uncertainty_ns": 0.25,
+      "critical_path_delay_ns": 5.5302,
+      "estimated_screen_fmax_mhz": 135.61896495605947,
+      "frequency_mhz": 200,
+      "io_delay_ns": 1.0,
+      "mapping_strategy": "abc_constrained_buffer_upsize_dnsize",
+      "output_load_pf": 0.02,
+      "period_ns": 5.0,
+      "setup_slack_ns": -1.7802,
+      "timing_met": false,
+      "tns_ns": -2016.1636
+    },
+    {
+      "abc_constraint": {
+        "driving_cell": "sg13g2_buf_4",
+        "max_fanout": 8,
+        "output_load_ff": 20.0
+      },
+      "area_um2": 325905.7788,
+      "artifacts": {
+        "directory": "../verification/evidence/tenpatch-refresh/ihp-map",
+        "mapped_netlist": "cv32e40p-250mhz-mapped.v",
+        "sta_report": "cv32e40p-250mhz-sta.log",
+        "yosys_log": "cv32e40p-250mhz-yosys.log"
+      },
+      "cells": 25421,
+      "clock_uncertainty_ns": 0.2,
+      "critical_path_delay_ns": 5.7302,
+      "estimated_screen_fmax_mhz": 130.88548392726258,
+      "frequency_mhz": 250,
+      "io_delay_ns": 0.8,
+      "mapping_strategy": "abc_constrained_buffer_upsize_dnsize",
+      "output_load_pf": 0.02,
+      "period_ns": 4.0,
+      "setup_slack_ns": -2.7302,
+      "timing_met": false,
+      "tns_ns": -3587.2185
+    }
+  ],
+  "platform_input_commit": "90b42a9952f6323f92a29f8b116651d514dc0427",
+  "profile": {
+    "label": "repaired_nine_patch",
+    "note": "label is pinned by the qualification tests; profile identity is the ordered patch SHA set (patches 0001-0010, including the revised 0003)",
+    "patch_count": 10,
+    "patches": {
+      "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+      "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+      "0003-enable-sixteen-region-pmp": "12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5",
+      "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+      "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+      "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+      "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+      "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d",
+      "0009-repair-bus-and-compressed-mtval": "18fd7dde7971f3ea95aa2dce8cd55caad5c7e14cfdb7a3a36bbe44e74a28f056",
+      "0010-preserve-serviced-data-fault": "b4e5888f04fe1be92b995921d61dd988aa9790be9466d8923f675ffa21b9cffe"
+    }
+  },
+  "recorded_at": "2026-10-14",
+  "schema_version": 1,
+  "scope": "bounded_cv32e40p_tenpatch_ihp_sg13g2_typical_sta_screen",
+  "status": "measured_100mhz_met_higher_targets_miss",
+  "tools": {
+    "opensta": "OpenSTA 3.1.0",
+    "sv2v": "sv2v 0.0.13.1 (nixpkgs haskellPackages.sv2v)",
+    "yosys": "Yosys 0.50 (git sha1 b5170e139)"
+  },
+  "top": "openmc_cv32e40p_measure_top"
+}

@@ -7,7 +7,7 @@
     "patches": {
       "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
       "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
-      "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+      "0003-enable-sixteen-region-pmp": "12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5",
       "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
       "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
       "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",

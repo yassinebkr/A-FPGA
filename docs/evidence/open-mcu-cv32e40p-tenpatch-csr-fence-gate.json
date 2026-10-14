@@ -1,0 +1,108 @@
+{
+  "claim_boundary": "Deterministic bounded RV32IMC-free slice with Zicsr mscratch (0x340) and fence/fence.i no-op semantics; MIE/interrupts are disabled; counters/time and all other CSR/system operations are excluded.",
+  "interrupts": "disabled (irq_i=0; no MIE/counter/time operations)",
+  "operations": 32,
+  "permitted_csrs": {
+    "0x340": "mscratch: full 32-bit read/write storage"
+  },
+  "provenance": {
+    "monitor_adaptation": {
+      "description": "Swap upstream m_mem.rmask/m_mem.wmask assignments to match data_we semantics; leave upstream m_mem.rdata/m_mem.wdata unpopulated and exclude their comparison.",
+      "id": "cv32e40p-rvfi-monitor-swap-memory-masks/v1",
+      "sha256": "c782fdb3f12be783f4978acd53c4aead38be8c11921830786405d721aa97db75"
+    },
+    "patches": {
+      "0001-propagate-obi-response-errors.patch": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+      "0002-enforce-strict-alignment.patch": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+      "0003-enable-sixteen-region-pmp.patch": "12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5",
+      "0004-complete-pmp-instruction-errors.patch": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+      "0005-latch-pmp-instruction-fault.patch": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+      "0006-check-aligned-instruction-pmp.patch": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+      "0007-repair-mtval-synchronous-faults.patch": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+      "0008-repair-pmp-fault-reporting.patch": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d",
+      "0009-repair-bus-and-compressed-mtval.patch": "18fd7dde7971f3ea95aa2dce8cd55caad5c7e14cfdb7a3a36bbe44e74a28f056",
+      "0010-preserve-serviced-data-fault.patch": "b4e5888f04fe1be92b995921d61dd988aa9790be9466d8923f675ffa21b9cffe"
+    },
+    "reference_model_sha256": "51989c181689988f872641fbc763d4d871b52b52667fcc533f79ccae106bf6ff",
+    "rvfi_monitor_sha256": "e2f9393ddb5423c02343297e9d1a095d5b4087bc829f01a8fba5c0dfabf3a047",
+    "scheduler_compatibility": "three_initial_processes_for_verilator_5_040",
+    "script_sha256": "6c5238693b311eeeefc6352a382f929a61327f745725c4c7c1ea641d5b34afc2",
+    "source_file_count": 32,
+    "testbench_sha256": "54a39950abfd741b125bd7e7426f9937ac1ee758e2bb15395b0906257d4bf42e",
+    "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+    "wrapper_sha256": "88621915b4da4aaa5517989795928282fdbfd997f7766d614c1c721028cef989"
+  },
+  "qualification_kind": "bounded_randomized_rvfi_reference_comparison",
+  "schema": "openmc-cv32e40p-csr-fence-differential/v1",
+  "seeds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "inconclusive": 0,
+    "passed": 4,
+    "selected": 4
+  },
+  "tests": [
+    {
+      "errors": [],
+      "expected_records": 52,
+      "expected_signature": "d82c07df",
+      "image_sha256": "1f5ebd60ccf7798ec64a837f4db064274654d03e81bc64c6db376a8aeec630ec",
+      "instruction_words": 52,
+      "operations": 32,
+      "pass_marker": true,
+      "returncode": 0,
+      "seed": 0,
+      "status": "passed",
+      "trace_records": 54,
+      "trace_sha256": "d2aa4b5765388ca5c82446bcd36b8ac0fd5436a9989ddce6b3292f37be7ee2b2"
+    },
+    {
+      "errors": [],
+      "expected_records": 52,
+      "expected_signature": "00000016",
+      "image_sha256": "1af22a87d5396382c4451803615981e1d85206532f72baa00c2307bafcd85a1c",
+      "instruction_words": 52,
+      "operations": 32,
+      "pass_marker": true,
+      "returncode": 0,
+      "seed": 1,
+      "status": "passed",
+      "trace_records": 54,
+      "trace_sha256": "05c6953e81c7aff2810ab7711adf75a293f556cab49da2b473c8b54c351a9418"
+    },
+    {
+      "errors": [],
+      "expected_records": 52,
+      "expected_signature": "00000000",
+      "image_sha256": "b01645e908b2c340a6d8a2c3351f6693eae5ea4f37b8d117f117d9be9ebf3993",
+      "instruction_words": 52,
+      "operations": 32,
+      "pass_marker": true,
+      "returncode": 0,
+      "seed": 2,
+      "status": "passed",
+      "trace_records": 54,
+      "trace_sha256": "92fe94baa05f1cf82ae2c76a3a9d4db44dff36851afdddcfc06ec40f5e954058"
+    },
+    {
+      "errors": [],
+      "expected_records": 52,
+      "expected_signature": "00000000",
+      "image_sha256": "8b93f1ec3c61133545a321c14856ebdf274aad94d41f56278e4da9e4f3a55f47",
+      "instruction_words": 52,
+      "operations": 32,
+      "pass_marker": true,
+      "returncode": 0,
+      "seed": 3,
+      "status": "passed",
+      "trace_records": 54,
+      "trace_sha256": "e8b95094c1a606aa5825bd4dd76795c9c32dc5a93307d6eb67d31e52b8be9de4"
+    }
+  ]
+}
