@@ -15,17 +15,21 @@
     "full Flash header/payload readback",
     "readback CRC32",
     "persistent confirmation byte",
+    "reset boot from persisted image",
+    "erase failure detection",
+    "program failure detection",
+    "post-write corruption detection",
     "SRAM payload execution",
     "invalid-image diagnostic"
   ],
-  "claim_boundary": "The CV32E40P ROM falls back from a rejected SPI image, bounds each UART receive wait, validates OMC1, programs the digital SPI NOR model, rereads the complete image, validates CRC32, confirms persistence and executes SRAM. Power-cycle reboot, injected erase/program failures, electrical timing, real-device command compatibility, secure boot and manufacturing signoff remain open.",
+  "claim_boundary": "The CV32E40P ROM falls back from a rejected SPI image, bounds each UART receive wait, validates OMC1, programs the digital SPI NOR model, rereads the complete image, validates CRC32, confirms persistence, reboots from retained Flash, detects injected erase/program failures and detects post-write corruption. Electrical timing, physical power-loss behavior during writes, real-device command compatibility, secure boot and manufacturing signoff remain open.",
   "compile_returncode": 0,
   "fixture_reproduced": true,
   "log_marker": "UART_RECOVERY_INVALID_PASS case=3 cycles=24907 diagnostic=00000013 pc=000001c0",
   "log_tail": "",
-  "qualification_kind": "cpu_executed_uart_omc1_recovery_persistent_spi_program_readback_crc_and_sram_execution",
+  "qualification_kind": "cpu_executed_uart_omc1_recovery_persistent_spi_program_readback_crc_reboot_and_failure_injection",
   "run_returncode": 0,
-  "schema": "openmc-uart-recovery/v2",
+  "schema": "openmc-uart-recovery/v3",
   "sources": {
     "firmware/boot_rom.S": "6bf394d8459bbbaa0c82daf9faec2cf1d94c4c2823aabf095b6f99dc68f576ed",
     "firmware/boot_rom.hex": "6f9c10faf44c7ca5dc54a06fd9f364f7c7650810508ca81e7157daf239ca9a8d",
@@ -47,7 +51,7 @@
     "verification/mcu_minimal_firmware.hex": "aa7396f33763ea0544190232bb06b35092ee9632c96b25e13d02f374cb8e42e8",
     "verification/openmc_spi_flash_model.sv": "17adc070934b18044702ba58a702bf79cc1cc32f6157bd0d45c5a4db8ef0fd71",
     "verification/spi_boot_image.hex": "feb23ddc66b9fdf32be358159d55e53eb266443d6e1f13abdb04ec83354312ad",
-    "verification/uart_recovery_tb.sv": "923e684731c34e7fc74fa79095daab196422b3f283d02c0553f5110456c6ce6e"
+    "verification/uart_recovery_tb.sv": "cbc553668b81ce25ac230824b8ea08794ea1614b853648dce2d0d0efa114f611"
   },
   "status": "passed",
   "tool": "Verilator 5.040 2025-08-30 rev v5.040",
