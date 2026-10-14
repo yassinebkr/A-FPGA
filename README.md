@@ -120,14 +120,14 @@ This repository stores qualification evidence bound to exact revisions.
 
 - ACT4 RV32IMC, Zicsr, and Zifencei: 80/80, reproduced byte-identically.
 - ACT4 privileged PMP: 45/45 twice. PMPSm: 33/33. PMPZca: 12/12.
-- Interrupt lifecycle harness: 7/7 twice, including `mret`, software/timer/
-  external acknowledgement at `0x20000004`, `mcause`, and `mepc` checks.
+- Interrupt lifecycle evidence includes the complete 20/20 fast-line sweep and
+  4/4 controlled two-level nesting campaign.
 - Sail differential: 16 deterministic seeds × 128 operations passed twice with
   byte-identical manifests against Sail 0.13.1 from the pinned ACT4 image.
-- Open gates: RVFI retire-trace comparison, extended randomized CSR/fence/
-  interrupt/PMP/fault coverage, complete InterruptsSm certification, refreshed
-  physical evidence, and final core selection.
-  evidence, and final core selection.
+- Seeded synchronous faults: 12/12 across four seeds with independently checked
+  `mcause`, `mepc`, `mtval`, trap count and `mret` recovery.
+- Open gates: seeded PMP and interrupt campaigns, bus-error and compressed-fault
+  coverage, refreshed physical evidence, and final core selection.
 
 Evidence records are indexed under
 [`docs/evidence/open-mcu-*.json`](docs/evidence/) and the milestone contract

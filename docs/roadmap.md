@@ -43,7 +43,7 @@ physical visualization depth, and general UX finish.
 
 Open_MC has an eight-patch CV32E40P baseline with reproduced ACT4 RV32IMC,
 Zicsr, Zifencei, PMP and `InterruptsSm` evidence; bounded Sail, RVFI, CSR/fence,
-synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 73 unit tests; and
+synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 129 unit tests; and
 documented reproducible artifacts. Physical evidence requires refresh for this
 baseline. The 250 MHz product objective remains subject to selected-technology
 post-route evidence; 500 MHz is a technology-dependent stretch objective.
@@ -127,6 +127,10 @@ Passed gates for the repaired CV32E40P profile:
   `4fa5fec6b131366e2edd2b9c4894e9bfcb17d0760d1ac494040ffe0abfdc9a22`. The
   pre-0008 failed result remains historical in
   `.open-mc-bootstrap/verification/evidence/cv32e40p-pmp-differential-pre-0008.json`.
+- Seeded synchronous-fault differential: **12/12** across four seeds, varying
+  the fault PC, misaligned address and signature for illegal instruction,
+  misaligned word load and misaligned word store. Exact trap state and `mret`
+  recovery match the independent reference in every case.
 - RVFI trace-integrity: 17 corpus instructions and 18 retire records, passed
   twice with the repaired eight-patch profile. Manifest
   `a715e4f6abef18b04fe6d905accfe28ddf942a329fedc7f6b6b1a2bc5c7f1c6a` and
@@ -156,9 +160,9 @@ historical artifact remains at
 
 Open gates:
 
-1. Scale randomized differential coverage beyond the closed CSR/fence and
-   bounded three-case PMP slices; qualify the remaining interrupt, fault, and PMP
-   randomized campaigns.
+1. Extend the seeded campaign to PMP and interrupts, then add bus-error and
+   compressed-instruction fault classes. The first 12-case synchronous-fault
+   slice is closed.
 2. Refresh physical evidence with the selected configuration and technology.
 3. Select the final core and bind the product decision to reviewed evidence.
 

@@ -1,0 +1,326 @@
+{
+  "candidate": "cv32e40p",
+  "claim_boundary": "Four deterministic seeds vary fault PC, misaligned address and signature across illegal instruction, misaligned word load and misaligned word store. Bus errors, compressed-instruction faults, PMP, interrupts, formal proof, physical timing and manufacturing signoff remain outside this lane.",
+  "profile": "repaired_eight_patch",
+  "provenance": {
+    "base_script_sha256": "e86810ce395654ac8bdaec02e60c1569445652e18c9f6bcbb87d74608bb768f0",
+    "patches": {
+      "0001-propagate-obi-response-errors": "d328dd87a31d652197ea9cb39eb7b4f74c1b8912714aca6746e0e75766603e46",
+      "0002-enforce-strict-alignment": "5a4ea5249b87b7f278c6160c3f59f95c151e145ed9c45799bfb20daadbb7f052",
+      "0003-enable-sixteen-region-pmp": "246441117b1010d9e05a3037b2f51fdd86b7048a269e0c2d0977a6b66849598f",
+      "0004-complete-pmp-instruction-errors": "f1e65f8259c765f280df767a4d6814d7b2098c85464bc9b95bcf1a60bdf03f43",
+      "0005-latch-pmp-instruction-fault": "c470a5b7dac26d6666ac94ad4f211b991bb03dce3b5c3fe1f72ca8a7cfe5b59e",
+      "0006-check-aligned-instruction-pmp": "07d55217b88a0db3346aeabb2b7e67e85e0021e3b4c903e170fb473cd01d9db5",
+      "0007-repair-mtval-synchronous-faults": "7ced118f05a0cf90e23afe386c2c9c54309c4576e8c3eac9201aebce369b39c4",
+      "0008-repair-pmp-fault-reporting": "a22aa6d01c5245418c9eb27ec2e4a251dee24d891b2321e8fee8a8caea6b4d5d"
+    },
+    "script_sha256": "1323d237f11274250693cf2b9c047910d0c3dcc117b92744bf8a56e3df53621b",
+    "testbench_sha256": "b2fc0aa0f4e9e534379786335ebeb5654d5340b9dccef7ff47b0e216498d12a7",
+    "upstream_commit": "360d272898d81806be3377193870dbf83a3ea79f",
+    "verilator": "Verilator 5.040 2025-08-30 rev v5.040"
+  },
+  "qualification_kind": "seeded_bounded_independent_synchronous_fault_reference",
+  "schema": "openmc-cv32e40p-random-fault-differential/v1",
+  "seeds": [
+    7,
+    19,
+    41,
+    73
+  ],
+  "status": "passed",
+  "summary": {
+    "failed": 0,
+    "passed": 12,
+    "selected": 12
+  },
+  "tests": [
+    {
+      "expected": {
+        "instruction": 4294967295,
+        "mcause": 2,
+        "mtval": 4294967295,
+        "pc": 20,
+        "signature": 263,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_instruction",
+      "image_sha256": "780c943a9900175e2fccb9dc5b688dde4c2a3332cc1bd1846d794baa5f700eea",
+      "name": "illegal_instruction-seed-7",
+      "observed": {
+        "cycles": 47,
+        "mcause": 2,
+        "mepc": 20,
+        "mtval": 4294967295,
+        "signature": 263,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 7,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 107651,
+        "mcause": 4,
+        "mtval": 7,
+        "pc": 40,
+        "signature": 519,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_load",
+      "image_sha256": "f0d0afabc9d6d9b054352bb255c8c8b3a4304834fa1017d4bf4b78aaee375e3f",
+      "name": "misaligned_load-seed-7",
+      "observed": {
+        "cycles": 51,
+        "mcause": 4,
+        "mepc": 40,
+        "mtval": 7,
+        "signature": 519,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 7,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 106531,
+        "mcause": 6,
+        "mtval": 1,
+        "pc": 36,
+        "signature": 775,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_store",
+      "image_sha256": "f7be854036a7236c9aa8ad0897f0024ca4bdc829a907196fb709de51bedd6963",
+      "name": "misaligned_store-seed-7",
+      "observed": {
+        "cycles": 50,
+        "mcause": 6,
+        "mepc": 36,
+        "mtval": 1,
+        "signature": 775,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 7,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 4294967295,
+        "mcause": 2,
+        "mtval": 4294967295,
+        "pc": 28,
+        "signature": 275,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_instruction",
+      "image_sha256": "16b2a84513093564cefd6856ed53bfaf3d44a2f444e016251f68f9efd797b950",
+      "name": "illegal_instruction-seed-19",
+      "observed": {
+        "cycles": 49,
+        "mcause": 2,
+        "mepc": 28,
+        "mtval": 4294967295,
+        "signature": 275,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 19,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 107651,
+        "mcause": 4,
+        "mtval": 6,
+        "pc": 40,
+        "signature": 531,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_load",
+      "image_sha256": "3ff77f43d196dde8cdd09a217839c292e99222da7bee388b6e0c9fdb294c4eef",
+      "name": "misaligned_load-seed-19",
+      "observed": {
+        "cycles": 51,
+        "mcause": 4,
+        "mepc": 40,
+        "mtval": 6,
+        "signature": 531,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 19,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 106531,
+        "mcause": 6,
+        "mtval": 1,
+        "pc": 24,
+        "signature": 787,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_store",
+      "image_sha256": "2040e1cb0628e77069c3aa3978658bd52b9a42f744790e926dfb7927ba0a8869",
+      "name": "misaligned_store-seed-19",
+      "observed": {
+        "cycles": 47,
+        "mcause": 6,
+        "mepc": 24,
+        "mtval": 1,
+        "signature": 787,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 19,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 4294967295,
+        "mcause": 2,
+        "mtval": 4294967295,
+        "pc": 24,
+        "signature": 297,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_instruction",
+      "image_sha256": "9d305aa1b9ba0fa221c7a2bd007b0e357da808106abcd4f41139687b549b97fb",
+      "name": "illegal_instruction-seed-41",
+      "observed": {
+        "cycles": 48,
+        "mcause": 2,
+        "mepc": 24,
+        "mtval": 4294967295,
+        "signature": 297,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 41,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 107651,
+        "mcause": 4,
+        "mtval": 3,
+        "pc": 36,
+        "signature": 553,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_load",
+      "image_sha256": "944c584f0417542d6e753c7c31b46787f6ee82e2f72d10a6195b914fa0d32c20",
+      "name": "misaligned_load-seed-41",
+      "observed": {
+        "cycles": 50,
+        "mcause": 4,
+        "mepc": 36,
+        "mtval": 3,
+        "signature": 553,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 41,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 106531,
+        "mcause": 6,
+        "mtval": 7,
+        "pc": 28,
+        "signature": 809,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_store",
+      "image_sha256": "69c249b67cca61464a815b34f274ff0b3c5e0802ed7e46689b519cc0204f32ec",
+      "name": "misaligned_store-seed-41",
+      "observed": {
+        "cycles": 48,
+        "mcause": 6,
+        "mepc": 28,
+        "mtval": 7,
+        "signature": 809,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 41,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 4294967295,
+        "mcause": 2,
+        "mtval": 4294967295,
+        "pc": 40,
+        "signature": 329,
+        "trap_count": 1
+      },
+      "fault_class": "illegal_instruction",
+      "image_sha256": "8174847b4b02cedf7d5893fed07abd421e0bb872c334e608b2a74ebf9d28f3a5",
+      "name": "illegal_instruction-seed-73",
+      "observed": {
+        "cycles": 52,
+        "mcause": 2,
+        "mepc": 40,
+        "mtval": 4294967295,
+        "signature": 329,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 73,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 107651,
+        "mcause": 4,
+        "mtval": 6,
+        "pc": 24,
+        "signature": 585,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_load",
+      "image_sha256": "7594338590910ebe3ffb95661b6f4ca5bcc06575c5ef04e7ede6a074dded84ec",
+      "name": "misaligned_load-seed-73",
+      "observed": {
+        "cycles": 47,
+        "mcause": 4,
+        "mepc": 24,
+        "mtval": 6,
+        "signature": 585,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 73,
+      "status": "passed"
+    },
+    {
+      "expected": {
+        "instruction": 106531,
+        "mcause": 6,
+        "mtval": 7,
+        "pc": 48,
+        "signature": 841,
+        "trap_count": 1
+      },
+      "fault_class": "misaligned_store",
+      "image_sha256": "d5eaaff0a41a24bc8295173f033704f3c9a1bd00b61c14efd10e868109722689",
+      "name": "misaligned_store-seed-73",
+      "observed": {
+        "cycles": 53,
+        "mcause": 6,
+        "mepc": 48,
+        "mtval": 7,
+        "signature": 841,
+        "traps": 1
+      },
+      "returncode": 0,
+      "seed": 73,
+      "status": "passed"
+    }
+  ]
+}
