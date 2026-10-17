@@ -15,8 +15,8 @@ origin controls, and resource limits are future work. Bind development servers t
 | Platform | Architecture contracts, durable jobs, evidence APIs, timing optimization, and visualization foundation are implemented. |
 | Benchmark | The frozen `systolic_mm_4x4` corpus has repeated functional/protocol qualification and bounded Sky130 implementation evidence. |
 | Tiny Tapeout | Local `tt_um_counter8` hardening is clean. Provider submission and acceptance remain future work. |
-| Open_MC | The `repaired_ten_patch` CV32E40P source baseline is pinned at commit `322d4c94`; its bounded PMP, fault, interrupt, SRAM-fetch and Sail/RVFI lanes are recorded. |
-| Physical direction | IHP SG13G2 remains the leading open candidate. Physical refresh and final core selection are open. |
+| Open_MC | The `repaired_ten_patch` CV32E40P baseline is pinned at commit `32802c9`; 167 local tests and bounded architectural evidence pass. |
+| Physical direction | IHP SG13G2 R4 completes routing, GDS, DRC and LVS, then rejects the current configuration at 100 MHz on timing and electrical limits. |
 
 Open_MC targets 250 MHz. A 500 MHz result is a technology-dependent stretch
 objective. A Linux-capable RV64 SoC around 1 GHz is a later milestone.

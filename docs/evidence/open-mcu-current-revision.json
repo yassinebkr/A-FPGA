@@ -1,22 +1,24 @@
 {
-  "schema": "open-mcu-product-revision/v1",
-  "repository": "https://github.com/yassinebkr/Open_MC",
   "branch": "main",
-  "commit": "322d4c94f83ff8427fa430ca8b32236142cf482c",
-  "profile": "repaired_ten_patch",
-  "patch_count": 10,
-  "platform_evidence_commit": "a891b95b8dccf7451a538190e95cc7fe4d5fb027",
   "checks": {
-    "open_mc_unit_tests": "137 passed",
-    "sram_instruction_fetch": "5/5 passed",
     "extended_bus_and_compressed_faults": "36/36 passed",
+    "open_mc_unit_tests": "167 passed",
+    "r4_physical_geometry": "routing, GDS, DRC and LVS completed; zero DRC/LVS errors",
+    "r4_timing_electrical": "failed at 100 MHz: setup, hold, max slew and max capacitance",
+    "seeded_interrupt_timing": "28/28 passed",
     "seeded_pmp": "12/12 passed",
     "seeded_synchronous_faults": "12/12 passed",
-    "seeded_interrupt_timing": "28/28 passed"
+    "sram_instruction_fetch": "5/5 passed"
   },
+  "claim_boundary": "This record pins the current Open_MC product source and deterministic qualification baseline. R4 is routed engineering evidence: geometry checks pass, while timing and electrical acceptance fail at 100 MHz. SDF simulation, wider post-layout equivalence, final technology selection and manufacturing signoff remain open.",
+  "commit": "32802c9988bd94cc3ea8e85ecbdd10d5d9ea933f",
   "key_patch_sha256": {
-    "0003-enable-sixteen-region-pmp": "12f9d9f0e3dca11f476da86d62ef998c49f9745d2a51287b632f2d5cfa3f22e5",
+    "0003-enable-sixteen-region-pmp": "5cc44d26db41594de9aeb9568fac25064f3c9df0d6ba5c315b82fdf30af17550",
     "0010-preserve-serviced-data-fault": "b4e5888f04fe1be92b995921d61dd988aa9790be9466d8923f675ffa21b9cffe"
   },
-  "claim_boundary": "This record pins the current Open_MC product source and deterministic qualification baseline. Existing physical records remain mapped and placed screening evidence; CTS, routing, extracted multi-corner timing, DRC/LVS, SDF simulation and post-layout equivalence remain open."
+  "patch_count": 10,
+  "platform_evidence_status": "bound by the A-FPGA commit containing this record",
+  "profile": "repaired_ten_patch",
+  "repository": "https://github.com/yassinebkr/Open_MC",
+  "schema": "open-mcu-product-revision/v1"
 }

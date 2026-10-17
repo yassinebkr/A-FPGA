@@ -1,6 +1,6 @@
 # Engineering roadmap and status
 
-Status date: **2026-10-13**
+Status date: **2026-10-17**
 
 This roadmap records the execution order and the evidence boundary. The
 platform is local-only and single-user. Open_MC owns product implementation
@@ -41,10 +41,10 @@ physical views, and completed C0–C6 visualization qualification. Remaining
 platform polish includes project import/export, job and metric presentation,
 physical visualization depth, and general UX finish.
 
-Open_MC commit `322d4c94f83ff8427fa430ca8b32236142cf482c` is the current
+Open_MC commit `32802c9988bd94cc3ea8e85ecbdd10d5d9ea933f` is the current
 `repaired_ten_patch` CV32E40P baseline. It has reproduced ACT4 RV32IMC,
 Zicsr, Zifencei, PMP and `InterruptsSm` evidence; bounded Sail, RVFI, CSR/fence,
-synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 137 unit tests; and
+synchronous-fault, PMP access-fault and interrupt-lifecycle evidence; 167 unit tests; and
 documented reproducible artifacts. The first physical-mapping attempt exposed an
 unsynthesizable `while` loop inside the patch-0003 PMP `region_matches` function;
 patch 0003 is revised to a statically bounded loop
@@ -63,10 +63,12 @@ Ordered continuation gates:
    on the revised ten-patch profile.
 2. Add broader functional coverage, assertions and formal properties.
 3. Complete production lint, CDC/RDC and wider equivalence.
-4. Refresh physical qualification with the ten-patch baseline. Closed at the
-   mapped and placed screening level (100 MHz met); routed closure remains
-   gate 5.
-5. Close timing, slew and fanout, then complete DRC/LVS and SDF post-layout simulation.
+4. Refresh physical qualification with the ten-patch baseline. R4 completes
+   routing, extraction, GDS, DRC and LVS. It rejects the current 100 MHz
+   configuration on setup, hold, slew and capacitance.
+5. Rework architecture, synthesis or technology until a bounded placement/CTS
+   candidate has credible timing and electrical repair, then repeat full P&R
+   and SDF post-layout simulation.
 6. Select the final core and technology from reviewed evidence.
 7. Integrate the complete SoC: memories, UART, SPI, I²C, boot and programming.
 8. Run an FPGA prototype when hardware budget is available.
@@ -216,9 +218,13 @@ Open gates:
 2. Reproduce ACT4 RV32IMC/Zicsr/Zifencei/PMP/InterruptsSm on the revised
    profile; this environment currently has no container runtime for the
    pinned ACT4 image.
-3. Close routed timing at a met target: CTS, routing, hold, extraction,
-   DRC/LVS and SDF post-layout simulation for the 100 MHz screen.
-4. Select the final core and bind the product decision to reviewed evidence.
+3. Replace the rejected R4 implementation candidate. Its routing, extraction,
+   GDS, DRC and LVS complete, while setup (-36.28 ns WNS), hold (-0.28 ns),
+   slew (4,039) and capacitance (30,557) fail at 100 MHz. Require a credible
+   placement/CTS screen before another full P&R.
+4. Run SDF post-layout simulation and wider equivalence on the next accepted
+   routed candidate.
+5. Select the final core and bind the product decision to reviewed evidence.
 
 The evidence records are in [docs/evidence](evidence/). The product contract
 and frequency strategy are in
@@ -232,6 +238,11 @@ and frequency strategy are in
 - Add the engineer CLI/TUI over REST, WebSocket jobs, logs, and evidence APIs.
 - Finish durable cross-run token/cost accounting and clearer retry explanations.
 - Extend the static Design Contract to expert constraints and assurance views.
+- Integrate the hardened Open_MC P&R runner into the A-FPGA job service. The
+  local runner now streams console/file output, publishes step heartbeats,
+  persists process/container identity, enforces configurable timeouts, exposes
+  CPU/RAM/thread profiles and resumes hash-matched checkpoints. Backend
+  reattachment and UI controls remain open.
 
 ### Verification and hardware
 
